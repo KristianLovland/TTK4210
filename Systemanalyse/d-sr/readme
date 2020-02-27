@@ -1,0 +1,20 @@
+MODIFISERINGER i foerste DSR.m implementering
+
+1. i linje 96. indeksering i R21Y0 og R21Y1 endret nu -> ny.
+   Opprinnelig implementering ga feilmelding for
+   [a,..]=dsr(y,u,1,1,1) og m=1 og r=3.
+   R21Y0 og R21Y1 benyttes ikke med bm=3
+
+2. L*m -> nSi=min(L*m,k(ny+nu) flere steder omkring plotting av sv's
+
+3. Legg inn sjekk av antall sampler N.
+   Vi maa ha K >= nr der size(Ytilde)=[nr K] dette for at R 
+   skal bli av stoerrelse (nr x nr).
+   nr=(L+J+g)*r+(L+J+1)*m
+   K = N - L - J
+
+   Dvs. N-L-J >=nr dersom N >=nr+L+J som er et krav til antall sampler
+   for aa loese dsr med instrumentelle variable.
+
+4. Forslag
+   Lagg dsr versjon med flag for deterministisk problem !
