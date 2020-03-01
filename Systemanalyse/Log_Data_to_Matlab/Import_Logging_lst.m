@@ -38,16 +38,3 @@ TC1088 = Data(:,26:28);     % Controller: 24_TC1088
 % PC1024(:,1) = Process Value, PV 
 % PC1024(:,2) = Set-Point, SP
 % PC1024(:,3) = Control signal, OP
-%% Example plot
-% clf
-% subplot(2,1,1)
-% plot(Time./60,LC1016(:,1:2))
-% title('Level Control')
-% legend('Process Value, PV', 'Set-Point, SP')
-% xlabel('Time (min)')
-% ylabel('Level  (%) ')
-% subplot(2,1,2)
-% plot(Time./60,LC1016(:,3))
-% legend('Controller output, OP')
-% xlabel('Time (min)')
-% ylabel('t/h')

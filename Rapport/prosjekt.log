@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  27 FEB 2020 12:38
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  1 MAR 2020 14:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -576,18 +576,59 @@ loading the todonotes package. on input line 16.
 
 [1
 
-] [2] [3] (./prosjekt.aux)
+]
+Overfull \hbox (0.85522pt too wide) in paragraph at lines 26--26
+\TU/lmr/m/n/12 regtek- 
+ []
+
+
+Overfull \hbox (0.85522pt too wide) in paragraph at lines 26--26
+\TU/lmr/m/n/12 regtek- 
+ []
+
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005.eps 
+Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015.eps 
+Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019.eps 
+Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028.eps 
+Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024.eps 
+Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024.eps>
+
+LaTeX Warning: Citation `balchen' on page 2 undefined on input line 69.
+
+[2] [3] [4]
+Overfull \hbox (3.20723pt too wide) in paragraph at lines 103--103
+\TU/lmr/m/n/12 stander 
+ []
+
+
+Overfull \hbox (3.20723pt too wide) in paragraph at lines 103--103
+\TU/lmr/m/n/12 stander 
+ []
+
+[5] [6] [7] (./prosjekt.aux)
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 15260 strings out of 492922
- 300419 string characters out of 6133408
- 353437 words of memory out of 5000000
- 19038 multiletter control sequences out of 15000+600000
- 5052 words of font info for 25 fonts, out of 8000000 for 9000
+ 15377 strings out of 492922
+ 303169 string characters out of 6133408
+ 364652 words of memory out of 5000000
+ 19136 multiletter control sequences out of 15000+600000
+ 8486 words of font info for 40 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 62i,6n,81p,429b,834s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,13n,81p,1129b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on prosjekt.pdf (3 pages).
+Output written on prosjekt.pdf (7 pages).
