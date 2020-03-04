@@ -1,0 +1,8 @@
+Header	Title = "Subsea Profile"; Position = cursor; OneOff; Dependent;
+
+Frame	Id = 1; Layout = Vertical; Space = 5; Background = White; Border; Pad = 5;
+
+#define _LINE1 "These are the Subsea Profile Panel for Pressure,
+#define _LINE2 \nTemperature, Total mass and Liquid Holdup."  
+
+Label	Frame = 1; Label = _LINE1 _LINE2;

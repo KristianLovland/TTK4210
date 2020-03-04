@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="10">
+ <header xy="193,1044" xmin="193.001" ymin="1044" xmax="240.999" ymax="1061">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="StreamBoundary"/>
+  <attribute name="Itemdesc" type="text" value="Stream Boundary Condition"/>
+  <attribute name="Module" type="text" value="StreamBoundary"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="StreamBoundaryCondition_Online"/>
+  <attribute name="SelectBox" type="real" value="1,1,47,15"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <symbol id="1767" estat="ext" xy="193,1044,241,1060" name="x_Online_Background.sym" xscl="48" yscl="16" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+ </symbol>
+ <symbol id="1768" estat="ext" xy="193,1044,241,1060" name="x_Online_SolidFrame.sym" xscl="48" yscl="16" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+ </symbol>
+ <tnode id="1772" layer="Hidden" estat="ext" xy="213,1061" height="1" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <string id="1769" style="1" estat="ref" xy="194,1045,194,1059,240,1059,240,1045,194,1045">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <tnode id="1770" estat="ext" xy="222,1046" height="4" hjust="right" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:OutletStream.p" format="%6.1f" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Configuration} == 2 || {%TAG_NAME:Configuration} == 6" priority="0"/>
+  </animation>
+ </tnode>
+ <tnode id="1771" estat="ext" xy="224,1046" height="4" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:OutletStream.p@V_unit" format="%s" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Configuration} == 2 || {%TAG_NAME:Configuration} == 6" priority="0"/>
+  </animation>
+ </tnode>
+ <cpoint id="1773" estat="ref" xy="193,1044">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="StreamBoundary"/>
+  <attribute name="Itemdesc" type="text" value="Stream Boundary Condition"/>
+  <attribute name="Module" type="text" value="StreamBoundary"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="StreamBoundaryCondition_Online"/>
+ </cpoint>
+ <tnode id="1774" depth="50" estat="ext" xy="197,1054" height="4" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:Configuration">
+   <state type="expression" expression="{%TAG_NAME:Configuration} == 2" priority="1" text="Inlet pressure"/>
+   <state type="expression" expression="{%TAG_NAME:Configuration} == 6" priority="1" text="Outlet pressure"/>
+   <state type="expression" expression="1 == 1" priority="0" text="Undefined Boundary Type!"/>
+   <state type="expression" expression="{%TAG_NAME:Configuration} == 12" priority="1" text="Inlet flow"/>
+   <state type="expression" expression="{%TAG_NAME:Configuration} == 13" priority="1" text="Outlet flow"/>
+  </animation>
+ </tnode>
+ <tnode id="1756" estat="ext" xy="222,1046" height="4" hjust="right" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:OutletStream.f" format="%6.1f" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Configuration} == 12 || {%TAG_NAME:Configuration} == 13" priority="0"/>
+  </animation>
+ </tnode>
+ <tnode id="1758" estat="ext" xy="224,1046" height="4" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:OutletStream.f@V_unit" format="%s" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Configuration} == 12 || {%TAG_NAME:Configuration} == 13" priority="0"/>
+  </animation>
+ </tnode>
+</sym>

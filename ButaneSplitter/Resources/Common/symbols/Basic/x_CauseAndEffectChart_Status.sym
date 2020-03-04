@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="1247,487" xmin="1247" ymin="487" xmax="1261" ymax="497">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="x_CauseAndEffectChart_Status"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\Documents and Settings\ivarj\My Documents\diverse\symboler">
+  <attribute name="VersionDate" type="text" value="08-01-13 13:30:47"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <polygon id="3802" colour="white" xy="1247,497,1247,487,1261,487,1247,497">
+  <relation type="mutual" subid="100" id="3835,3835"/>
+ </polygon>
+ <cpoint id="3835" layer="3D" estat="ref" xy="1247,487">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="x_CauseAndEffectChart_Status"/>
+  <relation type="mutual" subid="100" id="3802,3802"/>
+ </cpoint>
+</sym>

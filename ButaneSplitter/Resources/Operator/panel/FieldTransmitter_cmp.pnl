@@ -1,0 +1,173 @@
+#include $EXPLORER_RESOURCES/panel/panel.def
+#include $EXPLORER_RESOURCES/panel/alrmstt.def
+#include $EXPLORER_RESOURCES/panel/alrmcodes.def
+#include $EXPLORER_RESOURCES/panel/subcodes.def
+
+#include $EXPLORER_RESOURCES/panel/definitions.def
+
+
+/////////////////////////////////////////////////////////////////////////
+header	position=cursor; Title="%TAG_NAME"; oneoff=%TAG_NAME; 
+
+#define BACKCOLOUR #C5C3C6
+
+#define SW1 samewidth=1;
+#define SW2 samewidth=2;
+#define SW3 samewidth=3;
+#define SW4 samewidth=4;
+
+
+
+set		variable=DRAWING,"Default";
+set		variable=MINVAL,"#(%TAG_NAME:LowerLimitProcessVariable)";
+set		variable=MAXVAL,"#(%TAG_NAME:UpperLimitProcessVariable)";
+Set		variable=TMTAG, %TAG_NAME;
+set		variable=ALARM_TAG,%(TAG_NAME)_alarm;
+set		variable=ALARM_HH,"AlarmList,S,%ALARM_TAG:AlarmHighHigh/0,I,     6";
+set		variable=ALARM_H,"AlarmList,S,%ALARM_TAG:AlarmHigh/0,I,     6";
+set		variable=ALARM_L,"AlarmList,S,%ALARM_TAG:AlarmLow/0,I,     6";
+set		variable=ALARM_LL,"AlarmList,S,%ALARM_TAG:AlarmLowLow/0,I,     6";
+
+
+
+
+*****Output and PV windows*****************************************************************************
+
+
+frame	id=2; layout=vertical;
+stub	frame=2; size=5; 
+
+
+frame	frame=2; id=30; layout=horizontal;
+stub	frame=30; size=5;
+//label	frame=30; label="#(%TAG_NAME:@B_Desc)"; size=200,30; justify=left;
+stub	frame=30; size=200,5;
+stub	frame=30; size=5;
+
+frame	frame=2; id=35; layout=horizontal;
+
+/////////////// For testing only///////////////////////////////
+//variable	frame=35; type=real;width=60; format="%5.2f"; tag="%ALARM_H"; size=250,20; justify=left; font=arial-8;
+//label		frame=35; label="%ALARM_TAG"; size=250,30; justify=left; font=arial-12-bold;
+//variable	frame=35; type=real;width=60; format="%5.2f"; tag="AlarmList,S,%ALARM_TAG:AlarmHigh/0,I,     6"; size=250,20; justify=left; font=arial-8;
+//////////////////////////////////////////////////////////
+
+
+*****OUTPUT DISPLAYED**********************************************************************************
+
+
+frame	frame=2; id=40; layout=horizontal; 
+stub	frame=40; size=105;   
+
+
+variable	frame=40; sample; type=real;width=70; format="%5.2f"; border=sunken; font=arial-10-bold; \
+		background=black; foreground=yellow; tag="%TAG_NAME:DisplayValue";
+
+
+
+
+******Alarms and Bar*************************************************************************************
+
+
+frame	frame=2; id=3; layout=horizontal;
+
+stub	frame=3; size=20,20;
+
+frame	frame=3; id=45; layout=vertical; 
+
+stub	frame=45; size=80,100; 
+
+frame	frame=45; id=46; layout=horizontal; Border = Sunken;
+
+
+Imagearea	frame=46; source="$PROJECT_ROOT\\Resources\Operator\graphic\FP_TRANS_Status.xdr"; \
+		type=Xcadfixedimage; size=80,80; doublebuffered; 
+
+stub		frame=3; size=5,5;
+
+frame		frame=3; id=55; layout=vertical;
+
+frame		frame=55; id=65; layout=horizontal;
+
+//stub		frame=65; size=25;
+
+label		frame=65; label="#%TAG_NAME:DisplayValue@V_units"; font=arial-8; size=70,20; justify=centre;
+
+
+frame		frame=55; id=100; layout=horizontal; 
+
+stub		frame=100; size=15,20; 
+
+#ifdef '#(%TAG_NAME:IsSignalUnitsUsed) == 0'
+variable	frame=100; sample; type=real; format="%5.2f"; font=arial-8; \
+		tag="%TAG_NAME:UpperLimitProcessVariable";
+#elseif
+label	frame=100; sample; type=real; format="%5.2f"; font=arial-8; \
+		label="100";
+#endif
+
+frame		frame=55; id=85; layout=horizontal; Border = Sunken;
+
+//stub		frame=85; size=1,1; 
+
+#ifdef '#(%TAG_NAME:IsSignalUnitsUsed) == 0'
+Imagearea	frame=85; source="$PROJECT_ROOT\\Resources\Operator\graphic\FP_TRANS_Bars.xdr"; \
+		type=Xcadfixedimage; size=71,238; doublebuffered;
+#elseif
+Imagearea	frame=85; source="$PROJECT_ROOT\\Resources\Operator\graphic\FP_TRANS_Bars_Display.xdr"; \
+		type=Xcadfixedimage; size=71,238; doublebuffered;
+#endif
+
+
+*****************
+* If Use Panel for bars, do it like this
+*
+*dataset		name=d1; tag="%CONT_TAG:value_ot"; colour=cyan;
+*
+*display		dataset=d1; type=level; frame=85; size=80,265; disable=all; yformat="%4.1f"; suppress=y; \
+*		sample=2; yaxis=%+OFFSETOUT,%+MAXOUT; fill=black; border=none;
+*
+*dataset		name=d2; tag="%CONT_TAG:measure"; colour=yellow;
+*
+*display		dataset=d2; type=level; frame=85; size=80,265; disable=all; yformat="%4.1f"; suppress=y; \
+*		sample=2; yaxis=%+OFFSETINP,%+MAXINP; fill=black; border=none;
+*****************
+
+*stub		frame=3; size=100,100;
+
+
+frame		frame=55; id=95; layout=horizontal;
+
+stub		frame=95; size=15,20;
+
+#ifdef '#(%TAG_NAME:IsSignalUnitsUsed) == 0'
+variable	frame=95; sample; type=real; format="%5.2f"; font=arial-8; \
+		tag="%TAG_NAME:LowerLimitProcessVariable";
+#elseif
+label	frame=95; sample; type=real; format="%5.2f"; font=arial-8; \
+		label="0.00";
+#endif
+
+frame		frame=2; id=300; layout=horizontal;
+
+stub		frame=300; size=90; 
+
+button		frame=300; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\findDraw.bmp"; size=32,32; \
+		feedback="Find drawing"; \
+		action=set,FINDINMAINWINDOW,TRUE; \
+		action=menu,"BlockExplorerBlock";
+
+button		frame=300; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\TrendButton.bmp"; size=32,32; \
+		feedback="Trend"; \
+		action=panel,FTTrend.pnl;
+
+
+button		frame=300; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\AckButton.bmp"; size=32,32; \
+		feedback="Acknowledge alarms"; \
+		actionIf='#(%(ALARM_TAG):AlarmHighHigh)==1 || #(%ALARM_HH == 1)',send,SetModelParameter,S,AlarmList,S,%(ALARM_TAG):AlarmHighHigh/0,I,AL_ACKTAG; \
+		actionIf='#(%(ALARM_TAG):AlarmLowLow)==1 || #(%ALARM_LL == 1)',send,SetModelParameter,S,AlarmList,S,%(ALARM_TAG):AlarmLowLow/0,I,AL_ACKTAG; \
+		actionIf='#(%(ALARM_TAG):AlarmHigh)==1 || #(%ALARM_H == 1)',send,SetModelParameter,S,AlarmList,S,%(ALARM_TAG):AlarmHigh/0,I,AL_ACKTAG; \
+ 		actionIf='#(%(ALARM_TAG):AlarmLow)==1 || #(%ALARM_L == 1)',send,SetModelParameter,S,AlarmList,S,%(ALARM_TAG):AlarmLow/0,I,AL_ACKTAG; 
+		
+
+stub		frame=2; size=110,10;

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="9">
+ <header xy="180,1280" xmin="180" ymin="1280" xmax="214.001" ymax="1297">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="AlarmAnalog"/>
+  <attribute name="Itemdesc" type="text" value="Analog alarm block"/>
+  <attribute name="Module" type="text" value="AlarmAnalog"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="AlarmAnalog_Online"/>
+  <attribute name="SelectBox" type="real" value="1,1,33,5"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="22-12-13 11:32:06"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="0.25,0.25" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="1148" colour="gray90" estat="ext" xy="180,1280,214,1286" name="x_Online_Background.sym" xscl="34" yscl="6" fitted="true" fixedcol="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+ </symbol>
+ <symbol id="1149" estat="ext" xy="180,1280,214,1286" name="x_Online_SolidFrame.sym" xscl="34" yscl="6" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+ </symbol>
+ <tnode id="1099" layer="Hidden" estat="ext" xy="200,1297" height="1" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <string id="1117" style="1" estat="ref" xy="181,1281,181,1285,213,1285,213,1281,181,1281">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <tnode id="1153" estat="ext" xy="185,1283" height="3" hjust="centre" vjust="middle" font="Verdana" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:Value" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:AlarmLowLow} == True &amp;&amp; {%TAG_NAME:AlarmLowLowUsed} == True" priority="1" text="LL" background="red" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmLowLowUsed} == True" priority="0" text="LL" background="gray90" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmLowLowUsed} == False" priority="0" text="-" background="gray90" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:SuppressAlarmLowLow} == True" priority="1" text="LL" background="blue" foreground="white"/>
+  </animation>
+ </tnode>
+ <tnode id="1158" estat="ext" xy="193,1283" height="3" hjust="centre" vjust="middle" font="Verdana" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:Value" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:AlarmLow} == True &amp;&amp; {%TAG_NAME:AlarmLowUsed} == True" priority="0" text="L" background="yellow" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmLowUsed} == True" priority="0" text="L" background="gray90" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmLowUsed} == False" priority="0" text="-" background="gray90" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:SuppressAlarmLow} == True" priority="1" text="L" background="blue" foreground="white"/>
+  </animation>
+ </tnode>
+ <cpoint id="1161" estat="ref" xy="180,1280">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="AlarmAnalog"/>
+  <attribute name="Itemdesc" type="text" value="Analog alarm block"/>
+  <attribute name="Module" type="text" value="AlarmAnalog"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="AlarmAnalog_Online"/>
+ </cpoint>
+ <tnode id="1316" estat="ext" xy="209,1283" height="3" hjust="centre" vjust="middle" font="Verdana" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:Value" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:AlarmHighHigh} == True &amp;&amp; {%TAG_NAME:AlarmHighHighUsed} == True" priority="1" text="HH" background="red" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmHighHighUsed} == True" priority="0" text="HH" background="gray90" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmHighHighUsed} == False" priority="0" text="-" background="gray90" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:SuppressAlarmHighHigh} == True" priority="1" text="HH" background="blue" foreground="white"/>
+  </animation>
+ </tnode>
+ <tnode id="1637" estat="ext" xy="201,1283" height="3" hjust="centre" vjust="middle" font="Verdana" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:Value" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:AlarmHigh} == True &amp;&amp; {%TAG_NAME:AlarmHighUsed} == True" priority="0" text="H" background="yellow" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmHighUsed} == True" priority="0" text="H" background="gray90" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmHighUsed} == False" priority="0" text="-" background="gray90" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:SuppressAlarmHigh} == True" priority="1" text="H" background="blue" foreground="white"/>
+  </animation>
+ </tnode>
+</sym>

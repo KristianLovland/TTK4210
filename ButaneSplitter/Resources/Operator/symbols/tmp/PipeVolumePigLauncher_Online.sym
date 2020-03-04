@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="4">
+ <header xy="552,147" xmin="549.999" ymin="142" xmax="608" ymax="158.001">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="PipeVolume"/>
+  <attribute name="Itemdesc" type="text" value="Online Pig Launcher"/>
+  <attribute name="Module" type="text" value="PipeVolume"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="PipeVolumePigLauncher_Online"/>
+  <attribute name="SelectBox" type="real" value="-1,1,55,9"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="4082" estat="ext" xy="552,147" name="x_PipeVolume_PigLauncher_3D.sym">
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="x_PipeVolume_PigLauncher_3D"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="4079,4078"/>
+ </symbol>
+ <string id="4079" style="1" estat="ref" xy="551,148,551,156,607,156,607,148,551,148">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="4083,4082"/>
+ </string>
+ <tnode id="4083" layer="Hidden" depth="10" estat="ext" xy="578,142" height="2" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="4078,4079"/>
+ </tnode>
+ <cpoint id="4078" estat="ref" xy="552,147">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="PipeVolume"/>
+  <attribute name="Itemdesc" type="text" value="Online Pig Launcher"/>
+  <attribute name="Module" type="text" value="PipeVolume"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="PipeVolumePigLauncher_Online"/>
+  <relation type="mutual" subid="100" id="4082,4083"/>
+ </cpoint>
+</sym>

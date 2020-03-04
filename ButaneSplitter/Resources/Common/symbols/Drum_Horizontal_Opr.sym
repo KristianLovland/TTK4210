@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="14">
+ <header xy="786,670" xmin="730" ymin="634.001" xmax="841.999" ymax="691.999">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Drum"/>
+  <attribute name="Itemdesc" type="text" value="Drum"/>
+  <attribute name="Module" type="text" value="Drum"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="SymName" type="text" value="Drum_Horizontal_Ineos"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="SelectBox" type="real" value="-54,-20,54,20"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="ProcessValues"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="0.5,0.5" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="ProcessValues"/>
+ <symbol id="1033" depth="5" estat="ext" xy="786,670" name="x_Drum_Outline" fixedlay="true">
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymName" type="text" value="x_Drum_Outline"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AllowConnections" type="null"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <relation type="mutual" subid="100" id="1032,3554"/>
+ </symbol>
+ <symbol id="3067" layer="3D" depth="-3" estat="rel" xy="760,641,764,646.5" name="x_SquareOil" xscl="4" yscl="5.5" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_SquareOil"/>
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="parent" subid="3" id="12509"/>
+  <relation type="mutual" subid="100" id="3553,1040"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="rect" mtag="%TAG_NAME:LiquidLevel@V_unscaled" mmin="%TAG_NAME:MinBootLevel@V_unscaled" mmax="%TAG_NAME:MaxBootLevel@V_unscaled" rect="0,0,4,0,0,0,4,8" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:HasDrumBoot} == True" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="3553" layer="3D" estat="ext" xy="786,670" name="x_Drum_Horizontal_3D" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_Drum_Horizontal_3D"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="child" subid="3" id="3554"/>
+  <relation type="mutual" subid="100" id="3659,3067"/>
+ </symbol>
+ <symbol id="3554" layer="3D" depth="-3" estat="rel" xy="748,654,752,676" name="x_SquareOil" xscl="4" yscl="22" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_SquareOil"/>
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="parent" subid="3" id="3553"/>
+  <relation type="mutual" subid="100" id="1033,12509"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="rect" mtag="%TAG_NAME:LiquidLevel@V_unscaled" mmin="%TAG_NAME:MaxBootLevel@V_unscaled" mmax="%TAG_NAME:MaxLevel@V_unscaled" rect="0,0,4,0,0,0,4,32">
+  </animation>
+ </symbol>
+ <symbol id="3763" layer="Instructor" estat="ext" xy="730,648,842,692" name="MalfunctionOutline" xscl="112" yscl="44" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <relation type="mutual" subid="100" id="4579,3696"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="12509" estat="ext" xy="756,650" name="x_Drum_Boot_3D.sym">
+  <attribute name="SymName" type="text" value="x_Drum_Boot_3D"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="child" subid="3" id="3067"/>
+  <relation type="mutual" subid="100" id="3554,4581"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:HasDrumBoot} == True" priority="0"/>
+  </animation>
+ </symbol>
+ <string id="1032" style="1" estat="ref" xy="732,650,732,690,840,690,840,650,734,650">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1039,1033"/>
+ </string>
+ <tnode id="1039" depth="40" estat="ext" xy="786,640" height="5" hjust="centre" nts="true" ntr="true" ntm="true" font="Verdana">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1040,1032"/>
+ </tnode>
+ <cpoint id="1040" estat="ref" xy="786,670">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Drum"/>
+  <attribute name="Itemdesc" type="text" value="Drum"/>
+  <attribute name="Module" type="text" value="Drum"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="SymName" type="text" value="Drum_Horizontal_Ineos"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <relation type="mutual" subid="100" id="3067,1039"/>
+ </cpoint>
+ <tnode id="3659" layer="Hidden" depth="40" estat="ext" xy="816,680" height="3" hjust="right" font="Arial" background="gray90" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="3690,3553"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:Pressure" format="%8.2f">
+  </animation>
+ </tnode>
+ <tnode id="3690" colour="white" layer="Engineer" depth="100" estat="ext" xy="836,689" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="3696,3659"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <tnode id="3696" layer="Hidden" depth="40" estat="ext" xy="816,675" height="3" hjust="right" font="Arial" background="gray90" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="3763,3690"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:Temperature" format="%8.2f">
+  </animation>
+ </tnode>
+ <tnode id="4579" layer="Hidden" depth="40" estat="ext" xy="818,680" height="3" font="Arial" background="gray90" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="4581,3763"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:Pressure@V_units" format="%4s">
+  </animation>
+ </tnode>
+ <tnode id="4581" layer="Hidden" depth="40" estat="ext" xy="818,675" height="3" font="Arial" background="gray90" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="12509,4579"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:Temperature@V_units" format="%4s">
+  </animation>
+ </tnode>
+</sym>

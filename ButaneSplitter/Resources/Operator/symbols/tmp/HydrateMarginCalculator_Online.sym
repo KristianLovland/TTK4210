@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="10">
+ <header xy="196,854" xmin="195.999" ymin="854" xmax="219.999" ymax="879.999">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="HydrateMarginCalculator"/>
+  <attribute name="Itemdesc" type="text" value="Hydrate Margin Calculator"/>
+  <attribute name="Module" type="text" value="HydrateMarginCalculator"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="HydrateMarginCalculator_Online"/>
+  <attribute name="SelectBox" type="real" value="1,1,23,23"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="3486" estat="ext" xy="196,854,220,878" name="x_Online_Background.sym" xscl="24" yscl="24" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3492,3510"/>
+ </symbol>
+ <symbol id="3492" estat="ext" xy="196,854,220,878" name="x_Online_SolidFrame.sym" xscl="24" yscl="24" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3489,3486"/>
+ </symbol>
+ <tnode id="3489" layer="Hidden" estat="ext" xy="208,880" height="2" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="3511,3492"/>
+ </tnode>
+ <text id="3511" xy="199,871" height="5" font="Arial">
+  <tstring>P</tstring>
+  <relation type="mutual" subid="100" id="3512,3489"/>
+ </text>
+ <text id="3512" xy="214,857" height="5" font="Arial">
+  <tstring>T</tstring>
+  <relation type="mutual" subid="100" id="3495,3511"/>
+ </text>
+ <string id="3495" style="1" estat="ref" xy="197,855,197,877,219,877,219,855,197,855">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="3508,3512"/>
+ </string>
+ <line id="3508" xy="198,876,198,856">
+  <relation type="mutual" subid="100" id="3498,3495"/>
+ </line>
+ <cpoint id="3498" estat="ref" xy="196,854">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="HydrateMarginCalculator"/>
+  <attribute name="Itemdesc" type="text" value="Hydrate Margin Calculator"/>
+  <attribute name="Module" type="text" value="HydrateMarginCalculator"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="HydrateMarginCalculator_Online"/>
+  <relation type="mutual" subid="100" id="3509,3508"/>
+ </cpoint>
+ <line id="3509" xy="198,856,218,856">
+  <relation type="mutual" subid="100" id="3510,3498"/>
+ </line>
+ <ellipse id="3510" xy="202,876" major="18" minor="12" angle="270" start="0" end="90">
+  <relation type="mutual" subid="100" id="3486,3509"/>
+ </ellipse>
+</sym>

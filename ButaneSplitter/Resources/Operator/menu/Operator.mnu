@@ -1,0 +1,23 @@
+Button	Label = "Faceplate"; Action = Panel,#(%TAG_NAME@B_type)_cmp.pnl;
+
+// add custom menu Cause&Effect
+#ifdef '"#(%TAG_NAME:@B_desc)" == "Cause and Effect Chart"'
+#include_noerror $EXPLORER_RESOURCES/menu/#(%TAG_NAME@B_type).cmn
+#endif
+
+// add custom menu Controller
+#ifdef '"#(%TAG_NAME:@B_type)" == "PidController"'
+Button	Label = "Controller Tuning"; Action = Panel,CtrlTune.pnl;
+#endif
+
+// add custom menu Valve
+#ifdef '"#(%TAG_NAME@B_type)" == "PulseControlledValve" || "#(%TAG_NAME@B_type)" == "Valve"'
+Button	Label = "Characteristic"; Action = Panel,Valve_chk.pnl;
+#endif
+
+Button	Label = "Info"; Action = Panel,Info.pnl;
+
+Button	Label = "Picture"; Action = Panel,Info.pnl;
+
+
+

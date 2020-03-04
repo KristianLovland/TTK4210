@@ -1,0 +1,12 @@
+24_LT1015_alarm;24_LT1015;01**24;AlarmAnalog;p1;Sump liquid level alarm
+24_PD1006_alarm;24_PD1006;01**24;AlarmAnalog;p1;Column differential pressure alarm
+24_LT1028_alarm;24_LT1028;01**24;AlarmAnalog;p1;Flooded condenser liquid level alarm
+24_TE1037_alarm;24_TE1037;01**24;AlarmAnalog;p1;Temperature of bottom product alarm
+24_LT1029_alarm;24_LT1029;01**24;AlarmAnalog;p1;Reflux drum liquid level(transmitter to timer valve) alarm
+24_TE1036_alarm;24_TE1036;01**24;AlarmAnalog;p1;Reflux drum temperature alarm
+24_LT1016_alarm;24_LT1016;01**24;AlarmAnalog;p1;Reflux drum liquid level(external setpoint to flowcontroller(24_FC1005)) alarm
+24_FT1005_alarm;24_FT1005;01**24;AlarmAnalog;p1;Output flow of top product alarm
+24_FT1015_alarm;24_FT1015;01**24;AlarmAnalog;p1;Reflux flow into top of the column alarm
+24_PT1024_alarm;24_PT1024;01**24;AlarmAnalog;p1;Overhead pressure alarm
+24_TE1034_alarm;24_TE1034;01**24;AlarmAnalog;p1;Column top output temperature
+24_TE1033_alarm;24_TE1033;01**24;AlarmAnalog;p1;Sump temperature alarm

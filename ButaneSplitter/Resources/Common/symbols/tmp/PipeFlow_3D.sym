@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="122">
+ <header xy="466,314" xmin="466" ymin="313.999" xmax="466.999" ymax="315.001">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="PipeFlow_3D"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <polygon id="2437" colour="gray17" layer="3D" depth="-5" xy="466,314.995,467,314.995,467,314.998,466,314.998,466,314.995">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2363" colour="0xd0d0d0" layer="3D" depth="-5" xy="466,314.5,467,314.5,467,314.512,466,314.512,466,314.5">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <string id="2371" colour="blue" depth="-6" xy="466,314.5,467,314.5">
+  <attribute name="AnimGraphic" type="null"/>
+ </string>
+ <polygon id="2373" colour="0x2a2a2a" layer="3D" depth="-5" xy="466,314,467,314,467,314,466,314,466,314">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2374" colour="0x2a2a2a" layer="3D" depth="-5" xy="466,314,467,314,467,314,466,314,466,314">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2375" colour="0x2a2a2a" layer="3D" depth="-5" xy="466,314.003,467,314.003,467,314,466,314,466,314.003">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2376" colour="gray17" layer="3D" depth="-5" xy="466,314.003,467,314.003,467,314.003,466,314.003,466,314.003">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2377" colour="gray17" layer="3D" depth="-5" xy="466,314.005,467,314.005,467,314.003,466,314.003,466,314.005">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2378" colour="gray17" layer="3D" depth="-5" xy="466,314.007,467,314.007,467,314.005,466,314.005,466,314.007">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2379" colour="0x2c2c2c" layer="3D" depth="-5" xy="466,314.007,467,314.007,467,314.007,466,314.007,466,314.007">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2380" colour="0x2d2d2d" layer="3D" depth="-5" xy="466,314.01,467,314.01,467,314.007,466,314.007,466,314.01">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2381" colour="gray18" layer="3D" depth="-5" xy="466,314.012,467,314.012,467,314.01,466,314.01,466,314.012">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2382" colour="0x2f2f2f" layer="3D" depth="-5" xy="466,314.017,467,314.017,467,314.012,466,314.012,466,314.017">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2383" colour="gray19" layer="3D" depth="-5" xy="466,314.02,467,314.02,467,314.017,466,314.017,466,314.02">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2384" colour="0x313131" layer="3D" depth="-5" xy="466,314.025,467,314.025,467,314.02,466,314.02,466,314.025">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2385" colour="0x323232" layer="3D" depth="-5" xy="466,314.03,467,314.03,467,314.025,466,314.025,466,314.03">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2386" colour="0x343434" layer="3D" depth="-5" xy="466,314.033,467,314.033,467,314.03,466,314.03,466,314.033">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2387" colour="0x353535" layer="3D" depth="-5" xy="466,314.038,467,314.038,467,314.033,466,314.033,466,314.038">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2388" colour="0x373737" layer="3D" depth="-5" xy="466,314.043,467,314.043,467,314.038,466,314.038,466,314.043">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2389" colour="0x393939" layer="3D" depth="-5" xy="466,314.05,467,314.05,467,314.043,466,314.043,466,314.05">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2390" colour="gray23" layer="3D" depth="-5" xy="466,314.055,467,314.055,467,314.05,466,314.05,466,314.055">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2391" colour="gray24" layer="3D" depth="-5" xy="466,314.06,467,314.06,467,314.055,466,314.055,466,314.06">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2392" colour="0x3f3f3f" layer="3D" depth="-5" xy="466,314.068,467,314.068,467,314.06,466,314.06,466,314.068">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2393" colour="0x414141" layer="3D" depth="-5" xy="466,314.075,467,314.075,467,314.068,466,314.068,466,314.075">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2394" colour="0x434343" layer="3D" depth="-5" xy="466,314.08,467,314.08,467,314.075,466,314.075,466,314.08">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2395" colour="gray27" layer="3D" depth="-5" xy="466,314.087,467,314.087,467,314.08,466,314.08,466,314.087">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2396" colour="0x484848" layer="3D" depth="-5" xy="466,314.095,467,314.095,467,314.087,466,314.087,466,314.095">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2397" colour="gray29" layer="3D" depth="-5" xy="466,314.103,467,314.103,467,314.095,466,314.095,466,314.103">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2398" colour="gray30" layer="3D" depth="-5" xy="466,314.113,467,314.113,467,314.103,466,314.103,466,314.113">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2399" colour="0x505050" layer="3D" depth="-5" xy="466,314.12,467,314.12,467,314.113,466,314.113,466,314.12">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2400" colour="0x535353" layer="3D" depth="-5" xy="466,314.128,467,314.128,467,314.12,466,314.12,466,314.128">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2401" colour="0x565656" layer="3D" depth="-5" xy="466,314.137,467,314.137,467,314.128,466,314.128,466,314.137">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2402" colour="gray35" layer="3D" depth="-5" xy="466,314.147,467,314.147,467,314.137,466,314.137,466,314.147">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2403" colour="gray36" layer="3D" depth="-5" xy="466,314.155,467,314.155,467,314.147,466,314.147,466,314.155">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2404" colour="0x5f5f5f" layer="3D" depth="-5" xy="466,314.165,467,314.165,467,314.155,466,314.155,466,314.165">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2405" colour="0x626262" layer="3D" depth="-5" xy="466,314.175,467,314.175,467,314.165,466,314.165,466,314.175">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2406" colour="gray40" layer="3D" depth="-5" xy="466,314.185,467,314.185,467,314.175,466,314.175,466,314.185">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2407" colour="dimgray" layer="3D" depth="-5" xy="466,314.195,467,314.195,467,314.185,466,314.185,466,314.195">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2408" colour="0x6d6d6d" layer="3D" depth="-5" xy="466,314.205,467,314.205,467,314.195,466,314.195,466,314.205">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2409" colour="gray44" layer="3D" depth="-5" xy="466,314.217,467,314.217,467,314.205,466,314.205,466,314.217">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2410" colour="0x747474" layer="3D" depth="-5" xy="466,314.228,467,314.228,467,314.217,466,314.217,466,314.228">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2411" colour="0x777777" layer="3D" depth="-5" xy="466,314.238,467,314.238,467,314.228,466,314.228,466,314.238">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2412" colour="0x7b7b7b" layer="3D" depth="-5" xy="466,314.25,467,314.25,467,314.238,466,314.238,466,314.25">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2413" colour="gray50" layer="3D" depth="-5" xy="466,314.262,467,314.262,467,314.25,466,314.25,466,314.262">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2414" colour="0x838383" layer="3D" depth="-5" xy="466,314.272,467,314.272,467,314.262,466,314.262,466,314.272">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2415" colour="gray53" layer="3D" depth="-5" xy="466,314.285,467,314.285,467,314.272,466,314.272,466,314.285">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2416" colour="0x8b8b8b" layer="3D" depth="-5" xy="466,314.298,467,314.298,467,314.285,466,314.285,466,314.298">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2417" colour="gray56" layer="3D" depth="-5" xy="466,314.31,467,314.31,467,314.298,466,314.298,466,314.31">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2418" colour="0x939393" layer="3D" depth="-5" xy="466,314.32,467,314.32,467,314.31,466,314.31,466,314.32">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2419" colour="0x979797" layer="3D" depth="-5" xy="466,314.332,467,314.332,467,314.32,466,314.32,466,314.332">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2420" colour="0x9b9b9b" layer="3D" depth="-5" xy="466,314.345,467,314.345,467,314.332,466,314.332,466,314.345">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2421" colour="0x9f9f9f" layer="3D" depth="-5" xy="466,314.358,467,314.358,467,314.345,466,314.345,466,314.358">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2422" colour="0xa4a4a4" layer="3D" depth="-5" xy="466,314.37,467,314.37,467,314.358,466,314.358,466,314.37">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2423" colour="gray66" layer="3D" depth="-5" xy="466,314.382,467,314.382,467,314.37,466,314.37,466,314.382">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2424" colour="0xacacac" layer="3D" depth="-5" xy="466,314.395,467,314.395,467,314.382,466,314.382,466,314.395">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2425" colour="0xb1b1b1" layer="3D" depth="-5" xy="466,314.41,467,314.41,467,314.395,466,314.395,466,314.41">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2426" colour="gray71" layer="3D" depth="-5" xy="466,314.423,467,314.423,467,314.41,466,314.41,466,314.423">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2427" colour="0xb9b9b9" layer="3D" depth="-5" xy="466,314.435,467,314.435,467,314.423,466,314.423,466,314.435">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2428" colour="0xbebebe" layer="3D" depth="-5" xy="466,314.447,467,314.447,467,314.435,466,314.435,466,314.447">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2429" colour="gray76" layer="3D" depth="-5" xy="466,314.46,467,314.46,467,314.447,466,314.447,466,314.46">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2430" colour="gray78" layer="3D" depth="-5" xy="466,314.475,467,314.475,467,314.46,466,314.46,466,314.475">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2431" colour="0xcbcbcb" layer="3D" depth="-5" xy="466,314.488,467,314.488,467,314.475,466,314.475,466,314.488">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2432" colour="0xd0d0d0" layer="3D" depth="-5" xy="466,314.5,467,314.5,467,314.488,466,314.488,466,314.5">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2433" colour="0x2a2a2a" layer="3D" depth="-5" xy="466,315,467,315,467,315,466,315,466,315">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2434" colour="0x2a2a2a" layer="3D" depth="-5" xy="466,315,467,315,467,315,466,315,466,315">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2435" colour="0x2a2a2a" layer="3D" depth="-5" xy="466,314.998,467,314.998,467,315,466,315,466,314.998">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2436" colour="gray17" layer="3D" depth="-5" xy="466,314.998,467,314.998,467,314.998,466,314.998,466,314.998">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2438" colour="gray17" layer="3D" depth="-5" xy="466,314.993,467,314.993,467,314.995,466,314.995,466,314.993">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2439" colour="0x2c2c2c" layer="3D" depth="-5" xy="466,314.993,467,314.993,467,314.993,466,314.993,466,314.993">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2440" colour="0x2d2d2d" layer="3D" depth="-5" xy="466,314.99,467,314.99,467,314.993,466,314.993,466,314.99">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2441" colour="gray18" layer="3D" depth="-5" xy="466,314.988,467,314.988,467,314.99,466,314.99,466,314.988">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2442" colour="0x2f2f2f" layer="3D" depth="-5" xy="466,314.983,467,314.983,467,314.988,466,314.988,466,314.983">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2443" colour="gray19" layer="3D" depth="-5" xy="466,314.98,467,314.98,467,314.983,466,314.983,466,314.98">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2444" colour="0x313131" layer="3D" depth="-5" xy="466,314.975,467,314.975,467,314.98,466,314.98,466,314.975">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2445" colour="0x323232" layer="3D" depth="-5" xy="466,314.972,467,314.972,467,314.975,466,314.975,466,314.972">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2446" colour="0x343434" layer="3D" depth="-5" xy="466,314.967,467,314.967,467,314.972,466,314.972,466,314.967">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2447" colour="0x353535" layer="3D" depth="-5" xy="466,314.962,467,314.962,467,314.967,466,314.967,466,314.962">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2448" colour="0x373737" layer="3D" depth="-5" xy="466,314.957,467,314.957,467,314.962,466,314.962,466,314.957">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2449" colour="0x393939" layer="3D" depth="-5" xy="466,314.95,467,314.95,467,314.957,466,314.957,466,314.95">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2450" colour="gray23" layer="3D" depth="-5" xy="466,314.945,467,314.945,467,314.95,466,314.95,466,314.945">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2451" colour="gray24" layer="3D" depth="-5" xy="466,314.94,467,314.94,467,314.945,466,314.945,466,314.94">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2452" colour="0x3f3f3f" layer="3D" depth="-5" xy="466,314.933,467,314.933,467,314.94,466,314.94,466,314.933">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2453" colour="0x414141" layer="3D" depth="-5" xy="466,314.925,467,314.925,467,314.933,466,314.933,466,314.925">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2454" colour="0x434343" layer="3D" depth="-5" xy="466,314.92,467,314.92,467,314.925,466,314.925,466,314.92">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2455" colour="gray27" layer="3D" depth="-5" xy="466,314.913,467,314.913,467,314.92,466,314.92,466,314.913">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2456" colour="0x484848" layer="3D" depth="-5" xy="466,314.905,467,314.905,467,314.913,466,314.913,466,314.905">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2457" colour="gray29" layer="3D" depth="-5" xy="466,314.897,467,314.897,467,314.905,466,314.905,466,314.897">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2458" colour="gray30" layer="3D" depth="-5" xy="466,314.887,467,314.887,467,314.897,466,314.897,466,314.887">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2459" colour="0x505050" layer="3D" depth="-5" xy="466,314.88,467,314.88,467,314.887,466,314.887,466,314.88">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2460" colour="0x535353" layer="3D" depth="-5" xy="466,314.873,467,314.873,467,314.88,466,314.88,466,314.873">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2461" colour="0x565656" layer="3D" depth="-5" xy="466,314.863,467,314.863,467,314.873,466,314.873,466,314.863">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2462" colour="gray35" layer="3D" depth="-5" xy="466,314.853,467,314.853,467,314.863,466,314.863,466,314.853">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2463" colour="gray36" layer="3D" depth="-5" xy="466,314.845,467,314.845,467,314.853,466,314.853,466,314.845">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2464" colour="0x5f5f5f" layer="3D" depth="-5" xy="466,314.835,467,314.835,467,314.845,466,314.845,466,314.835">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2465" colour="0x626262" layer="3D" depth="-5" xy="466,314.825,467,314.825,467,314.835,466,314.835,466,314.825">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2466" colour="gray40" layer="3D" depth="-5" xy="466,314.815,467,314.815,467,314.825,466,314.825,466,314.815">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2467" colour="dimgray" layer="3D" depth="-5" xy="466,314.805,467,314.805,467,314.815,466,314.815,466,314.805">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2468" colour="0x6d6d6d" layer="3D" depth="-5" xy="466,314.795,467,314.795,467,314.805,466,314.805,466,314.795">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2469" colour="gray44" layer="3D" depth="-5" xy="466,314.783,467,314.783,467,314.795,466,314.795,466,314.783">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2470" colour="0x747474" layer="3D" depth="-5" xy="466,314.772,467,314.772,467,314.783,466,314.783,466,314.772">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2471" colour="0x777777" layer="3D" depth="-5" xy="466,314.762,467,314.762,467,314.772,466,314.772,466,314.762">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2472" colour="0x7b7b7b" layer="3D" depth="-5" xy="466,314.75,467,314.75,467,314.762,466,314.762,466,314.75">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2473" colour="gray50" layer="3D" depth="-5" xy="466,314.738,467,314.738,467,314.75,466,314.75,466,314.738">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2474" colour="0x838383" layer="3D" depth="-5" xy="466,314.728,467,314.728,467,314.738,466,314.738,466,314.728">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2475" colour="gray53" layer="3D" depth="-5" xy="466,314.715,467,314.715,467,314.728,466,314.728,466,314.715">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2476" colour="0x8b8b8b" layer="3D" depth="-5" xy="466,314.702,467,314.702,467,314.715,466,314.715,466,314.702">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2477" colour="gray56" layer="3D" depth="-5" xy="466,314.69,467,314.69,467,314.702,466,314.702,466,314.69">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2478" colour="0x939393" layer="3D" depth="-5" xy="466,314.68,467,314.68,467,314.69,466,314.69,466,314.68">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2479" colour="0x979797" layer="3D" depth="-5" xy="466,314.668,467,314.668,467,314.68,466,314.68,466,314.668">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2480" colour="0x9b9b9b" layer="3D" depth="-5" xy="466,314.655,467,314.655,467,314.668,466,314.668,466,314.655">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2481" colour="0x9f9f9f" layer="3D" depth="-5" xy="466,314.642,467,314.642,467,314.655,466,314.655,466,314.642">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2482" colour="0xa4a4a4" layer="3D" depth="-5" xy="466,314.63,467,314.63,467,314.642,466,314.642,466,314.63">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2483" colour="gray66" layer="3D" depth="-5" xy="466,314.618,467,314.618,467,314.63,466,314.63,466,314.618">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2484" colour="0xacacac" layer="3D" depth="-5" xy="466,314.605,467,314.605,467,314.618,466,314.618,466,314.605">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2485" colour="0xb1b1b1" layer="3D" depth="-5" xy="466,314.59,467,314.59,467,314.605,466,314.605,466,314.59">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2486" colour="gray71" layer="3D" depth="-5" xy="466,314.577,467,314.577,467,314.59,466,314.59,466,314.577">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2487" colour="0xb9b9b9" layer="3D" depth="-5" xy="466,314.565,467,314.565,467,314.577,466,314.577,466,314.565">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2488" colour="0xbebebe" layer="3D" depth="-5" xy="466,314.553,467,314.553,467,314.565,466,314.565,466,314.553">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2489" colour="gray76" layer="3D" depth="-5" xy="466,314.54,467,314.54,467,314.553,466,314.553,466,314.54">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2490" colour="gray78" layer="3D" depth="-5" xy="466,314.528,467,314.528,467,314.54,466,314.54,466,314.528">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <polygon id="2491" colour="0xcbcbcb" layer="3D" depth="-5" xy="466,314.512,467,314.512,467,314.528,466,314.528,466,314.512">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <cpoint id="2369" estat="ref" xy="466,314">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="PipeFlow_3D"/>
+ </cpoint>
+</sym>

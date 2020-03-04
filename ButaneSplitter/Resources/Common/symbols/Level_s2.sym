@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="212,622" xmin="212" ymin="622" xmax="213" ymax="623" vunits="mm">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="Level_s2"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="0xc5c3c6" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="24-11-14 16:21:01"/>
+ </drawing>
+ <viewport id="2" vwidth="2" vheight="2" vunits="mm" gpitch="2,2" goffset="0,0"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <cpoint id="1290" estat="ref" xy="212,622">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="Level_s2"/>
+ </cpoint>
+ <polygon id="1293" colour="yellow" xy="212,622,212,623,213,623,213,622,212,622"/>
+</sym>

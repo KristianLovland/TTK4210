@@ -1,0 +1,25 @@
+#include $EXPLORER_RESOURCES/panel/FixedCatalystBedReactor_auto_cmp.def
+
+#define MAPAVAILABLE TRUE
+
+#include $EXPLORER_RESOURCES/panel/Default_cmp.def
+
+* optional stuff
+#ifdef '"%HIDEVARS" != "1"'
+Frame		Id = 100; Frame = 1; Layout = Horizontal; Space = 5;
+#endif
+
+
+
+#include $EXPLORER_RESOURCES/panel/CustomPanelMapFrame.def
+#include $EXPLORER_RESOURCES/panel/CustomPanelTrend.def
+
+// Map
+#ifdef '"%SHOWMAP" == "1"'
+#include $EXPLORER_RESOURCES/panel/FixedCatalystBedReactor_tp.def
+#endif
+
+Button	Frame = 11; Label = "Reactions..."; Width = 100;\
+		Action = Panel,"FixedCatalystBedReactor_dim1.pnl";
+
+

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="12">
+ <header xy="190,932" xmin="190.001" ymin="931.999" xmax="238.001" ymax="961">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="LedaPosition"/>
+  <attribute name="Itemdesc" type="text" value="LedaFlow Position Values"/>
+  <attribute name="Module" type="text" value="LedaPosition"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="LedaPosition_Online"/>
+  <attribute name="SelectBox" type="real" value="1,1,47,27"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="3476" estat="ext" xy="190,932,238,960" name="x_Online_Background.sym" xscl="48" yscl="28" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3478,3477"/>
+ </symbol>
+ <symbol id="3478" estat="ext" xy="190,932,238,960" name="x_Online_SolidFrame.sym" xscl="48" yscl="28" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3483,3476"/>
+ </symbol>
+ <cpoint id="3483" estat="ref" xy="190,932">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="LedaPosition"/>
+  <attribute name="Itemdesc" type="text" value="LedaFlow Position Values"/>
+  <attribute name="Module" type="text" value="LedaPosition"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="LedaPosition_Online"/>
+  <parameter name="DESC" value="UNDEFINED"/>
+  <relation type="mutual" subid="100" id="3487,3478"/>
+ </cpoint>
+ <tnode id="3487" estat="ext" xy="220,934" height="4" hjust="right" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3488,3483"/>
+  <animation type="text" tag="%TAG_NAME:TotalFlow" format="%6.1f">
+  </animation>
+ </tnode>
+ <tnode id="3488" estat="ext" xy="222,946" height="4" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3490,3487"/>
+  <animation type="text" tag="%TAG_NAME:Pressure@V_unit" format="%s">
+  </animation>
+ </tnode>
+ <tnode id="3490" estat="ext" xy="220,940" height="4" hjust="right" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3491,3488"/>
+  <animation type="text" tag="%TAG_NAME:Temperature" format="%6.1f">
+  </animation>
+ </tnode>
+ <tnode id="3491" estat="ext" xy="222,940" height="4" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3493,3490"/>
+  <animation type="text" tag="%TAG_NAME:Temperature@V_unit" format="%s">
+  </animation>
+ </tnode>
+ <tnode id="3493" estat="ext" xy="220,946" height="4" hjust="right" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3494,3491"/>
+  <animation type="text" tag="%TAG_NAME:Pressure" format="%6.1f">
+  </animation>
+ </tnode>
+ <tnode id="3494" estat="ext" xy="222,934" height="4" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3544,3493"/>
+  <animation type="text" tag="%TAG_NAME:TotalFlow@V_unit" format="%s">
+  </animation>
+ </tnode>
+ <tnode id="3544" layer="Hidden" estat="ext" xy="191,961" height="2" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="3543,3494"/>
+ </tnode>
+ <tnode id="3543" estat="ext" xy="214,954" height="4" hjust="centre" bold="true">
+  <relation type="mutual" subid="100" id="3477,3544"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_name" format="%s" default="invisible">
+   <state type="expression" expression="&quot;%DESC&quot; == &quot;UNDEFINED&quot;" priority="0" text="%TAG_NAME"/>
+   <state type="expression" expression="&quot;%DESC&quot; != &quot;UNDEFINED&quot;" priority="0" text="%DESC"/>
+  </animation>
+ </tnode>
+ <string id="3477" style="1" estat="ref" xy="191,933,191,959,237,959,237,933,191,933">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="3476,3543"/>
+ </string>
+</sym>

@@ -1,0 +1,3 @@
+header	Title="Valves"; position=centre; oneoff; resizable;
+
+button	image="$EXPLORER_RESOURCES/bitmaps/Valve_Des.bmp"; size=871,579;

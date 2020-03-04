@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="12">
+ <header xy="57,649" xmin="40.0005" ymin="615" xmax="106" ymax="666">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Valve"/>
+  <attribute name="ItemType" type="text" value="DcsValveChoke"/>
+  <attribute name="AttPage" type="text" value="DcsValveChoke"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="DcsValveChoke_NoDCS"/>
+  <attribute name="SelectBox" type="real" value="-17,-17,10,17"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="841" vheight="1251" gpitch="1,1" goffset="0,0" height="2" hjust="right" font="Arial"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <symbol id="1662" estat="ext" xy="57,649" name="xdcs_valve_s2" pr6layer="0">
+  <attribute name="SymName" type="text" value="xdcs_valve_s2"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="#e60000">
+   <state type="expression" expression="{%TAG_NAME:ValveStemPosition@V_unscaled} &gt; 0.000001  + {%TAG_NAME:RunningLightPosition@V_unscaled}" priority="0" foreground="#00bb00"/>
+  </animation>
+ </symbol>
+ <symbol id="1664" depth="20" estat="ext" xy="57,649" name="xdcs_valve_s3" pr6layer="0">
+  <attribute name="SymName" type="text" value="xdcs_valve_s3"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:val_sig@V_unscaled} &gt; 0.000001  + {%TAG_NAME:RunningLightPosition@V_unscaled}" priority="0" foreground="yellow"/>
+  </animation>
+ </symbol>
+ <string id="1636" colour="darkorange1" layer="Hidden" estat="ref" xy="40,632,40,666,67,666,67,632,40,632">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <polygon id="1652" xy="56.5,659,56.5,648,57.5,648,57.5,659,56.5,659"/>
+ <cpoint id="1653" depth="11" estat="ref" xy="57,649">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Valve"/>
+  <attribute name="ItemType" type="text" value="DcsValveChoke"/>
+  <attribute name="AttPage" type="text" value="DcsValveChoke"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="DcsValveChoke_NoDCS"/>
+ </cpoint>
+ <tnode id="1658" colour="red" layer="Hidden" depth="50" estat="ext" xy="57,615" height="6" hjust="centre" font="Arial">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <polygon id="1659" xy="48.34,659,65.66,659,64.93,660.087,64.07,661.071,63.09,661.933,62,662.66,60.83,663.239,59.59,663.659,58.31,663.914,57,664,55.69,663.914,54.41,663.659,53.17,663.239,52,662.66,50.91,661.934,49.93,661.071,49.07,660.088,48.34,659"/>
+ <tnode id="1660" depth="30" estat="ext" xy="96,645" height="7" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:val_sig@V_units" format="%s">
+  </animation>
+ </tnode>
+ <tnode id="1661" depth="30" estat="ext" xy="95.75,645" height="10" hjust="right" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:val_sig" format="%3.1f">
+  </animation>
+ </tnode>
+ <tnode id="1665" depth="50" estat="ext" xy="95.75,645" height="10" hjust="right" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:val_sig" format="%3.1f">
+  </animation>
+ </tnode>
+ <tnode id="1666" depth="50" estat="ext" xy="96,645" height="7" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:val_sig@V_units" format="%s">
+  </animation>
+ </tnode>
+ <polygon id="1667" colour="gainsboro" depth="40" xy="65,656,65,644,106,644,106,656,65,656"/>
+</sym>

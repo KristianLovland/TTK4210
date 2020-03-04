@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<themes>
+
+  <theme setbackground="false" theme="Violet" timeline="2PhaseSep"/>
+
+  <theme setbackground="false" theme="Yellow" timeline="3PhaseSep"/>
+
+  <theme setbackground="false" theme="Crimson" timeline="AmmoniaPlant"/>
+
+  <theme setbackground="false" theme="Pink" timeline="BasicPC"/>
+
+  <theme setbackground="false" theme="Amber" timeline="ButaneSplitter"/>
+
+  <theme setbackground="false" theme="Teal" timeline="CentrifugalPump"/>
+
+  <theme setbackground="false" theme="Emerald" timeline="Column"/>
+
+  <theme setbackground="false" theme="Red" timeline="CompressorSystem"/>
+
+  <theme setbackground="false" theme="Lime" timeline="GasDehydration"/>
+
+  <theme setbackground="false" theme="Steel" timeline="Heatexchangers"/>
+
+  <theme setbackground="false" theme="Lime" timeline="HeatexchngerPlate"/>
+
+  <theme setbackground="false" theme="Cyan" timeline="Hydrocyclone"/>
+
+  <theme setbackground="false" theme="Violet" timeline="LNG"/>
+
+  <theme setbackground="false" theme="Orange" timeline="MeOH-SynLoop"/>
+
+  <theme setbackground="false" theme="Lime" timeline="NGL"/>
+
+  <theme setbackground="false" theme="Brown" timeline="ShellTubeHeatExchanger"/>
+
+  <theme setbackground="false" theme="Crimson" timeline="SteamTurbine"/>
+
+  <theme setbackground="false" theme="Mauve" timeline="SubseaFlowline"/>
+
+  <theme setbackground="false" theme="Green" timeline="TEG-Regeneration"/>
+
+  <theme setbackground="false" theme="Amber" timeline="TEGContactor"/>
+
+  <theme setbackground="false" theme="Brown" timeline="TurboExpander"/>
+
+  <theme setbackground="false" theme="Steel" timeline="Valves"/>
+
+</themes>

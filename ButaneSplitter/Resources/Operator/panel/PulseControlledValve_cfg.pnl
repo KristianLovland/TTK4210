@@ -1,0 +1,5 @@
+#include $EXPLORER_RESOURCES/panel/ConfigHeader.def
+
+#include $EXPLORER_RESOURCES/Panel/PulseControlledValve_summary_cfg.def
+
+#include $EXPLORER_RESOURCES/Panel/PulseControlledValve_tabs_cfg.def

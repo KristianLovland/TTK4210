@@ -1,0 +1,34 @@
+
+Header	Title = "Load Initial Condition Files"; Position = Centrescreen; Type = Exclusive; OneOff; \
+	mid = %_ROOT;
+
+#define _MPGS_ Style = DropDown; Get = GetModelParameter; Size = 400
+#define _SIF_ Action = SetFocus
+
+Frame	Id = 9; Layout = Vertical;
+
+#define TL_TBAR_PARENT 9
+#include $EXPLORER_RESOURCES/Panel/TimelineToolbar.def
+
+Frame	Id = 100; frame=9; Layout = Vertical; Space = 5; Pad = 8; \
+		dependency='#(GetModelParameter;%_ROOT|ModelState,%LOCAL_ACTIVE_TIMELINE) != 1';
+
+// Initial Conditions file
+Frame	Frame = 100; Id = 4; Layout = Horizontal; Space = 5;
+Label	Frame = 4; Label = "Conditions:"; SameWidth = 1;
+Selection Frame = 4; Id = 104; _MPGS_; \
+		Source = Tag,"FileList@InitName,%LOCAL_ACTIVE_TIMELINE";
+Button	Frame = 4; Image = "browser.ico"; _SIF_,104; \
+		FeedBack = "Browse for files"; \
+		action = SMBrowserOpen,ModelFiles,%LOCAL_ACTIVE_TIMELINE,InitName; \
+		actionif = '"%LOCAL_ACTIVE_TIMELINE" != "%_BROWSER_SELECTED_TIMELINE"',set,LOCAL_ACTIVE_TIMELINE,%_BROWSER_SELECTED_TIMELINE; \
+		actionif = *,set,SELECTED_TIMELINE,"%(_BROWSER_SELECTED_TIMELINE[0,1])"; \
+		actionif = *,kickstart; \
+		action = SetSelection,104,%_BROWSER_SELECTED_NAME;
+Button	Frame = 4; Label = "Load"; \
+		Action = Set,_FILE_,!104; \
+		ActionIf = 'empty(%_FILE_)',MessageBox,"A filename must be entered.",Error; \
+		ActionIf = *,Break; \
+		Action = RegisterProgress,Loading,%LOCAL_ACTIVE_TIMELINE,%_FILE_,"InitName","Loading conditions "; \
+		Action = Request,LoadConditions,%_FILE_,%LOCAL_ACTIVE_TIMELINE; \
+		Action = popdown;

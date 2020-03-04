@@ -1,0 +1,47 @@
+"H2O1"       :   0.1900E-02
+"N2"         :   0.2290E-01
+"C1O2"       :   0.6201E-02
+"C1H4"       :   0.4245    
+"C2H6"       :   0.1811    
+"C3H8"       :   0.2149    
+"C4"         :   0.1086    
+"C5"         :   0.3051E-01
+"NC6"        :   0.5501E-02
+"C7"         :   0.2100E-02
+"C8"         :   0.8002E-03
+"PS0"        :   0.6001E-03
+"PS01"       :   0.1000E-03
+"PS02"       :   0.1000E-03
+"PS03"       :   0.1000E-03
+ -----------------------------------------
+ 
+ 300.0 **W **W **S **S **S **S **S **S **S **S **S S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S**
+ 250.0 **W **S **S **S **S **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S**
+ 220.0 **W **S **S **S **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S**
+ 180.0 **W **S **S **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S**
+ 160.0 **S **S **S **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S** S**
+ 140.0 **S **S **S **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S** S**
+ 120.0 **S **S **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S** S**
+ 100.0 **S **S **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S** S**
+  90.0 **S **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S** S**
+  80.0 **S **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S** S**
+  70.0 **S **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S** S** S**
+  60.0 **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S** S** S** S**
+  50.0 **S **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S** S** S** S** S** S** S** S**
+  45.0 **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S** S** S** S*W S*W S** S** S** S** S** S**
+  41.0 **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S** S**
+  39.0 **S **S **S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W
+  37.0 **S **S **S S*S S*S S*S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W
+  36.0 **S **S S*S S*S S*S S*S S*S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W
+  35.0 **S **S S*S S*S S*S S*S S*S S*S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W
+  33.0 S*S S*S S*S S*S S*S S*S S*S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W
+  31.0 S*S S*S S*S S*S S*S S*S S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W
+  28.0 S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*W S*W S*W S*W S*W S*W S*W S*W S*W
+  25.0 S*W S*W S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*W S*W S*W S*W S*W S*W S*W S*W
+  20.0 S*W S*W S*W S*W S*W S*W S*W S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*S S*W S*W S*W S*W S*W S*W S*W
+  10.0 S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W
+   5.0 S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W
+   1.0 S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W
+   0.1 S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W S*W
+  bar/
+   / K 260.270.280.290.300.310.320.330.335.338.340.342.344.346.348.350.360.370.380.390.400.410.420.440.450.

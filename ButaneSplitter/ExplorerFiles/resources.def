@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<resources>
+
+  <resource name="Instructor">
+    <path directory="(project_root)\Resources\Instructor"/>
+    <path directory="(project_root)\Resources\Common"/>
+    <path directory="(project_root)\Resources\Modules\*"/>
+    <path directory="(install_dir)\Explorer\Resources\Instructor"/>
+    <path directory="(install_dir)\Explorer\Resources\Standard"/>
+    <path directory="(install_dir)\Explorer\Resources\Modules\*"/>
+  </resource>
+
+  <resource name="Operator">
+    <path directory="(project_root)\Resources\Operator"/>
+    <path directory="(project_root)\Resources\Common"/>
+    <path directory="(project_root)\Resources\Modules\*"/>
+    <path directory="(install_dir)\Explorer\Resources\Standard"/>
+    <path directory="(install_dir)\Explorer\Resources\Modules\*"/>
+  </resource>
+
+  <resource name="StandAlone">
+    <path directory="(project_root)\Resources\StandAlone"/>
+    <path directory="(project_root)\Resources\Common"/>
+    <path directory="(project_root)\Resources\Modules\*"/>
+    <path directory="(install_dir)\Explorer\Resources\Instructor"/>
+    <path directory="(install_dir)\Explorer\Resources\Standard"/>
+    <path directory="(install_dir)\Explorer\Resources\Modules\*"/>
+  </resource>
+
+</resources>

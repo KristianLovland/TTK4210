@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="4">
+ <header xy="544,97" xmin="535.999" ymin="91.9991" xmax="568.001" ymax="113.331">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="AirCooler"/>
+  <attribute name="Itemdesc" type="text" value="Online Air Cooler"/>
+  <attribute name="Module" type="text" value="AirCooler"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="AirCooler_Online"/>
+  <attribute name="SelectBox" type="real" value="-1,1,17,15"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="3544" estat="ext" xy="544,97" name="x_Air_Cooler_3D.sym">
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="x_PipeVolume_PigLauncher_3D"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3543,3545"/>
+ </symbol>
+ <cpoint id="3543" estat="ref" xy="544,97">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="AirCooler"/>
+  <attribute name="Itemdesc" type="text" value="Online Air Cooler"/>
+  <attribute name="Module" type="text" value="AirCooler"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="AirCooler_Online"/>
+  <relation type="mutual" subid="100" id="4045,3544"/>
+ </cpoint>
+ <tnode id="4045" layer="Hidden" depth="10" estat="ext" xy="552,92" height="2" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3545,3543"/>
+ </tnode>
+ <string id="3545" style="1" estat="ref" xy="543,98,543,112,561,112,561,98,543,98">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="3544,4045"/>
+ </string>
+</sym>

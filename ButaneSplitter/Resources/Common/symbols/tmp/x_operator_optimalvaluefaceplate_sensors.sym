@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="9">
+ <header xy="1551,696" xmin="1548" ymin="695.999" xmax="1609" ymax="740">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_optimalvaluefaceplate_sensors"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <text id="1222" xy="1549,732" height="8" font="Arial">
+  <tstring>Active:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <text id="1233" xy="1549,721" height="8" font="Arial">
+  <tstring>From DCS:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <text id="1234" xy="1548,711" height="8" font="Arial">
+  <tstring>Suspect:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <tnode id="1235" estat="ext" xy="1609,713" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%INSTANCE:NumberOfSuspect">
+  </animation>
+ </tnode>
+ <tnode id="1236" estat="ext" xy="1609,724" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%INSTANCE:NumberOfDCSValues">
+  </animation>
+ </tnode>
+ <tnode id="1239" estat="ext" xy="1609,736" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%INSTANCE:NumberOfActive">
+  </animation>
+ </tnode>
+ <text id="1246" xy="1549,699" height="8" font="Arial">
+  <tstring>Inactive:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <tnode id="1279" estat="ext" xy="1609,700" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%INSTANCE:NumberOfInactive">
+  </animation>
+ </tnode>
+ <cpoint id="1281" estat="ref" xy="1551,696">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_optimalvaluefaceplate_sensors"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </cpoint>
+</sym>

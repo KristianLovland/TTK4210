@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xdr revision="7" entities="15">
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="20-01-14 13:32:52"/>
+ </drawing>
+ <viewport id="2" vwidth="841" vheight="594" vunits="point" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <cpoint id="1025" xy="390,547"/>
+ <text id="1026" colour="white" xy="568,571" height="8" angle="2.519e-006" font="Verdana">
+  <tstring>Output</tstring>
+ </text>
+ <symbol id="1027" xy="563,491" name="CandE_OutputNameBackground" version="16-01-14 22:07:04">
+  <attribute name="symname" type="text" value="CandE_OutputNameBackground"/>
+  <attribute name="symplacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="parent" subid="3" id="1031"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%CANDE_TAG:Input[%TT_I]} == 1 &amp;&amp; {%CANDE_TAG:Nots[%TT_I]} == 0" priority="0" foreground="red"/>
+   <state type="expression" expression="{%CANDE_TAG:Input[%TT_I]} == 0 &amp;&amp; {%CANDE_TAG:Nots[%TT_I]} == 1" priority="0" foreground="red"/>
+  </animation>
+ </symbol>
+ <tnode id="1028" xy="567,495" height="8" font="Verdana" maxwidth="146">
+  <relation type="parent" subid="3" id="1031"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%CANDE_TAG:Nots[%TT_I]">
+   <state type="expression" expression="{%CANDE_TAG:Input[%TT_I]} == 1 &amp;&amp; {%CANDE_TAG:Nots[%TT_I]} == 0" priority="0" foreground="white"/>
+   <state type="expression" expression="{%CANDE_TAG:Input[%TT_I]} == 0 &amp;&amp; {%CANDE_TAG:Nots[%TT_I]} == 1" priority="0" foreground="white"/>
+  </animation>
+ </tnode>
+ <symbol id="1029" xy="407,491" name="CandE_OutputNameBackground" version="16-01-14 22:07:04">
+  <attribute name="symname" type="text" value="CandE_OutputNameBackground"/>
+  <attribute name="symplacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="parent" subid="3" id="1030"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%CANDE_TAG:Input[%TT_I]} == 1 &amp;&amp; {%CANDE_TAG:Nots[%TT_I]} == 0" priority="0" foreground="red"/>
+   <state type="expression" expression="{%CANDE_TAG:Input[%TT_I]} == 0 &amp;&amp; {%CANDE_TAG:Nots[%TT_I]} == 1" priority="0" foreground="red"/>
+  </animation>
+ </symbol>
+ <symbol id="1030" xy="407,491" name="CandE_Output" version="16-04-14 09:37:28">
+  <parameter name="TT_Y_ARRAY" value="%CANDE_TAG:Input"/>
+  <parameter name="TT_DY" value="16"/>
+  <attribute name="SelectBox" type="real" value="0,0,154,16"/>
+  <attribute name="actionlist" type="text" value="action=set,TAG_NAME,&apos;namepart(#(%CANDE_TAG:Input[%TT_I]@V_input))&apos;;actionif=&apos;blockexists(%TAG_NAME)&apos;,set,TAG_TYPE,&apos;blocktype(%TAG_NAME)&apos;;actionif=*,set,FINDINMAINWINDOW,TRUE;actionif=*,set,BE_TIMELINE_APP,&apos;blockmid(%TAG_NAME)&apos;;actionif=*,menu,BlockExplorerBlock;"/>
+  <attribute name="symname" type="text" value="CandE_Output"/>
+  <attribute name="symplacement" type="null"/>
+  <relation type="child" subid="3" id="1071,1029"/>
+ </symbol>
+ <symbol id="1031" xy="563,491" name="CandE_Output" version="16-04-14 09:37:28">
+  <parameter name="TT_Y_ARRAY" value="%CANDE_TAG:Nots[%TT_I]"/>
+  <parameter name="TT_DY" value="16"/>
+  <attribute name="SelectBox" type="real" value="0,0,154,16"/>
+  <attribute name="actionlist" type="text" value="action=set,TAG_NAME,&apos;namepart(#(%CANDE_TAG:Nots[%TT_I]))&apos;;actionif=&apos;blockexists(%TAG_NAME)&apos;,set,TAG_TYPE,&apos;blocktype(%TAG_NAME)&apos;;actionif=*,set,FINDINMAINWINDOW,TRUE;actionif=*,set,BE_TIMELINE_APP,&apos;blockmid(%TAG_NAME)&apos;;actionif=*,menu,BlockExplorerBlock;actionif=&apos;empty(%TAG_NAME)&apos;,nop;actionelse=messagebox,&apos;Block not found&apos;,error;"/>
+  <attribute name="symname" type="text" value="CandE_Output"/>
+  <attribute name="symplacement" type="null"/>
+  <relation type="child" subid="3" id="1028,1027"/>
+ </symbol>
+ <polygon id="1032" colour="gray54" depth="-1" xy="685,582,685,566,563,566,563,582,685,582"/>
+ <text id="1063" colour="white" xy="413,511" height="8" font="Verdana">
+  <tstring>Input</tstring>
+ </text>
+ <tnode id="1071" xy="411,495" height="8" font="Verdana" maxwidth="146">
+  <relation type="parent" subid="3" id="1030"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TT_TAG@V_input">
+   <state type="expression" expression="{%CANDE_TAG:Input[%TT_I]} == 1 &amp;&amp; {%CANDE_TAG:Nots[%TT_I]} == 0" priority="0" foreground="white"/>
+   <state type="expression" expression="{%CANDE_TAG:Input[%TT_I]} == 0 &amp;&amp; {%CANDE_TAG:Nots[%TT_I]} == 1" priority="0" foreground="white"/>
+  </animation>
+ </tnode>
+ <tnode id="1077" xy="569,556" height="8" font="Verdana" maxwidth="146">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%CANDE_TAG:Output">
+   <state type="expression" expression="{%CANDE_TAG:Output} == 1" priority="0" foreground="white"/>
+  </animation>
+ </tnode>
+ <symbol id="1078" xy="563,550" name="CandE_OutputNameBackground" version="16-01-14 22:07:04">
+  <attribute name="symname" type="text" value="CandE_OutputNameBackground"/>
+  <attribute name="symplacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%CANDE_TAG:Output} == 1" priority="0" foreground="red"/>
+  </animation>
+ </symbol>
+ <polygon id="1081" colour="gray54" depth="-1" xy="407,507,407,523,529,523,529,507,407,507"/>
+ <text id="1086" colour="white" xy="568,512" height="8" angle="2.519e-006" font="Verdana">
+  <tstring>Inverted</tstring>
+ </text>
+ <polygon id="1087" colour="gray54" depth="-1" xy="685,523,685,507,563,507,563,523,685,523"/>
+</xdr>

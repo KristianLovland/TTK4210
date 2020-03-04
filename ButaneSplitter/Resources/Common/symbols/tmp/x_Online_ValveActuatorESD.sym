@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="3">
+ <header xy="64,244" xmin="61.0008" ymin="243.999" xmax="66.9994" ymax="254">
+  <attribute name="SymName" type="text" value="x_Online_ValveActuatorESD"/>
+  <attribute name="SymPlacement" type="null"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <polygon id="1657" depth="4" xy="63.75,250,63.75,244,64.25,244,64.25,250,63.75,250">
+  <relation type="mutual" subid="100" id="1656,1670"/>
+ </polygon>
+ <polygon id="1656" depth="4" xy="61,249,61,254,67,254,67,249,61,249">
+  <relation type="mutual" subid="100" id="1670,1657"/>
+ </polygon>
+ <cpoint id="1670" depth="4" estat="ref" xy="64,244">
+  <attribute name="SymName" type="text" value="x_Online_ValveActuatorESD"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1657,1656"/>
+ </cpoint>
+</sym>

@@ -1,0 +1,16 @@
+
+#define BLOCKNAME namepart(#(%CANDE_TAG:InputTripSignal[%TT_I]@V_input))
+
+set	variable=TAG_NAME,"BLOCKNAME";
+set	variable=TAG_TYPE,"blocktype(%TAG_NAME)";
+set	variable=FINDINMAINWINDOW,TRUE;
+
+#ifdef 'blockexists(BLOCKNAME)'
+button	label="Block menu..."; \
+	action=set,BE_TIMELINE_APP,"blockmid(BLOCKNAME)"; \
+	action=menu,BlockExplorerBlock;
+#elseifdef 'empty(BLOCKNAME)'
+button	label="No block name set"; action=beep;
+#else
+button	label="Block not found"; action=beep;
+#endif

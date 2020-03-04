@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Kongsberg\K-Spice\bin\SimExplorer.exe" -d -search_path Operator -app Operator -instance 2 -NetMasterHost <<host name>> 

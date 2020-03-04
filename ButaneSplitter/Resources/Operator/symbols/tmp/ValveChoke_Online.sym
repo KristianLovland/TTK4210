@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="10">
+ <header xy="180,180" xmin="180" ymin="180" xmax="216" ymax="202">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Online Choke Valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="ValveChoke_Online"/>
+  <attribute name="SelectBox" type="real" value="0,0,12,14"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="3482" estat="ext" xy="190,194,216,202" name="x_Online_SolidFrame.sym" xscl="26" yscl="8" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3481,3462"/>
+ </symbol>
+ <symbol id="3481" estat="ext" xy="190,194,216,202" name="x_Online_Background.sym" xscl="26" yscl="8" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3480,3482"/>
+ </symbol>
+ <symbol id="3459" estat="ext" xy="184,186" name="x_Online_ValveActuatorControl.sym">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_Online_ValveActuatorControl"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3310,3463"/>
+ </symbol>
+ <symbol id="3310" depth="1" estat="ext" xy="184,192,192,184" name="x_ValveMask.sym" xscl="8" yscl="-8" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_ValveMask"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="3461,3459"/>
+ </symbol>
+ <symbol id="3462" estat="ext" xy="180,180" name="x_Online_ValveChokeBody.sym">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_Online_ValveChokeBody"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3482,3461"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == True &amp;&amp; {%TAG_NAME:IsDefinedClosed} == True " priority="10" foreground="magenta"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == True " priority="1" foreground="green3"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedClosed} == True " priority="0" foreground="red"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == False &amp;&amp; {%TAG_NAME:IsDefinedClosed} == False" priority="0" foreground="yellow"/>
+  </animation>
+ </symbol>
+ <tnode id="3480" estat="ext" xy="208.5,195.5" height="5" hjust="right">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3479,3481"/>
+  <animation type="text" tag="%TAG_NAME:ValveStemPosition" format="%5.1f">
+  </animation>
+ </tnode>
+ <tnode id="3479" estat="ext" xy="208.5,195.5" height="5">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3460,3480"/>
+  <animation type="text" tag="%TAG_NAME:ValveStemPosition@V_Unit" format="%s">
+   <state type="expression" expression="{%TAG_NAME:ValveStemPosition@V_unit} == &quot;fract&quot;" priority="0" text="{%TAG_NAME:ValveStemPosition@V_unit}" foreground="invisible"/>
+  </animation>
+ </tnode>
+ <tnode id="3460" layer="TAGNAMES" estat="ext" xy="180,186" height="5" hjust="right" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="3463,3479"/>
+ </tnode>
+ <string id="3463" depth="10" style="1" estat="ref" xy="180,180,180,194,192,194,192,180,180,180">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="3459,3460"/>
+ </string>
+ <cpoint id="3461" estat="ref" xy="180,180">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Online Choke Valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="ValveChoke_Online"/>
+  <relation type="mutual" subid="100" id="3462,3310"/>
+ </cpoint>
+</sym>

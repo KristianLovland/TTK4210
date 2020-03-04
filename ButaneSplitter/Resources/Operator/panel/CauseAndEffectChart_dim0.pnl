@@ -1,0 +1,62 @@
+#include $EXPLORER_RESOURCES/Panel/DefaultVars.def
+
+Header	Title = "%TAG_NAME (%PANEL_TIMELINE) Causes"; Resizable = SaveSize,LargerOnly; HELP1; \
+		Name = "%TAG_NAME Causes"; OneOff = "%TAG_NAME (%PANEL_TIMELINE)"; Position = Cursor;
+
+//*************
+// Block menu *
+//*************
+Frame	Id = 1; Frame = -2; Layout = Vertical; Pad = 2;
+
+Frame	Id = 11; Frame = 1; Layout = Horizontal;
+
+//Button	Frame = 11; Image = "blkmenu.ico"; FeedBack = "Block //menu"; Style = BUTTON_STYLE; \
+//		Action = Menu,"BlockExplorerBlock";
+		
+Stub		Frame = 11; Size = 2,0;
+
+Variable	VAR_NOEDIT; Frame = 11; Tag = "%TAG_NAME@B_desc"; Width = 200;
+
+Frame	Frame = 1; Id=101; Layout = Horizontal; Space = 3; 
+Label	Frame=101; Label="#(%TAG_NAME@B_dimdsc[0])"; SameWidth = 10;
+Stub		Frame=101; SameWidth = 15;
+Variable	Frame = 101; Editable; Sample = 1; Tag =  "%TAG_NAME@B_dims[0]"; \
+		 Background = White;SameWidth = 101;
+
+Column	Header = "Source"; Source = Tag,"%TAG_NAME:InputTripSignal@V_Array"; Tag = "%LVITEM@V_input"; \
+	Width = 150; Sample = 1; Editable; Background = EDIT_BG; \
+	ShowState = ValueOf,"%LVITEM@V_inputtype"; Foreground = Black,Black,Blue,Magenta; \
+	ActionIf = '"%RIGHT_CLICK" != "True"',Break; \
+	Action = Set,INAME,"%TAG_NAME:InputTripSignal[%LV_ROW]"; \
+	Action = Set,VTYPE,"#(%INAME@V_type)"; \
+	ActionIf = '%VTYPE == 2 || %VTYPE == 6 || %VTYPE == 15',Break; \
+	Action = Set,VINPUT,"#(%INAME@V_input)"; \
+	Action = Menu,BlockExplorerSetInput;
+
+Column	Header = "Trip Signal"; TEXT_LV_SSEDIT; Tag = "%TAG_NAME:InputTripSignal[%LVITEM]"; Width = 70; \
+	Values = "Good","Bad"; \
+	Foreground = Black,Black,-; Background = PaleGreen3,Red; 
+
+Column	Header = "Invert"; TEXT_LV_SSEDIT; Tag = "%TAG_NAME:InvertInput[%LVITEM]"; Width = 70; \
+	Values = "False","True"; Background = Ivory1,Yellow;
+
+Column	Header = "State"; TEXT_LV_SSNOEDIT; Tag = "%TAG_NAME:InputSignal[%LVITEM]"; Width = 70; \
+ 	Values = "Good","Bad"; \
+	Foreground = Black,Black,-; Background = PaleGreen3,Red; 
+ 
+Column	Header = "Logic"; TEXT_LV_SSEDIT; Tag = "%TAG_NAME:InputLogic[%LVITEM]"; Width = 70; \
+	Values = "False","True"; Background = Ivory1,Yellow;
+
+Column	Header = "Inhibit"; TEXT_LV_SSEDIT; Tag = "%TAG_NAME:Inhibit[%LVITEM]"; Width = 70; \
+	 Values = "False","True"; Background = Ivory1,Yellow;
+
+Column	Header = "Time bad (#(%TAG_NAME:Time@V_units))"; TEXT_LV_SSEDIT; Tag = "%TAG_NAME:Time[%LVITEM]"; Width = 70; \
+	Format = "%8.1f";
+
+Column	Header = "From SD"; TEXT_LV_SSEDIT; Tag = "%TAG_NAME:InputFromShutdownBlock[%LVITEM]"; Width = 100; \
+	 Values = "False","True"; Background = SkyBlue,Yellow;
+
+Column	Header = "First out"; TEXT_LV_SSNOEDIT; Tag = "%TAG_NAME:FirstOut[%LVITEM]"; Width = 100; \
+	 Values = "False","True"; Background = Ivory1,Red;
+
+ListView	Frame = 0; Source = Tag,"%TAG_NAME:InputTripSignal@V_indlst"; Grid; Size = 550,350; SaveState;

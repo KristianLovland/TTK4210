@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<iodb>
+
+  <input type="AirCooler">
+    <output type="ArithmeticOperator">
+      <connection group="group4369" icname="air_f" isymbol="AirCooler" ocname="Output" osymbol="ArithmeticOperator" rank="5" reference="PropaneCondensers" style="Mechanical"/>
+    </output>
+    <output type="PipeVolume">
+      <connection group="group4357" icname="tb_str_in" isymbol="AirCooler" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="6" reference="PropaneCondensers" style="Oil"/>
+    </output>
+  </input>
+
+  <input type="AnalogSwitch">
+    <output type="LogicOperator">
+      <connection group="group9522" icname="Input" isymbol="AnalogSwitch_Opr" ocname="Output" osymbol="LogicOperator" rank="1" reference="1301_PWells_1" style="Mechanical"/>
+    </output>
+    <output type="Valve">
+      <connection group="group5412" icname="Signal1" isymbol="AnalogSwitch_Opr" ocname="ValveStemPosition" osymbol="ValveChoke_OTS" rank="0" reference="1301_PWells_1" style="Mechanical"/>
+    </output>
+  </input>
+
+  <input type="ArithmeticOperator">
+    <output type="ArithmeticOperator">
+      <connection group="group7130" iarray="true" icname="Inputs" isymbol="ArithmeticOperator" ocname="Output" osymbol="ArithmeticOperator" rank="0" reference="PropaneCompressors" style="Instrument"/>
+    </output>
+    <output type="AsynchronousMachine">
+      <connection group="group4348" iarray="true" icname="Inputs" isymbol="ArithmeticOperator" ocname="Speed" osuffix="[]" osymbol="AsynchronousMachine" rank="5" reference="PropaneCondensers" style="Mechanical"/>
+    </output>
+    <output type="FlowElement">
+      <connection group="group5658" iarray="true" icname="Inputs" isymbol="ArithmeticOperator" ocname="VolumeFlowSTP" osymbol="FlowElement" rank="0" reference="PropaneCompressors" style="Instrument"/>
+    </output>
+    <output type="PidController">
+      <connection group="group5716" iarray="true" icname="Inputs" isymbol="ElectricalHeater" ocname="ControllerOutput" osymbol="PIDController_OTS" rank="2" reference="4306-HP-Flare" style="Control"/>
+    </output>
+  </input>
+
+  <input type="AsynchronousMachine">
+    <output type="CentrifugalPump">
+      <connection group="group3977" iarray="true" icname="Torque" isymbol="AsynchronousMachine" ocname="Torque" osymbol="CentrifugalPump" rank="0" reference="5705-ClosedDrain" style="Mechanical"/>
+    </output>
+    <output type="ContinuousFlowCompressor">
+      <connection group="group3968" iarray="true" icname="Torque" isymbol="AsynchronousMachine" ocname="Torque" osymbol="ContinuousFlowCompressor" rank="12" reference="PropaneCompressors" style="Mechanical"/>
+    </output>
+    <output type="DisplacementPump">
+      <connection group="group3977" iarray="true" icname="Torque" isymbol="AsynchronousMachine" ocname="Torque" osymbol="RotaryPump" rank="0" reference="5705-ClosedDrain" style="Mechanical"/>
+    </output>
+    <output type="PidController">
+      <connection group="group4599" icname="MachineON" isymbol="AsynchronousMachine" ocname="ControllerOutput" osymbol="PIDController_OTS" rank="2" reference="5705-ClosedDrain" style="Control"/>
+      <connection group="group5968" icname="ControlSignalIn" isymbol="AsynchronousMachine" ocname="ControllerOutput" osymbol="PIDController_OTS" rank="1" reference="PropaneCompressors" style="Control"/>
+    </output>
+  </input>
+
+  <input type="CauseAndEffectChart">
+    <output type="CauseAndEffectChart">
+      <connection group="group4457" iarray="true" icname="InputTripSignal" isymbol="CauseAndEffectChart" ocname="OutputTripSignal" osuffix="[]" osymbol="CauseAndEffectChart" rank="0" reference="ESD-PSD" style="Mechanical"/>
+    </output>
+  </input>
+
+  <input type="CentrifugalPump">
+    <output type="AsynchronousMachine">
+      <connection group="group3985" icname="Speed" isymbol="CentrifugalPump" ocname="Speed" osuffix="[]" osymbol="AsynchronousMachine" rank="0" reference="5705-ClosedDrain" style="Mechanical"/>
+    </output>
+    <output type="Drum">
+      <connection group="group3449" icname="InletStream" isymbol="CentrifugalPump" ocname="OutletStream" osuffix="[]" osymbol="Drum_Horizontal" rank="1" reference="5705-ClosedDrain" style="Oil"/>
+      <connection group="group10356" icname="InletStream" isymbol="CentrifugalPump" ocname="OutletStream" osuffix="[]" osymbol="ColumnBase" rank="2" reference="AmineSystem" style="Process Main"/>
+    </output>
+    <output type="PipeVolume">
+      <connection group="group6442" icname="InletStream" isymbol="CentrifugalPump" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="1" reference="AmineSystem" style="Process Main"/>
+    </output>
+    <output type="Separator">
+      <connection group="group11887" icname="InletStream" isymbol="CentrifugalPump" ocname="OutletStreamFeedSideWeir" osuffix="[]" osymbol="Separator_Vertical" rank="1" reference="AmineRegeneration" style="Process Main"/>
+    </output>
+  </input>
+
+  <input type="ColumnPackedStage">
+    <output type="Drum">
+      <connection group="group5890" icname="InletGasStream" isymbol="ColumnPackedStage_TallSection" ocname="OutletStream" osuffix="[]" osymbol="Drum_Horizontal" rank="0" reference="2403-2-GlycolReGen" style="Gas"/>
+    </output>
+    <output type="PipeFlow">
+      <connection group="group7162" iarray="true" icname="InletSideStream" isymbol="ColumnPackedStage_TallSection" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="1" reference="2403-2-GlycolReGen" style="Gas"/>
+      <connection group="group6421" iarray="true" icname="InletSideStream" isymbol="ColumnPackedStage_TopSection" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="0" reference="2401-TEG-Contactor" style="TEG Rich"/>
+    </output>
+  </input>
+
+  <input type="ColumnTray">
+    <output type="PipeFlow">
+      <connection group="group10282" iarray="true" icname="InletSideStream" isymbol="ColumnTrayTop" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="4" reference="TurboExpander" style="Gas"/>
+      <connection group="group14256" icname="InletLiquidStream" isymbol="ColumnTrayTop" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="0" reference="AmineRegeneration" style="Process Main"/>
+    </output>
+  </input>
+
+  <input type="ContinuousFlowCompressor">
+    <output type="AsynchronousMachine">
+      <connection group="group4640" icname="Speed" isymbol="ContinuousFlowCompressor" ocname="Speed" osuffix="[]" osymbol="AsynchronousMachine" rank="14" reference="MRCompressors" style="Mechanical"/>
+    </output>
+    <output type="PipeVolume">
+      <connection group="group3908" icname="InletStream" isymbol="ContinuousFlowCompressor" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="0" reference="MRCompressors" style="Produced Water"/>
+    </output>
+  </input>
+
+  <input type="ControlValve">
+    <output type="PidController">
+      <connection group="group8682" icname="LocalControlSignalIn" isymbol="ValveControl_Opr" ocname="ControllerOutput" osymbol="PIDController_Opr" rank="0" reference="SteamTurbine" style="Control"/>
+    </output>
+  </input>
+
+  <input type="DcsPidController">
+    <output type="DcsPidController">
+      <connection group="group12502" icname="ExternalSetpoint" isymbol="PIDController_OTS" ocname="ControllerOutput" osymbol="PIDController_OTS" rank="0" reference="Column" style="Control"/>
+    </output>
+    <output type="FieldTransmitter">
+      <connection group="group4913" icname="Measurement" isymbol="PIDController_OTS" ocname="MeasuredValue" osymbol="FieldTransmitter_OTS" rank="1" reference="Column" style="Instrument"/>
+    </output>
+  </input>
+
+  <input type="DisplacementPump">
+    <output type="AsynchronousMachine">
+      <connection group="group3985" icname="Speed" isymbol="RotaryPump" ocname="Speed" osuffix="[]" osymbol="AsynchronousMachine" rank="0" reference="5705-ClosedDrain" style="Mechanical"/>
+    </output>
+    <output type="Drum">
+      <connection group="group4411" icname="InletStream" isymbol="RotaryPump" ocname="OutletStream" osuffix="[]" osymbol="Drum_Horizontal" rank="1" reference="5705-ClosedDrain" style="Oil"/>
+    </output>
+    <output type="PipeVolume">
+      <connection group="group4537" icname="InletStream" isymbol="RotaryPump" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="2" reference="~simexplorer_autosave_Overview_glycol" style="TEG Rich"/>
+    </output>
+  </input>
+
+  <input type="Drum">
+    <output type="ArithmeticOperator">
+      <connection group="group5507" icname="Duty" isymbol="Drum_Horizontal" ocname="Output" osymbol="ElectricalHeater" rank="0" reference="4306-HP-Flare" style="Mechanical"/>
+      <connection group="group9599" icname="Duty" isymbol="ColumnBase" ocname="Output" osymbol="ElectricalHeater" rank="1" reference="2403-2-GlycolReGen" style="Mechanical"/>
+    </output>
+    <output type="ColumnPackedStage">
+      <connection group="group6925" iarray="true" icname="InletStream" isymbol="ColumnBase" ocname="OutletLiquidStream" osymbol="ColumnPackedStage_TallSection" rank="0" reference="2403-2-GlycolReGen" style="Gas"/>
+      <connection group="group6407" iarray="true" icname="InletStream" isymbol="Drum_Horizontal" ocname="OutletLiquidStream" osymbol="ColumnPackedStage_TallSection" rank="0" reference="2403-2-GlycolReGen" style="TEG Rich"/>
+    </output>
+    <output type="HeatExchangerStream">
+      <connection group="group4597" iarray="true" icname="InletStream" isymbol="ColumnBase" ocname="OutletStream" osymbol="HXStream3" rank="0" reference="Column" style="Oil"/>
+      <connection group="group3524" iarray="true" icname="CoilWallTemperature" isymbol="Drum_Horizontal" ocname="WallTemperatureProfile" osymbol="HXStream2" rank="5" reference="PreCooling" style="Mechanical"/>
+      <connection group="group3524" iarray="true" icname="CoilGrid" isymbol="Drum_Horizontal" ocname="GridProfile" osymbol="HXStream2" rank="5" reference="PreCooling" style="Mechanical"/>
+    </output>
+    <output type="PipeFlow">
+      <connection group="group3428" iarray="true" icname="InletStream" isymbol="Drum_Horizontal" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="23" reference="4306-HP-Flare" style="Gas"/>
+      <connection group="group4089" iarray="true" icname="InletStream" isymbol="Drum_Horizontal" ocname="OutletStream" osymbol="PipeFlow" rank="6" reference="5705-ClosedDrain" style="Oil"/>
+      <connection group="group8764" iarray="true" icname="InletStream" isymbol="Drum_Vertical" ocname="OutletStream" osymbol="PipeFlow" rank="2" reference="2403-2-GlycolReGen" style="Gas"/>
+      <connection group="group4554" iarray="true" icname="InletStream" isymbol="Drum_Vertical" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="14" reference="GasReinjectionCoolerScrubber" style="Gas"/>
+      <connection group="group7393" iarray="true" icname="InletStream" isymbol="Drum_Vertical_Opr" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="0" reference="InletSeparator" style="Process Main"/>
+      <connection group="group14891" iarray="true" icname="InletStream" isymbol="ColumnBase" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="4" reference="AmineSystem" style="Process Main"/>
+    </output>
+    <output type="StreamBoundary">
+      <connection group="group8528" iarray="true" icname="InletStream" isymbol="Drum_Vertical" ocname="OutletStream" osymbol="StreamBoundary" rank="0" reference="2403-2-GlycolReGen" style="Gas"/>
+      <connection group="group3948" iarray="true" icname="InletStream" isymbol="Drum_Horizontal" ocname="OutletStream" osymbol="StreamBoundary" rank="0" reference="TEG Storage Tank" style="TEG Rich"/>
+    </output>
+  </input>
+
+  <input type="FieldTransmitter">
+    <output type="CentrifugalPump">
+      <connection group="group4105" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".q" osymbol="CentrifugalPump" rank="4" reference="5705-ClosedDrain" style="Mechanical"/>
+      <connection group="group6317" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".m" osymbol="CentrifugalPump" rank="1" reference="Centrifugal_pumps" style="Mechanical"/>
+      <connection group="group6271" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".p" osymbol="CentrifugalPump" rank="0" reference="Centrifugal_pumps" style="Mechanical"/>
+    </output>
+    <output type="ColumnTray">
+      <connection group="group15791" icname="Value" isymbol="FieldTransmitter_Opr2" ocname="Temperature" osymbol="ColumnTray" rank="0" reference="Column" style="Mechanical"/>
+      <connection group="group4145" icname="Value" isymbol="FieldTransmitter_Opr2" ocname="Pressure" osymbol="ColumnTray" rank="3" reference="AmineContactor" style="Instrument"/>
+      <connection group="group5363" icname="SecondProcessValue" isymbol="FieldTransmitter_Opr2" ocname="Pressure" osymbol="ColumnTray" rank="1" reference="AmineContactor" style="Instrument"/>
+      <connection group="group5142" icname="SecondProcessValue" isymbol="FieldTransmitter_Opr2" ocname="Pressure" osymbol="ColumnTrayTop" rank="1" reference="AmineContactor" style="Instrument"/>
+    </output>
+    <output type="DisplacementPump">
+      <connection group="group4105" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".p" osymbol="RotaryPump" rank="1" reference="5705-ClosedDrain" style="Mechanical"/>
+      <connection group="group4105" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".q" osymbol="RotaryPump" rank="0" reference="5705-ClosedDrain" style="Mechanical"/>
+      <connection group="group5143" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".t" osymbol="RotaryPump" rank="0" reference="~simexplorer_autosave_Overview_glycol" style="Mechanical"/>
+    </output>
+    <output type="Drum">
+      <connection group="group5189" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" ojunction=".q" osuffix="[]" osymbol="Drum_Horizontal" rank="0" reference="4306-HP-Flare" style="Mechanical"/>
+      <connection group="group5165" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix="[].t" osymbol="Drum_Horizontal" rank="0" reference="4306-HP-Flare" style="Mechanical"/>
+      <connection group="group4989" icname="Value" isymbol="FieldTransmitter_DisplayValue" ocname="LiquidLevel" osymbol="Drum_Horizontal" rank="10" reference="4306-HP-Flare" style="Mechanical"/>
+      <connection group="group5141" icname="Value" isymbol="FieldTransmitter_OTS" ocname="Pressure" osymbol="Drum_Horizontal" rank="2" reference="4306-HP-Flare" style="Mechanical"/>
+      <connection group="group5275" icname="Value" isymbol="FieldTransmitter_OTS" ocname="LiquidTemperature" osymbol="Drum_Horizontal" rank="7" reference="4306-HP-Flare" style="Mechanical"/>
+      <connection group="group4751" icname="Value" isymbol="FieldTransmitter_OTS" ocname="GasTemperature" osymbol="Drum_Horizontal" rank="0" reference="5705-ClosedDrain" style="Mechanical"/>
+      <connection group="group6056" icname="Value" isymbol="FieldTransmitter_DisplayValue" ocname="LiquidLevel" osymbol="Drum_Vertical" rank="4" reference="2403-2-GlycolReGen" style="Mechanical"/>
+      <connection group="group8318" icname="Value" isymbol="FieldTransmitter_OTS" ocname="LiquidTemperature" osymbol="ColumnBase" rank="2" reference="2403-2-GlycolReGen" style="Mechanical"/>
+      <connection group="group6937" icname="Value" isymbol="FieldTransmitter_OTS" ocname="Temperature" osymbol="Drum_Horizontal" rank="6" reference="2403-2-GlycolReGen" style="Mechanical"/>
+      <connection group="group9147" icname="Value" isymbol="FieldTransmitter_OTS" ocname="LiquidTemperature" osymbol="Drum_Vertical" rank="1" reference="2403-2-GlycolReGen" style="Mechanical"/>
+      <connection group="group9009" icname="Value" isymbol="FieldTransmitter_OTS" ocname="Pressure" osymbol="Drum_Vertical" rank="0" reference="2403-2-GlycolReGen" style="Mechanical"/>
+      <connection group="group7716" icname="Value" isymbol="FieldTransmitter_DisplayValue" ocname="LiquidLevel" osymbol="ColumnBase" rank="0" reference="2403-2-GlycolReGen" style="Mechanical"/>
+      <connection group="group8318" icname="Value" isymbol="FieldTransmitter_OTS" ocname="LiquidLevel" osymbol="ColumnBase" rank="0" reference="2403-2-GlycolReGen" style="Mechanical"/>
+      <connection group="group6786" icname="SecondProcessValue" isymbol="FieldTransmitter_OTS" ocname="LiquidTemperature" osymbol="ColumnBase" rank="0" reference="Overview_glycol" style="Mechanical"/>
+      <connection group="group6769" icname="Value" isymbol="FieldTransmitter_OTS" ocname="LiquidLevel" osymbol="Drum_Vertical" rank="0" reference="PropaneCompressors" style="Mechanical"/>
+      <connection group="group12050" icname="Value" isymbol="FieldTransmitter_Opr2" ocname="Pressure" osymbol="ColumnBase" rank="0" reference="AmineRegeneration" style="Instrument"/>
+    </output>
+    <output type="HeatExchangerStream">
+      <connection group="group5748" icname="SecondProcessValue" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".p" osymbol="HeatExchangerStream_Plate1" rank="0" reference="2601-GasReInjCompr" style="Mechanical"/>
+    </output>
+    <output type="HydroCyclone">
+      <connection group="group5781" icname="SecondProcessValueAdjustment" isymbol="FieldTransmitter_Opr2" ocname="RejectStream" osuffix=".p" osymbol="HydroCyclone" rank="0" reference="Hydrocyclone" style="Mechanical"/>
+      <connection group="group5781" icname="SecondProcessValue" isymbol="FieldTransmitter_Opr2" ocname="RejectStream" osuffix=".p" osymbol="HydroCyclone" rank="0" reference="Hydrocyclone" style="Mechanical"/>
+      <connection group="group5032" icname="SecondProcessValue" isymbol="FieldTransmitter_Opr2" ocname="OutletStream" osuffix=".p" osymbol="HydroCyclone" rank="0" reference="Hydrocyclone" style="Mechanical"/>
+    </output>
+    <output type="PipeFlow">
+      <connection group="group8157" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".q" osymbol="PipeFlow_OTS" rank="6" reference="2403-2-GlycolReGen" style="Mechanical"/>
+      <connection group="group8129" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".p" osymbol="PipeFlow_OTS" rank="12" reference="2403-2-GlycolReGen" style="Mechanical"/>
+      <connection group="group4532" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".t" osymbol="PipeFlow_OTS" rank="8" reference="GasReinjectionCoolerScrubber" style="Mechanical"/>
+      <connection group="group6276" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".p" osymbol="PipeFlow" rank="1" reference="InjManifoldWells" style="Mechanical"/>
+      <connection group="group7099" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".f" osymbol="PipeFlow_OTS" rank="1" reference="2401-TEG-Contactor" style="Mechanical"/>
+      <connection group="group5169" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".t" osymbol="PipeFlow" rank="1" reference="2603_GasInjWells" style="Mechanical"/>
+      <connection group="group5581" icname="SecondProcessValue" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".p" osymbol="PipeFlow_OTS" rank="1" reference="2601-GasReInjCompr" style="Mechanical"/>
+      <connection group="group8329" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".m" osymbol="PipeFlow_OTS" rank="0" reference="~simexplorer_autosave_Overview_glycol" style="Mechanical"/>
+      <connection group="group5647" icname="SecondProcessValue" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".t" osymbol="PipeFlow_OTS" rank="1" reference="Heat_Exchanger _Plate" style="Mechanical"/>
+      <connection group="group3945" icname="Value" isymbol="FieldTransmitterCtrl_Opr2" ocname="OutletStream" osuffix=".p" osymbol="PipeFlow_OTS" rank="0" reference="AmineSystem" style="Instrument"/>
+      <connection group="group9643" icname="Value" isymbol="FieldTransmitter_Opr2" ocname="OutletStream" osuffix=".f" osymbol="PipeFlow_OTS" rank="0" reference="AmineSystem" style="Instrument"/>
+      <connection group="group3945" icname="SecondProcessValue" isymbol="FieldTransmitterCtrl_Opr2" ocname="OutletStream" osuffix=".p" osymbol="PipeFlow_OTS" rank="0" reference="AmineRegeneration" style="Instrument"/>
+    </output>
+    <output type="PipeVolume">
+      <connection group="group4008" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" ojunction=".p" osuffix="[]" osymbol="PipeVolume" rank="24" reference="4306-HP-Flare" style="Mechanical"/>
+      <connection group="group7100" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix="[].t" osymbol="PipeVolume" rank="0" reference="GasReinjectionCoolerScrubber" style="Mechanical"/>
+      <connection group="group7100" icname="Value" isymbol="FieldTransmitter_OTS" ocname="NodeTemperature" osymbol="PipeVolume" rank="1" reference="GasReinjectionCoolerScrubber" style="Mechanical"/>
+      <connection group="group6383" icname="SecondProcessValue" isymbol="FieldTransmitter_OTS" ocname="OutletStream" ojunction=".p" osuffix="[]" osymbol="PipeVolume" rank="0" reference="2701-GasExpCompr" style="Mechanical"/>
+      <connection group="group7227" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix="[].p" osymbol="PipeVolume" rank="2" reference="GasReinjectionCoolerScrubber" style="Mechanical"/>
+      <connection group="group7158" icname="Value" isymbol="FieldTransmitter_Opr2" ocname="OutletStream" ojunction=".q" osuffix="[]" osymbol="PipeVolume" rank="0" reference="2_Phase_separator" style="Mechanical"/>
+      <connection group="group4101" icname="SecondProcessValue" isymbol="FieldTransmitter_Opr2" ocname="OutletStream" ojunction=".p" osuffix="[]" osymbol="PipeVolume" rank="0" reference="Hydrocyclone" style="Mechanical"/>
+      <connection group="group5947" icname="Value" isymbol="FieldTransmitter_Opr2" ocname="OutletStream" osuffix="[].p" osymbol="PipeVolume" rank="0" reference="SteamTurbine" style="Instrument"/>
+      <connection group="group5699" icname="Value" isymbol="FieldTransmitter_Opr2" ocname="OutletStream" ojunction=".p" osuffix="[]" osymbol="PipeVolume" rank="1" reference="Hydrocyclone" style="Mechanical"/>
+      <connection group="group7623" icname="Value" isymbol="FieldTransmitterCtrl_Opr2" ocname="OutletStream" ojunction=".f" osuffix="[]" osymbol="PipeVolume" rank="0" reference="AmineSystem" style="Instrument"/>
+    </output>
+    <output type="Separator">
+      <connection group="group4610" icname="Value" isymbol="FieldTransmitter_OTS" ocname="LevelOverflowLiquid" osymbol="Separator_Horizontal" rank="2" reference="Hydrocyclone" style="Mechanical"/>
+      <connection group="group4776" icname="Value" isymbol="FieldTransmitter_DisplayValue" ocname="LevelHeavyPhaseFeedSideWeir" osymbol="Separator_Horizontal" rank="0" reference="Hydrocyclone" style="Mechanical"/>
+      <connection group="group4607" icname="Value" isymbol="FieldTransmitter_OTS" ocname="LevelHeavyPhaseFeedSideWeir" osymbol="Separator_Horizontal" rank="1" reference="Hydrocyclone" style="Mechanical"/>
+    </output>
+    <output type="StreamBoundary">
+      <connection group="group7620" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".p" osymbol="StreamBoundary" rank="1" reference="Hydrocyclone" style="Mechanical"/>
+      <connection group="group3136" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".f" osymbol="StreamBoundary" rank="1" reference="template" style="Mechanical"/>
+      <connection group="group3136" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".q" osymbol="StreamBoundary" rank="5" reference="Valve_Characteristics" style="Mechanical"/>
+      <connection group="group5189" icname="Value" isymbol="FieldTransmitter_DisplayValue" ocname="OutletStream" osuffix=".m" osymbol="StreamBoundary" rank="2" reference="3-Phase_Separator" style="Mechanical"/>
+      <connection group="group3793" icname="Value" isymbol="FieldTransmitter_OTS" ocname="OutletStream" osuffix=".m" osymbol="StreamBoundary" rank="1" reference="Valve_Characteristics" style="Mechanical"/>
+      <connection group="group5189" icname="Value" isymbol="FieldTransmitter_DisplayValue" ocname="OutletStream" osuffix=".q" osymbol="StreamBoundary" rank="5" reference="3-Phase_Separator" style="Mechanical"/>
+    </output>
+    <output type="Valve">
+      <connection group="group5427" icname="Value" isymbol="FieldTransmitter_OTS" ocname="ValveStemPosition" osymbol="ValveChoke_OTS" rank="0" reference="1301_PWells_1" style="Mechanical"/>
+    </output>
+  </input>
+
+  <input type="FlowElement">
+    <output type="PipeFlow">
+      <connection group="group4542" icname="MeasuredStream" isymbol="FlowElement" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="2" reference="MRCompressors" style="Mechanical"/>
+    </output>
+  </input>
+
+  <input type="GenericASC">
+    <output type="FieldTransmitter">
+      <connection group="group4715" icname="InletPressureMeasurement" isymbol="GenericASC" ocname="MeasuredValue" osymbol="FieldTransmitter_OTS" rank="0" reference="GasReinjectionCoolerScrubber" style="Instrument"/>
+    </output>
+    <output type="PidController">
+      <connection group="group4999" icname="InletPressureMeasurement" isymbol="GenericASC" ocname="ControllerOutput" osymbol="PIDController_Opr" rank="0" reference="Compressor_System" style="Instrument"/>
+      <connection group="group4999" icname="InletPressureMeasurement" isymbol="GenericASC" ocname="MeasuredValue" osymbol="PIDController_Opr" rank="0" reference="Compressor_System" style="Instrument"/>
+      <connection group="group5007" icname="OutletPressureMeasurement" isymbol="GenericASC" ocname="MeasuredValue" osymbol="PIDController_Opr" rank="0" reference="Compressor_System" style="Instrument"/>
+    </output>
+  </input>
+
+  <input type="HeatExchangerStream">
+    <output type="Drum">
+      <connection group="group3859" icname="HeatConductanceProfileAmbient" isymbol="HXStream2" ocname="HeatConductanceProfileCoil" osuffix="[]" osymbol="Drum_Horizontal" rank="5" reference="PreCooling" style="Mechanical"/>
+      <connection group="group3859" icname="AmbientTemperatureProfile" isymbol="HXStream2" ocname="CoilFluidTemperature" osuffix="[]" osymbol="Drum_Horizontal" rank="5" reference="PreCooling" style="Mechanical"/>
+      <connection group="group3859" icname="AmbientTemperatureIntegrationFactor" isymbol="HXStream2" ocname="CoilIntegrationFactor" osuffix="[]" osymbol="Drum_Horizontal" rank="5" reference="PreCooling" style="Mechanical"/>
+    </output>
+    <output type="HeatExchangerStream">
+      <connection group="group5279" iarray="true" icname="TemperatureProfileExternal" isymbol="HeatExchangerStream_Plate2" ocname="WallTemperatureProfile" osymbol="HeatExchangerStream_Plate1" rank="5" reference="2403-2-GlycolReGen" style="Mechanical"/>
+      <connection group="group6489" icname="AmbientTemperatureProfile" isymbol="HeatExchangerStream_Plate2" ocname="FluidTemperatureProfile" osymbol="HeatExchangerStream_Plate1" rank="0" reference="2403-2-GlycolReGen"/>
+      <connection group="group5266" icname="AmbientTemperatureProfile" isymbol="HeatExchangerStream_Plate1" ocname="FluidTemperatureProfile" osymbol="HeatExchangerStream_Plate2" rank="1" reference="2403-2-GlycolReGen"/>
+      <connection group="group3245" icname="AmbientTemperatureIntegrationFactor" isymbol="HeatExchangerStream_Plate1" ocname="TemperatureIntegrationFactor" osymbol="HeatExchangerStream_Plate2" rank="0" reference="2403-3-GlycolReGenOH"/>
+      <connection group="group3232" icname="AmbientTemperatureIntegrationFactor" isymbol="HeatExchangerStream_Plate2" ocname="TemperatureIntegrationFactor" osymbol="HeatExchangerStream_Plate1" rank="0" reference="2403-3-GlycolReGenOH"/>
+      <connection group="group4919" iarray="true" icname="TemperatureProfileExternal" isymbol="HeatExchangerStream_ShellAndTube2" ocname="WallTemperatureProfile" osymbol="HeatExchangerStream_ShellAndTube1" rank="0" reference="2005-LP-Sep (2)"/>
+      <connection group="group4120" icname="AmbientTemperatureProfile" isymbol="HeatExchangerStream_ShellAndTube1" ocname="FluidTemperatureProfile" osymbol="HeatExchangerStream_ShellAndTube2" rank="0" reference="2005-LP-Sep (2)"/>
+      <connection group="group5182" iarray="true" icname="TemperatureProfileExternal" isymbol="HXStream2" ocname="WallTemperatureProfile" osymbol="HXStream2" rank="0" reference="Liquefaction" style="Mechanical"/>
+      <connection group="group5282" icname="HeatConductanceProfileAmbient" isymbol="HXStream2" ocname="HeatConductanceProfileExternal" osuffix="[]" osymbol="HXStream2" rank="0" reference="Liquefaction" style="Mechanical"/>
+    </output>
+    <output type="PipeVolume">
+      <connection group="group6111" icname="InletStream" isymbol="HeatExchangerStream_Plate2" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="15" reference="2403-2-GlycolReGen" style="Heating/Cooling medium"/>
+      <connection group="group8204" icname="InletStream" isymbol="HeatExchangerStream_Plate1" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="25" reference="2403-2-GlycolReGen" style="TEG Rich"/>
+      <connection group="group4006" icname="InletStream" isymbol="HeatExchangerStream_ShellAndTube1" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="5" reference="2005-LP-Sep (2)" style="Oil"/>
+      <connection group="group3731" icname="InletStream" isymbol="HeatExchangerStream_ShellAndTube2" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="7" reference="2005-LP-Sep (2)" style="Heating/Cooling medium"/>
+      <connection group="group7601" icname="InletStream" isymbol="HeatExchangerStream_Plate2_Opr" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="0" reference="Heat_Exchanger _Plate" style="Oil"/>
+      <connection group="group13454" icname="InletStream" isymbol="HXStream2" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="9" reference="SteamTurbine" style="Heating/Cooling medium"/>
+      <connection group="group16608" icname="InletStream" isymbol="HXStream3" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="0" reference="Column" style="Gas"/>
+    </output>
+  </input>
+
+  <input type="HydroCyclone">
+    <output type="SelectSwitch">
+      <connection group="group5900" icname="ActiveLiners" isymbol="HydroCyclone" ocname="Output" osymbol="SelectSwitch_Ineos" rank="0" reference="Hydrocyclone" style="Control"/>
+    </output>
+  </input>
+
+  <input type="PidController">
+    <output type="FieldTransmitter">
+      <connection group="group5690" icname="Measurement" isymbol="PIDController_OTS" ocname="MeasuredValue" osymbol="FieldTransmitter_OTS" rank="16" reference="4306-HP-Flare" style="Mechanical"/>
+      <connection group="group3957" icname="Measurement" isymbol="PIDController_OTS" ocname="MeasuredValue" osymbol="FieldTransmitter_DisplayValue" rank="5" reference="2403-3-GlycolReGenOH" style="Instrument"/>
+      <connection group="group3957" icname="Measurement" isymbol="PIDController_OTS" ocname="ControlSignalOut" osymbol="FieldTransmitter_DisplayValue" rank="8" reference="2403-3-GlycolReGenOH" style="Instrument"/>
+      <connection group="group4764" icname="Measurement" isymbol="PIDController_OTS" ocname="ControlSignalOut" osymbol="FieldTransmitter_OTS" rank="8" reference="2403-2-GlycolReGen" style="Instrument"/>
+      <connection group="group3510" icname="Measurement" isymbol="PIDController_OTS" ocname="MeasuredValue" osymbol="FieldTransmitterDispVal_Opr" rank="0" reference="Overview_glycol" style="Instrument"/>
+      <connection group="group5310" icname="Measurement" isymbol="PidController" ocname="MeasuredValue" osymbol="FieldTransmitter_OTS" rank="10" reference="2005-LP-Sep (2)" style="Instrument"/>
+      <connection group="group4165" icname="Measurement" isymbol="PIDController_Opr" ocname="ControlSignalOut" osymbol="FieldTransmitter_Opr2" rank="2" reference="Compressor_System" style="Instrument"/>
+      <connection group="group3400" icname="Measurement" isymbol="PIDController_Opr" ocname="MeasuredValue" osymbol="Fieldtransmitter_Opr2" rank="3" reference="3-Phase_Separator" style="Instrument"/>
+      <connection group="group3447" icname="Measurement" isymbol="PIDController_Opr" ocname="MeasuredValue" osymbol="FieldTransmitterCTRL_Opr2" rank="4" reference="Compressor_System" style="Instrument"/>
+      <connection group="group4919" icname="Measurement" isymbol="PIDController_OTS" ocname="MeasuredValue" osymbol="FieldTransmitter_Opr2" rank="1" reference="MRCompressors" style="Instrument"/>
+      <connection group="group4596" icname="ExternalSetpoint" isymbol="PIDController_Opr" ocname="ControlSignalOut" osymbol="FieldTransmitterCtrl_Opr2" rank="0" reference="Methanol Boiler" style="Control"/>
+      <connection group="group4730" icname="ExternalSetpoint" isymbol="PIDControllerCAS_Opr" ocname="ControlSignalOut" osymbol="FieldTransmitterCtrl_Opr2" rank="1" reference="Methanol Boiler" style="Control"/>
+    </output>
+    <output type="FlowElement">
+      <connection group="group5675" icname="Measurement" isymbol="PIDController_OTS" ocname="VolumeFlowSTP" osymbol="FlowElement" rank="0" reference="PropaneCompressors" style="Instrument"/>
+    </output>
+    <output type="LogicOperator">
+      <connection group="group9496" icname="TripSignal" isymbol="PIDController_OTS" ocname="Output" osymbol="LogicOperator" rank="0" reference="1301_PWells_1" style="Mechanical"/>
+    </output>
+    <output type="PidController">
+      <connection group="group7263" icname="ExternalSetpoint" isymbol="PIDController_Opr" ocname="ControllerOutput" osymbol="PIDController_Opr" rank="4" reference="Column" style="Control"/>
+      <connection group="group7921" icname="ExternalSetpoint" isymbol="PIDController_OTS" ocname="ControllerOutput" osymbol="PIDController_OTS" rank="0" reference="PropaneCompressors-I" style="Instrument"/>
+      <connection group="group4844" icname="ExternalSetpoint" isymbol="PIDControllerCAS_Opr" ocname="ControllerOutput" osymbol="PIDController_Opr" rank="0" reference="Methanol Boiler" style="Control"/>
+    </output>
+    <output type="SelectSwitch">
+      <connection group="group9141" icname="ExternalSetpoint" isymbol="PIDController_Opr" ocname="Output" osymbol="SelectSwitch" rank="0" reference="Column" style="Control"/>
+    </output>
+    <output type="Valve">
+      <connection group="group5386" icname="ExternalSetpoint" isymbol="PIDController_OTS" ocname="TargetPosition" osymbol="ValveChoke_OTS" rank="0" reference="1301_PWells_1" style="Mechanical"/>
+      <connection group="group5386" icname="ManualOutput" isymbol="PIDController_OTS" ocname="TargetPosition" osymbol="ValveChoke_OTS" rank="0" reference="1301_PWells_1" style="Mechanical"/>
+    </output>
+  </input>
+
+  <input type="PipeFlow">
+    <output type="ColumnPackedStage">
+      <connection group="group4316" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletGasStream" osymbol="ColumnPackedStage_TopSection" rank="0" reference="TEG_Contactor" style="Gas"/>
+    </output>
+    <output type="ColumnTray">
+      <connection group="group6282" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletGasStream" osymbol="ColumnTrayTop" rank="1" reference="AmineSystem" style="Process Main"/>
+      <connection group="group12724" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletSideStream" osuffix="[]" osymbol="ColumnTray" rank="0" reference="AmineRegeneration" style="Process Main"/>
+    </output>
+    <output type="Drum">
+      <connection group="group3682" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStream" osuffix="[]" osymbol="Drum_Horizontal" rank="32" reference="4306-HP-Flare" style="Gas"/>
+      <connection group="group3415" icname="InletStream" isymbol="PipeFlow" ocname="OutletStream" osuffix="[]" osymbol="Drum_Horizontal" rank="2" reference="5705-ClosedDrain" style="Gas"/>
+      <connection group="group5998" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStream" osuffix="[]" osymbol="Drum_Vertical" rank="32" reference="2403-2-GlycolReGen" style="Gas"/>
+      <connection group="group8350" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStream" osuffix="[]" osymbol="ColumnBase" rank="2" reference="Overview_glycol" style="TEG Rich"/>
+      <connection group="group4338" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStream" osuffix="[]" osymbol="HXStream3" rank="0" reference="Column" style="Water"/>
+      <connection group="group7081" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStream" osuffix="[]" osymbol="Drum_Vertical_Opr" rank="2" reference="InletSeparator" style="Process Main"/>
+    </output>
+    <output type="PipeVolume">
+      <connection group="group3949" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="169" reference="4306-HP-Flare" style="Gas"/>
+      <connection group="group4031" icname="InletStream" isymbol="PipeFlow" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="80" reference="5705-ClosedDrain" style="Oil"/>
+    </output>
+    <output type="PulseControlledValve">
+      <connection group="group4429" iarray="true" icname="ValveCv" isymbol="PipeFlow_OTS" ocname="CvAtCurrentOpening" osymbol="ValveESD_Opr" rank="5" reference="4306-HP-Flare" style="Mechanical"/>
+      <connection group="group4376" iarray="true" icname="ValveCv" isymbol="PipeFlow" ocname="CvAtCurrentOpening" osymbol="ValveESD_Opr" rank="3" reference="5705-ClosedDrain" style="Mechanical"/>
+    </output>
+    <output type="Separator">
+      <connection group="group5618" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStreamOverflowsideWeir" osuffix="[]" osymbol="Separator_Vertical" rank="1" reference="Overview_glycol" style="Oil"/>
+      <connection group="group6724" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStreamFeedSideWeir" osuffix="[]" osymbol="Separator_Vertical" rank="7" reference="Overview_glycol" style="TEG Rich"/>
+      <connection group="group6547" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStreamFeedSideWeir" osuffix="[]" osymbol="Separator_Horizontal" rank="2" reference="2001-Test-Separator" style="Gas"/>
+      <connection group="group4415" icname="InletStream" isymbol="PipeFlow" ocname="OutletStreamOverflowsideWeir" osuffix="[]" osymbol="Separator_Horizontal" rank="2" reference="Hydrocyclone" style="Gas"/>
+      <connection group="group4253" icname="InletStream" isymbol="PipeFlow" ocname="OutletStreamFeedSideWeir" osuffix="[]" osymbol="Separator_Horizontal" rank="2" reference="Hydrocyclone" style="Produced Water"/>
+      <connection group="group7132" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStreamOverflowsideWeir" osuffix="[]" osymbol="Separator_Horizontal" rank="3" reference="3-Phase_Separator" style="Gas"/>
+    </output>
+    <output type="StreamBoundary">
+      <connection group="group9952" icname="InletStream" isymbol="PipeFlow" ocname="OutletStream" osymbol="StreamBoundary" rank="9" reference="2403-2-GlycolReGen" style="Gas"/>
+      <connection group="group3712" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStream" osymbol="StreamBoundary" rank="39" reference="TEG Storage Tank" style="TEG Rich"/>
+      <connection group="group6875" icname="InletStream" isymbol="PipeFlow_OTS" ocname="OutletStream" osymbol="StreamBoundary_Opr" rank="23" reference="TurboExpander" style="Gas"/>
+      <connection group="group3107" icname="InletStream" isymbol="PipeFlow" ocname="OutletStream" osymbol="StreamBoundary_Opr" rank="1" reference="SteamTurbine" style="Gas"/>
+    </output>
+    <output type="Valve">
+      <connection group="group4507" iarray="true" icname="ValveCv" isymbol="PipeFlow" ocname="CvAtCurrentOpening" osymbol="ValveControl_OTS" rank="2" reference="5705-ClosedDrain" style="Mechanical"/>
+    </output>
+  </input>
+
+  <input type="PipeVolume">
+    <output type="AirCooler">
+      <connection group="group3943" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="tb_str_ot" osymbol="AirCooler" rank="6" reference="PropaneCondensers" style="Oil"/>
+    </output>
+    <output type="CentrifugalPump">
+      <connection group="group3984" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="CentrifugalPump" rank="10" reference="5705-ClosedDrain" style="Oil"/>
+    </output>
+    <output type="ContinuousFlowCompressor">
+      <connection group="group4422" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="ContinuousFlowCompressor" rank="3" reference="MRCompressors" style="Produced Water"/>
+    </output>
+    <output type="DisplacementPump">
+      <connection group="group3984" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="RotaryPump" rank="3" reference="5705-ClosedDrain" style="Oil"/>
+    </output>
+    <output type="HeatExchangerStream">
+      <connection group="group6622" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="HeatExchangerStream_Plate1" rank="26" reference="2403-2-GlycolReGen" style="TEG Rich"/>
+      <connection group="group6298" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="HeatExchangerStream_Plate2" rank="15" reference="2403-2-GlycolReGen" style="TEG Rich"/>
+      <connection group="group9866" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="HXStream3" rank="1" reference="Overview_glycol" style="TEG Rich"/>
+      <connection group="group4853" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="HeatExchangerStream_ShellAndTube1" rank="7" reference="2005-LP-Sep (2)" style="Oil"/>
+      <connection group="group3998" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="HeatExchangerStream_ShellAndTube2" rank="6" reference="2005-LP-Sep (2)" style="Heating/Cooling medium"/>
+      <connection group="group5936" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="HeatExchangerStream_Plate2_Opr" rank="0" reference="Heat_Exchanger _Plate" style="Oil"/>
+      <connection group="group12161" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="HXStream2" rank="8" reference="SteamTurbine" style="Heating/Cooling medium"/>
+    </output>
+    <output type="HydroCyclone">
+      <connection group="group5011" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="RejectStream" osymbol="HydroCyclone" rank="0" reference="Hydrocyclone" style="Oil"/>
+    </output>
+    <output type="PipeFlow">
+      <connection group="group3784" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="153" reference="4306-HP-Flare" style="Gas"/>
+      <connection group="group4078" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="PipeFlow" rank="37" reference="5705-ClosedDrain" style="Oil"/>
+      <connection group="group7598" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osuffix="[]" osymbol="PipeFlow_OTS" rank="2" reference="Overview_glycol" style="TEG Rich"/>
+    </output>
+    <output type="SafetyValve">
+      <connection group="group3195" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="SafetyValve" rank="8" reference="TEG Storage Tank" style="Oil"/>
+    </output>
+    <output type="StreamBoundary">
+      <connection group="group5032" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="StreamBoundary" rank="4" reference="Graphic1" style="Heating/Cooling medium"/>
+      <connection group="group10295" iarray="true" icname="InletStream" isymbol="PipeVolume" ocname="OutletStream" osymbol="StreamBoundary_Opr" rank="1" reference="TEG_Regeneration" style="Gas"/>
+    </output>
+  </input>
+
+  <input type="SafetyValve">
+    <output type="Drum">
+      <connection group="group5555" icname="InletStream" isymbol="SafetyValve" ocname="OutletStream" osuffix="[]" osymbol="Drum_Horizontal" rank="3" reference="2_Phase_separator" style="Gas"/>
+      <connection group="group6933" icname="InletStream" isymbol="SafetyValve" ocname="OutletStream" osuffix="[]" osymbol="Drum_Vertical" rank="0" reference="Compressor_System" style="Gas"/>
+      <connection group="group4725" icname="InletStream" isymbol="SafetyValve_Opr" ocname="OutletStream" osuffix="[]" osymbol="Drum_Horizontal" rank="1" reference="MRChillers" style="Oil"/>
+      <connection group="group7169" icname="InletStream" isymbol="SafetyValve_Opr" ocname="OutletStream" osuffix="[]" osymbol="Drum_Vertical_Opr" rank="0" reference="InletSeparator" style="Process Main"/>
+    </output>
+    <output type="PipeVolume">
+      <connection group="group3452" icname="InletStream" isymbol="SafetyValve" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="12" reference="TEG Storage Tank" style="Oil"/>
+      <connection group="group8940" icname="InletStream" isymbol="SafetyValve_Opr" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="5" reference="PreCooling" style="Gas"/>
+    </output>
+    <output type="Separator">
+      <connection group="group7391" icname="InletStream" isymbol="SafetyValve" ocname="OutletStreamOverflowsideWeir" osuffix="[]" osymbol="Separator_Horizontal" rank="1" reference="3-Phase_Separator" style="Gas"/>
+      <connection group="group3665" icname="InletPressure" isymbol="SafetyValve" ocname="Pressure" osymbol="Separator_Horizontal" rank="0" reference="3-Phase_Separator" style="Gas"/>
+    </output>
+  </input>
+
+  <input type="SelectSwitch">
+    <output type="ContinuousFlowCompressor">
+      <connection group="group7394" icname="HandSwitch" isymbol="SelectSwitch" ocname="Status" osymbol="ContinuousFlowCompressor" rank="0" reference="Methanol Reactor" style="Mechanical"/>
+    </output>
+    <output type="PidController">
+      <connection group="group5425" iarray="true" icname="Input" isymbol="SelectSwitch" ocname="ControllerOutput" osymbol="PIDController_Opr" rank="5" reference="Compressor_System" style="Control"/>
+    </output>
+  </input>
+
+  <input type="Separator">
+    <output type="PipeFlow">
+      <connection group="group8049" iarray="true" icname="InletStreamFeedSideWeir" isymbol="Separator_Horizontal" ocname="OutletStream" osymbol="PipeFlow" rank="2" reference="Hydrocyclone" style="Produced Water"/>
+      <connection group="group4276" iarray="true" icname="InletStreamFeedSideWeir" isymbol="Separator_Horizontal" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="3" reference="2_Phase_separator" style="Oil"/>
+      <connection group="group13923" iarray="true" icname="InletStreamFeedSideWeir" isymbol="Separator_Vertical" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="2" reference="AmineRegeneration" style="Process Main"/>
+    </output>
+  </input>
+
+  <input type="StreamBoundary">
+    <output type="Drum">
+      <connection group="group6646" icname="InletStream" isymbol="StreamBoundary" ocname="OutletStream" osuffix="[]" osymbol="ColumnBase" rank="0" reference="AmineSystem" style="Process Main"/>
+    </output>
+    <output type="PipeFlow">
+      <connection group="group3821" icname="InletStream" isymbol="StreamBoundary" ocname="OutletStream" osymbol="PipeFlow" rank="20" reference="5705-ClosedDrain" style="Gas"/>
+      <connection group="group4475" icname="InletStream" isymbol="StreamBoundary" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="37" reference="5705-ClosedDrain" style="Oil"/>
+      <connection group="group4202" icname="InletStream" isymbol="StreamBoundary_Opr" ocname="OutletStream" osymbol="PipeFlow_OTS" rank="38" reference="2_Phase_separator" style="Gas"/>
+      <connection group="group7076" icname="InletStream" isymbol="StreamBoundary_Opr" ocname="OutletStream" osymbol="PipeFlow" rank="5" reference="SteamTurbine" style="Heating/Cooling medium"/>
+    </output>
+    <output type="PipeVolume">
+      <connection group="group7545" icname="InletStream" isymbol="StreamBoundary" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="3" reference="2303-2nd-Recomp" style="Oil"/>
+      <connection group="group8957" icname="InletStream" isymbol="StreamBoundary_Opr" ocname="OutletStream" osuffix="[]" osymbol="PipeVolume" rank="0" reference="TEG_Regeneration" style="TEG Rich"/>
+    </output>
+  </input>
+
+  <input type="Valve">
+    <output type="AnalogSwitch">
+      <connection group="group7602" icname="ControlSignalIn" isymbol="ValveChoke_OTS" ocname="Output" osymbol="AnalogSwitch_Opr" rank="1" reference="1301_PWells_1" style="Mechanical"/>
+    </output>
+    <output type="DcsPidController">
+      <connection group="group5114" icname="ControlSignalIn" isymbol="ValveControl_OTS" ocname="ControllerOutput" osymbol="PIDController_OTS" rank="1" reference="Column" style="Control"/>
+    </output>
+    <output type="FieldTransmitter">
+      <connection group="group8209" icname="ControlSignalIn" isymbol="ValveControl_OTS" ocname="MeasuredValue" osymbol="FieldTransmitterCTRL_Opr2" rank="0" reference="TEG_Regeneration" style="Control"/>
+    </output>
+    <output type="PidController">
+      <connection group="group7600" icname="ControlSignalIn" isymbol="ValveChoke_OTS" ocname="ControllerOutput" osymbol="PIDController_OTS" rank="1" reference="1301_PWells_1" style="Mechanical"/>
+      <connection group="group4477" icname="ControlSignalIn" isymbol="ValveControl_OTS" ocname="ControllerOutput" osymbol="PIDController_OTS" rank="23" reference="5705-ClosedDrain" style="Control"/>
+      <connection group="group7643" icname="ControlSignalIn" isymbol="ValveControl_OTS" ocname="MeasuredValue" osymbol="PIDController_OTS" rank="0" reference="GasReinjectionCoolerScrubber" style="Control"/>
+      <connection group="group4809" icname="ControlSignalIn" isymbol="ValveControl_OTS" ocname="ControllerOutput" osymbol="PidController" rank="5" reference="2005-LP-Sep (2)" style="Control"/>
+      <connection group="group4753" icname="ControlSignalIn" isymbol="ValveControl_OTS" ocname="ControllerOutput" osymbol="PIDController_Opr" rank="43" reference="3-Phase_Separator" style="Control"/>
+      <connection group="group9430" icname="ControlSignalIn" isymbol="ValveControl_Opr" ocname="ControllerOutput" osymbol="PIDController_Opr" rank="7" reference="5501-SteamDrum" style="Control"/>
+    </output>
+    <output type="SelectSwitch">
+      <connection group="group4064" icname="ControlSignalIn" isymbol="ValveControl_OTS" ocname="Output" osymbol="SelectSwitch" rank="0" reference="AmineSystem" style="Control"/>
+    </output>
+  </input>
+
+</iodb>

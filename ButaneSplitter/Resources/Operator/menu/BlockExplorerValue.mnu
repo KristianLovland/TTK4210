@@ -1,0 +1,15 @@
+#include $EXPLORER_RESOURCES/panel/kerneltypes.def
+
+// double value
+#ifdef '%VTYPE == KT_REAL'
+Button	Label = "Display as trend..."; \
+		Action = Panel,"BlockExplorerTrend";
+
+		
+Button	Label="Ramp..."; \
+		Action=Set,TAG,%VAR; \
+		actionif='!empty(%BE_TIMELINE_APP)',set,LOCAL_ACTIVE_TIMELINE_APP_SET,TRUE; \
+		actionif=*,set,LOCAL_ACTIVE_TIMELINE_APP,%BE_TIMELINE_APP; \
+		Action=Panel,Ramp;
+#endif
+

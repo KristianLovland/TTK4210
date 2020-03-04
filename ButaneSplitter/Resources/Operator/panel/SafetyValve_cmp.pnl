@@ -1,0 +1,92 @@
+#include $EXPLORER_RESOURCES/panel/SafetyValve_auto_cmp.def
+#include $EXPLORER_RESOURCES/panel/DefaultVars.def
+//#include $EXPLORER_RESOURCES/panel/Default_cmp.def
+
+#define MAPAVAILABLE TRUE
+
+
+
+//*********
+// header *
+//*********
+// trends visible - resizable
+	Header	Position = Cursor; Title = "%TAG_NAME"; oneoff=%TAG_NAME; \
+			Resizable=SaveSize,LargerOnly;
+	Frame	Id = 1; Frame = -2; Layout = Vertical; Pad = 2;
+
+#define MAPAVAILABLE TRUE
+#define TREND_FRAME 500
+#define TREND_WIDTH 250
+set		variable=TREND_VAR,"VAR1";
+
+
+//*************
+// Block menu *
+//*************
+
+
+Frame	Id = 11; Frame = 1; Layout = Horizontal; Space = 5;
+Frame	Id = 12; Frame = 1; Layout = Horizontal; Space = 5;
+Frame	Id = 13; Frame = 1; Layout = Horizontal; Space = 5;
+Frame	Id = 14; Frame = 1; Layout = Horizontal; Space = 5;
+Frame	Id = 15; Frame = 1; Layout = Horizontal; Space = 5;
+Frame	Id = 16; Frame = 1; Layout = Horizontal; Space = 5;
+
+Button	Frame = 11; Image = "blkmenu.ico"; FeedBack = "Block menu"; Style = BUTTON_STYLE; \
+		Action = Menu,"BlockExplorerBlock";
+
+		
+Stub		Frame = 11; Size = 2,0;
+
+
+Variable	Frame = 12; Caption = "#(%TAG_NAME:InletPressure@V_desc)"; Tag = "%TAG_NAME:InletPressure"; SameWidth = +31; format="%8.2f";
+Variable	Frame = 12; Caption = "#(%TAG_NAME:InletPressure@V_unit)"; SameWidth = +31;
+Variable	Frame = 13; Caption = "#(%TAG_NAME:PressureSetpoint@V_desc)"; Tag = "%TAG_NAME:PressureSetpoint"; SameWidth = +31;  format="%8.2f";
+Variable	Frame = 13; Caption = "#(%TAG_NAME:PressureSetpoint@V_unit)"; SameWidth = +31;
+Variable	Frame = 14; Caption = "#(%TAG_NAME:Massflow@V_desc)"; Tag = "%TAG_NAME:Massflow"; SameWidth = +31;  format="%8.2f";
+Variable	Frame = 14; Caption = "#(%TAG_NAME:Massflow@V_unit)"; SameWidth = +31;
+Variable	Frame = 15; Caption = "#(%TAG_NAME:ValveStatus@V_desc)"; Tag = "%TAG_NAME:ValveStatus"; SameWidth = +31;  format="%8.2f";
+Variable	Frame = 16; Caption = "#(%TAG_NAME:ValveStemPosition@V_desc)"; Tag = "%TAG_NAME:ValveStemPosition"; SameWidth = +31;  format="%8.2f";
+Variable	Frame = 16; Caption = "#(%TAG_NAME:ValveStemPosition@V_unit)"; SameWidth = +31;
+
+
+// optional stuff
+#ifdef '"%HIDEVARS" != "1"'
+Frame	Id = 100; Frame = 1; Layout = Vertical; Space = 5;
+Frame	Id = 102; Frame = 100; Layout = Horizontal; Space = 5; 
+
+#ifdef '( (#(%TAG_NAME:SafetyValveType) == 1 || #(%TAG_NAME:SafetyValveType) == 3) && #(%TAG_NAME:Action) == 0 )'
+
+Stub	Frame = 102; Size = 19,0;
+#ifdef '("#(%TAG_NAME:Repair@V_Input)" == "")'
+	Variable	Frame = 102; VAR_EDIT; Caption = "#(%TAG_NAME:Repair@V_desc)"; Tag = "%TAG_NAME:Repair"; \
+			SameWidth = +1;
+#else
+	Variable	Frame = 102; VAR_NOEDIT; Caption = "#(%TAG_NAME:Repair@V_desc)"; Tag = "%TAG_NAME:Repair"; \
+			SameWidth = +1;
+#endif
+
+#endif
+
+#endif
+
+#include $EXPLORER_RESOURCES/panel/CustomPanelMapFrame.def
+#include $EXPLORER_RESOURCES/panel/CustomPanelTrend.def
+
+// Map
+//#ifdef '"%SHOWMAP" == "1"'
+Dataset	Name = "m1"; id = 3101; Tag = "%TAG_NAME:OpeningCurvePositionValues","%TAG_NAME:OpeningCurvePressureValues"; Colour = Red; Static; Label = "Opening Curve";
+Dataset	Name = "m2"; id = 3102; Tag = "%TAG_NAME:ClosingCurvePositionValues","%TAG_NAME:ClosingCurvePressureValues"; Colour = Blue; Static; Label = "Closing Curve";
+Dataset	Name = "m3"; id = 3103; Tag = "%TAG_NAME:ValveStemPosition","%TAG_NAME:ActuatingPressureRatio"; Colour = Grey2; Label = "Stem Position";
+Display	Frame = TREND_FRAME; \
+		Size = TREND_WIDTH,250; \
+		Type = Trajectory; id = 3001; \
+		Dataset = "m1","m2","m3"; \
+		XTitle = "Actuating pressure ratio"; \
+		YTitle = "Stem position, #%TAG_NAME:ValveStemPosition@V_units"; \
+		Background = TREND_BG; \
+		Foreground = TREND_FG; \
+		Grid = TREND_GRID; \
+		AutoFit;
+//#endif
+

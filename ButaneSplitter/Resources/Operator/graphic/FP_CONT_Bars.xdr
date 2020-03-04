@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xdr revision="7" entities="35">
+ <drawing id="1" syscol1="gray90" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="71" vheight="238" vunits="mm" gpitch="1,1" goffset="0,0"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <cpoint id="1025" xy="0,0">
+  <attribute name="ImageMin" type="null"/>
+ </cpoint>
+ <cpoint id="1026" xy="71,238">
+  <attribute name="ImageMax" type="null"/>
+ </cpoint>
+ <polygon id="1027" colour="0x838184" xy="12,2,16,6,16,235,12,235,12,2">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1028" colour="0x838184" xy="28,235,24,231,16,231,16,235,28,235">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1029" colour="white" xy="24,231,24,2,28,2,28,235,24,231">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1030" colour="white" xy="12,2,16,6,24,6,24,2,12,2">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1031" xy="16,6,16,231,24,231,24,6,16,6"/>
+ <polygon id="1032" xy="29,6,29,7,41,7,41,6,29,6">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1033" xy="32,17,32,18,37,18,37,17,32,17">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1034" xy="32,29,32,30,37,30,37,29,32,29">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1035" xy="32,39,32,40,37,40,37,39,32,39">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1036" xy="32,51,32,52,37,52,37,51,32,51">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1037" xy="29,62,29,63,41,63,41,62,29,62">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1038" xy="32,74,32,75,37,75,37,74,32,74">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1039" xy="32,85,32,86,37,86,37,85,32,85">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1040" xy="32,96,32,97,37,97,37,96,32,96">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1041" xy="32,108,32,109,37,109,37,108,32,108">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1042" xy="29,118,29,119,41,119,41,118,29,118">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1043" xy="32,130,32,131,37,131,37,130,32,130">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1044" xy="32,141,32,142,37,142,37,141,32,141">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1045" xy="32,153,32,154,37,154,37,153,32,153">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1046" xy="32,163,32,164,37,164,37,163,32,163">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1047" xy="29,175,29,176,41,176,41,175,29,175">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1048" xy="32,186,32,187,37,187,37,186,32,186">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1049" xy="32,198,32,199,37,199,37,198,32,198">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1050" xy="32,208,32,209,37,209,37,208,32,208">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1051" xy="32,220,32,221,37,221,37,220,32,220">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1052" xy="29,231,29,232,41,232,41,231,29,231">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1053" colour="0x838184" xy="42,2,46,6,46,235,42,235,42,2">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1054" colour="0x838184" xy="58,235,54,231,46,231,46,235,58,235">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1055" colour="white" xy="54,231,54,2,58,2,58,235,54,231">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1056" colour="white" xy="42,2,46,6,54,6,54,2,42,2">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1057" xy="46,6,46,231,54,231,54,6,46,6"/>
+ <symbol id="1058" xy="16,6,24,231" name="Level_s1" xscl="8" yscl="225" fitted="true" pr6layer="0">
+  <attribute name="SymName" type="text" value="Level_s1"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="rect" mtag="%CONT_TAG:ControllerOutput@V_unscaled" mmin="0" mmax="%CONT_TAG:OutputRangeHighLimit@V_unscaled" rect="0,0,8,0,0,0,8,225" atag="%CONT_TAG:OutputRangeHighLimit@V_unscaled" amin="0" amax="0" axis="0,0,0,0">
+  </animation>
+ </symbol>
+ <symbol id="1059" xy="46,6,54,231" name="Level_s2" xscl="8" yscl="225" fitted="true" pr6layer="0">
+  <attribute name="SymName" type="text" value="Level_s2"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="rect" mtag="%CONT_TAG:Measurement@V_unscaled" mmin="0" mmax="%CONT_TAG:RangeHighLimit@V_unscaled" rect="0,0,8,0,0,0,8,225" atag="%CONT_TAG:RangeHighLimit@V_unscaled" amin="0" amax="0" axis="0,0,0,0">
+  </animation>
+ </symbol>
+</xdr>

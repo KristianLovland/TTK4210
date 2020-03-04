@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="122,573" xmin="122" ymin="573" xmax="123" ymax="574">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="xpolygon_s1.sym"/>
+  <attribute name="Itemdesc" type="text" value="Extendable animated rectangle building block"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="2.00029" vheight="2.00029" gpitch="2,2" goffset="0,0"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <polygon id="1816" xy="122,573,122,574,123,574,123,573,122,573">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <cpoint id="1817" estat="ref" xy="122,573">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="xpolygon_s1.sym"/>
+  <attribute name="Itemdesc" type="text" value="Extendable animated rectangle building block"/>
+ </cpoint>
+</sym>

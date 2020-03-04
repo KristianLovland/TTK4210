@@ -1,0 +1,44 @@
+#include $EXPLORER_RESOURCES/Panel/EmbeddedDisplayHeader.def
+
+Set		variable=PIPE_TAG,"1320P14";
+
+// define top-left display
+#define _DISP1VARY1_ FlowLine01:DisplayProfile[0]
+#define _DISP1NAMEY1_ #(FlowLine01:ProfileDescription[0])
+#define _DISP1VARY2_ FlowLine01:DisplayProfile[1]
+#define _DISP1NAMEY2_ #(FlowLine01:ProfileDescription[1])
+#define _DISP1VARX_ FlowLine01:DisplayAxis[0]
+#define _DISP1NAMEX_ Distance
+// for profile show only between XMIN and XMAX
+#define _DISP1XAXIS_ XAxis = %+XMIN,%+XMAX;
+
+// define top-right display
+#define _DISP2VARY1_ FlowLine01:DisplayProfile[10]
+#define _DISP2NAMEY1_ #(FlowLine01:ProfileDescription[10])
+#define _DISP2VARY2_ FlowLine01:DisplayProfile[13]
+#define _DISP2NAMEY2_ #(FlowLine01:ProfileDescription[13])
+#define _DISP2VARX_ FlowLine01:DisplayAxis[0]
+#define _DISP2NAMEX_ Distance
+// for profile show only between 0 and 50
+#define _DISP1XAXIS_ XAxis = %+XMIN,%+XMAX;
+
+// define bottom-left display
+#define _DISP3VARY1_ FlowLine01:DisplayProfile[3]
+#define _DISP3NAMEY1_ #(FlowLine01:ProfileDescription[3])
+#define _DISP3VARY2_ FlowLine01:DisplayProfile[4]
+#define _DISP3NAMEY2_ #(FlowLine01:ProfileDescription[4])
+#define _DISP3VARX_ FlowLine01:DisplayAxis[0]
+#define _DISP3NAMEX_ Distance
+#define _DISP1XAXIS_  XAxis = %+XMIN,%+XMAX;
+
+// define bottom-right display
+#define _DISP4VARY1_ FlowLine01:DisplayProfile[2]
+#define _DISP4NAMEY1_ #(FlowLine01:ProfileDescription[2])
+#define _DISP4VARY2_ 
+#define _DISP4NAMEY2_ 
+#define _DISP4VARX_ FlowLine01:DisplayAxis[0]
+#define _DISP4NAMEX_ Distance
+#define _DISP1XAXIS_ XAxis = %+XMIN,%+XMAX;
+
+
+#include $EXPLORER_RESOURCES/Panel/EmbeddedDisplay.def

@@ -1,0 +1,121 @@
+
+#include $EXPLORER_RESOURCES/panel/BlockExplorerDefinitions.def
+
+#set \
+	PREFETCH_CONFIGURATION %TAG_NAME:Configuration \
+	PREFETCH_OUTLETSTREAMC0 %TAG_NAME:OutletStream.c[0] \
+	PREFETCH_COMPOSITIONSETOPTION %TAG_NAME:CompositionSetOption \
+	PREFETCH_COMPOSITIONBASISOPTION %TAG_NAME:CompositionBasisOption \
+	PREFETCH_OUTLETSTREAMXUNIT %TAG_NAME:OutletStream.x@V_unit \
+	PREFETCH_INPUTMASSCOMPOSITIONUNIT %TAG_NAME:InputMassComposition@V_unit \
+	PREFETCH_INPUTCOMPOSITIONUNIT %TAG_NAME:InputComposition@V_unit
+
+#ifdef '%PREFETCH_CONFIGURATION == 2'
+// fixed pressure boundary - hide Flow
+#define BOUNDARY_NAMES \
+			"Pressure",\
+			"F/P gradient",\
+			"Temperature", \
+			"Enthalpy"
+#define BOUNDARY_TAGS	\
+			"%TAG_NAME:InputPressure",\
+			"%TAG_NAME:InputFlowPressureGradient",\
+			"%TAG_NAME:InputTemperature",\
+			"%TAG_NAME:InputEnthalpy"
+#else
+#define BOUNDARY_NAMES	"Flow",\
+			"Pressure",\
+			"F/P gradient",\
+			"Temperature", \
+			"Enthalpy"
+#define BOUNDARY_TAGS	"%TAG_NAME:InputFlowrate",\
+			"%TAG_NAME:InputPressure",\
+			"%TAG_NAME:InputFlowPressureGradient",\
+			"%TAG_NAME:InputTemperature",\
+			"%TAG_NAME:InputEnthalpy"
+#endif
+
+Header	Title = "%TAG_NAME (%PANEL_TIMELINE)"; \
+	OneOff = "%TAG_NAME (%PANEL_TIMELINE)"; Resizable = SaveSize,LargerOnly; \
+	Position = Cursor; Help = "blocktype(%TAG_NAME)";
+	
+Frame	Frame = -2;	Id = 11; Layout = Horizontal;
+//	Button		Frame = 11; Image = "blkmenu.ico"; FeedBack = "Block menu"; \
+//			Style = BUTTON_STYLE; Action = Menu,"BlockExplorerBlock";
+	Stub		Frame = 11; Size = 2,0;
+	Variable	Frame = 11; VEDITABLE Tag = "%TAG_NAME@B_desc"; Type = String;
+	Stub		Frame = 11; Size = 2,0;
+	State		Caption = "Composition: "; Frame = 11; Id = 2001; Label = "Mol","Mass"; \
+			Tag = "%TAG_NAME:CompositionBasisOption"; Get = GetVariable; Set = SetVariable; Immediate; \
+			Action = Remap;
+
+Frame	Id = 1000; Layout = Splitter,Horizontal;
+
+//---------------------------
+// Define the Listview panes
+//---------------------------
+
+#include $EXPLORER_RESOURCES/panel/BlockExplorerColumns.def
+
+// BOUNDARY columns
+
+Column	Header = "Description"; Source = List,BOUNDARY_NAMES;
+
+Column	Header = "Value"; VALUE_COLUMN EDITABLE \
+	Source = Tags,BOUNDARY_TAGS; Tag = "%LVITEM"; \
+	Action = Set,VAR,"%LVITEM"; \
+	Action = Set,VTYPE,"#(%VAR@V_typemask)"; \
+	Action = Set,ACTIVE_LV,3; \
+	ActionIf = '"%RIGHT_CLICK" == "True"',Menu,BlockExplorerValue;
+
+Column	Header = "Units"; Width = 60; \
+	Source = Tags,BOUNDARY_TAGS; Tag = "%LVITEM@V_unit";
+	
+ListView Frame = 1000; Size = 1,165; Id = 3; Grid;
+
+
+#ifdef '%PREFETCH_OUTLETSTREAMC0 > 0'
+Column	Header = "Component"; Source = Tag,"%TAG_NAME:OutletStream.nx@V_array"; Tag = "%LVITEM";
+#else
+Column	Header = "Component";
+#endif
+
+#ifdef '%PREFETCH_COMPOSITIONSETOPTION == 0'
+
+#ifdef '%PREFETCH_COMPOSITIONBASISOPTION == 1'
+Column	Header = "Mass %PREFETCH_OUTLETSTREAMXUNIT"; VALUE_COLUMN \
+	Source = Tag,"%TAG_NAME:OutletStream.y@V_array"; Tag = "%LVITEM"; \
+	Action = Set,VAR,"%LVITEM"; \
+	Action = Set,VTYPE,"#(%VAR@V_typemask)"; \
+	Action = Set,ACTIVE_LV,2; \
+	ActionIf = '"%RIGHT_CLICK" == "True"',Menu,BlockExplorerValue;
+#else
+Column	Header = "Mol %PREFETCH_OUTLETSTREAMXUNIT"; VALUE_COLUMN \
+	Source = Tag,"%TAG_NAME:OutletStream.x@V_array"; Tag = "%LVITEM"; \
+	Action = Set,VAR,"%LVITEM"; \
+	Action = Set,VTYPE,"#(%VAR@V_typemask)"; \
+	Action = Set,ACTIVE_LV,2; \
+	ActionIf = '"%RIGHT_CLICK" == "True"',Menu,BlockExplorerValue;
+#endif
+
+#else
+
+#ifdef '%PREFETCH_COMPOSITIONBASISOPTION == 1'
+Column	Header = "Mass %PREFETCH_INPUTMASSCOMPOSITIONUNIT"; EDITABLE VALUE_COLUMN \
+	Source = Tag,"%TAG_NAME:InputMassComposition@V_array"; tag="%LVITEM"; \
+	Action = Set,VAR,"%LVITEM"; \
+	Action = Set,VTYPE,"#(%VAR@V_typemask)"; \
+	Action = Set,ACTIVE_LV,2; \
+	ActionIf = '"%RIGHT_CLICK" == "True"',Menu,BlockExplorerValue;
+#else
+Column	Header = "Mol %PREFETCH_INPUTCOMPOSITIONUNIT"; EDITABLE VALUE_COLUMN \
+	Source = Tag,"%TAG_NAME:InputComposition@V_array"; Tag = "%LVITEM"; \
+	Action = Set,VAR,"%LVITEM"; \
+	Action = Set,VTYPE,"#(%VAR@V_typemask)"; \
+	Action = Set,ACTIVE_LV,2; \
+	ActionIf ='"%RIGHT_CLICK" == "True"',Menu,BlockExplorerValue;
+#endif
+
+#endif
+
+ListView Frame = 1000; Size = -1,150; Id = 2; Grid; Style = MultiSelect;

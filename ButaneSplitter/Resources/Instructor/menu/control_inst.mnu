@@ -1,0 +1,56 @@
+
+
+Button	Label = "Execution..."; Dependency = '%SV_PROJECTOPENED'; \
+		Action = Panel,"tl_Execution"; \
+		Action = SetTab,Execution:50,Execution;
+
+Button	Label = "History..."; Dependency = '%SV_TIMELINESACTIVE'; \
+		Action = Panel,"history";
+				
+Gap
+
+Button	Label = "Run MCL..."; Dependency = '%SV_TIMELINESACTIVE'; \
+		Action = Panel,"runMCL.pnl";
+		
+Button	Label = "Edit MCL..."; \
+		Action = Panel,"editMCL.pnl";
+		
+Button	Label = "MCL Manager..."; Image = mclman.ico; \
+		Action = MCLManager;
+
+Gap
+
+Button	label="Model Map..."; \
+		action=set,_PINSTATUS,"type=VirtualTab;"; \
+		action=panel,model_health;
+
+Button	Label="&Global Variables..."; Level=1; \
+		Dependency='%SV_MODELLOADED'; \
+		Action=Panel,GlobalVariables;
+
+Button	Label="&Active Malfunctions..."; Level=1; \
+		Action=Panel,ActiveMalfunction.pnl; \
+		Dependency='%SV_MODELLOADED';
+
+//Button	Label="&Active Source Mode..."; Level=1; \
+//		Action=Panel,ActiveSourceMode.pnl; \
+//		Dependency='%SV_MODELLOADED';
+
+//Button	Label="&Subsea Profiles"; Level=1; \
+//		Dependency='%SV_MODELLOADED'; \
+//		Action=Popdown,%_INT; \
+//		Action=Set,_INT,SubseaProfiles; \
+//		Action=Panel,%_INT;
+
+Gap
+
+Button	Label = "Ramping..."; Level = 1; Dependency = '%SV_TIMELINESACTIVE'; \
+		Action = Set,Tag,""; \
+		Action = Panel,"ramp.pnl";
+
+Button	Label = "Ramp Monitor..."; Level = 1; \
+		Action = RampMonitor;
+
+// user extensions
+#include_noerror $EXPLORER_RESOURCES/menu/UserControl.mnu
+

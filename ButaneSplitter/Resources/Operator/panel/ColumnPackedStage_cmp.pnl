@@ -1,0 +1,4 @@
+header	Title="TEG Contactor"; position=centre; oneoff; resizable;
+
+//TEG Contactor
+button	image="$EXPLORER_RESOURCES/bitmaps/TEG-Contactor.bmp"; size=900,586;

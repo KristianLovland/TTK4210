@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="472.5,761.5" xmin="472" ymin="761.499" xmax="629.999" ymax="804.001">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Exclamation indication symbol"/>
+  <attribute name="SymName" type="text" value="x_whiteframe"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <polygon id="1093" colour="#ffffbf" depth="-7" xy="472,762,472,804,630,804,630,762,472,762">
+  <attribute name="SymName" type="text" value="x_whiteframe"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="RelLayer" type="null"/>
+  <animation type="graphic" default="white">
+  </animation>
+ </polygon>
+ <cpoint id="1329" estat="ref" xy="472.5,761.5">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Exclamation indication symbol"/>
+  <attribute name="SymName" type="text" value="x_whiteframe"/>
+ </cpoint>
+</sym>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="4">
+ <header xy="64,272" xmin="60.0548" ymin="271.999" xmax="68.0008" ymax="283.985">
+  <attribute name="SymName" type="text" value="x_Online_ValveActuatorMotor"/>
+  <attribute name="SymPlacement" type="null"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <polygon id="1647" depth="4" xy="63.75,277,63.75,272,64.25,272,64.25,277,63.75,277">
+  <relation type="mutual" subid="100" id="1668,1667"/>
+ </polygon>
+ <cpoint id="1668" depth="4" estat="ref" xy="64,272">
+  <attribute name="SymName" type="text" value="x_Online_ValveActuatorMotor"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1660,1647"/>
+ </cpoint>
+ <text id="1660" colour="white" depth="6" xy="64,280" height="5" hjust="centre" vjust="middle" font="Verdana" ntr="true" ntm="true">
+  <tstring>M</tstring>
+  <relation type="mutual" subid="100" id="1667,1668"/>
+ </text>
+ <polygon id="1667" depth="4" xy="68,280,67.7833,281.299,67.1566,282.457,66.1878,283.349,64.9819,283.878,63.6697,283.986,62.3932,283.663,61.2909,282.943,60.4821,281.904,60.0546,280.658,60.0546,279.342,60.4821,278.096,61.2909,277.057,62.3932,276.337,63.6697,276.014,64.9819,276.122,66.1878,276.651,67.1566,277.543,67.7833,278.701,68,280">
+  <relation type="mutual" subid="100" id="1647,1660"/>
+ </polygon>
+</sym>

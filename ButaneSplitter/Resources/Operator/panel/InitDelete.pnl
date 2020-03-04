@@ -1,0 +1,26 @@
+header		title="Delete Initial Conditions"; position=centrescreen; type=exclusive; \
+		oneoff; mid = %_ROOT;
+
+#define _FFD_ action=selectfinder,"%_PROJECT_ROOT/model"
+#define _MPGS_ Style = DropDown; Get = GetModelParameter; Size = 400
+#define _SIF_ action=SetFocus
+
+Frame	Id = 9; Layout = Vertical;
+
+#define TL_TBAR_PARENT 9
+#include $EXPLORER_RESOURCES/Panel/TimelineToolbar.def
+
+Frame	Id = 100; frame=9; Layout = Vertical; Space = 5; Pad = 8; \
+		dependency='#(GetModelParameter;%_ROOT|ModelState,%LOCAL_ACTIVE_TIMELINE) != 1';
+
+// Initial Conditions file
+frame		frame=100; id=4; layout=horizontal; space=5;
+label		frame=4; label="Conditions:"; samewidth=1;
+Selection Frame = 4; Id = 104; _MPGS_; \
+		Source = Tag,"FileList@InitName,%LOCAL_ACTIVE_TIMELINE";
+button		frame=4; image=browser.ico; _SIF_,104;  _FFD_,"*.val",MODELFILES; action=setfield,104,%_FINDER_SELECTION;  feedback="Browse for files";
+button		frame=4; label=Delete;  \
+		action=send,SetModelParameter,S,InitName@F_delete,!104;
+
+
+

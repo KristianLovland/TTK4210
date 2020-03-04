@@ -1,0 +1,62 @@
+
+#define BACKCOLOUR #C5C3C6
+
+header	position=cursor; Title="%TAG_NAME"; oneoff=%TAG_NAME;
+
+frame		id=1; layout=vertical; pad=10; space = 5; 
+frame		id=2; layout=vertical; pad=10; space = 5; 
+
+frame	frame=1; id=5;  layout=vertical; 
+frame	frame=2; id=10; layout=horizontal; 
+frame	frame=2; id=20; layout=horizontal;  
+frame	frame=2; id=30; layout=horizontal; border=sunken; samewidth=1;
+frame	frame=2; id=31; layout=horizontal; 
+frame	frame=2; id=32; layout=horizontal;
+frame	frame=2; id=40; layout=horizontal;
+
+set		variable=ALARM_TAG,%(TAG_NAME);
+
+
+
+label		label="   Valve Position (%)"; frame=5; samewidth=1;
+
+#ifdef '"#(%TAG_NAME:@B_desc)" == "Choke Valve" || "#(%TAG_NAME:@B_desc)" == "Manual valve"'
+variable	tag="%TAG_NAME:ControlSignalIn"; frame=5; Width=50; border=sunken; format=%2.1f; editable; background=white; samewidth=1;
+#elseif
+variable	tag="%TAG_NAME:ValveStemPosition"; frame=5; Width=50; border=sunken; format=%2.1f; samewidth=1;
+#endif
+
+#ifdef '#(%TAG_NAME:ControlSignalIn@V_InputType) == 0'
+Button	Frame = 10; Label = "           Open           "; samewidth=1; Dependency = '#(%TAG_NAME:IsDefinedOpen) == 0 && #(%TAG_NAME:Tripped) == 0'; \
+	Action = Send,SetVariable,S,"%TAG_NAME:ControlSignalIn",R,100; 
+	
+stub 	frame=10; size=5,5;
+
+Button	Frame = 20; Label = "           Close           "; samewidth=1; Dependency = '#(%TAG_NAME:IsDefinedClosed) == 0 && #(%TAG_NAME:Tripped) == 0'; \
+	Action = Send,SetVariable,S,"%TAG_NAME:ControlSignalIn",R,0;
+#endif
+
+stub 	frame=20; size=5,5;
+
+////////Testing Only//////////////////////////////
+//Label	label="#(%PF)"; frame=30; Samewidth=100;
+/////////////////////////////////////////////////
+
+#ifdef '"#(%TAG_NAME:@B_desc)" == "Choke Valve" || "#(%TAG_NAME:@B_desc)" == "Manual valve"'
+stub		frame=40; size=10,30;
+#elseif
+Imagearea	frame=30; source="$PROJECT_ROOT\\Resources\Operator\graphic\PValve_Status.xdr"; \
+		type=Xcadfixedimage; size=110,100; doublebuffered; 
+stub		frame=40; size=10,30; 
+#endif
+
+button		frame=40; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\findDraw.bmp"; size=32,32; \
+		feedback="Find drawing"; \
+		action=set,FINDINMAINWINDOW,TRUE; \
+		action=menu,"BlockExplorerBlock";
+
+button		frame=40; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\TrendButton.bmp"; size=32,32; \
+		feedback="Trend"; \
+		action=panel,PValveTrend.pnl;
+
+//stub		frame=40; size=25,30; 

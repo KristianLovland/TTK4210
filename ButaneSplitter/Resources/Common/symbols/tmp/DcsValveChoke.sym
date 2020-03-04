@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="14">
+ <header xy="61,729" xmin="43.9996" ymin="695" xmax="110" ymax="748.978">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Valve"/>
+  <attribute name="SymName" type="text" value="DcsValveChoke"/>
+  <attribute name="ItemType" type="text" value="DcsValveChoke"/>
+  <attribute name="AttPage" type="text" value="DcsValveChoke"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SelectBox" type="real" value="-17,-17,10,17"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <parameter name="SAVED_PATH" value="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbolsheets\GeneralSymbolSheet_Prod_Operator.xdr"/>
+ </drawing>
+ <viewport id="2" vwidth="841" vheight="1251" gpitch="1,1" goffset="0,0" height="2" hjust="right" font="Arial"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <symbol id="1605" estat="ext" xy="61,729" name="xdcs_valve_s2" pr6layer="0">
+  <attribute name="SymName" type="text" value="xdcs_valve_s2"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="#e60000">
+   <state type="expression" expression="{%TAG_NAME:ValveStemPosition@V_unscaled} &gt; 0.000001  + {%TAG_NAME:RunningLightPosition@V_unscaled}" priority="0" foreground="#00bb00"/>
+  </animation>
+ </symbol>
+ <symbol id="1606" estat="ext" xy="77,745" name="xdcs_connector_s1" pr6layer="0">
+  <attribute name="SymName" type="text" value="xdcs_connector_s1"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <animation type="graphic" default="#555555">
+   <state type="expression" expression="{DCS_%TAG_NAME:OutputStatus} == 0" priority="0" foreground="#e6e600"/>
+  </animation>
+ </symbol>
+ <symbol id="1607" depth="20" estat="ext" xy="61,729" name="xdcs_valve_s3" pr6layer="0">
+  <attribute name="SymName" type="text" value="xdcs_valve_s3"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:val_sig@V_unscaled} &gt; 0.000001  + {%TAG_NAME:RunningLightPosition@V_unscaled}" priority="0" foreground="yellow"/>
+  </animation>
+ </symbol>
+ <string id="1595" colour="darkorange1" layer="Hidden" estat="ref" xy="44,712,44,746,71,746,71,712,44,712">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <polygon id="1596" xy="60.5,739,60.5,728,61.5,728,61.5,739,60.5,739"/>
+ <cpoint id="1597" depth="11" estat="ref" xy="61,729">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Valve"/>
+  <attribute name="SymName" type="text" value="DcsValveChoke"/>
+  <attribute name="ItemType" type="text" value="DcsValveChoke"/>
+  <attribute name="AttPage" type="text" value="DcsValveChoke"/>
+  <attribute name="AnimGraphic" type="null"/>
+ </cpoint>
+ <tnode id="1599" colour="red" layer="Hidden" depth="50" estat="ext" xy="61,695" height="6" hjust="centre" font="Arial">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <polygon id="1600" colour="gainsboro" depth="40" xy="69,736,69,724,110,724,110,736,69,736"/>
+ <polygon id="1601" xy="52.34,739,69.66,739,68.93,740.087,68.07,741.071,67.09,741.933,66,742.66,64.83,743.239,63.59,743.659,62.31,743.914,61,744,59.69,743.914,58.41,743.659,57.17,743.239,56,742.66,54.91,741.934,53.93,741.071,53.07,740.088,52.34,739"/>
+ <polygon id="1602" colour="#fffff1" xy="69,724,69,736,110,736,110,724,69,724"/>
+ <tnode id="1603" depth="30" estat="ext" xy="100,725" height="7" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:val_sig@V_units" format="%s">
+  </animation>
+ </tnode>
+ <tnode id="1604" depth="30" estat="ext" xy="99.75,725" height="10" hjust="right" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:val_sig" format="%3.1f">
+  </animation>
+ </tnode>
+ <tnode id="1608" depth="50" estat="ext" xy="99.75,725" height="10" hjust="right" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:val_sig" format="%3.1f">
+  </animation>
+ </tnode>
+ <tnode id="1609" depth="50" estat="ext" xy="100,725" height="7" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:val_sig@V_units" format="%s">
+  </animation>
+ </tnode>
+</sym>

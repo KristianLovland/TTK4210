@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="11">
+ <header xy="872,506" xmin="865" ymin="497.999" xmax="879" ymax="513">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="AnalogSwitch"/>
+  <attribute name="Itemdesc" type="text" value="Analog switch"/>
+  <attribute name="Module" type="text" value="AnalogSwitch"/>
+  <attribute name="SymName" type="text" value="AnalogSwitch"/>
+  <attribute name="Category" type="text" value="Basic Control"/>
+  <attribute name="SelectBox" type="real" value="-6,-6,6,6"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="25-11-13 13:29:09"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="0.5,0.5" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <symbol id="1108" estat="ext" xy="865.5,499.5" name="OffOutline" xscl="13" yscl="13">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:SwitchPosition} == 0" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1214" colour="green" estat="ext" xy="865.5,499.5" name="OnOutline" xscl="13" yscl="13" fixedcol="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:SwitchPosition} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1225" estat="ext" xy="865,499,879,513" name="MalfunctionOutline" xscl="14" yscl="14" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="2293" estat="ext" xy="872,506" name="x_TagName">
+  <attribute name="ItemName" type="null"/>
+  <attribute name="SymName" type="text" value="x_TagName"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Static" type="null"/>
+  <relation type="child" subid="3" id="2291,2292"/>
+ </symbol>
+ <arc id="1025" weight="2" xy="872,506" radius="6"/>
+ <string id="1101" style="1" estat="ref" xy="866,500,866,512,878,512,878,500,866,500">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <cpoint id="1105" estat="ref" xy="872,506">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="AnalogSwitch"/>
+  <attribute name="Itemdesc" type="text" value="Analog switch"/>
+  <attribute name="Module" type="text" value="AnalogSwitch"/>
+  <attribute name="SymName" type="text" value="AnalogSwitch"/>
+  <attribute name="Category" type="text" value="Basic Control"/>
+ </cpoint>
+ <tnode id="1107" estat="ext" xy="872,506" height="4" hjust="centre" vjust="middle" font="Verdana">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:SwitchPosition" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:SwitchPosition} == 0" priority="0" text="OFF"/>
+  </animation>
+ </tnode>
+ <tnode id="1217" estat="ext" xy="872,506" height="4" hjust="centre" vjust="middle" font="Verdana">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:SwitchPosition" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:SwitchPosition} == 1" priority="0" text="ON"/>
+  </animation>
+ </tnode>
+ <tnode id="2291" layer="Hidden" estat="rel" xy="872,498" height="2" hjust="centre">
+  <attribute name="ItemName" type="null"/>
+  <relation type="parent" subid="3" id="2293"/>
+ </tnode>
+ <tnode id="2292" colour="white" layer="Engineer" depth="100" estat="rel" xy="878,512" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="parent" subid="3" id="2293"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+</sym>

@@ -1,0 +1,9 @@
+Header	position=CentreScreen; title="Message"; controls=OK; \
+	action=OK,popdown;
+
+frame   id=10; layout=vertical; space=5;
+frame   frame=10; id=2; layout=horizontal; space=5;
+frame	frame=10; id=3; layout=horizontal;
+frame   frame=10; id=4; layout=horizontal;
+
+Label	label = "You don't have an valid license to this model";

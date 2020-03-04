@@ -1,0 +1,302 @@
+*
+//	Purpose: ToolBar for Instructor interface
+//
+//	Written by: Fantoft - E Clutten / A Watson
+//
+//	Revisions: ECC Jan 2008 - Tidied up
+// 
+
+#include $EXPLORER_RESOURCES/panel/alrmcodes.def
+#include $EXPLORER_RESOURCES/panel/BlockExplorerStyle.def
+
+set 	variable=CTRL50,%_ACTIVE_TIMELINE_APP;
+set	variable=APPSET,"#(GetModelParameter;%_ROOT|AllApplications,s,@hasBlockList(true)Connected(true))";
+set	variable=UNACK_ALARMS,0;
+set	variable=ALARM_STATE,"green.ico";
+
+#define DIVIDER background=window; size=1,1; sameheight=1;
+
+Header	Type = VirtualFrame; OneOff; Name = "EngineeringToolBar"; \
+// use monitor to track the active timeline
+	monitor=ResetActiveApp,'"%CTRL50" != "%_ACTIVE_TIMELINE_APP"',AlwaysSet; \
+	action=ResetACtiveApp,set,CTRL50,%_ACTIVE_TIMELINE_APP; \
+	action=ResetACtiveApp,setselection,50,%_ACTIVE_TIMELINE_APP; \
+// use monitor to refresh app list if it changes
+	monitor=RefreshAppList,'"%APPSET" != "#(GetModelParameter;%_ROOT|AllApplications,s,@hasBlockList(true)Connected(true))"',AlwaysSet; \
+	action=RefreshAppList, set, APPSET, "#(GetModelParameter;%_ROOT|AllApplications,s,@hasBlockList(true)Connected(true))"; \
+	action=RefreshAppList, kickstart, 50; \
+// use monitor to track alarm status
+	monitor=AlarmStatus,2; \
+	action=AlarmStatus,set,NO_UNACK,0; \
+	action=AlarmStatus,set,NO_ACK,0; \
+	actionif=AlarmStatus,'"%_PROGRESS_MONITOR_OPEN" != "True" && !empty(%_ACTIVE_TIMELINE_APP) && active(%_ACTIVE_TIMELINE_APP)',set,NO_UNACK,"#(GetModelParameter;%_ACTIVE_TIMELINE_APP|AlarmList,I,AL_NO_UNK,I,ALRM_P1P2)"; \
+	actionif=AlarmStatus,'"%_PROGRESS_MONITOR_OPEN" != "True" && !empty(%_ACTIVE_TIMELINE_APP) && active(%_ACTIVE_TIMELINE_APP)',set,NO_ACK,"#(GetModelParameter;%_ACTIVE_TIMELINE_APP|AlarmList,I,AL_NO_ALS,I,ALRM_P1P2)"; \
+	actionif=AlarmStatus,'"%NO_UNACK" == "*FAIL*"',set,NO_UNACK,0; \
+	actionif=AlarmStatus,'"%NO_ACK" == "*FAIL*"',set,NO_ACK,0; \
+	actionif=AlarmStatus,'%NO_UNACK > 0',set,UNACK_ALARMS,1; \
+	actionif=AlarmStatus,'%NO_UNACK == 0',set,UNACK_ALARMS,0; \
+	action=AlarmStatus,set,AS,"green.ico"; \
+	actionif=AlarmStatus,'%NO_UNACK',set,AS,"red.ico"; \
+	actionif=AlarmStatus,'%NO_UNACK == 0 && %NO_ACK > 0',set,AS,"red.ico"; \
+	actionif=AlarmStatus,'"%AS" != "%ALARM_STATE"',set,ALARM_STATE,%AS; \
+	actionif=AlarmStatus,*,kickstart,790; \
+// use monitor to flash unack alarm icon
+	monitor=FlashUnack,1; \
+	actionif=FlashUnack,'%UNACK_ALARMS && "%ALARM_STATE" == "grey.ico"',set,AS,"red.ico"; \
+	actionif=FlashUnack,'%UNACK_ALARMS && "%ALARM_STATE" == "red.ico"',set,AS,"grey.ico"; \
+	actionif=FlashUnack,'%UNACK_ALARMS',set,ALARM_STATE,%AS; \
+	actionif=FlashUnack,'%UNACK_ALARMS',kickstart,790;
+
+Frame	Id = 1000; Layout = Form;
+Frame	Frame = 1000; Id = 1001; Layout = Fixed; Background = TOOLBAR_BG; Position = Lock,Left,0,Right,0;
+Frame	Frame = 1001; Id = 1; Layout = Horizontal; Space = 1; Pad = 2;
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// Section 1 - Initial Conditions and snapshots
+//
+Button	Frame = 1; Image = "open.ico"; \
+	Style = ToolBar; \
+	FeedBack="Load initial condition"; \
+	Dependency='%SV_KERNELCONNECTED && %SV_MODELLOADED'; \
+	Action=Send,ClearFileList,s,%FILE_FILT; \
+	Action=Set,FILE_FILT,"*.val"; \
+	Action=Set,PATHOPTION,1; \
+	Action=Set,PAGE_LIST,$top; \
+	Action=Set,NOPATH,""; \
+	Action=Set,PATHBUTTON,"Remove path from match"; \
+	Action=Set,RELMODEL,""; \
+	Action=Set,RELPARAM,""; \
+	Action=Set,RELVALS,""; \
+	Action=Set,_BY_DATE,0; \
+	Action = Panel,"InitLoad.pnl";
+
+Button	Frame = 1; Image = "save.ico"; \
+	Style = ToolBar; \
+	FeedBack="Save initial condition"; \
+	Dependency='%SV_KERNELCONNECTED && %SV_MODELLOADED'; \
+	Action=Set,FILE_FILT,"*.val"; \
+	Action=Set,PATHOPTION,1; \
+	Action=Set,PAGE_LIST,$top; \
+	Action=Set,NOPATH,""; \
+	Action=Set,PATHBUTTON,"Remove path from match"; \
+	Action=Set,RELMODEL,""; \
+	Action=Set,RELPARAM,""; \
+	Action=Set,RELVALS,""; \
+	Action = Panel,"InitSave.pnl"; \
+
+//snapshot button - force format of snapshot/log file before making
+Button	Frame = 1; Image = "snapshot.ico"; Style = ToolBar; \
+	FeedBack="Snapshot Overview"; \
+	Dependency = '%SV_TIMELINESACTIVE'; \
+	Action = Set,PAGE_LIST,"$bot"; \
+	Action = Panel,"SnapSum.pnl";
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// Section 2 - Print and copy graphic
+//
+
+Frame	Frame = 1; Border = Left;
+
+// print graphic
+Button	Frame = 1; Image = "print.ico"; Style = ToolBar; FeedBack = "Print graphic area"; \
+	Dependency = "%SV_GRAPHICLOADED == 1"; \
+	Action = PrintDialog;
+
+// copy graphic
+Button	Frame = 1; Image = "copy.ico"; Style = ToolBar; FeedBack = "Copy graphic area to clipboard"; \
+	Dependency = "%SV_GRAPHICLOADED == 1"; \
+	Action = PrintMetafile,Clipboard;
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// Section 3 - Home, Open, Prev, Next and Refresh graphic
+//
+
+Frame	Frame = 1; Border = Left;
+
+// home graphic
+Button	Frame=1; Style=ToolBar; Image="Home.ico"; Action=Load,"Overview.xdr"; \
+	FeedBack="Open Overview";
+
+// open graphic
+Button	Frame = 1; Style = ToolBar; Image = "openxdr.ico"; FeedBack = "Open Graphic"; \
+	Action = SMBrowserOpen,ExplorerResources,"*.xdr;*.klink",Graphic; \
+	Action = Command,Open,-Name,"%_BROWSER_SELECTED_FULL"; \
+	Dependency = '%SV_MODELLOADED';
+
+// prev graphic
+Button	Frame=1; Style=ToolBar; Image = "openprev.ico"; FeedBack = "Load previous graphic"; \
+	Dependency = '%SV_MODELLOADED && %SV_PREVPICTURE'; \
+	Action = Load,prev;
+
+// next graphic
+Button	Frame = 1; Style = ToolBar; Image = "opennext.ico"; FeedBack = "Load next graphic"; \
+	Dependency = '%SV_MODELLOADED && %SV_NEXTPICTURE'; \
+	Action = Load,Next; 
+
+// refresh graphic
+Button	Frame = 1; Style=ToolBar; Image = "Refresh.ico"; FeedBack = "Refresh current graphic";\
+	Dependency = "%SV_GRAPHICLOADED == 1"; \
+	Action = ZoomExtents;
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// Section 4 - Run and Freeze
+//
+
+Frame	Frame = 1; Border = Left;
+
+// run
+Button	Frame = 1; Style = ToolBar; Image = "run.ico"; FeedBack = "Run"; \
+	Dependency = '%SV_MODELLOADED && !%SV_MODELRUNNING'; \
+	Action = Request,Run,%_ACTIVE_TIMELINE;
+
+// freeze
+Button	Frame = 1; Style = ToolBar; Image = "pause.ico"; FeedBack = "Pause"; \
+	Dependency = '%SV_MODELRUNNING'; \
+	Action = Request,Pause,%_ACTIVE_TIMELINE;
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// Section 5 - Find tag
+//
+
+Frame	Frame = 1; Border = Left;
+
+Field	Frame = 1; Id = 999; Width = 150; Background = White; ItemSet = Tag,"$top@B_n_lst,-1",ListName,"RecentBlockSearch"; \
+		Prompt = "Find block",AutoClear; \
+		Mid="%_ACTIVE_TIMELINE_APP"; Dependency = '%SV_MODELLOADED'; \
+		Action = Set,BLOCK,!999; \
+		ActionIf = 'empty(%BLOCK)',Break; \
+		ActionIf = '#(%_ACTIVE_TIMELINE_APP|BlockExists,%BLOCK)',FindGraphic,"%BLOCK",%_ACTIVE_TIMELINE_APP; \
+		ActionIf = *,ZoomExtents; \
+		ActionIf = *,ListPush,"RecentBlockSearch","%BLOCK",20; \
+		ActionElse = MessageBox,"Block does not exist in the active model",Info; 
+
+Button	Frame = 1; Style = ToolBar; Image = "finddraw.ico"; FeedBack = "Find block (F3)"; \
+		Dependency = '%SV_MODELLOADED'; \
+		Action = LoadDLL,block_select; \
+		Action = CallDLL,block_select,BlockSelect,-mid,%_ACTIVE_TIMELINE_APP; \
+		Action = FreeDLL,block_select; \
+		ActionIf = 'empty(%_SBD_BLOCK)', Break; \
+		Action = Set,BLOCK,%_SBD_BLOCK; \
+		action = set,GRAPHIC,"#(%_SBD_TIMELINE_APP|%BLOCK@B_graphic)"; \
+		ActionIf = '"%GRAPHIC" != ""',FindGraphic,%BLOCK,%_SBD_TIMELINE_APP; \
+		ActionIf = *,ZoomExtents; \
+		ActionIf = *,ListPush,"RecentBlockSearch",%BLOCK,50; \
+		ActionIf = *,KickStart,999; \
+		ActionElse = MessageBox,"%BLOCK has no associated graphic",Error;
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// Section 6 - Adjust speed
+//
+
+Frame	Frame = 1; Border = Left;
+
+//step
+Button	Frame = 1; Style = ToolBar; Image = "step.ico"; FeedBack = "Step"; \
+		Dependency = '%SV_MODELLOADED && !%SV_MODELRUNNING'; \
+		Action = Request,Step,%_ACTIVE_TIMELINE;
+
+// execution control
+Button	Frame = 1; Style = ToolBar; Image = modelcontrol.ico; Feedback = "Execution control"; \
+		Dependency = '%SV_PROJECTOPENED'; \
+		Action = Panel,"tl_Execution"; \
+		Action = SetTab,Execution:50,Execution;
+
+// real time
+Button	Frame = 1; Style = ToolBar; Image = "runnorm.ico"; FeedBack = "Restrict to real time"; \
+	Dependency = '%SV_MODELLOADED && !writeprotected(%_ACTIVE_TIMELINE:ModelSpeedReq)'; \
+	Action = Request,SetSpeed,1,%_ACTIVE_TIMELINE;
+
+// max speed
+Button	Frame = 1; Style = ToolBar; Image = "runfast.ico"; FeedBack = "Maximum timeline speed"; \
+	Dependency = '%SV_MODELLOADED && !writeprotected(%_ACTIVE_TIMELINE:ModelSpeedReq)'; \
+	Action = Request,SetSpeed,0,%_ACTIVE_TIMELINE;
+	
+// >>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// Section 7 - Simulation speed and clock
+//
+
+Frame	Frame = 1; Border = Left; Id = 27;
+
+// model speed
+Label	Frame = 1; Label = "Speed:"; Bold;
+Variable  Frame = 1; Tag = "ModelSpeed,%_ACTIVE_TIMELINE"; mid=%_ROOT; \
+	  Get = GetModelParameter; Type = Real; Format = "%7.2f"; \
+	  Sample = 2; SameHeight = 1; background=white; border=line,1,grey70;
+	
+Clock	Frame = 1; Background = -,Green3,Green2,Green1,Orange2; SameHeight = 1; border=line,1,grey70; mid=%_ACTIVE_TIMELINE; \
+		font = "courier new-10-bold";
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// Section 8 - Run until time
+//
+
+//Frame	Frame = 1; Border = Left;
+
+//Label	Frame = 1; Label = "Run until time:"; Bold;
+
+//Field	Frame = 1; Id = 212; Width = 75; Tag = RunTillTime; \
+//	Get = GetModelParameter; Type = Time; Immediate; \
+//	Set = SetModelParameter;
+
+//Button	Frame = 1; Image = "run_until.ico"; Style = ToolBar; \
+//	FeedBack = "Set time to run until"; \
+//	Dependency = '%SV_KERNELCONNECTED && %SV_MODELLOADED && !%SV_MODELRUNNING'; \
+//	Action = Send,SetModelParameter,S,RunTillTime,!212; \
+//	Action = Refresh,212; \
+//	Action = Send,ModelRun;
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// Section 9 - Run for time
+//
+
+//Frame	Frame = 1; Border = Left;
+
+//Label	Frame = 1; Label = "Run for time:"; Bold;
+
+//Field	Frame = 1; Id = 213; Width = 75; Tag = RunForTime; Get = None; \
+//	Type = Time; Immediate; Set = SetModelParameter;
+
+//Button	Frame = 1; Image = "run_until.ico"; Style = ToolBar; \
+//	FeedBack = "Set time to run for"; \
+//	Dependency = '%SV_KERNELCONNECTED && %SV_MODELLOADED && !%SV_MODELRUNNING'; \
+//	Action = Send,SetModelParameter,S,RunForTime,!213; \
+//	Action = Refresh,212; \
+//	Action = Send,ModelRun;
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// Section 10 - Current Initial Condition
+//
+
+Frame	Frame = 1; Border = Left;
+
+//* Initial Condition description
+Label	Frame = 1; Label = "Current IC:"; Bold; SameHeight = 101; 
+Variable	Frame = 1; Tag = 'InitName,%_ACTIVE_TIMELINE'; Get = GetModelParameter; SameHeight = 101; \
+		Type = String; Width = 400; Sample = 5; Background = White; Border = Line,1,Grey70; Mid = "%_ROOT";
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>
+//
+// Section 11 - Alarms
+//
+
+Frame	Frame = 1; Border = Left;
+
+label	frame=1; label="Alarms:";
+button	frame=1; id=790; style=toolbar; image=%ALARM_STATE; dependency='%SV_TIMELINESACTIVE'; \
+		feedback="Show active alarms (#(GetModelParameter;%_ACTIVE_TIMELINE_APP|AlarmList,I,AL_NO_UNK,I,ALRM_P1P2) unacknowledged)"; \
+		Action = Set,ALACT_LEV,ALRM_P1P2; \
+		Action = Set,DB_GROUP_NM,"*"; \
+		Action = Set,TAG_NM,"*"; \
+		action=panel,AlarmSystemActiveAlarms;
+
+

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="15">
+ <header xy="838,922" xmin="830.999" ymin="922.001" xmax="907" ymax="1025">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Category" type="text" value="Operator"/>
+  <attribute name="AttPage" type="text" value="Operator_WellDisplay"/>
+  <attribute name="SymName" type="text" value="x_WellDisplay_flowdisplays"/>
+  <attribute name="ItemName" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Operator_WellDisplay"/>
+  <attribute name="ItemType" type="text" value="OprNextPicture"/>
+  <attribute name="SelectBox" type="real" value="-7,1,69,102"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <symbol id="1102" estat="ext" xy="870,1000" name="x_observable.sym">
+  <attribute name="Itemdesc" type="text" value="Observability symbol"/>
+  <attribute name="SymName" type="text" value="x_observable"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{WellDisplaySwitch:Output} == 1 &amp;&amp; {Diag_%TAG_NAME:TotalNumberOfNonObservable} &gt; 0" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1103" estat="ext" xy="890,1000" name="x_exclamation.sym">
+  <attribute name="SymName" type="text" value="x_exclamation"/>
+  <attribute name="Itemdesc" type="text" value="Exclamation indication symbol"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression=" {%(GR_ADR)11@G_alarm} &gt; 0" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1289" estat="ext" xy="834,1000" name="x_reconcilliation_transmitter_badinput.sym">
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_badinput"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression=" {%(GR_ADR)14@G_alarm} == 3" priority="0" fflash="true"/>
+   <state type="expression" expression=" {%(GR_ADR)14@G_alarm} == 2" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1293" colour="red" estat="ext" xy="850,998" name="x_reconcilliation_transmitter_residual">
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_residual"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression=" {%(GR_ADR)13@G_alarm} == 3" priority="0" fflash="true"/>
+   <state type="expression" expression=" {%(GR_ADR)14@G_alarm} == 2" priority="0"/>
+  </animation>
+ </symbol>
+ <string id="1208" xy="832,926,832,1025,906,1025,906,926,832,926"/>
+ <string id="1227" style="1" estat="ref" xy="839,923,831,1020,895,1024,907,927,839,931">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <cpoint id="1280" estat="ref" xy="838,922">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Category" type="text" value="Operator"/>
+  <attribute name="AttPage" type="text" value="Operator_WellDisplay"/>
+  <attribute name="SymName" type="text" value="x_WellDisplay_flowdisplays"/>
+  <attribute name="ItemName" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Operator_WellDisplay"/>
+  <attribute name="ItemType" type="text" value="OprNextPicture"/>
+ </cpoint>
+ <tnode id="1367" layer="Hidden" estat="ext" xy="847,922" height="10" hjust="centre" background="white">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <tnode id="1168" estat="ext" xy="850,978" height="10" hjust="centre">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="Diag_%TAG_NAME:@B_desc" format="%s">
+  </animation>
+ </tnode>
+ <tnode id="1156" estat="ext" xy="840,962" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_OIL_%TAG_NAME:DisplayEstimatedValue" format="%6.1f" default="invisible">
+   <state type="expression" expression="{WellDisplaySwitch:Output} == 0" priority="0"/>
+  </animation>
+ </tnode>
+ <tnode id="1276" estat="ext" xy="840,952" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_GAS_%TAG_NAME:DisplayEstimatedValue" format="%6.1f" default="invisible">
+   <state type="expression" expression="{WellDisplaySwitch:Output} == 0" priority="0"/>
+  </animation>
+ </tnode>
+ <tnode id="1281" estat="ext" xy="840,940" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_WTR_%TAG_NAME:DisplayEstimatedValue" format="%6.1f" default="invisible">
+   <state type="expression" expression="{WellDisplaySwitch:Output} == 0" priority="0"/>
+  </animation>
+ </tnode>
+ <tnode id="1275" estat="ext" xy="884,952" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_GAS_%TAG_NAME:DisplayEstimatedValue@V_units" format="%s" default="invisible">
+   <state type="expression" expression="{WellDisplaySwitch:Output} == 0" priority="0"/>
+  </animation>
+ </tnode>
+ <tnode id="1279" estat="ext" xy="884,940" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_WTR_%TAG_NAME:DisplayEstimatedValue@V_units" format="%s" default="invisible">
+   <state type="expression" expression="{WellDisplaySwitch:Output} == 0" priority="0"/>
+  </animation>
+ </tnode>
+ <tnode id="1298" estat="ext" xy="884,962" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_OIL_%TAG_NAME:DisplayEstimatedValue@V_units" format="%s" default="invisible">
+   <state type="expression" expression="{WellDisplaySwitch:Output} == 0" priority="0"/>
+  </animation>
+ </tnode>
+</sym>

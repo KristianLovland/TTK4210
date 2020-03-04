@@ -1,0 +1,251 @@
+#include $EXPLORER_RESOURCES/Panel/Instructor.def
+
+Header	Type = Exclusive; OneOff; Position = centrescreen;
+
+Frame	Id=1; Layout=Vertical;
+
+// Default to 1 minute for ramping if it is undefined
+//#ifdef '"%_DEFAULT_RAMP_TIME" == ""'
+//Set Variable = _DEFAULT_RAMP_TIME,60.0;
+//#elseifdef '%_DEFAULT_RAMP_TIME <= 0'
+//Set Variable = _DEFAULT_RAMP_TIME,60.0;
+//#endif
+
+Stub	Frame = 1; Size = 1,8;
+Label	Frame = 1; Label = "Subsea Profiles"; Bold;
+Stub	Frame = 1; Size = 5,5;
+
+//Frame	Frame = 1; Id = 2; Layout = Tabbed; \
+Frame	Id = 2; Layout = Tabbed; _TAB_POSITION1_; \
+	Tabs = "Flowlines";
+
+//  _________
+//_/Flowlines\_____________
+
+//#include InteractionTab_Plant.def
+
+Frame	Frame = 2; Id = 100; Layout = Fixed; Size = 212,500;
+Frame	Frame = 100; Id = 101; Layout = Vertical; Space = 5;
+
+// DWPLEM to CRP Flowline 1
+
+	Frame	Frame = 101; Id = 1010; Border; Pad = 2;
+
+	Stub	Frame = 1010; Size = 5,5;
+
+	Frame	Id = 1011; Frame = 1010; Layout = Horizontal; 
+
+	Button	Frame = 1011; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_Subsea_Profile; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 1011; Label="DWPLEM to CRP Flowline 1"; Bold;
+	Stub	Frame = 1010; Size = 5,5;
+
+	Frame	Frame = 1010; Id = 1012; Layout = Horizontal;
+		
+			Stub	Frame = 1012; Size = 10,5;
+			Label	Frame = 1012; Label="Flow / Holdup"; Bold; SameWidth = 110;
+
+			Stub	Frame = 1012; Size = 10,5;
+			Button	Frame = 1012; Label = " > "; SameWidth = 100; \
+				Action = Popdown,OLGAPROFILE; \
+				Action = Set,_FLOWLINEPLOT,HOLDUP; \
+				Action = set,TAG_NAME,DPL_CRP_P1; \
+				Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+				Action = Panel,%_BRANCHPANEL;
+
+//				Action=Load,$DSPICE_GRAPHIC_PATH\PIDs\SubseaProfileBackdrop.xdr; \
+	
+//	Stub	Frame = 1010; Size = 5,5;
+
+//	Frame	Frame = 1010; Id = 1014; Layout = Horizontal;
+		
+//			Stub	Frame = 1014; Size = 10,5;
+//			Label	Frame = 1014; Label="Pressure / Temperature"; Bold; SameWidth = 110;
+
+//			Stub	Frame = 1014; Size = 10,5;
+//			Button	Frame = 1014; Label = " > "; SameWidth = 100; \
+//				Action = Popdown,OLGAPROFILE; \
+//				Action = Set,_FLOWLINEPLOT,PT; \
+//				Action = set,TAG_NAME,DPL_CRP_P1; \
+//				Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+//				Action = Panel,%_BRANCHPANEL;
+	
+//	Stub	Frame = 1010; Size = 5,5;
+
+// DWPLEM to CRP Flowline 2
+//	Frame	Frame = 101; Id = 1020; Border; Pad = 2;
+
+//	Stub	Frame = 1020; Size = 5,5;
+
+//	Frame	Id = 1021; Frame = 1020; Layout = Horizontal; 
+
+//	Button	Frame = 1021; Image=questionmark.bmp; \
+//		Action = Popdown,%_HELPPANEL; \
+//		Action = Set,_HELPPANEL,Help_Subsea_Profile; \
+//		Action = Panel,%_HELPPANEL;
+//	Label	Frame = 1021; Label="DWPLEM to CRP Flowline 2"; Bold;
+//	Stub	Frame = 1020; Size = 5,5;
+
+//	Frame	Frame = 1020; Id = 1022; Layout = Horizontal;
+		
+//			Stub	Frame = 1022; Size = 10,5;
+//			Label	Frame = 1022; Label="Flow / Holdup"; Bold; SameWidth = 110;
+
+//			Stub	Frame = 1022; Size = 10,5;
+//			Button	Frame = 1022; Label = " > "; SameWidth = 100; \
+//				Action = Popdown,OLGAPROFILE; \
+//				Action = Set,_FLOWLINEPLOT,HOLDUP; \
+//				Action = set,TAG_NAME,DPL_CRP_P2; \
+//				Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+//				Action = Panel,%_BRANCHPANEL;
+	
+//	Stub	Frame = 1020; Size = 5,5;
+
+//	Frame	Frame = 1020; Id = 1024; Layout = Horizontal;
+		
+//			Stub	Frame = 1024; Size = 10,5;
+//			Label	Frame = 1024; Label="Pressure / Temperature"; Bold; SameWidth = 110;
+
+//			Stub	Frame = 1024; Size = 10,5;
+//			Button	Frame = 1024; Label = " > "; SameWidth = 100; \
+//				Action = Popdown,OLGAPROFILE; \
+//				Action = Set,_FLOWLINEPLOT,PT; \
+//				Action = set,TAG_NAME,DPL_CRP_P2; \
+//				Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+//				Action = Panel,%_BRANCHPANEL;
+	
+//	Stub	Frame = 1020; Size = 5,5;
+
+// CRP to OT Flowline GTL1
+//	Frame	Frame = 101; Id = 1030; Border; Pad = 2;
+
+//	Stub	Frame = 1030; Size = 5,5;
+
+//	Frame	Id = 1031; Frame = 1030; Layout = Horizontal; 
+
+//	Button	Frame = 1031; Image=questionmark.bmp; \
+//		Action = Popdown,%_HELPPANEL; \
+//		Action = Set,_HELPPANEL,Help_Subsea_Profile; \
+//		Action = Panel,%_HELPPANEL;
+//	Label	Frame = 1031; Label="CRP to OT GTL-1"; Bold;
+//	Stub	Frame = 1030; Size = 5,5;
+
+//	Frame	Frame = 1030; Id = 1032; Layout = Horizontal;
+		
+//			Stub	Frame = 1032; Size = 10,5;
+//			Label	Frame = 1032; Label="Flow / Holdup"; Bold; SameWidth = 110;
+
+//			Stub	Frame = 1032; Size = 10,5;
+//			Button	Frame = 1032; Label = " > "; SameWidth = 100; \
+//				Action = Popdown,OLGAPROFILE; \
+//				Action = Set,_FLOWLINEPLOT,HOLDUP; \
+//				Action = set,TAG_NAME,CRP_OT_P2; \
+//				Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+//				Action = Panel,%_BRANCHPANEL;
+	
+//	Stub	Frame = 1030; Size = 5,5;
+
+//	Frame	Frame = 1030; Id = 1034; Layout = Horizontal;
+		
+//			Stub	Frame = 1034; Size = 10,5;
+//			Label	Frame = 1034; Label="Pressure / Temperature"; Bold; SameWidth = 110;
+
+//			Stub	Frame = 1034; Size = 10,5;
+//			Button	Frame = 1034; Label = " > "; SameWidth = 100; \
+//				Action = Popdown,OLGAPROFILE; \
+//				Action = Set,_FLOWLINEPLOT,PT; \
+//				Action = set,TAG_NAME,CRP_OT_P2; \
+//				Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+//				Action = Panel,%_BRANCHPANEL;
+	
+//	Stub	Frame = 1030; Size = 5,5;
+
+// CRP to OT Flowline 2
+//	Frame	Frame = 101; Id = 1040; Border; Pad = 2;
+
+//	Stub	Frame = 1040; Size = 5,5;
+
+//	Frame	Id = 1041; Frame = 1040; Layout = Horizontal; 
+
+//	Button	Frame = 1041; Image=questionmark.bmp; \
+//		Action = Popdown,%_HELPPANEL; \
+//		Action = Set,_HELPPANEL,Help_Subsea_Profile; \
+//		Action = Panel,%_HELPPANEL;
+//	Label	Frame = 1041; Label="CRP to OT GTL-2"; Bold;
+//	Stub	Frame = 1040; Size = 5,5;
+
+//	Frame	Frame = 1040; Id = 1042; Layout = Horizontal;
+		
+//			Stub	Frame = 1042; Size = 10,5;
+//			Label	Frame = 1042; Label="Flow / Holdup"; Bold; SameWidth = 110;
+
+//			Stub	Frame = 1042; Size = 10,5;
+//			Button	Frame = 1042; Label = " > "; SameWidth = 100; \
+//				Action = Popdown,OLGAPROFILE; \
+//				Action = Set,_FLOWLINEPLOT,HOLDUP; \
+//				Action = set,TAG_NAME,CRP_OT_P1; \
+//				Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+//				Action = Panel,%_BRANCHPANEL;
+	
+//	Stub	Frame = 1040; Size = 5,5;
+
+//	Frame	Frame = 1040; Id = 1044; Layout = Horizontal;
+		
+//			Stub	Frame = 1044; Size = 10,5;
+//			Label	Frame = 1044; Label="Pressure / Temperature"; Bold; SameWidth = 110;
+
+//			Stub	Frame = 1044; Size = 10,5;
+//			Button	Frame = 1044; Label = " > "; SameWidth = 100; \
+//				Action = Popdown,OLGAPROFILE; \
+//				Action = Set,_FLOWLINEPLOT,PT; \
+//				Action = set,TAG_NAME,CRP_OT_P1; \
+//				Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+//				Action = Panel,%_BRANCHPANEL;
+	
+//	Stub	Frame = 1040; Size = 5,5;
+
+// CRP to OT Flowline 3
+//	Frame	Frame = 101; Id = 1050; Border; Pad = 2;
+
+//	Stub	Frame = 1050; Size = 5,5;
+
+//	Frame	Id = 1051; Frame = 1050; Layout = Horizontal; 
+
+//	Button	Frame = 1051; Image=questionmark.bmp; \
+//		Action = Popdown,%_HELPPANEL; \
+//		Action = Set,_HELPPANEL,Help_Subsea_Profile; \
+//		Action = Panel,%_HELPPANEL;
+//	Label	Frame = 1051; Label="CRP to OT GTL-3"; Bold;
+//	Stub	Frame = 1050; Size = 5,5;
+
+//	Frame	Frame = 1050; Id = 1052; Layout = Horizontal;
+		
+//			Stub	Frame = 1052; Size = 10,5;
+//			Label	Frame = 1052; Label="Flow / Holdup"; Bold; SameWidth = 110;
+
+//			Stub	Frame = 1052; Size = 10,5;
+//			Button	Frame = 1052; Label = " > "; SameWidth = 100; \
+//				Action = Popdown,OLGAPROFILE; \
+//				Action = Set,_FLOWLINEPLOT,HOLDUP; \
+//				Action = set,TAG_NAME,CRP_OT_P3; \
+//				Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+//				Action = Panel,%_BRANCHPANEL;
+	
+//	Stub	Frame = 1050; Size = 5,5;
+
+//	Frame	Frame = 1050; Id = 1054; Layout = Horizontal;
+		
+//			Stub	Frame = 1054; Size = 10,5;
+//			Label	Frame = 1054; Label="Pressure / Temperature"; Bold; SameWidth = 110;
+
+//			Stub	Frame = 1054; Size = 10,5;
+//			Button	Frame = 1054; Label = " > "; SameWidth = 100; \
+//				Action = Popdown,OLGAPROFILE; \
+//				Action = Set,_FLOWLINEPLOT,PT; \
+//				Action = set,TAG_NAME,CRP_OT_P3; \
+//				Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+//				Action = Panel,%_BRANCHPANEL;
+	
+//	Stub	Frame = 1050; Size = 5,5;

@@ -1,0 +1,50 @@
+#include $EXPLORER_RESOURCES/panel/BlockExplorerDefinitions.def
+
+Header	Title = "%TAG_NAME (%PANEL_TIMELINE) Alias Table"; Resizable = SaveSize,LargerOnly; Help = "#(%TAG_NAME@B_type)"; \
+		Name = "%TAG_NAME Alias Table"; OneOff = "%TAG_NAME (%PANEL_TIMELINE)"; Position = Cursor;	
+	
+//*************
+// Block menu *
+//*************
+
+Frame	Id = 1; Frame = -2; Layout = Vertical; Pad = 2;
+
+Frame	Id = 11; Frame = 1; Layout = Horizontal;
+
+//Button	Frame = 11; Image = "blkmenu.ico"; FeedBack = "Block //menu"; Style = BUTTON_STYLE; \
+//		Action = Menu,"BlockExplorerBlock";
+		
+Stub		Frame = 11; Size = 2,0;
+
+Variable	Frame = 11; Tag = "%TAG_NAME@B_desc"; Width = 200; Background = White;
+
+Frame	Frame = 1; Id=101; Layout = Horizontal; Space = 3; 
+Label	Frame=101; Label="#(%TAG_NAME@B_dimdsc[2])"; SameWidth = 10;
+Stub		Frame=101; SameWidth = 15;
+Variable	Frame = 101; Editable; Sample = 1; Tag =  "%TAG_NAME@B_dims[2]"; \
+		 Background = White;SameWidth = 101;
+
+
+Column	Header = "Alias Name List"; Name = "Alias"; Source = Tag,"%TAG_NAME:AliasNameList@V_array"; Tag = "%LVITEM"; Width = 150;Editable;
+
+Column	Header = "Module and Data Item name"; Source = Tag,"%TAG_NAME:RealVariables@V_input"; \
+	EDITABLE Width = 150; \
+	ActionIf = '"%RIGHT_CLICK" != "True"',Break; \
+	Action = Set,INAME,"%TAG_NAME:RealVariables[%LV_ROW]"; \
+	Action = Set,SAVED_TAG_NAME,%TAG_NAME; \
+	Action = Set,SAVED_TAG_TYPE,%TAG_TYPE; \
+	Action = Set,VINPUT,#(%INAME@V_input); \
+	ActionIf ='empty(%VINPUT)',Menu,BlockExplorerSetInput; \
+	ActionIf =*,Break; \
+	Action = Set,TAG_NAME,#(%VINPUT@B_name); \
+	Action = Set,TAG_TYPE,#(%TAG_NAME@B_type); \
+	Action = Set,LVITEM_STATE,0; \
+	ActionIf = '"%TAG_TYPE" == "*FAIL*"',Set,TAG_NAME,"*FAIL*"; \
+	Action = Menu,BlockExplorerSetInput; \
+	Action = Set,TAG_NAME,%SAVED_TAG_NAME; \
+	Action = Set,TAG_TYPE,%SAVED_TAG_TYPE;
+
+Column	Header = "Value"; Source = Tag,"%TAG_NAME:RealVariables"; \
+	EDITABLE Justify = Right; Format = %12.4f;
+
+ListView	Size = 450,250; Grid; Index; Sample = 1;

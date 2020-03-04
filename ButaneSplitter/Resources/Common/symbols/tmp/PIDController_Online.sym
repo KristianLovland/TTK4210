@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="12">
+ <header xy="180,1304" xmin="180" ymin="1304" xmax="219.999" ymax="1329">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="PidController"/>
+  <attribute name="Itemdesc" type="text" value="Adapter"/>
+  <attribute name="Module" type="text" value="PidController"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="PIDController_Online"/>
+  <attribute name="SelectBox" type="real" value="1,1,39,15"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="1119" estat="ext" xy="180,1304,220,1328" name="x_Online_Background.sym" xscl="40" yscl="24" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1123,1116"/>
+ </symbol>
+ <symbol id="1123" estat="ext" xy="180,1304,220,1328" name="x_Online_SolidFrame.sym" xscl="40" yscl="24" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1134,1119"/>
+ </symbol>
+ <symbol id="1140" depth="2" estat="ext" xy="206,1313" name="x_Adapter_Auto.sym">
+  <attribute name="SymName" type="text" value="x_Adapter_Auto"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Adapter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1141,1134"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:mode} == 0" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1144" estat="ext" xy="213,1313" name="x_Adapter_Saturated_H.sym">
+  <attribute name="SymName" type="text" value="x_Adapter_Saturated_H"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Adapter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1146,1141"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:OutputRangeHighLimit} &lt;= {%TAG_NAME:ControllerOutput}" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1146" estat="ext" xy="213,1319" name="x_Adapter_Saturated_L.sym">
+  <attribute name="SymName" type="text" value="x_Adapter_Saturated_L"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Adapter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1350,1144"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:OutputRangeLowLimit} &gt;= {%TAG_NAME:ControllerOutput}" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1639" estat="ext" xy="199,1313" name="x_Adapter_Deviation.sym">
+  <attribute name="SymName" type="text" value="x_Adapter_Deviation"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Adapter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1113,1350"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:DeviationAlarm} == False" priority="0"/> //foreground="invisible"/>
+  </animation>
+ </symbol>
+ <symbol id="1116" estat="ext" xy="206,1313" name="x_Adapter_Manual.sym">
+  <attribute name="SymName" type="text" value="x_Adapter_Manual"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Adapter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1119,1111"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:mode} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <tnode id="1134" estat="ext" xy="200,1322" height="4" hjust="centre" font="Verdana">
+  <relation type="mutual" subid="100" id="1140,1123"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_name">
+   <state type="expression" expression="&quot;%DESC&quot;== &quot;UNDEFINED&quot;" priority="0" text="%(TAG_NAME[10])"/>
+   <state type="expression" expression="&quot;%DESC&quot; != &quot;UNDEFINED&quot;" priority="0" text="%DESC"/>
+  </animation>
+ </tnode>
+ <tnode id="1141" estat="ext" xy="184,1306" height="4" font="Verdana">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1144,1140"/>
+  <animation type="text" tag="%TAG_NAME:SetPointUsed">
+  </animation>
+ </tnode>
+ <tnode id="1142" estat="ext" xy="210,1306" height="4" hjust="centre" font="Verdana">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1144,1140"/>
+  <animation type="text" tag="%TAG_NAME:Measurement@V_unit">
+  </animation>
+ </tnode>
+ <cpoint id="1350" estat="ref" xy="180,1304">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="PidController"/>
+  <attribute name="Itemdesc" type="text" value="Adapter"/>
+  <attribute name="Module" type="text" value="PidController"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="PIDController_Online"/>
+  <relation type="mutual" subid="100" id="1639,1146"/>
+  <parameter name="DESC" value="UNDEFINED"/>
+ </cpoint>
+ <string id="1113" style="1" estat="ref" xy="181,1305,181,1329,219,1329,219,1305,181,1305">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1111,1639"/>
+ </string>
+ <tnode id="1111" layer="Hidden" estat="ext" xy="181,1329" height="2" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1116,1113"/>
+ </tnode>
+</sym>

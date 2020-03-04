@@ -1,0 +1,3 @@
+header	Title="Centrifugal Compressor"; position=centre; oneoff; resizable;
+
+button	image="$EXPLORER_RESOURCES/bitmaps/CentrifugalCompressor.bmp"; size=900,576;

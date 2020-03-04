@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="6">
+ <header xy="1572,518" xmin="1563.5" ymin="510" xmax="1580" ymax="522.499" vunits="mm">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Timer"/>
+  <attribute name="Itemdesc" type="text" value="Timer"/>
+  <attribute name="Module" type="text" value="Timer"/>
+  <attribute name="Category" type="text" value="Basic Control"/>
+  <attribute name="SymName" type="text" value="Timer_Ineos"/>
+  <attribute name="SelectBox" type="real" value="-8.5,-4.5,0.5,4.5"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="23-01-15 08:17:24"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" vunits="mm" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <text id="2725" colour="blue" xy="1568,517" height="3" hjust="centre" layer="Engineer">
+  <tstring>T</tstring>
+  <relation type="mutual" subid="100" id="2739,2740"/>
+ </text>
+ <string id="2735" style="1" estat="ref" xy="1563.5,513.5,1563.5,522.5,1572.5,522.5,1572.5,513.5,1563.5,513.5">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="2742,2743"/>
+ </string>
+ <cpoint id="2739" estat="ref" xy="1572,518">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Timer"/>
+  <attribute name="Itemdesc" type="text" value="Timer"/>
+  <attribute name="Module" type="text" value="Timer"/>
+  <attribute name="Category" type="text" value="Basic Control"/>
+  <attribute name="SymName" type="text" value="Timer_Ineos"/>
+  <relation type="mutual" subid="100" id="2743,2725"/>
+ </cpoint>
+ <tnode id="2740" estat="ext" xy="1572,510" layer="Hidden" height="2" hjust="centre">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="2725,2742"/>
+ </tnode>
+ <tnode id="2742" colour="white" layer="Engineer" depth="100" estat="ext" xy="1580,522" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="2740,2735"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <string id="2743" colour="blue" xy="1564,514,1564,522,1572,522,1572,514,1564,514" layer="Engineer">
+  <relation type="mutual" subid="100" id="2735,2739"/>
+ </string>
+</sym>

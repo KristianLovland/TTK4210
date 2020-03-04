@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xdr revision="7" entities="33">
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="20-01-14 13:32:52"/>
+ </drawing>
+ <viewport id="2" vwidth="841" vheight="594" vunits="point" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <cpoint id="1025" xy="390,547"/>
+ <symbol id="1026" xy="580,390" name="CandE_Input" version="03-03-14 13:36:59">
+  <parameter name="TT_DX" value="16"/>
+  <parameter name="TT_X_ARRAY" value="%CANDE_TAG:OutputNames"/>
+  <attribute name="SelectBox" type="real" value="0,0,16,154"/>
+  <attribute name="symname" type="text" value="CandE_Input"/>
+  <attribute name="symplacement" type="null"/>
+  <relation type="child" subid="3" id="1066,1067"/>
+ </symbol>
+ <tnode id="1027" colour="white" xy="588,346" height="8" hjust="centre" font="Verdana">
+  <relation type="parent" subid="3" id="1028"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TT_TAG" format="EnumValues;%CANDE_TAG:Notes">
+   <state type="expression" expression="!({%TT_TAG} != 0 &amp;&amp; {%CANDE_TAG:InputSignal[%TT_J]} == 1 &amp;&amp; {%CANDE_TAG:Inhibit[%TT_J]} == 0)" priority="0" foreground="black"/>
+   <state type="expression" expression="{%TT_TAG} == 0" priority="1" text="-" background="black" foreground="black"/>
+   <state type="expression" expression="{%TT_TAG} == -1 &amp;&amp; ({%CANDE_TAG:InputSignal[%TT_J]} == 1 &amp;&amp; {%CANDE_TAG:Inhibit[%TT_J]} == 0)" priority="1" text="X"/>
+   <state type="expression" expression="{%TT_TAG} == -1 &amp;&amp; !({%CANDE_TAG:InputSignal[%TT_J]} == 1 &amp;&amp; {%CANDE_TAG:Inhibit[%TT_J]} == 0)" priority="1" text="X" background="black" foreground="black"/>
+  </animation>
+ </tnode>
+ <symbol id="1028" xy="580,342" name="CandE_Matrix" version="11-03-14 12:17:57">
+  <parameter name="TT_DX" value="16"/>
+  <parameter name="TT_DY" value="16"/>
+  <parameter name="TT_XY_ARRAY" value="%CANDE_TAG:CauseAndEffectMatrix"/>
+  <parameter name="TT_HSCROLL" value="TRUE"/>
+  <parameter name="TT_VSCROLL" value="TRUE"/>
+  <attribute name="SelectBox" type="real" value="0,0,16,16"/>
+  <attribute name="actionlist" type="text" value="action=menu,CandE_Matrix;"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="symname" type="text" value="CandE_Matrix"/>
+  <attribute name="symplacement" type="null"/>
+  <relation type="child" subid="3" id="1062,1027"/>
+ </symbol>
+ <symbol id="1029" xy="410,342" name="CandE_OutputNameBackground" version="16-01-14 22:07:04">
+  <attribute name="symname" type="text" value="CandE_OutputNameBackground"/>
+  <attribute name="symplacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="parent" subid="3" id="1030"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%CANDE_TAG:InputSignal[%TT_I]} == 1" priority="0" foreground="red"/>
+  </animation>
+ </symbol>
+ <symbol id="1030" xy="410,342" name="CandE_Output" version="16-04-14 09:37:28">
+  <parameter name="TT_Y_ARRAY" value="%CANDE_TAG:InputTripSignal"/>
+  <parameter name="TT_DY" value="16"/>
+  <attribute name="SelectBox" type="real" value="0,0,154,16"/>
+  <attribute name="actionlist" type="text" value="action=set,TAG_NAME,&apos;namepart(#(%CANDE_TAG:InputTripSignal[%TT_I]@V_input))&apos;;actionif=&apos;blockexists(%TAG_NAME)&apos;,set,TAG_TYPE,&apos;blocktype(%TAG_NAME)&apos;;actionif=*,set,FINDINMAINWINDOW,TRUE;actionif=*,set,BE_TIMELINE_APP,&apos;blockmid(%TAG_NAME)&apos;;actionif=*,menu,BlockExplorerBlock;actionif=&apos;empty(%TAG_NAME)&apos;,nop;"/>
+  <attribute name="symname" type="text" value="CandE_Output"/>
+  <attribute name="symplacement" type="null"/>
+  <relation type="child" subid="3" id="1071,1029"/>
+ </symbol>
+ <tnode id="1053" xy="572,346" height="8" hjust="centre" font="Verdana">
+  <relation type="parent" subid="3" id="1070"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="*">
+   <state type="expression" expression="{%TT_TAG} == 0" priority="0" text="-"/>
+   <state type="expression" expression="{%TT_TAG} == 1" priority="0" text="!"/>
+  </animation>
+ </tnode>
+ <text id="1058" colour="white" xy="438,430" height="8" font="Verdana">
+  <tstring>Resets</tstring>
+ </text>
+ <text id="1059" colour="white" xy="438,408" height="8" font="Verdana">
+  <tstring>Inhibits</tstring>
+ </text>
+ <symbol id="1062" xy="580,342" name="CandE_MatrixBackground" version="16-01-14 18:28:27">
+  <attribute name="symname" type="text" value="CandE_MatrixBackground"/>
+  <attribute name="symplacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="parent" subid="3" id="1028"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="fmod(%TT_I,4) &amp;&amp; fmod(%TT_J,4)" priority="0" foreground="white"/>
+   <state type="expression" expression="{%TT_TAG} != 0 &amp;&amp; {%CANDE_TAG:InputSignal[%TT_J]} == 1 &amp;&amp; {%CANDE_TAG:Inhibit[%TT_J]} == 0" priority="1" foreground="red"/>
+  </animation>
+ </symbol>
+ <text id="1063" colour="white" xy="416,362" height="8" font="Verdana">
+  <tstring>Input</tstring>
+ </text>
+ <symbol id="1064" xy="564,342" name="CandE_OutputInhibitBackground" version="16-01-14 18:28:36">
+  <attribute name="symname" type="text" value="CandE_OutputInhibitBackground"/>
+  <attribute name="symplacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="parent" subid="3" id="1070"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TT_TAG} == 0" priority="0" foreground="0xeaffea"/>
+  </animation>
+ </symbol>
+ <symbol id="1066" xy="580,390" name="CandE_InputNameBackground" version="16-01-14 22:06:57">
+  <attribute name="symname" type="text" value="CandE_InputNameBackground"/>
+  <attribute name="symplacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="parent" subid="3" id="1026"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%CANDE_TAG:OutputTripSignal[%TT_I]} == 1" priority="0" foreground="red"/>
+  </animation>
+ </symbol>
+ <tnode id="1067" xy="592,394" height="8" angle="90" font="Verdana" maxwidth="146">
+  <relation type="parent" subid="3" id="1026"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TT_TAG">
+   <state type="expression" expression="{%CANDE_TAG:OutputTripSignal[%TT_I]} == 1" priority="0" foreground="white"/>
+  </animation>
+ </tnode>
+ <symbol id="1070" xy="564,342" name="CandE_Inhibit" version="17-01-14 15:22:01">
+  <parameter name="TT_DY" value="16"/>
+  <parameter name="TT_Y_ARRAY" value="%CANDE_TAG:Inhibit"/>
+  <attribute name="SelectBox" type="real" value="0,0,16,16"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="symname" type="text" value="CandE_Inhibit"/>
+  <attribute name="symplacement" type="null"/>
+  <relation type="child" subid="3" id="1064,1053"/>
+  <attribute name="actionlist" type="text" value="action=menu,CandE_Inhibit;"/>
+ </symbol>
+ <tnode id="1071" xy="414,346" height="8" font="Verdana" maxwidth="146">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="parent" subid="3" id="1030"/>
+  <animation type="text" tag="%TT_TAG@V_input">
+   <state type="expression" expression="{%CANDE_TAG:InputSignal[%TT_I]} == 1" priority="0" foreground="white"/>
+  </animation>
+ </tnode>
+ <symbol id="1072" xy="580,358" name="CandE_Reset" version="17-01-14 15:21:36">
+  <parameter name="TT_DX" value="16"/>
+  <parameter name="TT_X_ARRAY" value="%CANDE_TAG:Reset"/>
+  <attribute name="SelectBox" type="real" value="0,0,16,16"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="symname" type="text" value="CandE_Reset"/>
+  <attribute name="symplacement" type="null"/>
+  <relation type="child" subid="3" id="1074,1080"/>
+  <attribute name="actionlist" type="text" value="action=menu,CandE_Reset;"/>
+ </symbol>
+ <symbol id="1073" xy="580,374" name="CandE_Override" version="17-01-14 15:21:24">
+  <parameter name="TT_DX" value="16"/>
+  <parameter name="TT_X_ARRAY" value="%CANDE_TAG:Override"/>
+  <attribute name="SelectBox" type="real" value="0,0,16,16"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="symname" type="text" value="CandE_Override"/>
+  <attribute name="symplacement" type="null"/>
+  <relation type="child" subid="3" id="1078,1077"/>
+  <attribute name="actionlist" type="text" value="action=menu,CandE_Override;"/>
+ </symbol>
+ <symbol id="1074" xy="580,358" name="CandE_InputResetBackground" version="16-01-14 18:28:03">
+  <attribute name="symname" type="text" value="CandE_InputResetBackground"/>
+  <attribute name="symplacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="parent" subid="3" id="1072"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="int" tag="%TT_TAG" value="0" priority="0" foreground="0xeaffea"/>
+  </animation>
+ </symbol>
+ <text id="1076" colour="white" xy="438,452" height="8" font="Verdana">
+  <tstring>Overrides</tstring>
+ </text>
+ <tnode id="1077" xy="588,378" height="8" hjust="centre" font="Verdana">
+  <relation type="parent" subid="3" id="1073"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="*">
+   <state type="int" tag="%TT_TAG" value="0" priority="0" text="-"/>
+   <state type="int" tag="%TT_TAG" value="1" priority="0" text="OR"/>
+  </animation>
+ </tnode>
+ <symbol id="1078" xy="580,374" name="CandE_InputOverrideBackground" version="16-01-14 18:27:55">
+  <attribute name="symname" type="text" value="CandE_InputOverrideBackground"/>
+  <attribute name="symplacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="parent" subid="3" id="1073"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="int" tag="%TT_TAG" value="0" priority="0" foreground="0xeaffea"/>
+  </animation>
+ </symbol>
+ <tnode id="1080" xy="588,362" height="8" hjust="centre" font="Verdana">
+  <relation type="parent" subid="3" id="1072"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="*">
+   <state type="int" tag="%TT_TAG" value="0" priority="0" text="-"/>
+   <state type="int" tag="%TT_TAG" value="1" priority="0" text="R"/>
+  </animation>
+ </tnode>
+ <polygon id="1081" colour="gray54" depth="-1" xy="410,358,410,374,532,374,532,358,410,358"/>
+ <polygon id="1082" colour="gray54" depth="-1" xy="434,426,434,442,490,442,490,426,434,426"/>
+ <polygon id="1083" colour="gray54" depth="-1" xy="434,448,434,464,490,464,490,448,434,448"/>
+ <polygon id="1084" colour="gray54" depth="-1" xy="434,404,434,420,490,420,490,404,434,404"/>
+ <string id="1085" colour="gray54" xy="572,358,526,404,490,404"/>
+ <text id="1086" colour="white" xy="575,504" height="8" angle="90" font="Verdana">
+  <tstring>Output</tstring>
+ </text>
+ <polygon id="1087" colour="gray54" depth="-1" xy="564,544,580,544,580,422,564,422,564,544"/>
+ <string id="1088" colour="gray54" xy="580,366,520,426,490,426"/>
+ <string id="1089" colour="gray54" xy="580,382,514,448,490,448"/>
+ <symbol id="1103" xy="393,342" name="CandE_FirstOut" version="20-01-14 13:25:19">
+  <parameter name="TT_DY" value="16"/>
+  <parameter name="TT_Y_ARRAY" value="%CANDE_TAG:FirstOut"/>
+  <attribute name="symname" type="text" value="CandE_FirstOut"/>
+  <attribute name="symplacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TT_TAG} == true" priority="0"/>
+  </animation>
+ </symbol>
+</xdr>

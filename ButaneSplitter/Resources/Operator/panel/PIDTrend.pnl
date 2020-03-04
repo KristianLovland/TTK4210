@@ -1,0 +1,57 @@
+#include $EXPLORER_RESOURCES/panel/DefaultVars.def
+
+#set 	 \
+	Y_MAX %TAG_NAME:RangeHighLimit \
+	Y_MIN %TAG_NAME:RangeLowLimit \
+	OR_MAX %TAG_NAME:OutputRangeHighLimit \
+	OR_MIN %TAG_NAME:OutputRangeLowLimit \
+	MEASUREMENTUNIT %TAG_NAME:Measurement@V_unit \
+	INTERNALSPUNIT %TAG_NAME:InternalSetpoint@V_unit \
+	OUTPUTUNIT %TAG_NAME:ControllerOutput@V_unit \
+	INTEGRALUNIT %TAG_NAME:IntegralTime@V_unit \
+	DERIVATIVEUNIT %TAG_NAME:DerivativeTime@V_unit \
+	FEEDBACKUNIT %TAG_NAME:Feedback@V_units \
+	SPCLAMPUP %TAG_NAME:SetpointClampUp \
+	SPCLAMPDOWN %TAG_NAME:SetpointClampDown
+	
+Header	Title = "%TAG_NAME (%PANEL_TIMELINE) Controller"; Position = Cursor; \
+		OneOff = "%TAG_NAME (%PANEL_TIMELINE)"; Resizable = SaveSize,LargerOnly; \
+		Action = -,Display,70,Legend,Off; HELP1;
+
+Frame	Id = 1; Frame = -2; Layout = Horizontal; Pad = 2; Space = 2;
+//Button	Frame = 1; Image = "blkmenu.ico"; FeedBack = "Block menu"; Style = BUTTON_STYLE; \
+//		Action = Menu,"BlockExplorerBlock";
+//Variable	VAR_EDIT; Frame = 1; Tag = "%TAG_NAME:@B_desc"; Width = 300; Type = String;
+
+//Dataset	Name=PVP; Colour = PV_COLOUR; BarWidth=0,33; \
+//		Tag="%TAG_NAME:Measurement@V_unscaled"; Label="PV";
+//Dataset	Name=SPP; Colour = SP_COLOUR; BarWidth=34,66; \
+//		Tag="%TAG_NAME:InternalSetpoint@V_unscaled"; Label="SP";
+//Dataset	Name=OP; Colour = OP_COLOUR; BarWidth=67,100; \
+//		Tag="%TAG_NAME:ControllerOutput@V_unscaled"; Label="OP";
+//
+//Display	Frame = -1; Id = 70; Sample = 1; Type = Level; Size = 100,1; \
+//		Dataset = PVP,SPP,OP; YAxis = 0,1; \
+//		Background = TREND_BG; Foreground = TREND_FG;
+
+Dataset	Name=PVP1; Id = 3101; Colour = PV_COLOUR; Label="PV"; Tag="%TAG_NAME:Measurement"; YGroup = "EU"; YAxis=%+Y_MIN,%+Y_MAX; YTitle = "%MEASUREMENTUNIT"; 
+Dataset	Name=SPP1; Id = 3102; Colour = SP_COLOUR; Label="SP"; Tag="%TAG_NAME:InternalSetpoint"; YGroup = "EU"; YAxis=%+Y_MIN,%+Y_MAX;
+Dataset	Name=OP1;  Id = 3103; Colour = OP_COLOUR; Label="OP"; Tag="%TAG_NAME:ControllerOutput"; YGroup = "OP"; YAxis=%+OR_MIN,%+OR_MAX; YTitle = "%OUTPUTUNIT"; 
+Dataset	Name=SPP2; Id = 3104; Colour = Orange; Label="SP used"; Tag="%TAG_NAME:SetpointUsed"; YGroup = "EU"; YAxis=%+Y_MIN,%+Y_MAX;
+
+#ifdef '%SPCLAMPUP != 0 || %SPCLAMPDOWN != 0'
+#define _DATASET_ PVP1,SPP1,SPP2,OP1
+#else
+#define _DATASET_ PVP1,SPP1,OP1
+#endif
+
+Display	Frame=0; Sample=1; Type=Trend; id = 3000; Size=1,400;\
+		XTitle = "Time"; Dataset=_DATASET_; \
+		Background= TREND_BG; Foreground = TREND_FG; Grid= TREND_GRID; \
+		YAxis = ByGroup;
+
+Frame	Frame = -4; Id = 2; Layout = Horizontal; Pad = 3; Space = 5;
+Frame	Frame = 2; Id = 20; Layout = Vertical; Space = 5;
+Frame	Frame = 2; Id = 21; Layout = Vertical; Space = 5;
+
+

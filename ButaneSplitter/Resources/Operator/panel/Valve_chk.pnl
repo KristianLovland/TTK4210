@@ -1,0 +1,61 @@
+#include $EXPLORER_RESOURCES/panel/DefaultVars.def
+
+Header	Title = "%TAG_NAME Characteristic"; Resizable = SaveSize,LargerOnly; HELP1; \
+		Name = "%TAG_NAME Characteristic"; OneOff = "%TAG_NAME (%PANEL_TIMELINE)"; Position = Cursor;
+
+
+//*************
+// Block menu *
+//*************
+Frame	Id = 1; Frame = -2; Layout = Vertical; Pad = 2;
+
+Frame	Id = 11; Frame = 1; Layout = Horizontal; Space = 5;
+Frame	Id = 12; Frame = 1; Layout = Horizontal; Space = 5;
+Frame	Id = 13; Frame = 1; Layout = Horizontal; Space = 5;
+Frame	Id = 14; Frame = 1; Layout = Horizontal; Space = 5;
+Frame	Id = 15; Frame = 1; Layout = Horizontal; Space = 5;
+
+Button	Frame = 11; Image = "blkmenu.ico"; FeedBack = "Block menu"; Style = BUTTON_STYLE; \
+		Action = Menu,"BlockExplorerBlock";
+
+		
+Stub		Frame = 11; Size = 2,0;
+
+set	variable=CV, "%TAG_NAME:CvAtCurrentOpening";
+set	variable=MAX, "%TAG_NAME:CvFullyOpen";
+set variable=CV_FRAC, "x(#(%CV)/#(%MAX))";
+
+
+Variable	Frame = 12; Caption = "#(%TAG_NAME:ValveCharacteristic@V_desc)"; Tag = "%TAG_NAME:ValveCharacteristic"; SameWidth = +31;		
+Variable	Frame = 13; Caption = "#(%TAG_NAME:ValveStemPosition@V_desc)"; Tag = "%TAG_NAME:ValveStemPosition"; SameWidth = +31;  format="%8.2f";
+Label		Frame = 13; Label = "%";
+Variable	Frame = 14; Caption = "#(%TAG_NAME:CVAtCurrentOpening@V_desc)"; Tag = "%TAG_NAME:CvAtCurrentOpening"; SameWidth = +31;  format="%8.2f";
+Label		Frame = 14; Label = "CV";
+Variable	Frame = 15; Caption = "#(%TAG_NAME:CvFullyOpen@V_desc)"; Tag = "%TAG_NAME:CvFullyOpen"; SameWidth = +31;  format="%8.2f";
+Label		Frame = 15; Label = "CV";
+
+/////////	For test Only	///////////////////	
+//variable	frame=11; type=real; format="%5.2f"; width=60; tag="%CV"; size=250,20; justify=left; font=arial-8;
+//variable	frame=11; type=real; format="%5.2f"; width=60; tag="%MAX"; size=250,20; justify=left; font=arial-8;
+//label 		frame=11; type=real; format="%5.2f"; width=60; label="%CV_FRAC"; size=250,20; justify=left; font=arial-8;
+//////////////////////////////////////////////
+
+
+// Data Set fot raw data - Scatter Style, red
+Dataset	Name = d1; id = 3101; Tag = "%TAG_NAME:CvAtCurrentOpening@V_unscaled","%TAG_NAME:ValveStemPosition@V_unscaled"; \
+		Colour = Red; Label = "No Label"; 
+// Data Set fot Display curves - Solid curve, blue
+Dataset	Name = d2; id = 3102; Tag = "%TAG_NAME:OpeningsForDisplay@V_unscaled","%TAG_NAME:StemPositionsForDisplay@V_unscaled"; \
+		Colour = Blue; Static; Label = "Valve Opening Characteristic";
+
+// Note that the plot is of unscaled Date - i.e. in fraction.
+Display	Frame = 0; Type = Trajectory; id = 3000; Size = TREND_MIN_SIZE; \
+		Dataset = d2; Background = TREND_BG; Foreground = TREND_FG; \
+		YAxis = 0,1,-,-,-,-,0.2; XAxis = 0,1,0.2; Grid = TREND_GRID; \
+		XTitle = "Stem Position (fraction)"; \
+		YTitle = "Cv Fraction (fraction)";
+
+
+
+
+

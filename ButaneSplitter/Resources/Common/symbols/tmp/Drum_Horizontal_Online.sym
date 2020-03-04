@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="7">
+ <header xy="324,216" xmin="270" ymin="180" xmax="378" ymax="236">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Drum"/>
+  <attribute name="Itemdesc" type="text" value="Online Drum"/>
+  <attribute name="Module" type="text" value="Drum"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Drum_Horizontal_Online"/>
+  <attribute name="SelectBox" type="real" value="-52,-18,52,18"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\DemoProject\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <symbol id="1955" estat="ext" xy="324,216" name="x_Drum_Horizontal_3D.sym">
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="x_Drum_Horizontal_3D"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="child" subid="3" id="1954"/>
+ </symbol>
+ <symbol id="1954" layer="3D" depth="-3" estat="rel" xy="286,200,290,222" name="x_SquareOil" xscl="4" yscl="22" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_SquareOil"/>
+  <attribute name="LayerLocked" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="parent" subid="3" id="1955"/>
+  <animation type="rect" mtag="%TAG_NAME:LiquidLevel@V_unscaled" mmin="%TAG_NAME:MinLevel@V_unscaled" mmax="%TAG_NAME:MaxLevel@V_unscaled" rect="0,0,4,0,0,0,4,32">
+  </animation>
+ </symbol>
+ <symbol id="1951" estat="ext" xy="294,196" name="x_Online_Drum_Boot_3D.sym">
+  <attribute name="SymName" type="text" value="x_Online_Drum_Boot_3D"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="child" subid="3" id="1949"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:HasDrumBoot}" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1949" layer="3D" depth="-3" estat="rel" xy="298,187,302,192.5" name="x_SquareOil" xscl="4" yscl="5.5" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_SquareOil"/>
+  <attribute name="LayerLocked" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="parent" subid="3" id="1951"/>
+  <animation type="rect" mtag="%TAG_NAME:LiquidLevel@V_unscaled" mmin="%TAG_NAME:MinBootLevel@V_unscaled" mmax="%TAG_NAME:MaxBootLevel@V_unscaled" rect="0,0,4,0,0,0,4,8" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:HasDrumBoot} == True" priority="0"/>
+  </animation>
+ </symbol>
+ <string id="1960" style="1" estat="ref" xy="272,198,272,234,376,234,376,198,272,198">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <tnode id="1952" depth="10" estat="ext" xy="324,216" height="8" hjust="centre" vjust="middle" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+ </tnode>
+ <cpoint id="1953" estat="ref" xy="324,216">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Drum"/>
+  <attribute name="Itemdesc" type="text" value="Online Drum"/>
+  <attribute name="Module" type="text" value="Drum"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Drum_Horizontal_Online"/>
+ </cpoint>
+</sym>

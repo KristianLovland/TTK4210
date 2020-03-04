@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="15">
+ <header xy="192,968" xmin="191.999" ymin="968" xmax="240" ymax="997">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="MultiphaseMeter"/>
+  <attribute name="Itemdesc" type="text" value="Multiphase Meter"/>
+  <attribute name="Module" type="text" value="MultiphaseMeter"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="MultiphaseMeter_Online"/>
+  <attribute name="SelectBox" type="real" value="1,1,47,27"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <symbol id="1778" estat="ext" xy="192,968,240,996" name="x_Online_Background.sym" xscl="48" yscl="28" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1780,1781"/>
+ </symbol>
+ <symbol id="1779" estat="ext" xy="192,968,240,996" name="x_Online_SolidFrame.sym" xscl="48" yscl="28" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1784,1780"/>
+ </symbol>
+ <string id="1780" style="1" estat="ref" xy="193,969,193,995,239,995,239,969,193,969">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1779,1778"/>
+ </string>
+ <cpoint id="1784" estat="ref" xy="192,968">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="MultiphaseMeter"/>
+  <attribute name="Itemdesc" type="text" value="Multiphase Meter"/>
+  <attribute name="Module" type="text" value="MultiphaseMeter"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="MultiphaseMeter_Online"/>
+  <relation type="mutual" subid="100" id="1782,1779"/>
+ </cpoint>
+ <tnode id="1782" estat="ext" xy="216,990" height="4" hjust="centre" bold="true">
+  <relation type="mutual" subid="100" id="1783,1784"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME" format="%s">
+   <state type="expression" expression="1 == 1" priority="0" text="MPM (#(%TAG_NAME:EstimatedOilMassFlow@V_unit))"/>
+  </animation>
+ </tnode>
+ <tnode id="1783" layer="Hidden" estat="ext" xy="216,997" height="1" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1792,1782"/>
+ </tnode>
+ <text id="1792" estat="rel" xy="194,982" height="4" bold="true">
+  <tstring>Oil</tstring>
+  <relation type="parent" subid="1" id="1791"/>
+  <relation type="mutual" subid="100" id="1791,1783"/>
+ </text>
+ <tnode id="1791" estat="ext" xy="194,982" height="4" bold="true">
+  <relation type="child" subid="1" id="1792"/>
+  <relation type="mutual" subid="100" id="1786,1792"/>
+ </tnode>
+ <tnode id="1786" estat="ext" xy="238,982" height="4" hjust="right" bold="true">
+  <relation type="mutual" subid="100" id="1794,1791"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:EstimatedOilMassFlow" format="%6.1f">
+  </animation>
+ </tnode>
+ <text id="1794" estat="rel" xy="194,976" height="4" bold="true">
+  <tstring>Gas</tstring>
+  <relation type="parent" subid="1" id="1793"/>
+  <relation type="mutual" subid="100" id="1793,1786"/>
+ </text>
+ <tnode id="1793" estat="ext" xy="194,976" height="4" bold="true">
+  <relation type="child" subid="1" id="1794"/>
+  <relation type="mutual" subid="100" id="1785,1794"/>
+ </tnode>
+ <tnode id="1785" estat="ext" xy="238,976" height="4" hjust="right" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1796,1793"/>
+  <animation type="text" tag="%TAG_NAME:EstimatedGasMassFlow" format="%6.1f">
+  </animation>
+ </tnode>
+ <text id="1796" estat="rel" xy="194,970" height="4" bold="true">
+  <tstring>Water</tstring>
+  <relation type="parent" subid="1" id="1795"/>
+  <relation type="mutual" subid="100" id="1795,1785"/>
+ </text>
+ <tnode id="1795" estat="ext" xy="194,970" height="4" bold="true">
+  <relation type="child" subid="1" id="1796"/>
+  <relation type="mutual" subid="100" id="1781,1796"/>
+ </tnode>
+ <tnode id="1781" estat="ext" xy="238,970" height="4" hjust="right" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1778,1795"/>
+  <animation type="text" tag="%TAG_NAME:EstimatedWaterMassFlow" format="%6.1f">
+  </animation>
+ </tnode>
+</sym>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="3">
+ <header xy="464,56" xmin="462" ymin="55.9998" xmax="466" ymax="300">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemDesc" type="text" value="Level indicator level_liq vs length"/>
+  <attribute name="SymName" type="text" value="x3DVessel2PhaseVertical_s1"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="7.99955" vheight="488" gpitch="2,2" goffset="0,0"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <symbol id="1208" colour="#800000" depth="20" estat="ext" xy="462,56,466,144" name="xpolygon_s1" xscl="4" yscl="88" fitted="true" pr6layer="89">
+  <attribute name="SymName" type="text" value="xpolygon_s1.sym"/>
+  <attribute name="ItemDesc" type="text" value="Extendable animated rectangle building block"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="rect" mtag="%TAG_NAME:level_liq@V_unscaled" mmin="0" mmax="%TAG_NAME:length@V_unscaled" rect="0,0,4,0,0,0,4,244">
+  </animation>
+ </symbol>
+ <polygon id="1192" colour="#a7a7a7" depth="10" xy="462,56,462,300,466,300,466,56,462,56"/>
+ <cpoint id="1204" estat="ref" xy="464,56">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemDesc" type="text" value="Level indicator level_liq vs length"/>
+  <attribute name="SymName" type="text" value="x3DVessel2PhaseVertical_s1"/>
+ </cpoint>
+</sym>

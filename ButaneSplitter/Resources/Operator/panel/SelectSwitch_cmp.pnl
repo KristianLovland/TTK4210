@@ -1,0 +1,30 @@
+#include $EXPLORER_RESOURCES/panel/DefaultVars.def
+
+header	position=cursor; Title="%TAG_NAME";
+
+frame		Id=1; layout=vertical; pad=10; space = 5;
+
+Frame	Id = 100; Frame = 1; Layout = Vertical; Space = 5; Pad = 1;
+
+// Selection Mode
+Variable	Frame = 100; VAR_NOEDIT; Caption = "Selection Mode  : "; Tag = "%TAG_NAME:SelectionMode"; Width = 250;
+
+// Selected Input
+Variable	Frame = 100; VAR_NOEDIT; Caption = "Selected Input Tag  : "; Tag = "%TAG_NAME:SelectedInput"; Width = 250;
+
+// Output
+Variable	Frame = 100; VAR_NOEDIT; Caption = "Output  : "; Tag = "%TAG_NAME:Output"; \
+		Suffix = "#%TAG_NAME:Output@V_units"; Width = 250;
+
+// Input Values
+Label	Frame = 100; Label = "Inputs:"; Bold;
+
+Column	Name = "InputNames"; Header = "Input names"; VAR_LV_EDIT; \
+		Source=Tag,"%TAG_NAME:InputNames@V_array"; Tag = "%LVITEM"; Width=180;
+	
+Column	Name = "Input"; Header = "Values (#(%TAG_NAME:Input@V_units))"; VAR_LV_EDIT; \
+		Source = Tag,"%TAG_NAME:Input@V_array"; Tag = "%LVITEM"; Width = 180;
+	
+ListView	Frame = 100; Grid; Size=400,100; Index;
+
+

@@ -1,0 +1,16 @@
+PulseControlledValve;13BDV2001;Pulse Controlled Valve
+PulseControlledValve;13BDV2005;Pulse Controlled Valve
+PulseControlledValve;20BDV0004;Pulse Controlled Valve
+PulseControlledValve;20BDV1004;Pulse Controlled Valve
+PulseControlledValve;20BDV2004;Pulse Controlled Valve
+PulseControlledValve;20BDV3004;Pulse Controlled Valve
+PulseControlledValve;20BDV4003;Pulse Controlled Valve
+PulseControlledValve;20BDV5004;Pulse Controlled Valve
+PulseControlledValve;21BDV0003;Pulse Controlled Valve
+PulseControlledValve;21BDV0005;Pulse Controlled Valve
+PulseControlledValve;23BDV0003;Pulse Controlled Valve
+PulseControlledValve;23BDV0006;Pulse Controlled Valve
+PulseControlledValve;24BDV0001;Pulse Controlled Valve
+PulseControlledValve;24BDV1001;Pulse Controlled Valve
+PulseControlledValve;27BDV0007;Pulse Controlled Valve
+PulseControlledValve;27BDV1003;Pulse Controlled Valve

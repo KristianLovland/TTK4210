@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<Menu Grid.Row="0" IsMainMenu="true" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:SimExplorer="clr-namespace:Kongsberg.KSpice.SimExplorer;assembly=SimExplorer" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <MenuItem Header="_File">
+    <MenuItem Header="Failed to load menu"/>
+  </MenuItem>
+
+  <MenuItem Header="_Control">
+    <MenuItem Header="Failed to load menu"/>
+  </MenuItem>
+
+  <MenuItem Header="_Edit">
+    <MenuItem Header="Failed to load menu"/>
+  </MenuItem>
+
+  <MenuItem Header="_View">
+    <MenuItem Header="Failed to load menu"/>
+  </MenuItem>
+
+  <MenuItem Header="_Tools">
+    <MenuItem Header="Failed to load menu"/>
+  </MenuItem>
+
+  <MenuItem Header="_Overview">
+    <MenuItem Header="Failed to load menu"/>
+  </MenuItem>
+
+  <MenuItem Header="E_xport">
+    <MenuItem Header="Failed to load menu"/>
+  </MenuItem>
+
+  <MenuItem Header="_Alarms">
+    <MenuItem Header="Failed to load menu"/>
+  </MenuItem>
+
+  <MenuItem Header="_Help">
+    <MenuItem Header="Failed to load menu"/>
+  </MenuItem>
+
+</Menu>

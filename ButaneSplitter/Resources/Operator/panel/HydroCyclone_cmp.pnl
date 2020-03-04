@@ -1,0 +1,3 @@
+header	Title="2 Phase Separator"; position=centre; oneoff; resizable;
+
+button	image="$EXPLORER_RESOURCES/bitmaps/HydroCyclone.bmp"; size=900,577;

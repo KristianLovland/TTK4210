@@ -1,0 +1,26 @@
+header	position=cursor; Title="%TAG_NAME";
+
+frame		id=1; layout=vertical; pad=10; space = 5;
+
+frame		frame=1; id=2; layout=horizontal;
+frame		frame=1; id=3; layout=horizontal;
+frame		frame=1; id=4; layout=horizontal;
+
+
+frame	frame=1; id=10; layout=horizontal; pad=10;
+
+
+Button	Frame = 10; Label = "On"; SameWidth = 105; Dependency = '#(%TAG_NAME:Input) != 1'; \
+	Action = Send,SetVariable,S,"%TAG_NAME:Input",R,1;
+	
+//stub 	frame=10; size=10,10;
+
+Button	Frame = 10; Label = "Off"; SameWidth = 105; Dependency = '#(%TAG_NAME:Input) != 0'; \
+	Action = Send,SetVariable,S,"%TAG_NAME:Input",R,0;
+
+#endif
+
+//stub 	frame=10; size=10,10;
+
+frame	frame=1; id=20; layout=horizontal; pad=10;
+

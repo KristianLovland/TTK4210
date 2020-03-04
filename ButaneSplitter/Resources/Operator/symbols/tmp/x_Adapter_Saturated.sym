@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="3">
+ <header xy="347,994" xmin="347" ymin="993.999" xmax="353.001" ymax="1000">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Adapter"/>
+  <attribute name="SymName" type="text" value="x_Adapter_Saturated"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\DemoProject\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <polygon id="1124" colour="blue" depth="-2" xy="347,994,347,1000,353,1000,353,994,347,994">
+  <relation type="mutual" subid="100" id="1132,1121"/>
+ </polygon>
+ <cpoint id="1132" estat="ref" xy="347,994">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Adapter"/>
+  <attribute name="SymName" type="text" value="x_Adapter_Saturated"/>
+  <relation type="mutual" subid="100" id="1121,1124"/>
+ </cpoint>
+ <text id="1121" colour="white" xy="350,997" height="4" hjust="centre" vjust="middle" font="Verdana" bold="true">
+  <tstring>S</tstring>
+  <relation type="mutual" subid="100" id="1124,1132"/>
+ </text>
+</sym>

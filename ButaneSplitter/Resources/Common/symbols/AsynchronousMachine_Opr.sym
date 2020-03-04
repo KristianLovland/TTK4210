@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="10">
+ <header xy="441,1080" xmin="433.001" ymin="1072" xmax="448.999" ymax="1086" vunits="mm">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="AsynchronousMachine"/>
+  <attribute name="Itemdesc" type="text" value="Asynchronous Machine"/>
+  <attribute name="Module" type="text" value="PulseControlledAsynchronousMachine"/>
+  <attribute name="Category" type="text" value="Rotating Equipment"/>
+  <attribute name="SymName" type="text" value="AsynchronousMachine"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="SelectBox" type="real" value="-6,-4,6,4"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="29-01-15 13:12:34"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" vunits="mm" gpitch="0.5,0.5" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <symbol id="1034" estat="ext" xy="434.5,1075.5,447.5,1084.5" name="SignalFailureOutline" xscl="13" yscl="9" fitted="true">
+  <attribute name="SymName" type="text" value="SignalFailureOutline"/>
+  <relation type="mutual" subid="100" id="1037,1036"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:SignalFailure} == 1 || {%TAG_NAME:MachineFailure} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1219" estat="ext" xy="433,1074,449,1086" name="TrippedOutline" xscl="16" yscl="12" fitted="true">
+  <attribute name="SymName" type="text" value="TrippedOutline"/>
+  <relation type="mutual" subid="100" id="1189,1850"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Tripped} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1220" estat="ext" xy="434.5,1075.5,447.5,1084.5" name="MalfunctionOutline" xscl="13" yscl="9" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <relation type="mutual" subid="100" id="1189,1850"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1245" depth="10" estat="ext" xy="439,1078,443,1082" name="x_SquareGreen" xscl="4" yscl="4" fitted="true">
+  <attribute name="SymName" type="text" value="x_SquareGreen"/>
+  <relation type="mutual" subid="100" id="1646,1238"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:MachineStatus} == False" priority="0" foreground="red"/>
+  </animation>
+ </symbol>
+ <symbol id="1646" depth="5" estat="ext" xy="437,1076" name="x_AsynchronousMachine_Outline" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_AsynchronousMachine_Outline"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <attribute name="AllowConnections" type="null"/>
+  <relation type="mutual" subid="100" id="1850,1245"/>
+ </symbol>
+ <symbol id="1850" layer="3D" estat="ext" xy="441,1080" name="x_AsynchronousMachine_3D" fixedlay="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="x_AsynchronousMachine_3D"/>
+  <relation type="mutual" subid="100" id="1219,1646"/>
+ </symbol>
+ <tnode id="1184" layer="Hidden" depth="40" estat="ext" xy="441,1072" height="2" hjust="centre" ntm="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1190,1189"/>
+ </tnode>
+ <string id="1189" style="1" estat="ref" xy="435,1076,435,1084,447,1084,447,1076,435,1076">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1184,1219"/>
+ </string>
+ <cpoint id="1190" estat="ref" xy="441,1080">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="AsynchronousMachine"/>
+  <attribute name="Itemdesc" type="text" value="Asynchronous Machine"/>
+  <attribute name="Module" type="text" value="PulseControlledAsynchronousMachine"/>
+  <attribute name="Category" type="text" value="Rotating Equipment"/>
+  <attribute name="SymName" type="text" value="AsynchronousMachine"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <relation type="mutual" subid="100" id="1238,1184"/>
+ </cpoint>
+ <tnode id="1238" colour="white" layer="Engineer" depth="100" estat="ext" xy="447,1083" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="1245,1190"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+</sym>

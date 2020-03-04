@@ -1,0 +1,14 @@
+20PC0014B;20PC0014B;01**20;DeviationAlarm;p1;Dev
+HIC2440;HIC2440;01**HI;DeviationAlarm;p1;Dev
+FQIC2402;FQIC2402;01**FQ;DeviationAlarm;p1;Dev
+PDIC2403;PDIC2403;01**PD;DeviationAlarm;p1;Dev
+FQIC2401;FQIC2401;01**FQ;DeviationAlarm;p1;Dev
+PIC2408;PIC2408;01**PI;DeviationAlarm;p1;Dev
+TIC2405;TIC2405;01**TI;DeviationAlarm;p1;Dev
+LIC2405;LIC2405;01**LI;DeviationAlarm;p1;Dev
+TIC2407;TIC2407;01**TI;DeviationAlarm;p1;Dev
+PIC2407;PIC2407;01**PI;DeviationAlarm;p1;Dev
+HIC2441;HIC2441;01**HI;DeviationAlarm;p1;Dev
+FQIC2406;FQIC2406;01**FQ;DeviationAlarm;p1;Dev
+PDIC2406;PDIC2406;01**PD;DeviationAlarm;p1;Dev
+FQIC2405;FQIC2405;01**FQ;DeviationAlarm;p1;Dev

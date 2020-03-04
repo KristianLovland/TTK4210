@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="11">
+ <header xy="597,1078" xmin="587.999" ymin="1064" xmax="606.001" ymax="1087">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="CentrifugalPump"/>
+  <attribute name="Itemdesc" type="text" value="Centrifugal Pump"/>
+  <attribute name="Module" type="text" value="CentrifugalPump"/>
+  <attribute name="Category" type="text" value="Rotating Equipment"/>
+  <attribute name="SymName" type="text" value="CentrifugalPump"/>
+  <attribute name="SelectBox" type="real" value="-8,-10,8,8"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\Dev\Explorer\Resources\UnscaledLevels"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="8,8" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <symbol id="2466" layer="3D" depth="-5" estat="ext" xy="597,1078" name="x_CentrifugalPump_3d" fixedlay="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="x_CentrifugalPump_3D"/>
+  <relation type="mutual" subid="100" id="1239,2449"/>
+ </symbol>
+ <symbol id="1239" estat="ext" xy="588,1067,606,1087" name="MalfunctionOutline" xscl="18" yscl="20" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <relation type="mutual" subid="100" id="1203,2466"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <cpoint id="1183" estat="ref" xy="597,1078">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="CentrifugalPump"/>
+  <attribute name="Itemdesc" type="text" value="Centrifugal Pump"/>
+  <attribute name="Module" type="text" value="CentrifugalPump"/>
+  <attribute name="Category" type="text" value="Rotating Equipment"/>
+  <attribute name="SymName" type="text" value="CentrifugalPump"/>
+  <relation type="mutual" subid="100" id="1207,1203"/>
+ </cpoint>
+ <arc id="1207" colour="blue" xy="597,1078" radius="8">
+  <relation type="mutual" subid="100" id="1208,1183"/>
+ </arc>
+ <string id="1208" style="1" estat="ref" xy="589,1068,589,1086,605,1086,605,1068,589,1068">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1210,1207"/>
+ </string>
+ <line id="1210" colour="blue" xy="589,1068,592.432,1071.43">
+  <relation type="mutual" subid="100" id="1211,1208"/>
+ </line>
+ <line id="1211" colour="blue" xy="605,1068,601.568,1071.43">
+  <relation type="mutual" subid="100" id="1212,1210"/>
+ </line>
+ <arc id="1212" colour="blue" xy="597,1078" radius="1">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1213,1211"/>
+ </arc>
+ <line id="1213" colour="blue" xy="589,1068,605,1068">
+  <relation type="mutual" subid="100" id="2449,1212"/>
+ </line>
+ <tnode id="2449" colour="white" layer="Engineer" depth="100" estat="ext" xy="605,1086" height="1" hjust="centre" font="Arial" background="#aaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="2466,1213"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <tnode id="1203" layer="Hidden" depth="40" estat="ext" xy="597,1064" height="2" hjust="centre" nts="true" ntr="true" ntm="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1183,1239"/>
+ </tnode>
+</sym>

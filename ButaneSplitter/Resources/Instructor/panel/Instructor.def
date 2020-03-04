@@ -1,0 +1,37 @@
+//*********************
+//* Set up panel limits
+//*********************
+// virtual frame limits
+#define _VIRTUAL_FRAME_POSITION_ Position = Lock,Left,2,Right,2,Top,3,Bottom,245
+// interaction tabbed frame limits
+//   one line above panel
+#define _TAB_POSITION1_ Position = Lock,Left,1,Right,1,Top,25,Bottom,245
+//   two lines of text above panel
+#define _TAB_POSITION2_ Position = Lock,Left,2,Right,2,Top,50,Bottom,245
+//   three lines of text above panel
+#define _TAB_POSITION3_ Position = Lock,Left,2,Right,2,Top,75,Bottom,245
+// navigation panel limits - specify vertical size as it is not locked at top
+#define _NAVIGATOR_POSITION_ Size = 1,230; Position = Lock,Left,2,Right,2,Bottom,2
+
+//*****************
+//* Set up defaults
+//*****************
+// standard trend colours
+#define _TREND_COLOURS_ Background = Ivory1; Foreground = Black; Grid = Ivory3
+// Standard trend line colours
+#define _TREND_COLOUR1_ Colour = Red
+#define _TREND_COLOUR2_ Colour = Blue
+#define _TREND_COLOUR3_ Colour = Green3
+// Control trend line colours
+#define _TREND_COLOURPV_ Colour = Red
+#define _TREND_COLOURSP_ Colour = Green3
+#define _TREND_COLOUROP_ Colour = Blue
+// Map/trajectory colours
+#define _TREND_COLOURMAP_ Colour = Green3
+#define _TREND_COLOURTRAJECT_ Colour = Grey2
+
+//**************
+//* Set up sizes
+//**************
+// define the stub size after a ramp button to get the borders lined up (x-228,1)
+#define _RAMP_STUB_SIZE_ 7,1

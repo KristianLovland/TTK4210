@@ -1,0 +1,243 @@
+#include $EXPLORER_RESOURCES/panel/BlockExplorerDefinitions.def
+#include $EXPLORER_RESOURCES/panel/BlockExplorerFilter.def
+
+Set	Variable = FILTER_TYPE,*;
+Set	Variable = BRANCHROOT,modules;
+Set	Variable = BRANCHTYPE,"";
+Set	Variable = ARRAY_EXPAND,0;
+Set	Variable = SWITCHABLE,"";
+Set	Variable = BE_TIMELINE_APP,%_ACTIVE_TIMELINE_APP;
+Set	Variable = TOP_BRANCH,timelines;
+
+#ifdef '"%_OPT_BE_DEPENDENT" != "Independent"'
+#define _DEPENDENT_ Siblings
+#else
+#define _DEPENDENT_ Independent
+#endif
+
+// do this to make sure the correct model id is active
+#define SETMID	action=set,BE_TIMELINE_APP,"/%TVROOT2/%TVROOT3";
+
+Header	%+_PINSTATUS Resizable = SaveGeometry,LargerOnly; Title = "Global Variables"; Name = "BlockExplorer"; OneOff;\
+	Dependent = _DEPENDENT_; \
+	RefreshOn = AddBlock,DeleteBlock,RenameBlock; \
+	Mid = %BE_TIMELINE_APP; \
+		Action = -,Set,BRANCHTYPE,"ModuleList"; \
+		Action = -,LVAddColumn,2,btypes; \
+		ActionIf = -,'"%_NUMFTYPE" == "Scientific"',SetState,16,1; \
+		action = -,TVExpand,1,"/Timelines%_ACTIVE_TIMELINE_APP/Modules";
+
+#define INCLUDE_CUSTOM_VIEW True
+//#include $EXPLORER_RESOURCES/panel/BlockExplorerToolbarMV.def
+
+Frame	Id = 1000; Layout = Splitter;
+
+//--------------------------
+// Define the Treeview pane
+//--------------------------
+
+// Root branch
+branch name=root; source=list,Timelines; branch=%TOP_BRANCH; \
+	image=be_tldir.ico,bexplorer.ico; \
+	actionif='"%TV_SELECTION" == "Timelines"',set,TOP_BRANCH,timelines; \
+	actionif='"%TV_SELECTION" == "Views"',set,TOP_BRANCH,views; \
+	actionif='"%RIGHT_CLICK" == "True"',break; \
+	action=set,BRANCHTYPE,""; \
+	action=set,ARRAY_EXPAND,0; \
+	action=lvremovecolumn,2,all; \
+	action=lvaddcolumn,2,%TOP_BRANCH;
+
+// Timelines branch
+branch name=timelines; source=tag,TimeLines; get=GetModelParameter; mid=%_ROOT; branch=apps; image=be_timeline.ico; \
+	dependency='"#(%_ROOT|/%TVITEM:Activated)" == "True"',"be_timelineg.ico"; \
+	action=set,BRANCHTYPE,""; \
+	action=set,ARRAY_EXPAND,0; \
+	action=set,APP_NODE,%TVITEM; \
+	action=lvremovecolumn,2,all; \
+	action=lvaddcolumn,2,apps;
+	
+// Views branch
+branch	name=views; source=filelist,"$PROJECT_ROOT/Resources/Common/script","~BECV_*.act",StripSuffix,Offset,6; \
+	image=loadcust.ico; \
+	action=set,BRANCHTYPE,""; \
+	action=set,PANELID,%THIS; \
+	action=set,LISTVIEW,%THIS:2; \
+	action=set,TREEVIEW,%THIS:1; \
+	ActionIf = '"%RIGHT_CLICK" == "True"',set,CVNAME,%TVITEM; \
+	actionif = *,menu,BlockExplorerCustomView; \
+	actionif = *,break; \
+	action=set,CC_TAG_TYPE,unset; \
+	action=script,"$PROJECT_ROOT/Resources/Common/script/~BECV_%TVITEM.act"; \
+// !!! need to set CC_TAG_TYPE here and refresh due to a legacy bug on old scripts
+	actionif='"%CC_TAG_TYPE" == "unset"',set,CC_TAG_TYPE,%TAG_TYPE; \
+	actionif=*,script,"$PROJECT_ROOT/Resources/Common/script/~BECV_%TVITEM.act";
+
+// Applications branch
+branch name=apps; source=tag,"ProjectNodes,/%APP_NODE"; get=GetModelParameter; mid=%_ROOT; branch=model; image=be_tlapp.ico; \
+	action=set,BRANCHTYPE,""; \
+	action=set,ARRAY_EXPAND,0; \
+	action=lvremovecolumn,2,all; \
+	SETMID
+
+// model root Branch 
+Branch 	Name = "model"; Source = List,"Hanging tags"; Branch = %BRANCHROOT; \
+		Image = be_block.ico,be_thread.ico,be_ht.ico,be_module.ico; \
+		mid = "/%TVROOT_D2/%TVROOT_D3"; SETMID \
+		ActionIf = '"%TV_SELECTION" == "All blocks"',Set,BRANCHTYPE,BlockListGlobal; \
+		ActionIf = '"%TV_SELECTION" == "Threads"',Set,BRANCHTYPE,ThreadList; \
+		ActionIf = '"%TV_SELECTION" == "Hanging tags"',Set,BRANCHTYPE,HangingTags; \
+		ActionIf = '"%TV_SELECTION" == "Modules"',Set,BRANCHTYPE,ModuleList; \
+		ActionIf = '("%BRANCHTYPE" == "BlockListGlobal" || "%BRANCHTYPE" == "ThreadList") && "%RIGHT_CLICK" == "True"',Menu,"BlockExplorerBlist"; \
+		ActionIf = '"%RIGHT_CLICK" == "True"',Break; \
+		Action = LVRemoveColumn,2,all; \
+		Action = Set,ARRAY_EXPAND,0; \
+		ActionIf = '"%TV_SELECTION" == "All blocks"',Set,TAG_TYPE,*; \
+		ActionIf = *,Set,CC_TAG_TYPE,""; \
+		ActionIf = *,Set,FILTER_TYPE,%ADV_FILTER_TYPE; \
+		ActionIf = *,KickStart,62; \
+		ActionIf = *,Set,BRANCHROOT,blocks; \
+		ActionIf = *,Set,BLIST_SOURCE,FILTERED_BLIST; \
+		ActionIf = *,LVAddColumn,2,bname; \
+		ActionIf = '"%TV_SELECTION" == "All blocks" && "%_SHOW_CTYPE" != "False"',LVAddColumn,2,btype; \
+		ActionIf = '"%TV_SELECTION" == "All blocks" && "%_SHOW_CDESC" != "False"',LVAddColumn,2,bdesc; \
+		ActionIf = '"%TV_SELECTION" == "All blocks" && "%_SHOW_CSTATE" != "False"',LVAddColumn,2,bstate; \
+		ActionIf = '"%TV_SELECTION" == "All blocks" && "%_SHOW_CTHREAD" != "False"',LVAddColumn,2,bthread; \
+		ActionIf = '"%TV_SELECTION" == "All blocks" && "%_SHOW_CSTEP" != "False"',LVAddColumn,2,bstep; \
+		ActionIf = '"%TV_SELECTION" == "Modules"',LVAddColumn,2,btypes; \
+		ActionIf = *,Set,BRANCHROOT,"modules"; \
+		ActionIf = '"%TV_SELECTION" == "Threads"',Set,BRANCHROOT,"threads"; \
+		ActionIf = *,Set,BLIST_SOURCE,ThreadHeads; \
+		ActionIf = *,LVAddColumn,2,bname; \
+		ActionIf = '"%TV_SELECTION" == "Threads" && "%_SHOW_CTYPE" != "False"',LVAddColumn,2,btype; \
+		ActionIf = '"%TV_SELECTION" == "Threads" && "%_SHOW_CDESC" != "False"',LVAddColumn,2,bdesc; \
+		ActionIf = '"%TV_SELECTION" == "Threads" && "%_SHOW_CSTATE" != "False"',LVAddColumn,2,bstate; \
+		ActionIf = '"%TV_SELECTION" == "Threads" && "%_SHOW_CSTEP" != "False"',LVAddColumn,2,bstep; \
+		ActionIf = '"%TV_SELECTION" == "Hanging tags"',Set,BRANCHROOT,"htoutputs"; \
+		ActionIf = *,Set,GENARRAY,"$top@name(%FILTER_NAME)@itemname(%FILTER_ITEMNAME)@itemvalue(%FILTER_ITEMVALUE)@B_hnglst,-1"; \
+		ActionIf = *,Set,GENPREFIX,""; \
+		ActionIf = *,Set,ARRAY_GENARRAY,%GENARRAY; \
+		ActionIf = *,Set,ARRAY_GENPREFIX,%GENPREFIX; \
+		ActionIf = *,LVAddColumn,2,genname_ht; \
+		ActionIf = *,LVAddColumn,2,genval; \
+		ActionIf = *,LVAddColumn,2,genunits; \
+		ActionIf = *,LVAddColumn,2,gentype; \
+// add custom columns
+		Action = Set,ENABLE_CUSTOM, 0; \
+		ActionIf = '"%BRANCHROOT" == "blocks"',Set,TAG_TYPE,""; \
+		ActionIf = *,Set,ENABLE_CUSTOM,1; \
+		ActionIf = '"%BRANCHROOT" == "threads"',Set,TAG_TYPE,"Threadx"; \
+		ActionIf = *,Set,ENABLE_CUSTOM,1; \
+		ActionIf = '"%(_COL0%(TAG_TYPE)USED)" == "TRUE" && %ENABLE_CUSTOM',LVAddColumn,2,addcol0; \
+		ActionIf = '"%(_COL1%(TAG_TYPE)USED)" == "TRUE" && %ENABLE_CUSTOM',LVAddColumn,2,addcol1; \
+		ActionIf = '"%(_COL2%(TAG_TYPE)USED)" == "TRUE" && %ENABLE_CUSTOM',LVAddColumn,2,addcol2; \
+		ActionIf = '"%(_COL3%(TAG_TYPE)USED)" == "TRUE" && %ENABLE_CUSTOM',LVAddColumn,2,addcol3; \
+		ActionIf = '"%(_COL4%(TAG_TYPE)USED)" == "TRUE" && %ENABLE_CUSTOM',LVAddColumn,2,addcol4; \
+		ActionIf = '"%(_COL5%(TAG_TYPE)USED)" == "TRUE" && %ENABLE_CUSTOM',LVAddColumn,2,addcol5; \
+		ActionIf = '"%(_COL6%(TAG_TYPE)USED)" == "TRUE" && %ENABLE_CUSTOM',LVAddColumn,2,addcol6; \
+		ActionIf = '"%(_COL7%(TAG_TYPE)USED)" == "TRUE" && %ENABLE_CUSTOM',LVAddColumn,2,addcol7; \
+		ActionIf = '"%(_COL8%(TAG_TYPE)USED)" == "TRUE" && %ENABLE_CUSTOM',LVAddColumn,2,addcol8; \
+		ActionIf = '"%(_COL9%(TAG_TYPE)USED)" == "TRUE" && %ENABLE_CUSTOM',LVAddColumn,2,addcol9;
+
+#define BLOCK_ACTIONS \
+		Action = KickStart,62; \
+		Action = LVRemoveColumn,2,all; \
+		Action = Set,ARRAY_EXPAND,0; \
+		Action = SetTitle,"Project Explorer - %TAG_TYPE"; \
+		Action = Set,BLIST_SOURCE,FILTERED_BLIST; \
+		Action = LVAddColumn,2,bname; \
+		ActionIf = '"%_SHOW_CDESC" != "False"',LVAddColumn,2,bdesc; \
+		ActionIf = '"%_SHOW_CSTATE" != "False"',LVAddColumn,2,bstate; \
+		ActionIf = '"%_SHOW_CTHREAD" != "False"',LVAddColumn,2,bthread; \
+		ActionIf = '"%_SHOW_CSTEP" != "False"',LVAddColumn,2,bstep; \
+		ActionIf = '"%(_COL0%(TAG_TYPE)USED)" == "TRUE"',LVAddColumn,2,addcol0; \
+		ActionIf = '"%(_COL1%(TAG_TYPE)USED)" == "TRUE"',LVAddColumn,2,addcol1; \
+		ActionIf = '"%(_COL2%(TAG_TYPE)USED)" == "TRUE"',LVAddColumn,2,addcol2; \
+		ActionIf = '"%(_COL3%(TAG_TYPE)USED)" == "TRUE"',LVAddColumn,2,addcol3; \
+		ActionIf = '"%(_COL4%(TAG_TYPE)USED)" == "TRUE"',LVAddColumn,2,addcol4; \
+		ActionIf = '"%(_COL5%(TAG_TYPE)USED)" == "TRUE"',LVAddColumn,2,addcol5; \
+		ActionIf = '"%(_COL6%(TAG_TYPE)USED)" == "TRUE"',LVAddColumn,2,addcol6; \
+		ActionIf = '"%(_COL7%(TAG_TYPE)USED)" == "TRUE"',LVAddColumn,2,addcol7; \
+		ActionIf = '"%(_COL8%(TAG_TYPE)USED)" == "TRUE"',LVAddColumn,2,addcol8; \
+		ActionIf = '"%(_COL9%(TAG_TYPE)USED)" == "TRUE"',LVAddColumn,2,addcol9;
+
+// Hanging tags Branch 
+Branch 	Name = "htoutputs"; Source = Tag,"$top@name(%FILTER_NAME)@itemname(%FILTER_ITEMNAME)@itemvalue(%FILTER_ITEMVALUE)@B_hnglst,-1"; \
+		Image = "be_ht.ico"; Sort; \
+		SETMID \
+		Action = Set,BRANCHTYPE,HTOutputs; \
+		ActionIf = '"%RIGHT_CLICK" == "True"',Break; \
+		Action = LVRemoveColumn,2,all; \
+		Action = Set,GENARRAY,"%TVITEM@V_output"; \
+		Action = Set,GENPREFIX,""; \
+		Action = Set,ARRAY_EXPAND,0; \
+		Action = Set,ARRAY_GENARRAY,%GENARRAY; \
+		Action = Set,ARRAY_GENPREFIX,%GENPREFIX; \
+		Action = SetTitle,"Global Variable - %TVITEM"; \
+		Action = LVAddColumn,2,genname_hto; \
+		Action = LVAddColumn,2,genval; \
+		Action = LVAddColumn,2,genunits; \
+		Action = LVAddColumn,2,gendesc; \
+		Action = LVAddColumn,2,gentype;
+
+#include $EXPLORER_RESOURCES/panel/BlockExplorerTree.def
+
+TreeView	Frame = 1000; Id = 1; Root = Root; Help = "%HELP_FILE","%HELP_PAGE";
+
+//--------------------------
+// Define the Listview pane
+//--------------------------
+
+#include $EXPLORER_RESOURCES/panel/BlockExplorerBlistColumns.def
+
+// timelines
+Column	Hidden; Name = "timelines"; Source = tag,TimeLines; Header = "Timeline"; Image = "be_timeline.ico"; \
+		get=GetModelParameter; mid=%_ROOT; width=200; \
+		ActionIf = '"%DBL_CLICK" != "True"',Break; \
+		Action = TVExpand,1,"/Timelines/%LVITEM"; \
+		action=set,APP_NODE,%LVITEM;
+
+// Views
+column	Hidden; name=views; header=Views; source=filelist,"$PROJECT_ROOT/Resources/Common/script","~BECV_*.act",StripSuffix,Offset,6; \
+		image=loadcust.ico; \
+		action=set,PANELID,%THIS; \
+		action=set,LISTVIEW,%THIS:2; \
+		action=set,TREEVIEW,%THIS:1; \
+		ActionIf = '"%RIGHT_CLICK" == "True"',set,CVNAME,%LVITEM; \
+		actionif = *,menu,BlockExplorerCustomView; \
+		actionif = *,break; \
+		ActionIf = '"%DBL_CLICK" != "True"',Break; \
+		action=script,"$PROJECT_ROOT/Resources/Common/script/~BECV_%LVITEM.act";
+
+// applications
+Column	Hidden; Name = "apps"; source=tag,"ProjectNodes,/%APP_NODE"; get=GetModelParameter; mid=%_ROOT; \
+		Header = "Application"; Image = "be_tlapp.ico"; width=200; \
+		ActionIf = '"%DBL_CLICK" != "True"',Break; \
+		Action = TVExpand,1,"%APP_NODE/%LVITEM/Modules";
+
+// Block types
+Column	Hidden; Name = "btypes"; Source = Tag,"$top@B_t_lst,-1",Sort; width=200; \
+		Image = "be_module.ico"; Header = "Block types"; \
+		ActionIf = '"%DBL_CLICK" != "True"',Break; \
+		Action = Set,BRANCHROOT,"modules"; \
+		Action = Set,TAG_TYPE,"%LVITEM"; \
+		Action = Set,CC_TAG_TYPE,"%LVITEM"; \
+		Action = Set,FILTER_TYPE,"%LVITEM"; \
+		Action = TVExpand,1,"/Timelines%BE_TIMELINE_APP/Modules/%TAG_TYPE";
+	
+#include $EXPLORER_RESOURCES/panel/BlockExplorerColumns.def
+#include $EXPLORER_RESOURCES/panel/BlockExplorerModActions.def
+
+#ifdef '"%TAG_NAME" == ""'
+ListView	Frame = 1000; Size = 1,250; Id = 2; Grid; Style = MultiSelect; \
+		MODACTIONS
+#else
+ListView	Frame = 1000; Size = 1,250; Id = 2; Grid; Style = MultiSelect; \
+		MODACTIONS \
+// context sensitive help
+		Help = #(%TAG_NAME@B_type);
+#endif
+
+
+//Frame	Frame = -4; Id = 61; Layout = Form; Border = ThinSunken;
+//Label	Frame = 61; Id = 62; Position = Lock,Left,0,Right,0; \
+//		Label = "Current filter is - Block type: (%FILTER_TYPE) Block name: (%FILTER_NAME) From: (%FILTER_START) To: (%FILTER_END) Data Item: (%FILTER_ITEMNAME) Item value: (%FILTER_ITEMVALUE)";

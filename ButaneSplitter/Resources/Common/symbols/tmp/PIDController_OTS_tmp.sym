@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="12">
+ <header xy="836,1025" xmin="829" ymin="1014" xmax="843" ymax="1032">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="PIDController_OTS"/>
+  <attribute name="Itemdesc" type="text" value="PIDController"/>
+  <attribute name="ItemType" type="text" value="PIDController"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="Module" type="text" value="PidController"/>
+  <attribute name="SelectBox" type="real" value="-6,-6,6,6"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="22-11-13 15:39:16"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <symbol id="2786" estat="ext" xy="829,1018,843,1032" name="MalfunctionOutline" xscl="14" yscl="14" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <cpoint id="2746" estat="ref" xy="836,1025">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="PIDController_OTS"/>
+  <attribute name="Itemdesc" type="text" value="PIDController"/>
+  <attribute name="ItemType" type="text" value="PIDController"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="Module" type="text" value="PidController"/>
+ </cpoint>
+ <tnode id="2777" layer="TransmitterValues" estat="ext" xy="837,1014" height="4" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:InternalSetpoint@V_unit">
+  </animation>
+ </tnode>
+ <tnode id="2778" layer="TransmitterValues" estat="ext" xy="835,1014" height="4" hjust="right" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:InternalSetpoint" format="%8.2f">
+  </animation>
+ </tnode>
+ <arc id="2779" colour="blue" xy="836,1025" radius="6"/>
+ <string id="2780" colour="blue" depth="90" xy="830,1019,830,1031,842,1031,842,1019,830,1019"/>
+ <tnode id="2781" colour="white" layer="Engineer" depth="100" estat="ext" xy="842,1031" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <tnode id="2782" layer="TagNames" estat="ext" xy="832,1031.5" height="3" hjust="right" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%1"/>
+ </tnode>
+ <tnode id="2783" layer="TagNames" estat="ext" xy="836,1021.5" height="3" hjust="centre" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%3"/>
+ </tnode>
+ <tnode id="2784" layer="TagNames" estat="ext" xy="836,1026" height="3" hjust="centre" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%2"/>
+ </tnode>
+ <string id="2787" colour="blue" xy="830,1025,842,1025"/>
+ <string id="2801" style="1" estat="ref" xy="830,1019,830,1031,842,1031,842,1019,830,1019">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+</sym>

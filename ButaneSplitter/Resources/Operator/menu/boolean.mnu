@@ -1,0 +1,7 @@
+//No menu in Opertor Interface
+
+Button	Label = "no menu..."; \
+//		Action = Set,TAG_NAME,"#%TAG_NAME_OUT@B_name"; \
+//		Action = Menu,"BlockExplorerBlock";
+
+

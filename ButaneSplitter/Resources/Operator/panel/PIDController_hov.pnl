@@ -1,0 +1,7 @@
+
+#include $EXPLORER_RESOURCES/panel/PidController_auto_hov.def
+
+#include $EXPLORER_RESOURCES/panel/Default_hov.def
+
+// optional stuff
+//Frame	Id = 100; Frame = 1; Layout = Vertical;

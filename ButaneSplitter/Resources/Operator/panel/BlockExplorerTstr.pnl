@@ -1,0 +1,515 @@
+
+#include $EXPLORER_RESOURCES/panel/BlockExplorerDefinitions.def
+#include $EXPLORER_RESOURCES/panel/BlockExplorerModActions.def
+
+#set \
+	PREFETCH_SLIPSTREAM %VAR.slipStream \
+	PREFETCH_XUNIT %VAR.x@V_unit
+
+set	variable=STREAM,"%VAR";
+
+#define TSTR_NAMES2	"Mass Flow",\
+			"Mol Flow",\
+			"Volume Flow",\
+			"Pressure",\
+			"Temperature",\
+			"Specific Enthalpy",\
+			"Density",\
+			"Mol Weight",\
+			"Gas Mol Fraction",\
+			"Water Mol Fraction"
+			
+#define PP_NAMES	"Heat Capacity, const P (Cp)",\
+			"Heat Capacity, const V (Cv)",\
+			"Viscosity",\
+			"Thermal Conductivity",\
+			"Specific Gibbs Free Energy (G)",\
+			"Specific Entropy (S)",\
+			"Specific Internal Energy (U)",\
+			"Compressibility Factor (Z)",\
+			"Isobaric Expansivity (Alpha)",\
+			"Isothermal Compressibility (Beta)",\
+			"Bulk Modulus",\
+			"dRho/dP",\
+			"Gas Mass Fraction",\
+			"Gas Volume Fraction",\
+			"dVF/dP",\
+			"Dew point for aqueous liquid",\
+			"Dew point for HC liquid",\
+			"Bubble point temperature",\
+			"Gas fraction at lower dew point",\
+			"Isothermal vapour pressure"
+			
+#define TP_NAMES	"Lookup table number",\
+			"Iteration tolerance", \
+			"Maximum iterations", \
+			"Thermo function error code", \
+			"Thermo function error count", \
+			"Elevation", \
+			"Node number"
+
+#ifdef '"%PREFETCH_SLIPSTREAM" == "True"'
+
+
+#define TSTR_TAGS2G	"%VAR.fG",\
+			"%VAR.mG",\
+			"%VAR.qG",\
+			"%VAR.pG",\
+			"%VAR.tG",\
+			"%VAR.hG",\
+			"%VAR.rG",\
+			"%VAR.wG",\
+			"%VAR.gG",\
+			"%VAR.aG"
+			
+#define PP_TAGSG	"%VAR.vG[0]",\
+			"%VAR.vG[1]",\
+			"%VAR.vG[2]",\
+			"%VAR.vG[3]",\
+			"%VAR.vG[4]",\
+			"%VAR.vG[5]",\
+			"%VAR.vG[6]",\
+			"%VAR.vG[7]",\
+			"%VAR.vG[8]",\
+			"%VAR.vG[9]",\
+			"%VAR.vG[10]",\
+			"%VAR.vG[11]",\
+			"%VAR.vG[12]",\
+			"%VAR.vG[21]",\
+			"%VAR.vG[13]",\
+			"%VAR.vG[16]",\
+			"%VAR.vG[17]",\
+			"%VAR.vG[18]",\
+			"%VAR.vG[19]",\
+			"%VAR.vG[20]"
+			
+#define TP_TAGSG	"%VAR.cG[0]", \
+			"%VAR.cG[1]", \
+			"%VAR.cG[2]", \
+			"%VAR.cG[3]", \
+			"%VAR.cG[4]", \
+			"%VAR.eG", \
+			"%VAR.oG"
+
+#define TSTR_TAGS2L	"%VAR.fL",\
+			"%VAR.mL",\
+			"%VAR.qL",\
+			"%VAR.pL",\
+			"%VAR.tL",\
+			"%VAR.hL",\
+			"%VAR.rL",\
+			"%VAR.wL",\
+			"%VAR.gL",\
+			"%VAR.aL"
+			
+#define PP_TAGSL	"%VAR.vL[0]",\
+			"%VAR.vL[1]",\
+			"%VAR.vL[2]",\
+			"%VAR.vL[3]",\
+			"%VAR.vL[4]",\
+			"%VAR.vL[5]",\
+			"%VAR.vL[6]",\
+			"%VAR.vL[7]",\
+			"%VAR.vL[8]",\
+			"%VAR.vL[9]",\
+			"%VAR.vL[10]",\
+			"%VAR.vL[11]",\
+			"%VAR.vL[12]",\
+			"%VAR.vL[21]",\
+			"%VAR.vL[13]",\
+			"%VAR.vL[16]",\
+			"%VAR.vL[17]",\
+			"%VAR.vL[18]",\
+			"%VAR.vL[19]",\
+			"%VAR.vL[20]"
+
+#define TP_TAGSL	"%VAR.cL[0]", \
+			"%VAR.cL[1]", \
+			"%VAR.cL[2]", \
+			"%VAR.cL[3]", \
+			"%VAR.cL[4]", \
+			"%VAR.eL", \
+			"%VAR.oL"
+			
+#define TSTR_TAGS2W	"%VAR.fW",\
+			"%VAR.mW",\
+			"%VAR.qW",\
+			"%VAR.pW",\
+			"%VAR.tW",\
+			"%VAR.hW",\
+			"%VAR.rW",\
+			"%VAR.wW",\
+			"%VAR.gW",\
+			"%VAR.aW"
+			
+#define PP_TAGSW	"%VAR.vW[0]",\
+			"%VAR.vW[1]",\
+			"%VAR.vW[2]",\
+			"%VAR.vW[3]",\
+			"%VAR.vW[4]",\
+			"%VAR.vW[5]",\
+			"%VAR.vW[6]",\
+			"%VAR.vW[7]",\
+			"%VAR.vW[8]",\
+			"%VAR.vW[9]",\
+			"%VAR.vW[10]",\
+			"%VAR.vW[11]",\
+			"%VAR.vW[12]",\
+			"%VAR.vW[21]",\
+			"%VAR.vW[13]",\
+			"%VAR.vW[16]",\
+			"%VAR.vW[17]",\
+			"%VAR.vW[18]",\
+			"%VAR.vW[19]",\
+			"%VAR.vW[20]"
+
+#define TP_TAGSW	"%VAR.cW[0]", \
+			"%VAR.cW[1]", \
+			"%VAR.cW[2]", \
+			"%VAR.cW[3]", \
+			"%VAR.cW[4]", \
+			"%VAR.eW", \
+			"%VAR.oW"
+
+#else
+
+
+#define TSTR_TAGS2	"%VAR.f",\
+			"%VAR.m",\
+			"%VAR.q",\
+			"%VAR.p",\
+			"%VAR.t",\
+			"%VAR.h",\
+			"%VAR.r",\
+			"%VAR.w",\
+			"%VAR.g",\
+			"%VAR.a"
+			
+#define PP_TAGS		"%VAR.v[0]",\
+			"%VAR.v[1]",\
+			"%VAR.v[2]",\
+			"%VAR.v[3]",\
+			"%VAR.v[4]",\
+			"%VAR.v[5]",\
+			"%VAR.v[6]",\
+			"%VAR.v[7]",\
+			"%VAR.v[8]",\
+			"%VAR.v[9]",\
+			"%VAR.v[10]",\
+			"%VAR.v[11]",\
+			"%VAR.v[12]",\
+			"%VAR.v[21]",\
+			"%VAR.v[13]",\
+			"%VAR.v[16]",\
+			"%VAR.v[17]",\
+			"%VAR.v[18]",\
+			"%VAR.v[19]",\
+			"%VAR.v[20]"
+
+#define TP_TAGS		"%VAR.c[0]", \
+			"%VAR.c[1]", \
+			"%VAR.c[2]", \
+			"%VAR.c[3]", \
+			"%VAR.c[4]", \
+			"%VAR.e", \
+			"%VAR.o"
+
+#endif
+
+#define FO_OPS		"Gas P & T known", \
+			"Gas P & T known with derivatives", \
+			"Gas P & H known", \
+			"Gas P & U known", \
+			"Gas P & S known", \
+			"Gas P & Rho known", \
+			"Gas U & V known", \
+			"Gas H & S known", \
+			"Gas H & V known", \
+			"Gas dew point temperature (P known)", \
+			"Liquid P & T known", \
+			"Liquid P & T known with derivatives", \
+			"Liquid P & H known", \
+			"Liquid P & U known", \
+			"Liquid P & S known", \
+			"Liquid U & V known", \
+			"Liquid bubble point temperature (P known)", \
+			"Liquid vapour pressure (T known)", \
+			"Two phase P & T known", \
+			"Two phase P & H known", \
+			"Two phase P & U known", \
+			"Two phase P & S known", \
+			"Two phase P & V known", \
+			"Two phase U & V known", \
+			"Two phase PH with isenthalpic derivatives", \
+			"Two phase PH with isentropic derivatives", \
+			"Three phase P & T known", \
+			"Normalize composition", \
+			"Gas viscosity", \
+			"Gas thermal conductivity", \
+			"Liquid viscosity", \
+			"Liquid thermal conductivity", \
+			"Two-phase viscosity"
+
+set	variable=FO_CODE0,1;
+set	variable=FO_CODE1,20;
+set	variable=FO_CODE2,24;
+set	variable=FO_CODE3,25;
+set	variable=FO_CODE4,4;
+set	variable=FO_CODE5,26;
+set	variable=FO_CODE6,3;
+set	variable=FO_CODE7,5;
+set	variable=FO_CODE8,27;
+set	variable=FO_CODE9,6;
+set	variable=FO_CODE10,7;
+set	variable=FO_CODE11,19;
+set	variable=FO_CODE12,8;
+set	variable=FO_CODE13,28;
+set	variable=FO_CODE14,10;
+set	variable=FO_CODE15,9;
+set	variable=FO_CODE16,11;
+set	variable=FO_CODE17,18;
+set	variable=FO_CODE18,12;
+set	variable=FO_CODE19,13;
+set	variable=FO_CODE20,29;
+set	variable=FO_CODE21,15;
+set	variable=FO_CODE22,30;
+set	variable=FO_CODE23,14;
+set	variable=FO_CODE24,21;
+set	variable=FO_CODE25,23;
+set	variable=FO_CODE26,40;
+set	variable=FO_CODE27,101;
+set	variable=FO_CODE28,50;
+set	variable=FO_CODE29,51;
+set	variable=FO_CODE30,60;
+set	variable=FO_CODE31,61;
+set	variable=FO_CODE32,70;
+set	variable=_CURRENT_SELECTION_N,0;
+
+Header	Resizable = SaveSize,LargerOnly; Title = "%VAR (%PANEL_TIMELINE)"; Name = "BlockExplorerTstr"; \
+	OneOff = "%VAR (%PANEL_TIMELINE)"; Position = Cursor; Help = "K-SpiceUserGuide","StreamViewer"; \
+//	Controls = "Gas part...","Liquid part...","Water part...";\
+//	Action = "Gas part...",Panel,"BlockExplorerGasTstr.pnl"; \
+//	Action = "Liquid part...",Panel,"BlockExplorerLiqTstr.pnl"; \
+//	Action = "Water part...",Panel,"BlockExplorerWatTstr.pnl"; \
+	Action = -,SetState,2001,%_COMPOPTION;
+
+#ifdef '"%PREFETCH_SLIPSTREAM" == "True"'
+Frame		Id = 11; Frame = -2; Layout = Horizontal;
+Label	Label = "Slip stream"; Frame = 11; Bold;
+#endif
+
+frame	id=999; layout=tabbed; tabs="Primary properties"; pad=0;
+
+frame	frame=999; id=1000; layout=splitter,horizontal;
+
+*---------------------------
+* Define the Listview panes
+*---------------------------
+
+#include $EXPLORER_RESOURCES/panel/BlockExplorerColumns.def
+
+* TSTR columns
+
+column	header="Description"; source=list,TSTR_NAMES2;
+
+#ifdef '"%PREFETCH_SLIPSTREAM" == "True"'
+
+column	header="Gas"; VALUE_COLUMN EDITABLE \
+	source=tags,TSTR_TAGS2G; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+	
+column	header="Liquid"; VALUE_COLUMN EDITABLE \
+	source=tags,TSTR_TAGS2L; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+	
+column	header="Water"; VALUE_COLUMN EDITABLE \
+	source=tags,TSTR_TAGS2W; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+
+column	header="Units"; width=60; \
+	source=tags,TSTR_TAGS2G; tag="%LVITEM@V_unit";
+#else
+
+column	header="Value"; VALUE_COLUMN EDITABLE \
+	source=tags,TSTR_TAGS2; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+
+column	header="Units"; width=60; \
+	source=tags,TSTR_TAGS2; tag="%LVITEM@V_unit";
+#endif
+	
+listview frame=1000; size=1,165; id=3; grid; MODACTIONS
+
+* .x columns
+
+frame   frame=1000; id=1001; layout=form; background=white;
+
+#ifdef '"%_COMPOPTION" == "1"'
+
+set	variable=VARX,"%VAR.y";
+set	variable=VARXG,"%VAR.yG";
+set	variable=VARXL,"%VAR.yL";
+set	variable=VARXW,"%VAR.yW";
+set	variable=COMPOSITION_TYPE,"Mass";
+
+#else
+
+set	variable=VARX,"%VAR.x";
+set	variable=VARXG,"%VAR.xG";
+set	variable=VARXL,"%VAR.xL";
+set	variable=VARXW,"%VAR.xW";
+set	variable=COMPOSITION_TYPE,"Mol";
+
+#endif
+
+State	Caption="Composition basis: "; Frame = 1001; Id = 2001; Label = "Mol","Mass"; \
+	Action = set,_COMPOPTION,!2001; \
+	Action = Remap;
+
+column	header="Component"; source=tag,%VAR.nx@V_array; tag="%LVITEM";
+
+#ifdef '"%PREFETCH_SLIPSTREAM" == "True"'
+
+column	header="Gas %COMPOSITION_TYPE %PREFETCH_XUNIT"; EDITABLE VALUE_COLUMN \
+	source=tag,"%VARXG@V_array"; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	Id = 22; \
+	action=set,VAR,%STREAM;
+	
+column	header="Liquid %COMPOSITION_TYPE %PREFETCH_XUNIT"; EDITABLE VALUE_COLUMN \
+	source=tag,"%VARXL@V_array"; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	Id = 23; \
+	action=set,VAR,%STREAM;
+	
+column	header="Water %COMPOSITION_TYPE %PREFETCH_XUNIT"; EDITABLE VALUE_COLUMN \
+	source=tag,"%VARXW@V_array"; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	Id = 24; \
+	action=set,VAR,%STREAM;
+
+#else
+
+column	header="%COMPOSITION_TYPE %PREFETCH_XUNIT"; EDITABLE VALUE_COLUMN \
+	source=tag,"%VARX@V_array"; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	Id = 22; \
+	action=set,VAR,%STREAM;
+
+#endif
+
+listview frame=1001; size=-1,150; id=2; grid; style=multiselect; position=lock,top,23,left,right,bottom; MODACTIONS
+
+* Physical properties columns
+
+column	header="Description"; width=300; source=list,PP_NAMES;
+
+#ifdef '"%PREFETCH_SLIPSTREAM" == "True"'
+
+column	header="Gas"; VALUE_COLUMN \
+	EDITABLE source=tags,PP_TAGSG; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+
+column	header="Liquid"; VALUE_COLUMN \
+	EDITABLE source=tags,PP_TAGSL; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+
+column	header="Water"; VALUE_COLUMN \
+	EDITABLE source=tags,PP_TAGSW; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+
+column	header="Units"; width=60; \
+	source=tags,PP_TAGSG; tag="%LVITEM@V_unit";
+	
+#else
+
+column	header="Value"; VALUE_COLUMN \
+	EDITABLE source=tags,PP_TAGS; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+
+column	header="Units"; width=60; \
+	source=tags,PP_TAGS; tag="%LVITEM@V_unit";
+	
+#endif
+
+listview frame=999; id=4; grid; MODACTIONS
+
+* Thermo parameters
+
+column	header="Description"; width=100; \
+	source=list,TP_NAMES;
+	
+#ifdef '"%PREFETCH_SLIPSTREAM" == "True"'
+
+column	header="Gas"; VALUE_COLUMN \
+	source=tags,TP_TAGSG; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+
+column	header="Liquid"; VALUE_COLUMN \
+	source=tags,TP_TAGSL; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+
+column	header="Water"; VALUE_COLUMN \
+	source=tags,TP_TAGSW; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+
+column	header="Units"; width=60; \
+	source=tags,TP_TAGSG; tag="%LVITEM@V_unit";
+
+#else
+
+column	header="Value"; VALUE_COLUMN \
+	source=tags,TP_TAGS; tag="%LVITEM"; \
+	action=set,VAR,"%LVITEM"; \
+	action=set,VTYPE,"#(%VAR@V_typemask)"; \
+	actionif='"%RIGHT_CLICK" == "True"',menu,BlockExplorerValue; \
+	action=set,VAR,%STREAM;
+
+column	header="Units"; width=60; \
+	source=tags,TP_TAGS; tag="%LVITEM@V_unit";
+
+#endif
+
+listview frame=999; id=6; grid; MODACTIONS
+

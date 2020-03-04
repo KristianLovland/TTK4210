@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="13">
+ <header xy="642,622" xmin="638.5" ymin="615" xmax="652.5" ymax="629.749">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="AlarmAnalog"/>
+  <attribute name="Itemdesc" type="text" value="AlarmAnalog"/>
+  <attribute name="Module" type="text" value="AlarmAnalog"/>
+  <attribute name="Category" type="text" value="Basic Instrumentation"/>
+  <attribute name="SymName" type="text" value="AlarmAnalog"/>
+  <attribute name="SelectBox" type="real" value="-2.5,-6,2.5,6"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\Dev\Explorer\Resources\Standard\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="0.25,0.25" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <symbol id="1332" estat="ext" xy="638.5,615,645.5,629" name="MalfunctionOutline" xscl="7" yscl="14" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <relation type="mutual" subid="100" id="1572,1571"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <string id="1579" style="1" estat="ref" xy="639.5,616,639.5,628,644.5,628,644.5,616,639.5,616">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1580,1578"/>
+ </string>
+ <tnode id="1580" colour="gray70" estat="ext" xy="641,629" height="3" vjust="middle" font="Arial" background="white">
+  <parameter name="TAG_NAME" value="%TAG_NAME"/>
+  <relation type="mutual" subid="100" id="1581,1579"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:AlarmHighHigh">
+   <state type="expression" expression="{%TAG_NAME:AlarmHighHigh} == False" priority="0" text="HH"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmHighHighUsed} == False" priority="0" text="-"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmHighHigh} == True" priority="1" text="HH" background="red" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:SuppressAlarmHighHigh} == True" priority="1" text="HH" background="blue" foreground="white"/>
+  </animation>
+ </tnode>
+ <tnode id="1581" colour="gray70" estat="ext" xy="641,620" height="3" vjust="middle" font="Arial" background="white">
+  <parameter name="TAG_NAME" value="%TAG_NAME"/>
+  <relation type="mutual" subid="100" id="1582,1580"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:AlarmLow">
+   <state type="expression" expression="{%TAG_NAME:AlarmLow} == False" priority="0" text="L"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmLowUsed} == False" priority="0" text="-"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmLow} == True" priority="1" text="L" background="yellow" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:SuppressAlarmLow} == True" priority="1" text="L" background="blue" foreground="white"/>
+  </animation>
+ </tnode>
+ <tnode id="1582" colour="gray70" estat="ext" xy="641,624.5" height="3" vjust="middle" font="Arial" background="white">
+  <parameter name="TAG_NAME" value="%TAG_NAME"/>
+  <relation type="mutual" subid="100" id="1583,1581"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:AlarmHigh">
+   <state type="expression" expression="{%TAG_NAME:AlarmHigh} == False" priority="0" text="H"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmHighUsed} == False" priority="0" text="-"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmHigh} == True" priority="1" text="H" background="Yellow" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:SuppressAlarmhigh} == True" priority="1" text="H" background="blue" foreground="white"/>
+  </animation>
+ </tnode>
+ <tnode id="1583" layer="Engineer" estat="ext" xy="645.5,624.5" height="3" vjust="middle" font="Arial">
+  <parameter name="TAG_NAME" value="%TAG_NAME"/>
+  <relation type="mutual" subid="100" id="1573,1582"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:AlarmHighLimit" format="%5g">
+   <state type="expression" expression="{%TAG_NAME:AlarmHighUsed} == False" priority="0" foreground="invisible"/>
+  </animation>
+ </tnode>
+ <tnode id="1573" colour="Background" layer="Engineer" depth="100" estat="ext" xy="652.5,629.75" height="1" hjust="centre" font="Arial" background="#aaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="1571,1583"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <cpoint id="1571" estat="ref" xy="642,622">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="AlarmAnalog"/>
+  <attribute name="Itemdesc" type="text" value="AlarmAnalog"/>
+  <attribute name="Module" type="text" value="AlarmAnalog"/>
+  <attribute name="Category" type="text" value="Basic Instrumentation"/>
+  <attribute name="SymName" type="text" value="AlarmAnalog"/>
+  <relation type="mutual" subid="100" id="1332,1573"/>
+ </cpoint>
+ <tnode id="1572" layer="Engineer" estat="ext" xy="645.5,629" height="3" vjust="middle" font="Arial">
+  <parameter name="TAG_NAME" value="%TAG_NAME"/>
+  <relation type="mutual" subid="100" id="1575,1332"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:AlarmHighHighLimit" format="%5g">
+   <state type="expression" expression="{%TAG_NAME:AlarmHighHighUsed} == False" priority="0" foreground="invisible"/>
+  </animation>
+ </tnode>
+ <tnode id="1575" layer="Hidden" estat="ext" xy="639.5,615" height="1" vjust="middle" font="Arial" ntr="true" ntm="true">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1576,1572"/>
+ </tnode>
+ <tnode id="1576" layer="Engineer" estat="ext" xy="645.5,615.5" height="3" vjust="middle" font="Arial">
+  <parameter name="TAG_NAME" value="%TAG_NAME"/>
+  <relation type="mutual" subid="100" id="1577,1575"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:AlarmLowLowLimit" format="%5g">
+   <state type="expression" expression="{%TAG_NAME:AlarmLowLowUsed} == False" priority="0" foreground="invisible"/>
+  </animation>
+ </tnode>
+ <tnode id="1577" layer="Engineer" estat="ext" xy="645.5,620" height="3" vjust="middle" font="Arial">
+  <parameter name="TAG_NAME" value="%TAG_NAME"/>
+  <relation type="mutual" subid="100" id="1578,1576"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:AlarmLowLimit" format="%5g">
+   <state type="expression" expression="{%TAG_NAME:AlarmLowUsed} == False" priority="0" foreground="invisible"/>
+  </animation>
+ </tnode>
+ <tnode id="1578" colour="gray70" estat="ext" xy="641,615.5" height="3" vjust="middle" font="Arial" background="white">
+  <parameter name="TAG_NAME" value="%TAG_NAME"/>
+  <relation type="mutual" subid="100" id="1579,1577"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:AlarmLowLow">
+   <state type="expression" expression="{%TAG_NAME:AlarmLowLow} == False" priority="0" text="LL"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmLowLowUsed} == False" priority="0" text="-"/>
+   <state type="expression" expression="{%TAG_NAME:AlarmLowLow} == True" priority="1" text="LL" background="red" foreground="black"/>
+   <state type="expression" expression="{%TAG_NAME:SuppressAlarmLowLow} == True" priority="1" text="LL" background="blue" foreground="white"/>
+  </animation>
+ </tnode>
+</sym>

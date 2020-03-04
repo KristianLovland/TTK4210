@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="7">
+ <header xy="180,1264" xmin="180" ymin="1264" xmax="228.001" ymax="1273">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="FieldTransmitter"/>
+  <attribute name="Itemdesc" type="text" value="Field transmitter"/>
+  <attribute name="Module" type="text" value="FieldTransmitter"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="FieldTransmitter_Online"/>
+  <attribute name="SelectBox" type="real" value="1,1,47,7"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Klip\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="2293" estat="ext" xy="180,1264,228,1272" name="x_Online_Background.sym" xscl="48" yscl="8" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="2370,2365"/>
+ </symbol>
+ <symbol id="2370" estat="ext" xy="180,1264,228,1272" name="x_Online_SolidFrame.sym" xscl="48" yscl="8" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="2361,2293"/>
+ </symbol>
+ <string id="2361" style="1" estat="ref" xy="181,1265,181,1271,227,1271,227,1265,181,1265">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="2367,2370"/>
+ </string>
+ <tnode id="2367" estat="ext" xy="209,1266" height="5" hjust="right" >
+  <relation type="mutual" subid="100" id="2368,2361"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:DisplayValue" format="%6.1f" default="black">
+  </animation>
+ </tnode>
+ <tnode id="2368" estat="ext" xy="211,1266" height="5" >
+  <relation type="mutual" subid="100" id="2362,2367"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:DisplayValue@V_unit" format="%s" default="black">
+   <state type="expression" expression="{%TAG_NAME:MeasuredValue@V_unit} == &quot;none&quot;" priority="0" text="  - - -" background="gray50" foreground="green3"/>
+  </animation>
+ </tnode>
+ <tnode id="2362" layer="Hidden" estat="ext" xy="200,1273" height="1" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="2365,2368"/>
+ </tnode>
+ <cpoint id="2365" estat="ref" xy="180,1264">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <relation type="mutual" subid="100" id="2293,2362"/>
+  <attribute name="ItemType" type="text" value="FieldTransmitter"/>
+  <attribute name="Itemdesc" type="text" value="Field transmitter"/>
+  <attribute name="Module" type="text" value="FieldTransmitter"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="FieldTransmitter_Online"/>
+ </cpoint>
+</sym>

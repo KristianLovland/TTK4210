@@ -1,0 +1,136 @@
+#include $EXPLORER_RESOURCES/panel/panel.def
+#include $EXPLORER_RESOURCES/panel/alrmstt.def
+#include $EXPLORER_RESOURCES/panel/alrmcodes.def
+#include $EXPLORER_RESOURCES/panel/subcodes.def
+
+#include $EXPLORER_RESOURCES/panel/definitions.def
+
+Set		Variable = AL_TYPE,AlarmList;
+
+Header	%+_PINSTATUS Title = "Active Alarms"; OneOff=%LOCAL_ACTIVE_TIMELINE_APP; \
+	Help = "K-SpiceUserGuide.chm","Alarms_ActiveAlarms.htm"; \
+	mid=%LOCAL_ACTIVE_TIMELINE_APP; \
+	Resizable = SaveGeometry,LargerOnly; \
+	Position = Cursor; \
+		Action = -,Set,_ALACK,0;
+
+Frame	Id = 99; Frame = -2;  Layout = form; position=Lock,Left,0,Right,0;
+
+// application toolbar
+#define TL_TBAR_PARENT 99
+#include TimelineAppToolbar.def
+
+Stub		Frame = TOOLBAR_ID; Size = 2,1;
+Stub		Frame = TOOLBAR_ID; background=window; size=1,1; sameheight=TOOLBAR_ID;
+
+// dump data item list
+Button	Frame = TOOLBAR_ID; Image = "logtags.ico"; Style = ToolBar; SameHeight = TOOLBAR_ID; listdependent; \
+		FeedBack = "Save selected items in current view in csv format"; \
+		Action = SaveFinder,"=%_PROJECT_ROOT/ExplorerFiles","*.csv","Data Item dump"; \
+		Action = LVDump,100,"%_FINDER_SELECTION"; \
+		Action = ShellOpen,"%_FINDER_SELECTION";
+	
+// print
+Button	Frame = TOOLBAR_ID; Image = "print.ico"; Style = ToolBar; SameHeight = TOOLBAR_ID; \
+		FeedBack = "Print current view"; \
+		Action = ScreenDump,100;
+
+// tab pin
+#define PIN_TBAR_PARENT 10101
+#include BlockExplorerToolbarPin.def
+
+Frame	Id = 1; Frame = 99; Layout = Vertical;Space = 5; Pad = 8; position=lock,top,28;
+Frame	Id = 33; Frame = 1; Layout = Horizontal; Space = 5;
+
+Frame	Id = 32; Frame = 33; Layout = Vertical; Space = 5; Label = "Filter settings";
+
+Frame	Id = 8; Frame = 32; Layout = Horizontal; Space = 5;
+Label	Frame = 8; Label = "Group:"; SameWidth = 9;
+Selection	Frame = 8; Source = Tag,"DataItem,I,DBI_GROUPS"; Style = DropDown; \
+		Size = 150,-1; Get = GetModelParameter; \
+		Action = Set,DB_GROUP_NM,%_CURRENT_SELECTION; \
+		Action = Refresh,100;
+Button	Frame = 8; Label = "All groups"; \
+		Action = Set,DB_GROUP_NM,*; \
+		Action = Refresh,100;
+
+Frame	Id = 9; Frame = 32; Layout = Horizontal; Space = 5;
+Label	Frame = 9; Label = "Alarm tag filter:"; SameWidth = 9;
+Field	Id = 91; Frame = 9; Value = %TAG_NM; Width = 150; \
+		Action = Set,TAG_NM,!91; \
+		Action = Refresh,100;
+Button	Frame = 9; Image = "refresh.ico"; \
+		Action = Set,TAG_NM,!91; \
+		Action = Refresh,100;
+
+Frame	Id = 42; Frame = 33; Layout = Horizontal; Space = 20; Label = "Status";
+
+Frame	Frame = 42; Id = 44; Layout = Vertical; Space = 5;
+Variable 	Frame = 44; Caption = "Number of alarms:"; VSTATIC \
+		Tag = "AlarmList,I,AL_NO_ALS,I,%ALACT_LEV"; SameWidth = +1; \
+		Get = GetModelParameter; \
+		Sample; Type = Integer;
+Variable 	Frame = 44; Caption = "Acknowledged alarms:"; VSTATIC \
+		Tag = "AlarmList,I,AL_NO_ACK,I,%ALACT_LEV"; SameWidth = +1;  \
+		Get = GetModelParameter; \
+		Sample; Type = Integer;
+Variable 	Frame = 44; Id = 22; Caption = "Unacknowledged alarms:"; VSTATIC \
+		Tag = "AlarmList,I,AL_NO_UNK,I,%ALACT_LEV"; SameWidth = +1;  \
+		Get = GetModelParameter; \
+		Sample; Type = Integer;
+		
+Frame	Frame = 42; Id = 43; Layout = Vertical; Space = 5;
+Button	Frame = 43; Label = "Acknowledge selected alarms"; ListDependent; \
+		Action = Set,_ALACK,1; \
+		Action = Execute,100; \
+		Action = Set,_ALACK,0;
+Button	Frame = 43; Label = "Acknowledge all alarms"; \
+		Dependency = '#(AlarmList,I,AL_NO_UNK,I,%ALACT_LEV) != 0'; \
+		Action = Send,SetModelParameter,S,AlarmList,I,AL_ACKALL;
+
+#define	STYLE1 \
+		Foreground = -1,White,White,LightBlue,Gold,Gold; \
+		Font = "courier new-bold";
+
+#define	STYLE2 \
+		Foreground = -1,White,White,lightblue*,Gold,gold*; \
+		Font = "courier new-bold";
+
+// alarm list
+
+Column	Header = "Date/time"; Type = ModelTime; Get = GetModelParameter; ShowState; \
+		Tag = "AlarmList,S,%LVITEM,I,AL_SETTIME"; Width = 100; STYLE2 \
+		Menu = AlarmSystemAProps; \
+		Action = Set,ACT_TAG,%LVITEM; \
+
+// Deleted - "Menu,BlockExplorerBlockCustom" from Right Click Action in Column header below
+
+Column	Header = "Tag"; Get = GetModelParameter; ShowState; \
+		Tag = "AlarmList,S,%LVITEM,I,AL_SYNONYM"; Width = 150; STYLE1 \
+		Action = Set,HT_TEST,#(%LVITEM@B_type); \
+		Action = Set,CUSTOM_TAG,#(%LVITEM@B_name); \
+		ActionIf = '"%RIGHT_CLICK" == "True" && "%HT_TEST" != "*FAIL*" && %LV_NUMSELECTED == 1',Menu,AlarmSystemAProps; \
+		ActionIf = '"%RIGHT_CLICK" == "True" && ("%HT_TEST" == "*FAIL*" || %LV_NUMSELECTED > 1)',Menu,AlarmSystemAProps;
+
+Column	Header = "Group"; Get = GetModelParameter; ShowState; \
+		Tag = "AlarmList,S,%LVITEM,I,AL_GROUP"; Width = 60; STYLE1 \
+		Menu = AlarmSystemAProps; \
+		Action = Set,ACT_TAG,%LVITEM; \
+
+Column	Header = "Status"; Get = GetModelParameter; ShowState; \
+		Type = enum; Values = ACKN,-1,NORMAL,0,NORMAL,1,ACK,2,ALARM,3; \
+		Tag = "AlarmList,S,%LVITEM,I,AL_STATUS"; Width = 60; STYLE1 \
+		Menu = AlarmSystemAProps; \
+		Action = Set,ACT_TAG,%LVITEM; \
+
+Column	Header = "Description"; Get = GetModelParameter; ShowState; \
+		Tag = "AlarmList,S,%LVITEM,I,AL_DESC"; Width = 250; STYLE1 \
+		Menu = AlarmSystemAProps; \
+		Action = Set,ACT_TAG,%LVITEM; \
+
+ListView	Sample = 2; Id = 100; Background = DarkSlateGray; \
+		Size = 700,400; Style = MultiSelect; \
+		Source = Tag,"AlarmList,S,$top,R,0.0,I,AL_LIST,I,%ALACT_LEV,S,@group(%DB_GROUP_NM)@name(%TAG_NM),-1"; \
+		Action = Set,ACT_TAG,%LVITEM; \
+		ActionIf = '"%DBL_CLICK" == "True"',Panel,AlarmSystemAlarmDetails; \
+		ActionIf = '%_ALACK == 1',Send,SetModelParameter,S,AlarmList,S,%LVITEM,I,AL_ACKTAG;

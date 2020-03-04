@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="6">
+ <header xy="154,127" xmin="153.999" ymin="121" xmax="170" ymax="141.001">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="LedaValve"/>
+  <attribute name="Itemdesc" type="text" value="Online LedaFlow ESD valve"/>
+  <attribute name="Module" type="text" value="LedaValve"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="LedaValveESD_Online"/>
+  <attribute name="SelectBox" type="real" value="0,0,16,14"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="1715" estat="ext" xy="154,127" name="x_Online_ValveBody.sym">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_Online_ValveBody"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1716,1706"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == True &amp;&amp; {%TAG_NAME:IsDefinedClosed} == True " priority="10" foreground="magenta"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == True " priority="1" foreground="green3"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedClosed} == True " priority="0" foreground="red"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == False &amp;&amp; {%TAG_NAME:IsDefinedClosed} == False" priority="0" fflash="true" foreground="yellow"/>
+  </animation>
+ </symbol>
+ <symbol id="1716" depth="1" estat="ext" xy="154,127,170,135" name="x_ValveMask.sym" xscl="16" yscl="8" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_ValveMask"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="1717,1715"/>
+ </symbol>
+ <symbol id="1714" estat="ext" xy="162,131" name="x_Online_ValveActuatorESD.sym">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_Online_ValveActuatorESD"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1706,1713"/>
+ </symbol>
+ <string id="1706" depth="10" style="1" estat="ref" xy="154,127,154,141,170,141,170,127,154,127">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1715,1714"/>
+ </string>
+ <cpoint id="1717" estat="ref" xy="154,127">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="LedaValve"/>
+  <attribute name="Itemdesc" type="text" value="Online LedaFlow ESD valve"/>
+  <attribute name="Module" type="text" value="LedaValve"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="LedaValveESD_Online"/>
+  <relation type="mutual" subid="100" id="1713,1716"/>
+ </cpoint>
+ <tnode id="1713" layer="TAGNAMES" estat="ext" xy="162,121" height="5" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1714,1717"/>
+ </tnode>
+</sym>

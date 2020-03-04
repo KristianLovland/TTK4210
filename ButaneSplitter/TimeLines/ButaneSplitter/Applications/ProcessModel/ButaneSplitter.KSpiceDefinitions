@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KSpiceData>
+  <FileInfo>
+    <Description></Description>
+    <Comment></Comment>
+    <ModelTime></ModelTime>
+    <SaveTime>2020-03-03T13:23:34.118Z</SaveTime>
+    <ModelFile></ModelFile>
+    <ParameterFile></ParameterFile>
+    <ValueFile></ValueFile>
+    <KernelInfo>K-Spice ModelServer Release 3.2.0.9 (Oct  7 2015 17:15:20)</KernelInfo>
+    <KernelVersion>3.2.0.9</KernelVersion>
+  </FileInfo>
+  <definitions>
+<TrendDefinition cachesize="0.10000000000000001" >
+  <TrendSet sample="1" numberOfPoints="200" />
+  <TrendSet sample="4" numberOfPoints="200" />
+  <TrendSet sample="16" numberOfPoints="200" />
+  <TrendSet sample="64" numberOfPoints="200" />
+  <TrendSet sample="256" numberOfPoints="200" />
+</TrendDefinition>
+<AlarmSetUp priority="0" filter="0" stateSet="0" activeFilter="0" historyFilter="0" maxDatabaseTime="2500000" maxDatabaseCount="1000" maxDatabaseSize="2000000" cacheSize="100" >
+</AlarmSetUp>
+<LogDefinition>
+  <Average type="mins" sample="1" start="0" every="0" offset="0" points="200" />
+  <Average type="hours" sample="4" start="0" every="0" offset="0" points="200" />
+  <Average type="days" sample="16" start="0" every="0" offset="0" points="200" />
+  <Average type="weeks" sample="64" start="0" every="0" offset="0" points="200" />
+  <Average type="months" sample="256" start="0" every="0" offset="0" points="200" />
+</LogDefinition>
+<EnumeratedTypeList>
+</EnumeratedTypeList>
+<Sounds resetAction="action=StopSound;" setAction="action=PlaySound,%_SET_SOUND" setTrailer=",repeat;" />
+  </definitions>
+</KSpiceData>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="7">
+ <header xy="186,1013" xmin="186.001" ymin="1013" xmax="233.999" ymax="1029">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Variable_Online"/>
+  <attribute name="ItemType" type="text" value="VariableOnline"/>
+  <attribute name="AttPage" type="text" value="VariableOnline"/>
+  <attribute name="SelectBox" type="real" value="1,1,47,15"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="1762" estat="ext" xy="186,1013,234,1029" name="x_Online_Background.sym" xscl="48" yscl="16" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1764,1777"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPPLANNING&quot;) &amp;&amp; (&quot;%SHOW_IN_PLAN&quot; != &quot;YES&quot;) &amp;&amp; !%_IDCAD" priority="0" foreground="invisible"/>
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPREALTIME&quot;) &amp;&amp; (&quot;%SHOW_IN_RT&quot; != &quot;YES&quot;) &amp;&amp; !%_IDCAD" priority="0" foreground="invisible"/>
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPLOOKAHEAD&quot;) &amp;&amp; (&quot;%SHOW_IN_LAH&quot; != &quot;YES&quot;) &amp;&amp; !%_IDCAD" priority="0" foreground="invisible"/>
+  </animation>
+ </symbol>
+ <symbol id="1764" estat="ext" xy="186,1013,234,1029" name="x_Online_SolidFrame.sym" xscl="48" yscl="16" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1766,1762"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPPLANNING&quot;) &amp;&amp; (&quot;%SHOW_IN_PLAN&quot; != &quot;YES&quot;) &amp;&amp; !%_IDCAD" priority="0" foreground="invisible"/>
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPREALTIME&quot;) &amp;&amp; (&quot;%SHOW_IN_RT&quot; != &quot;YES&quot;) &amp;&amp; !%_IDCAD" priority="0" foreground="invisible"/>
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPLOOKAHEAD&quot;) &amp;&amp; (&quot;%SHOW_IN_LAH&quot; != &quot;YES&quot;) &amp;&amp; !%_IDCAD" priority="0" foreground="invisible"/>
+  </animation>
+ </symbol>
+ <tnode id="1766" estat="ext" xy="215,1015" height="4" hjust="right" bold="true">
+  <relation type="mutual" subid="100" id="1765,1764"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%DATAITEM" format="%6.1f">
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPPLANNING&quot;) &amp;&amp; (&quot;%SHOW_IN_PLAN&quot; != &quot;YES&quot;)" priority="0" foreground="invisible"/>
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPREALTIME&quot;) &amp;&amp; (&quot;%SHOW_IN_RT&quot; != &quot;YES&quot;)" priority="0" foreground="invisible"/>
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPLOOKAHEAD&quot;) &amp;&amp; (&quot;%SHOW_IN_LAH&quot; != &quot;YES&quot;)" priority="0" foreground="invisible"/>
+  </animation>
+ </tnode>
+ <string id="1765" style="1" estat="ref" xy="187,1014,187,1028,233,1028,233,1014,187,1014">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1775,1766"/>
+ </string>
+ <tnode id="1775" estat="ext" xy="217,1015" height="4" bold="true">
+  <relation type="mutual" subid="100" id="1776,1765"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%DATAITEM@V_unit" format="%s">
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPPLANNING&quot;) &amp;&amp; (&quot;%SHOW_IN_PLAN&quot; != &quot;YES&quot;)" priority="0" foreground="invisible"/>
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPREALTIME&quot;) &amp;&amp; (&quot;%SHOW_IN_RT&quot; != &quot;YES&quot;)" priority="0" foreground="invisible"/>
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPLOOKAHEAD&quot;) &amp;&amp; (&quot;%SHOW_IN_LAH&quot; != &quot;YES&quot;)" priority="0" foreground="invisible"/>
+   <state type="expression" expression="{%DATAITEM@V_unit} == &quot;none&quot;" priority="0" foreground="invisible"/>
+  </animation>
+ </tnode>
+ <cpoint id="1776" estat="ref" xy="186,1013">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Variable_Online"/>
+  <parameter name="DESCRIPTION" value="blah"/>
+  <parameter name="DATAITEM" value="ABC:XYZ"/>
+  <attribute name="ItemType" type="text" value="VariableOnline"/>
+  <attribute name="AttPage" type="text" value="VariableOnline"/>
+  <parameter name="SHOW_IN_RT" value="YES"/>
+  <parameter name="SHOW_IN_LAH" value="YES"/>
+  <parameter name="SHOW_IN_PLAN" value="YES"/>
+  <relation type="mutual" subid="100" id="1777,1775"/>
+  <parameter name="EDITABLE_ENG_OP" value="NO"/>
+  <parameter name="EDITABLE_ENG_ONLY" value="NO"/>
+  <parameter name="EDITABLE_RT" value="NO"/>
+  <parameter name="EDITABLE_LAH" value="NO"/>
+  <parameter name="EDITABLE_PLAN" value="NO"/>
+ </cpoint>
+ <tnode id="1777" depth="50" estat="ext" xy="190,1023" height="4" font="Arial">
+  <relation type="mutual" subid="100" id="1762,1776"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="BlockExists,X">
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPPLANNING&quot;) &amp;&amp; (&quot;%SHOW_IN_PLAN&quot; != &quot;YES&quot;)" priority="0" foreground="invisible"/>
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPREALTIME&quot;) &amp;&amp; (&quot;%SHOW_IN_RT&quot; != &quot;YES&quot;)" priority="0" foreground="invisible"/>
+   <state type="expression" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPLOOKAHEAD&quot;) &amp;&amp; (&quot;%SHOW_IN_LAH&quot; != &quot;YES&quot;)" priority="0" foreground="invisible"/>
+   <state type="expression" expression="1 == 1" priority="0" text="%DESCRIPTION"/>
+  </animation>
+ </tnode>
+</sym>

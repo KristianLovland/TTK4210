@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="198,1210" xmin="198" ymin="1205" xmax="224.001" ymax="1242">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <attribute name="ItemType" type="text" value="StreamBoundary"/>
+  <attribute name="Itemdesc" type="text" value="Operator System Boundary"/>
+  <attribute name="Module" type="text" value="StreamBoundary"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="SystemBoundary_Online"/>
+  <attribute name="SelectBox" type="real" value="0,0,26,12.5"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <polygon id="1104" colour="0x555555" xy="198,1210,198,1229,224,1229,224,1210,198,1210">
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <attribute name="ItemType" type="text" value="Operator_WellBoundary"/>
+  <relation type="mutual" subid="100" id="1298,1163"/>
+ </polygon>
+ <string id="1298" style="1" estat="ref" xy="198,1210,198,1222.5,224,1222.5,224,1210,198,1210">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1327,1104"/>
+ </string>
+ <tnode id="1327" colour="gray66" layer="Hidden" estat="ext" xy="211,1205" height="5" hjust="centre" background="gray66">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1210,1298"/>
+ </tnode>
+ <cpoint id="1210" estat="ref" xy="198,1210">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <relation type="mutual" subid="100" id="1163,1327"/>
+  <attribute name="ItemType" type="text" value="StreamBoundary"/>
+  <attribute name="Itemdesc" type="text" value="Operator System Boundary"/>
+  <attribute name="Module" type="text" value="StreamBoundary"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="SystemBoundary_Online"/>
+ </cpoint>
+ <polygon id="1163" colour="0x555555" xy="198,1229,211,1242,224,1229,198,1229">
+  <relation type="mutual" subid="100" id="1104,1210"/>
+ </polygon>
+</sym>

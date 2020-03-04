@@ -1,0 +1,75 @@
+#include $EXPLORER_RESOURCES/panel/DefaultVars.def
+
+#define _MP_ Get = GetModelParameter; Set = SetModelParameter
+
+Header	Title = "Timeline Control Operator"; Position = CentreScreen; OneOff; Mid = %_ROOT; \
+	Help = "K-SpiceUserGuide.chm","File_TimelineProperties.htm"; Name = "Execution";
+
+Frame	Id = 50; Layout = Tabbed; Tabs = "Execution"; Pad = 0;
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Execution
+
+Frame	Frame = 50; Id = 1; Layout = Vertical;
+
+Frame	Frame = 1; id=51; Layout = Fixed; Background = TOOLBAR_BG;
+Frame	Frame = 51; Id = 2; Layout = Horizontal; Pad = 2; Space = 3;
+label	frame=2; label=" "; samewidth=21;
+Label	Frame = 2; Label = "Timeline"; SameWidth = 1;
+Label	Frame = 2; Label = " "; SameWidth = 11;
+Label	Frame = 2; Label = " "; SameWidth = 2;
+Label	Frame = 2; Label = " "; SameWidth = 3;
+Label	Frame = 2; Label = " "; SameWidth = 4;
+Label	Frame = 2; Label = "Speed"; SameWidth = 5;
+Label	Frame = 2; Label = "Requested"; SameWidth = 6;
+//Label	Frame = 2; Label = "Run until"; size=214;
+//Label	Frame = 2; Label = "Run for"; SameWidth = 8;
+//Label	Frame = 2; Label = " "; SameWidth = 20;
+//Label	Frame = 2; Label = "Step for"; SameWidth = 9;
+
+Frame	Frame = 1; Id = 10; Layout = Array; Source = Tag,TimeLines; Get = GetModelParameter; \
+	Pad = 1; Border = None; SameWidth = 110;
+		
+#define SPACE2 Stub	Frame = 10; Size = 3,1;
+
+label	frame=10; image="tltfoldericon(%***)"; samewidth=21; sameheight=1;
+Label	Frame = 10; Label = "%***"; SameWidth = 1; sameheight=1;
+
+SPACE2
+Switch	Frame = 10; Id = 11; Label = "Activate","Deactivate"; Tag = "/%***:Activated"; Sample; sameheight=1; SameWidth = 11; \
+	Dependency = '!(!active(%***) && !%SV_SERVERLICENSE)'; \
+	Action = Refresh,11; \
+	Action = Set,ACTIVE,"active(%***)"; \
+	ActionIf = %ACTIVE,MessageYesNo,"Are you sure?\nMake sure you have saved any associated models first, as deactivating a timeline will close all model servers.",-,-,question; \
+	ActionIf = "%ACTIVE && '%_MSG_YESNO' == 'No'",Break; \
+	ActionIf = %ACTIVE,Request,DeactivateTimeline,"/%***"; \
+	ActionIf = *,Break; \
+	Action = Request,ActivateTimeline,"/%***";
+
+SPACE2
+Clock	Frame = 10; Mid = "/%***"; Dependency = "active(%***)"; \
+	Background = -,Green3,Green2,Green1,Orange2; \
+	SameHeight = 1; Border = Line,1,Grey60; SameWidth = 2; pad=1;
+
+SPACE2
+Button	Frame = 10; Image = "run.ico"; Style = BUTTON_TOOLBAR_STYLE; \
+	Dependency = '#(GetModelParameter;%_ROOT|ModelState,/%***) != 1 && active(%***)'; \
+	Action = Request,Run,"/%***";  SameHeight = 1; FeedBack = "Run the model"; SameWidth = 3;
+
+SPACE2
+Button	Frame = 10; Image = "pause.ico"; Style = BUTTON_TOOLBAR_STYLE; \
+	Dependency = '#(GetModelParameter;%_ROOT|ModelState,/%***) == 1 && active(%***)'; \
+	Action = Request,Pause,"/%***"; SameHeight = 1; FeedBack = "Pause the model"; SameWidth = 4;
+
+SPACE2
+Variable	Frame = 10; Id = 113; Border = line,1,Grey70; Background = White; Dependency = "active(%***)"; \
+		Tag = "ModelSpeed,/%***"; _MP_; SameHeight = 1; Format = "%12.3f"; SameWidth = 5; pad=1;
+
+SPACE2
+Variable	Frame = 10; Id = 112; VAR_EDIT; \
+		Dependency = "active(%***) && !writeprotected(/%***:ModelSpeedReq)"; \
+		Tag = "ModelSpeedReq,/%***"; _MP_; SameHeight = 1; Format = "%12.3f"; SameWidth = 6; pad=1;
+
+SPACE2
+
+
+	

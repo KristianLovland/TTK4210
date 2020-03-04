@@ -1,0 +1,42 @@
+Header	Help = "K-SpiceUserGuide.chm","FileMenu.htm";
+
+
+// printing
+Button	Label = "Page Setup..."; \
+		Action = PageSetupDialog; \
+		Dependency = '%SV_GRAPHICLOADED';
+
+Button	Label = "Print..."; Image = "print.ico"; \
+		Action = PrintDialog; \
+		Dependency = '%SV_GRAPHICLOADED';
+
+#ifdef '"%_ENVIRONMENT" == "Instructor"'
+Button	Label = "Copy..."; Image = "copy.ico"; \
+		Dependency = '%SV_GRAPHICLOADED'; \
+		Action = PrintMetafile,Clipboard;
+#endif
+
+Gap
+
+Button	Label = "Open K-Spice Learn Model"; \
+		Action = Load,"K-SpiceLearn.xdr"; \
+		Action = Panel,"ProjectOpen.pnl";
+
+Gap
+
+Button	Label = "Open Init"; \
+		Action = Panel,"InitLoad.pnl";
+
+Button	Label = "Save Init"; \
+		Action = Panel,"InitSave.pnl";
+
+Gap
+
+#endif
+Button	Label = "Exit Explorer"; \
+		Action = Quit;
+
+
+Button	Label = "Exit K-Spice"; \
+		action=messageyesno,"Are you sure you want to shutdown the simulator? If you have not saved your model, please click No and save your model before exiting",-,-,question; \
+		actionif='"%_MSG_YESNO" == "Yes"',exec,"C:\K-Spice-Projects\BasicProcess\Resources\Operator\data\Stop K-Spice.bat";

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="3">
+ <header xy="1448,883" xmin="1448" ymin="882.999" xmax="1490" ymax="884.001">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_welldisplay_gasflow"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <tnode id="1401" colour="yellow" estat="ext" xy="1490,884" height="8" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_GAS_%TAG_NAME:DisplayEstimatedValue@V_units" format="%s" default="yellow">
+  </animation>
+ </tnode>
+ <tnode id="1402" colour="yellow" estat="ext" xy="1448,884" height="8" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_GAS_%TAG_NAME:DisplayEstimatedValue" format="%6.1f" default="yellow">
+  </animation>
+ </tnode>
+ <cpoint id="1527" estat="ref" xy="1448,883">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_welldisplay_gasflow"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </cpoint>
+</sym>

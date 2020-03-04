@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="602,947" xmin="602.001" ymin="939" xmax="634" ymax="955">
+  <attribute name="AttPage" type="text" value="OprNextPicture"/>
+  <attribute name="selectbox" type="real" value="-1,-9,33,9"/>
+  <attribute name="ItemType" type="text" value="OprNextPicture"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="NextPictureRight"/>
+  <attribute name="SelectBox" type="real" value="0,-8,32,8"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="841" vheight="1251" gpitch="1,1" goffset="0,0" height="2" hjust="right" font="Arial"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="3D"/>
+ <symbol id="1635" estat="ext" xy="602,939" name="NextPictureRight_withHighLighting_anim.sym">
+  <attribute name="SymName" type="text" value="NextPictureRight_withHighLighting_anim"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="#00a9a9">
+   <state type="expression" expression="&quot;%XDR_NAME&quot; == &quot;%_LAST_DRAWING&quot; &amp;&amp; &quot;%JUMPINDEX&quot; == &quot;%_LAST_INDEX&quot;" priority="0" foreground="darkorange1"/>
+  </animation>
+ </symbol>
+ <cpoint id="1632" estat="ref" xy="602,947">
+  <attribute name="AttPage" type="text" value="OprNextPicture"/>
+  <attribute name="selectbox" type="real" value="-1,-9,33,9"/>
+  <attribute name="ItemType" type="text" value="OprNextPicture"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="NextPictureRight"/>
+ </cpoint>
+ <string id="1633" estat="ref" xy="602,955,602,939,626,939,634,947,626,955,602,955">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <tnode id="1631" colour="blue" layer="Hidden" depth="10" estat="ext" xy="603,952" height="6" font="Arial">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <tnode id="1668" depth="30" estat="ext" xy="603.75,943" height="10" hjust="right" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="*" default="invisible">
+   <state type="expression" expression="1" priority="0" text="%JUMPINDEX"/>
+  </animation>
+ </tnode>
+</sym>

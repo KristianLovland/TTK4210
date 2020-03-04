@@ -1,0 +1,4 @@
+
+button	label="Remove Panels"; action=popdown,all;
+button	label="Hide Panels"; Image = "unmap_pu.ico"; action=unmap,all;
+button	label="Show Panels"; Image = "map_pu.ico"; action=map,all;

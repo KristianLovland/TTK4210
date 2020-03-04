@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="398,104" xmin="398" ymin="104" xmax="414" ymax="120">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Colour block for DcsOnOffSwitch"/>
+  <attribute name="SymName" type="text" value="xdcs_onoffswitch"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="32" vheight="32" gpitch="2,2" goffset="0,0"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <polygon id="1195" xy="398,104,398,120,414,120,414,104,398,104"/>
+ <cpoint id="1200" estat="ref" xy="398,104">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Colour block for DcsOnOffSwitch"/>
+  <attribute name="SymName" type="text" value="xdcs_onoffswitch"/>
+ </cpoint>
+</sym>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="37">
+ <header xy="1323,502" xmin="1321" ymin="492.001" xmax="1359" ymax="534">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="CauseAndEffectChart"/>
+  <attribute name="ItemType" type="text" value="CauseAndEffectChart"/>
+  <attribute name="Module" type="text" value="CauseAndEffectChart"/>
+  <attribute name="Category" type="text" value="Basic Control"/>
+  <attribute name="Itemdesc" type="text" value="Cause and Effect Chart"/>
+  <attribute name="SelectBox" type="real" value="0,0,34,30"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\Documents and Settings\ivarj\My Documents\diverse\symboler">
+  <attribute name="VersionDate" type="text" value="23-01-13 12:05:56"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <symbol id="3785" estat="ext" xy="1321,499,1358.8,534" name="MalfunctionOutline" xscl="37.8" yscl="35" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <relation type="mutual" subid="100" id="3786,3783"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="3833" estat="ext" xy="1323,522" name="x_CauseAndEffectChart_Status" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_CauseAndEffectChart_Status"/>
+  <relation type="mutual" subid="100" id="3836,3832"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:AnyInputTripped} == 1" priority="0" foreground="red"/>
+  </animation>
+ </symbol>
+ <symbol id="3836" estat="ext" xy="1337,532" name="x_CauseAndEffectChart_Status" angle="180" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_CauseAndEffectChart_Status"/>
+  <relation type="mutual" subid="100" id="3784,3833"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:AnyOutputTripped} == 1" priority="0" foreground="red"/>
+  </animation>
+ </symbol>
+ <cpoint id="3783" depth="5" estat="ref" xy="1323,502">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="CauseAndEffectChart"/>
+  <attribute name="ItemType" type="text" value="CauseAndEffectChart"/>
+  <attribute name="Module" type="text" value="CauseAndEffectChart"/>
+  <attribute name="Category" type="text" value="Basic Control"/>
+  <relation type="mutual" subid="100" id="3785,3784"/>
+  <attribute name="Itemdesc" type="text" value="Cause and Effect Chart"/>
+ </cpoint>
+ <string id="3784" style="1" estat="ref" xy="1323,502,1323,532,1357,532,1357,502,1323,502">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="3783,3836"/>
+ </string>
+ <tnode id="3786" estat="ext" xy="1341,492" height="2" hjust="centre">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="3787,3785"/>
+ </tnode>
+ <tnode id="3787" colour="white" layer="Engineer" depth="100" estat="ext" xy="1359,534" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="3788,3786"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <text id="3788" depth="5" xy="1339,520" height="2" hjust="centre" vjust="middle" font="Arial" bold="true">
+  <tstring>X</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3804,3787"/>
+ </text>
+ <text id="3804" depth="5" xy="1343,516" height="2" hjust="centre" vjust="middle" font="Arial" bold="true">
+  <tstring>X</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3805,3788"/>
+ </text>
+ <text id="3805" depth="5" xy="1343,512" height="2" hjust="centre" vjust="middle" font="Arial" bold="true">
+  <tstring>X</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3806,3804"/>
+ </text>
+ <text id="3806" depth="5" xy="1347,508" height="2" hjust="centre" vjust="middle" font="Arial" bold="true">
+  <tstring>X</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3807,3805"/>
+ </text>
+ <text id="3807" depth="5" xy="1351,520" height="2" hjust="centre" vjust="middle" font="Arial" bold="true">
+  <tstring>X</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3808,3806"/>
+ </text>
+ <text id="3808" depth="5" xy="1351,512" height="2" hjust="centre" vjust="middle" font="Arial" bold="true">
+  <tstring>X</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3809,3807"/>
+ </text>
+ <string id="3809" colour="blue" depth="5" xy="1323,506,1357,506">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3810,3808"/>
+ </string>
+ <string id="3810" colour="blue" depth="5" xy="1323,510,1357,510">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3811,3809"/>
+ </string>
+ <string id="3811" colour="blue" depth="5" xy="1323,514,1357,514">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3812,3810"/>
+ </string>
+ <string id="3812" colour="blue" depth="5" xy="1323,518,1357,518">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3813,3811"/>
+ </string>
+ <string id="3813" colour="blue" depth="5" xy="1323,522,1357,522">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3814,3812"/>
+ </string>
+ <string id="3814" colour="blue" depth="5" xy="1323,532,1337,522">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3815,3813"/>
+ </string>
+ <string id="3815" colour="blue" depth="5" xy="1337,532,1337,502">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3816,3814"/>
+ </string>
+ <string id="3816" colour="blue" depth="5" xy="1341,532,1341,502">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3817,3815"/>
+ </string>
+ <string id="3817" colour="blue" depth="5" xy="1345,532,1345,502">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3818,3816"/>
+ </string>
+ <string id="3818" colour="blue" depth="5" xy="1349,532,1349,502">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3819,3817"/>
+ </string>
+ <string id="3819" colour="blue" depth="5" xy="1353,532,1353,502">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3820,3818"/>
+ </string>
+ <text id="3820" depth="5" xy="1351,504" height="2" hjust="centre" vjust="middle" font="Arial" bold="true">
+  <tstring>X</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3821,3819"/>
+ </text>
+ <string id="3821" colour="blue" depth="5" xy="1323,502,1323,532,1357,532,1357,502,1323,502">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3822,3820"/>
+ </string>
+ <text id="3822" depth="5" xy="1355,516" height="2" hjust="centre" vjust="middle" font="Arial" bold="true">
+  <tstring>X</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3823,3821"/>
+ </text>
+ <string id="3823" depth="5" style="13" weight="3" xy="1325,520,1333,520">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3824,3822"/>
+ </string>
+ <string id="3824" depth="5" style="13" weight="3" xy="1325,516,1331,516">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3825,3823"/>
+ </string>
+ <string id="3825" depth="5" style="13" weight="3" xy="1325,512,1335,512">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3826,3824"/>
+ </string>
+ <string id="3826" depth="5" style="13" weight="3" xy="1325,508,1329,508">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3827,3825"/>
+ </string>
+ <string id="3827" depth="5" style="13" weight="3" xy="1325,504,1333,504">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3828,3826"/>
+ </string>
+ <string id="3828" depth="5" style="13" weight="3" xy="1339,524,1339,528">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3829,3827"/>
+ </string>
+ <string id="3829" depth="5" style="13" weight="3" xy="1343,524,1343,530">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3830,3828"/>
+ </string>
+ <string id="3830" depth="5" style="13" weight="3" xy="1347,524,1347,526">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3831,3829"/>
+ </string>
+ <string id="3831" depth="5" style="13" weight="3" xy="1351,524,1351,528">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3832,3830"/>
+ </string>
+ <string id="3832" depth="5" style="13" weight="3" xy="1355,524,1355,528">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3833,3831"/>
+ </string>
+</sym>

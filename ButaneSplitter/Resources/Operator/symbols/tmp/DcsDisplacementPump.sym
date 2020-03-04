@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="13">
+ <header xy="283,1061" xmin="253.5" ymin="1015.5" xmax="321" ymax="1085.5">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Pump"/>
+  <attribute name="SymName" type="text" value="DcsDisplacementPump"/>
+  <attribute name="ItemType" type="text" value="DcsDisplacementPump"/>
+  <attribute name="AttPage" type="text" value="DcsDisplacementPump"/>
+  <attribute name="SelectBox" type="real" value="24,-19,38,-5"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="841" vheight="1251" gpitch="1,1" goffset="0,0" height="2" hjust="right" font="Arial"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <symbol id="1156" estat="ext" xy="312,1081" name="xdcs_connector_s1.sym">
+  <attribute name="SymName" type="text" value="xdcs_connector_s1"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <animation type="graphic" default="#555555">
+   <state type="expression" expression="{%REPLACETAG:OutputStatus} == 0" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1152" estat="ext" xy="308,1043" name="xdcs_onoffswitch" xscl="0.75" yscl="0.75" pr6layer="0">
+  <attribute name="Itemdesc" type="text" value="Colour block for DcsOnOffSwitch"/>
+  <attribute name="SymName" type="text" value="xdcs_onoffswitch"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <animation type="graphic" default="red">
+   <state type="expression" expression="{%TAG_NAME:speed} &gt;0" priority="1" foreground="darkgreen"/>
+  </animation>
+ </symbol>
+ <cpoint id="1155" depth="11" estat="ref" xy="283,1061">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Pump"/>
+  <attribute name="SymName" type="text" value="DcsDisplacementPump"/>
+  <attribute name="ItemType" type="text" value="DcsDisplacementPump"/>
+  <attribute name="AttPage" type="text" value="DcsDisplacementPump"/>
+ </cpoint>
+ <string id="1161" depth="10" weight="2" xy="271,1045,263,1036,303,1036,295,1045"/>
+ <polygon id="1162" colour="gray" xy="271,1045,263,1036,303,1036,295,1045,271,1045"/>
+ <arc id="1171" depth="20" weight="2" xy="283,1061" radius="20"/>
+ <polygon id="1172" colour="gray" xy="303,1061,302.91,1062.85,302.66,1064.68,302.24,1066.47,301.65,1068.22,300.9,1069.92,300,1071.53,298.96,1073.05,297.78,1074.47,296.47,1075.78,295.05,1076.96,293.53,1078,291.91,1078.9,290.22,1079.65,288.47,1080.24,286.67,1080.66,284.85,1080.92,283,1081,281.15,1080.92,279.33,1080.66,277.53,1080.24,275.78,1079.65,274.09,1078.9,272.47,1078,270.95,1076.96,269.53,1075.78,268.22,1074.47,267.04,1073.05,266,1071.53,265.1,1069.92,264.35,1068.22,263.76,1066.47,263.34,1064.68,263.09,1062.85,263,1061,263.09,1059.16,263.34,1057.33,263.76,1055.53,264.35,1053.78,265.1,1052.09,266,1050.47,267.04,1048.95,268.22,1047.53,269.53,1046.22,270.95,1045.04,272.47,1044,274.09,1043.1,275.78,1042.35,277.53,1041.76,279.33,1041.34,281.15,1041.09,283,1041,284.85,1041.09,286.67,1041.34,288.47,1041.76,290.22,1042.35,291.91,1043.1,293.53,1044,295.05,1045.04,296.47,1046.22,297.78,1047.53,298.96,1048.95,300,1050.47,300.9,1052.09,301.65,1053.78,302.24,1055.53,302.66,1057.33,302.91,1059.16,303,1061"/>
+ <arc id="1174" weight="2" xy="283,1071" radius="10"/>
+ <arc id="1175" weight="2" xy="283,1051" radius="10"/>
+ <string id="1620" style="1" estat="ref" xy="254.5,1015.5,254.5,1085.5,298.5,1081.5,297.5,1025.5,253.5,1022.5">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <tnode id="1976" colour="yellow" layer="Hidden" depth="50" estat="ext" xy="283,1031" height="10" hjust="centre" font="Arial">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <string id="1167" colour="darkorange1" layer="Hidden" estat="ref" xy="307,1042,307,1056,321,1056,321,1042,307,1042">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <string id="1168" colour="#5f9f9f" weight="2" xy="308,1043,308,1055,320,1055,320,1043,308,1043">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </string>
+</sym>

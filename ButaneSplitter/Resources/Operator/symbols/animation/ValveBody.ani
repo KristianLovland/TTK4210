@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<animations>
+
+  <animation name="ValveBody">
+    <state colour="magenta" expression="{%TAG_NAME:IsDefinedOpen} == True &amp;&amp; {%TAG_NAME:IsDefinedClosed} == True " priority="10" type="expression"/>
+    <state colour="green3" expression="{%TAG_NAME:IsDefinedOpen} == True " priority="1" type="expression"/>
+    <state colour="red" expression="{%TAG_NAME:IsDefinedClosed} == True " priority="0" type="expression"/>
+    <state colour="yellow" expression="{%TAG_NAME:IsDefinedOpen} == False &amp;&amp; {%TAG_NAME:IsDefinedClosed} == False" priority="0" type="expression"/>
+  </animation>
+
+</animations>

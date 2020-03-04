@@ -1,0 +1,80 @@
+{24_FC1018:Gain} 			= 0.2
+{24_FC1018:IntegralTime} 	= 30
+{24_FC1018:DerivativeTime} 	= 0 
+
+{24_PC1013:Gain} 			= 1
+{24_PC1013:IntegralTime} 	= 120
+{24_PC1013:DerivativeTime} 	= 0 
+
+{24_LC1028:Gain} 			= 86
+{24_LC1028:IntegralTime} 	= 40
+{24_LC1028:DerivativeTime} 	= 0 
+
+{24_TC1088:Gain} 			= 5
+{24_TC1088:IntegralTime} 	= 1500
+{24_TC108:DerivativeTime} 	= 0 
+
+{24_TC1015:Gain} 			= 6
+{24_TC1015:IntegralTime} 	= 150
+{24_TC1015:DerivativeTime} 	= 0 
+
+{24_FC1015:Gain} 			= 0.22
+{24_FC1015:IntegralTime} 	= 1.0
+{24_FC1015:DerivativeTime} 	= 0 
+
+{24_LC1015:Gain} 			= 8.3
+{24_LC1015:IntegralTime} 	= 1000
+{24_LC1015:DerivativeTime} 	= 0 
+
+{24_PC1024:Gain} 			= 30
+{24_PC1024:IntegralTime} 	= 20
+{24_PC1024:DerivativeTime} 	= 0 
+
+{24_HC1019:Gain} 			= 0.7
+{24_HC1019:IntegralTime} 	= 10
+{24_HC1019:DerivativeTime} 	= 0 
+
+{24_FC1005:Gain} 			= 0.42
+{24_FC1005:IntegralTime} 	= 0.4
+{24_FC1005:DerivativeTime} 	= 0 
+
+{24_PCD1025:Gain} 		= 0.25
+{24_PCD1025:IntegralTime} 	= 120
+{24_PCD1025:DerivativeTime} 	= 0 
+
+{24_FC1021:Gain} 			= 1
+{24_FC1021:IntegralTime} 	= 60
+{24_FC1021:DerivativeTime} 	= 0 
+
+{24_FC1022:Gain} 			= 1
+{24_FC1022:IntegralTime} 	= 60
+{24_FC1022:DerivativeTime} 	= 0 
+
+{24_FC1020:Gain} 			= 2.5
+{24_FC1020:IntegralTime} 	= 0
+{24_FC1020:DerivativeTime} 	= 0 
+
+{42_PC0462:Gain} 			= 0.7
+{42_PC0462:IntegralTime} 	= 10
+{42_PC0462:DerivativeTime} 	= 0 
+
+{24_HC1024:Gain} 			= 1
+{24_HC1024:IntegralTime} 	= 300
+{24_HC1024:DerivativeTime} 	= 0 
+
+{24_LC1016:Gain} 			= 6.9
+{24_LC1016:IntegralTime} 	= 1000
+{24_LC1016:DerivativeTime} 	= 0 
+
+{24_FC1019:Gain} 			= 0.3
+{24_FC1019:IntegralTime} 	= 1.0
+{24_FC1019:DerivativeTime} 	= 0 
+
+
+
+
+
+
+
+
+

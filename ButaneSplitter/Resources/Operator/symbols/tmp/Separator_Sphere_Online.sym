@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="8">
+ <header xy="696,288" xmin="656" ymin="247.999" xmax="736" ymax="327.999">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Separator"/>
+  <attribute name="Itemdesc" type="text" value="Online Separator"/>
+  <attribute name="Module" type="text" value="Separator"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Separator_Sphere_Online"/>
+  <attribute name="SelectBox" type="real" value="-34,-34,34,34"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <symbol id="2330" estat="ext" xy="696,288" name="x_Online_Separator_Sphere_3D.sym">
+  <attribute name="SymName" type="text" value="x_Separator_Sphere_3D"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="child" subid="3" id="2350,2334,2329"/>
+  <relation type="mutual" subid="100" id="2349,2342"/>
+ </symbol>
+ <symbol id="2350" estat="rel" xy="718,259" name="x_Online_Separator_Weir.sym">
+  <attribute name="SymName" type="text" value="x_Separator_Weir"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="child" subid="3" id="2349"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="parent" subid="3" id="2330"/>
+  <relation type="mutual" subid="100" id="2334,2349"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:CalculateHoldUpOverflowSide} == True" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="2349" layer="3D" depth="-3" estat="rel" xy="710,263,714,285" name="x_SquareOil" xscl="4" yscl="22" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_SquareOil"/>
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="parent" subid="3" id="2350"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="2350,2330"/>
+  <animation type="rect" mtag="%TAG_NAME:LevelOverflowLiquid@V_unscaled" mmin="%TAG_NAME:MinLiquidLevelOverflowSide@V_unscaled" mmax="%TAG_NAME:MaxLiquidLevelOverflowSide@V_unscaled" rect="0,0,4,0,0,0,4,32" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:CalculateHoldUpOverflowSide} == True" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="2334" layer="3D" depth="-3" estat="rel" xy="678,263,682,285" name="x_SquareOil" xscl="4" yscl="22" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_SquareOil"/>
+  <attribute name="LayerLocked" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="parent" subid="3" id="2330"/>
+  <relation type="mutual" subid="100" id="2329,2350"/>
+  <animation type="rect" mtag="%TAG_NAME:LevelFeedSideWeir@V_unscaled" mmin="%TAG_NAME:MinLiquidLevelFeedSide@V_unscaled" mmax="%TAG_NAME:MaxLiquidLevelFeedSide@V_unscaled" rect="0,0,4,0,0,0,4,32">
+  </animation>
+ </symbol>
+ <symbol id="2329" layer="3D" estat="rel" xy="678,263,682,273" name="x_SquareWater" xscl="4" yscl="10" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_SquareWater"/>
+  <attribute name="LayerLocked" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="parent" subid="3" id="2330"/>
+  <relation type="mutual" subid="100" id="1943,2334"/>
+  <animation type="rect" mtag="%TAG_NAME:LevelHeavyPhaseFeedSideWeir@V_unscaled" mmin="%TAG_NAME:MinHeavyPhaseLevelFeedSide@V_unscaled" mmax="%TAG_NAME:MaxHeavyPhaseLevelFeedSide@V_unscaled" rect="0,0,4,0,0,0,4,32">
+  </animation>
+ </symbol>
+ <cpoint id="1943" estat="ref" xy="696,288">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Separator"/>
+  <attribute name="Itemdesc" type="text" value="Online Separator"/>
+  <attribute name="Module" type="text" value="Separator"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Separator_Sphere_Online"/>
+  <relation type="mutual" subid="100" id="1946,2329"/>
+ </cpoint>
+ <tnode id="1946" depth="10" estat="ext" xy="696,302" height="8" hjust="centre" vjust="middle" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="2342,1943"/>
+ </tnode>
+ <string id="2342" style="1" estat="ref" xy="662,254,662,322,730,322,730,254,662,254">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="2330,1946"/>
+ </string>
+</sym>

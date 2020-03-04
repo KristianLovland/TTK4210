@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="10">
+ <header xy="184,78" xmin="176.001" ymin="69.9997" xmax="216" ymax="93.0004">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="LedaValve"/>
+  <attribute name="Itemdesc" type="text" value="Online LedaFlow Choke valve"/>
+  <attribute name="Module" type="text" value="LedaValve"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="LedaValveChoke2_Online"/>
+  <attribute name="SelectBox" type="real" value="-8,-8,4,6"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="3539" estat="ext" xy="190,85,216,93" name="x_Online_SolidFrame.sym" xscl="26" yscl="8" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3540,3538"/>
+ </symbol>
+ <symbol id="3540" estat="ext" xy="190,85,216,93" name="x_Online_Background.sym" xscl="26" yscl="8" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3536,3539"/>
+ </symbol>
+ <symbol id="3536" estat="ext" xy="188,70" name="x_Online_ValveChokeBody.sym" angle="180" mirror="true">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_Online_ValveChokeBody"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3541,3540"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == True &amp;&amp; {%TAG_NAME:IsDefinedClosed} == True " priority="10" foreground="magenta"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == True " priority="1" foreground="green3"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedClosed} == True " priority="0" foreground="red"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == False &amp;&amp; {%TAG_NAME:IsDefinedClosed} == False" priority="0" foreground="yellow"/>
+  </animation>
+ </symbol>
+ <symbol id="3532" depth="1" estat="ext" xy="184,82,176,74" name="x_ValveMask.sym" xscl="-8" yscl="-8" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_ValveMask"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="3534,3541"/>
+ </symbol>
+ <symbol id="3533" estat="ext" xy="184,76" name="x_Online_ValveActuatorControl.sym">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_Online_ValveActuatorControl"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3538,3537"/>
+ </symbol>
+ <string id="3541" depth="10" style="1" estat="ref" xy="188,70,188,84,176,84,176,70,188,70">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="3532,3536"/>
+ </string>
+ <tnode id="3534" layer="TAGNAMES" estat="ext" xy="188,76" height="5" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="3535,3532"/>
+ </tnode>
+ <cpoint id="3535" estat="ref" xy="184,78">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="LedaValve"/>
+  <attribute name="Itemdesc" type="text" value="Online LedaFlow Choke valve"/>
+  <attribute name="Module" type="text" value="LedaValve"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="LedaValveChoke2_Online"/>
+  <relation type="mutual" subid="100" id="3537,3534"/>
+ </cpoint>
+ <tnode id="3537" estat="ext" xy="208.5,86.5" height="5">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3533,3535"/>
+  <animation type="text" tag="%TAG_NAME:OutputPosition@V_Unit" format="%s">
+   <state type="expression" expression="{%TAG_NAME:OutputPosition@V_unit} == &quot;fract&quot;" priority="0" foreground="invisible"/>
+  </animation>
+ </tnode>
+ <tnode id="3538" estat="ext" xy="208.5,86.5" height="5" hjust="right">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3539,3533"/>
+  <animation type="text" tag="%TAG_NAME:OutputPosition" format="%5.1f">
+  </animation>
+ </tnode>
+</sym>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<animations>
+
+  <animation name="HideByMode2">
+    <state colour="Background" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPPLANNING&quot;) &amp;&amp; (&quot;%SHOW_IN_PLAN&quot; != &quot;YES&quot;) &amp;&amp; !%_IDCAD" priority="0" type="expression"/>
+    <state colour="Background" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPREALTIME&quot;) &amp;&amp; (&quot;%SHOW_IN_RT&quot; != &quot;YES&quot;) &amp;&amp; !%_IDCAD" priority="0" type="expression"/>
+    <state colour="Background" expression="(&quot;%_CURRENTAPP&quot; == &quot;%_APPLOOKAHEAD&quot;) &amp;&amp; (&quot;%SHOW_IN_LAH&quot; != &quot;YES&quot;) &amp;&amp; !%_IDCAD" priority="0" type="expression"/>
+  </animation>
+
+</animations>

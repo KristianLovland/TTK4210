@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="7">
+ <header xy="1792,697" xmin="1783" ymin="697.001" xmax="1861" ymax="732">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_systemdiagnosis_clusters"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <text id="1223" xy="1785,711" height="8" font="Arial">
+  <tstring>Non-observable:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <cpoint id="1320" estat="ref" xy="1792,697">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_systemdiagnosis_clusters"/>
+ </cpoint>
+ <text id="1433" xy="1783,724" height="8" font="Arial">
+  <tstring>Total number:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <tnode id="1434" estat="ext" xy="1861,724" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="Diag_%INSTANCE:TotalNumberOfClusters">
+  </animation>
+ </tnode>
+ <tnode id="1435" estat="ext" xy="1861,711" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="Diag_%INSTANCE:TotalNumberOfNonObservable">
+  </animation>
+ </tnode>
+ <tnode id="1436" estat="ext" xy="1861,699" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="Diag_%INSTANCE:TotalNumberOfBarelyObservable">
+  </animation>
+ </tnode>
+ <text id="1437" xy="1785,698" height="8" font="Arial">
+  <tstring>Barely:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{WellDisplaySwitch:SelectedIndex} == 1" priority="0"/>
+  </animation>
+ </text>
+</sym>

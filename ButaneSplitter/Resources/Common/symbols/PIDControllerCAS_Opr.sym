@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="23">
+ <header xy="830,1019" xmin="818.001" ymin="1015" xmax="879" ymax="1037" vunits="mm">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="PIDControllerCAS_INEOS"/>
+  <attribute name="Itemdesc" type="text" value="PIDController"/>
+  <attribute name="ItemType" type="text" value="PIDController"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="Module" type="text" value="PidController"/>
+  <attribute name="SelectBox" type="real" value="0,0,48,16"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="03-12-14 15:54:43"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" vunits="mm" gpitch="0.5,0.5" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <symbol id="1033" estat="ext" xy="829.5,1018.5,878.5,1035.5" name="TrippedOutline" xscl="49" yscl="17" fitted="true">
+  <attribute name="SymName" type="text" value="TrippedOutline"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Tripped} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1148" estat="ext" xy="818,1019,830,1027" name="Alarm_Background.sym" xscl="12" yscl="8" fitted="true">
+  <attribute name="SymName" type="text" value="Alarm_Background"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Alarms"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:DeviationAlarm} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1149" estat="ext" xy="818,1019,830,1027" name="x_Online_SolidFrame.sym" xscl="12" yscl="8" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol "/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:DeviationAlarm} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="2786" estat="ext" xy="879,1018,829,1036" name="MalfunctionOutline" xscl="-50" yscl="18" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <line id="1025" colour="0xaaaaaa" xy="878,1027,878,1019"/>
+ <line id="1026" colour="0xaaaaaa" xy="878,1019,870,1019"/>
+ <line id="1027" colour="0xaaaaaa" xy="870,1027,878,1027"/>
+ <tnode id="1028" depth="40" estat="ext" xy="824,1023" height="5" hjust="centre" vjust="middle" font="Verdana" >
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:DeviationAlarm" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:DeviationAlarm} == 1" priority="0" text=" D " foreground="black"/>
+  </animation>
+ </tnode>
+ <tnode id="1029" layer="Hidden" depth="40" estat="ext" xy="854.5,1015" height="3" hjust="centre" font="Verdana">
+  <attribute name="SubItemName" type="text" value="%2"/>
+  <attribute name="AnimGraphic" type="null"/>
+ </tnode>
+ <tnode id="1030" depth="40" estat="ext" xy="874,1023" height="5" hjust="centre" vjust="middle" font="Verdana">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:Mode" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Mode} == 0 &amp;&amp; {%TAG_NAME:SetpointSelection} == 0" priority="0" text="A"/>
+   <state type="expression" expression="{%TAG_NAME:Mode} == 1 &amp;&amp; {%TAG_NAME:SetpointSelection} == 0" priority="0" text="M"/>
+   <state type="expression" expression="{%TAG_NAME:Mode} == 2 &amp;&amp; {%TAG_NAME:SetpointSelection} == 0" priority="0" text="P"/>
+   <state type="expression" expression="{%TAG_NAME:SetpointSelection} == 1" priority="0" text="C"/>
+  </animation>
+ </tnode>
+ <line id="1031" colour="0xaaaaaa" xy="870,1019,870,1027"/>
+ <tnode id="1032" estat="ext" xy="859,1021" height="5" hjust="right" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:InternalSetpoint" format="%6.1f">
+  </animation>
+ </tnode>
+ <line id="1034" colour="0xaaaaaa" layer="Engineer" xy="818,1019,818,1027"/>
+ <line id="1036" colour="0xaaaaaa" layer="Engineer" xy="818,1027,830,1027"/>
+ <line id="1037" colour="0xaaaaaa" layer="Engineer" xy="818,1019,830,1019"/>
+ <cpoint id="2746" estat="ref" xy="830,1019">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="PIDController_OTS"/>
+  <attribute name="Itemdesc" type="text" value="PIDController"/>
+  <attribute name="ItemType" type="text" value="PIDController"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="Module" type="text" value="PidController"/>
+ </cpoint>
+ <tnode id="2777" estat="ext" xy="861,1029" height="5" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:InternalSetpoint@V_unit">
+  </animation>
+ </tnode>
+ <tnode id="2778" estat="ext" xy="859,1029" height="5" hjust="right" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:Measurement" format="%6.1f">
+  </animation>
+ </tnode>
+ <string id="2780" colour="0xaaaaaa" depth="90" xy="830,1019,830,1035,878,1035,878,1019,830,1019"/>
+ <tnode id="2781" colour="white" layer="Engineer" depth="100" estat="ext" xy="870,1037" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <tnode id="2782" layer="Hidden" estat="ext" xy="849.5,1015" height="3" hjust="right" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%1"/>
+ </tnode>
+ <tnode id="2783" layer="Hidden" estat="ext" xy="870,1015" height="3" hjust="right" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%3"/>
+ </tnode>
+ <string id="2801" style="1" estat="ref" xy="830,1019,830,1035,878,1035,878,1019,830,1019">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+</sym>

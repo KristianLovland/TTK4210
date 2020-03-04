@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="7">
+ <header xy="1209,874" xmin="1209" ymin="874.001" xmax="1251" ymax="903.999">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_welldisplay_flows"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <tnode id="1397" estat="ext" xy="1209,904" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_OIL_%TAG_NAME:DisplayEstimatedValue" format="%6.1f" default="green">
+  </animation>
+ </tnode>
+ <tnode id="1401" estat="ext" xy="1251,894" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_GAS_%TAG_NAME:DisplayEstimatedValue@V_units" format="%s" default="yellow">
+  </animation>
+ </tnode>
+ <tnode id="1402" estat="ext" xy="1209,894" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_GAS_%TAG_NAME:DisplayEstimatedValue" format="%6.1f" default="yellow">
+  </animation>
+ </tnode>
+ <tnode id="1403" estat="ext" xy="1251,882" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_WTR_%TAG_NAME:DisplayEstimatedValue@V_units" format="%s" default="#0000a9">
+  </animation>
+ </tnode>
+ <tnode id="1405" estat="ext" xy="1209,882" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_WTR_%TAG_NAME:DisplayEstimatedValue" format="%6.1f" default="blue">
+  </animation>
+ </tnode>
+ <tnode id="1408" estat="ext" xy="1251,904" height="10" bold="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="OF_ProdReport_OIL_%TAG_NAME:DisplayEstimatedValue@V_units" format="%s" default="green">
+  </animation>
+ </tnode>
+ <cpoint id="1101" estat="ref" xy="1209,874">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_welldisplay_flows"/>
+  <animation type="graphic">
+  </animation>
+ </cpoint>
+</sym>

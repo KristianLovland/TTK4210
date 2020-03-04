@@ -1,0 +1,190 @@
+//////////////////////////////////////////////////////////////////////////////////////
+// This file has is for the contents of the right habd side of the Online HMI       //
+// Normally this is for graphic navigation - which can be split using tabbed frames //
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// example navigation buttons in tabbed frames
+
+//#include $EXPLORER_RESOURCES/Panel/OnlineDefinitions.def
+// Margins
+// no left margin
+#define _MARGIN_LEFT_ 0
+// top margins - fixed at 28 pixles for the toolbar 
+// +5 for padding the project dialog
+// + 24 pixels for latest RT/planning alarm + 24 pixels for latest LAH alarm
+#define _MARGIN_TOOLBAR_ 28
+#define _MARGIN_PROJECT_TOP_ 33
+#define _MARGIN_PLANNING_TOP_ 52
+#define _MARGIN_TOP_ 76
+//#define _MARGIN_TOP_ 165
+// margin for buttons on RHS
+#define _MARGIN_RIGHT_ 180
+// margin at bottom
+#define _MARGIN_BOTTOM_ 0
+// margin for alarm summary
+#define _MARGIN_STATUSBAR_ 24
+
+// shortcuts for load commands
+#define LOADMODEL	Request,LoadModel,%FILENAME,%FILENAME
+#define LOADPARA	Request,LoadParameters,%FILENAME,%FILENAME
+#define LOADINIT	Request,LoadConditions,%FILENAME,%FILENAME
+#define LOADHIST	Request,LoadHistory,%FILENAME,%FILENAME
+
+
+Header	Type = VirtualFrame; OneOff; Name = "ProjectControls"; Mid = %_CURRENTAPP; \
+// refresh the tabbed frame on load - until KSS-74 is fixed...
+//	Action = -,SetTab,10,"Topsides"; \
+//	Action = -,SetTab,10,"Wells";
+
+Frame	Id = 1; Layout = Form; 
+
+Frame	Id = 10; Frame = 1; Layout = Tabbed; Tabs = "Process Models"; \
+	Position = Lock,Bottom,_MARGIN_STATUSBAR_,Top,_MARGIN_PROJECT_TOP_,Right,0; Size = _MARGIN_RIGHT_,-1; 
+
+Frame	Id = 97; Frame = 10; Layout = Form;
+Frame	Id = 100; Frame = 97; Layout = Vertical; Pad = 10; Space = 1;
+
+	Button	Frame = 100; Label = "Overview"; Size = 150,-1; \
+		Action = Popdown, "ProjectOpen"; \
+		Action = Load,"Overview_BasicPC.xdr"; \
+		Action = Panel,"tl_execution.pnl";
+
+	Button	Frame = 100; Label = "3Phase Separation"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"3-Phase_Separator.xdr"; \
+		Action = set,FILENAME,"3PhaseSep"; \
+		Action = setactiveapp,%FILENAME; 
+//		Action = RegisterProgress,Loading,3PhaseSep,3PhaseSep,"ModelName","Loading model configuration "; \
+//		Action = RegisterProgress,Loading,3PhaseSep,3PhaseSep,"ParaName","Loading parameters "; \
+//		Action = RegisterProgress,Loading,3PhaseSep,3PhaseSep,"InitName","Loading conditions "; \
+//		Action = LOADMODEL; \
+//		Action = LOADPARA; \
+//		Action = LOADINIT; \
+//		Action = LOADHIST;
+
+	Button	Frame = 100; Label = "2Phase Separation"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"2_Phase_separator.xdr"; \
+		Action = set,FILENAME,"2PhaseSep"; \
+		Action = setactiveapp,%FILENAME; 
+
+
+	Button	Frame = 100; Label = "Centrifugal Pump"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"Centrifugal_pumps.xdr"; \
+		Action = set,FILENAME,"CentrifugalPump"; \
+		Action = setactiveapp,%FILENAME; 
+
+		
+	Button	Frame = 100; Label = "Compressor Stage"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"Compressor_System.xdr"; \
+		Action = set,FILENAME,"CompressorSystem"; \
+		Action = setactiveapp,%FILENAME;
+		
+	Button	Frame = 100; Label = "Heat Exchangers"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"HeatExchangers.xdr"; \
+		Action = set,FILENAME,"HeatExchangers"; \
+		Action = setactiveapp,%FILENAME;
+
+		
+	Button	Frame = 100; Label = "Hydrocyclone"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"Hydrocyclone.xdr"; \
+		Action = set,FILENAME,"Hydrocyclone"; \
+		Action = setactiveapp,%FILENAME; 
+
+
+	Button	Frame = 100; Label = "TEG Contactor"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"TEG_Contactor.xdr"; \
+		Action = set,FILENAME,"TEGContactor"; \
+		Action = setactiveapp,%FILENAME; 
+		
+Stub	Frame = 100; Size = 10,50;
+		
+	Button	Frame = 100; Label = "TEG Regeneration"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"TEG_Regeneration.xdr"; \
+		Action = set,FILENAME,"TEG-Regeneration"; \
+		Action = setactiveapp,%FILENAME; 
+
+	Button	Frame = 100; Label = "Turbo Expander"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"TurboExpander.xdr"; \
+		Action = set,FILENAME,"TurboExpander"; \
+		Action = setactiveapp,%FILENAME;
+		
+	Button	Frame = 100; Label = "Fractionation Column"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"Column.xdr"; \
+		Action = set,FILENAME,"Column"; \
+		Action = setactiveapp,%FILENAME;
+		
+		Button	Frame = 100; Label = "LNG Liquefaction"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"Liquefaction-Overview.xdr"; \
+		Action = set,FILENAME,"LNGliquefaction"; \
+		Action = setactiveapp,%FILENAME;
+		
+	Button	Frame = 100; Label = "Steam Turbine"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"SteamTurbine.xdr"; \
+		Action = set,FILENAME,"SteamTurbine"; \
+		Action = setactiveapp,%FILENAME;
+		
+//	Button	Frame = 100; Label = "Subsea Flowline"; Size = 150,-1; \
+//		Action = popdown,all; \
+//		Action = popdown, "ProjectOpen"; \
+//		Action = Load,"SubseaFlowline.xdr"; \
+//		Action = set,FILENAME,"SubseaFlowline"; \
+//		Action = setactiveapp,%FILENAME;
+		
+
+	
+Stub	Frame = 100; Size = 10,50;
+		
+	Button	Frame = 100; Label = "MeOH Reactor"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"Methanol Reactor.xdr"; \
+		Action = set,FILENAME,"MeOH-SynLoop"; \
+		Action = setactiveapp,%FILENAME; 
+
+	Button	Frame = 100; Label = "Butane Splitter"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"ButaneSplitter.xdr"; \
+		Action = set,FILENAME,"ButaneSplitter"; \
+		Action = setactiveapp,%FILENAME; 
+
+	Button	Frame = 100; Label = "AGRU"; Size = 150,-1; \
+		Action = popdown,all; \
+		Action = popdown, "ProjectOpen"; \
+		Action = Load,"AmineContactor.xdr"; \
+		Action = set,FILENAME,"AmineSystem"; \
+		Action = setactiveapp,%FILENAME; 
+
+
+	Button	Frame = 97; Label = "K-Spice Learn Models"; Size = 150,-1; Position = lock,Left,10,Bottom,150; \
+		Action = popdown,all; \
+		Action = Load,"K-SpiceLearn.xdr"; \
+		Action = Panel,"ProjectOpen.pnl"; 		
+
+	Button	Frame = 97; image="$EXPLORER_RESOURCES/bitmaps/KOG.bmp"; size=134,127; Position = lock,Left,15,Bottom;
+

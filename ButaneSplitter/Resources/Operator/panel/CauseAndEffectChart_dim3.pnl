@@ -1,0 +1,62 @@
+#include $EXPLORER_RESOURCES/Panel/DefaultVars.def
+
+Header	Title = "%TAG_NAME (%PANEL_TIMELINE) Actions"; Resizable = SaveSize,LargerOnly; HELP1; \
+		Name = "%TAG_NAME Actions"; OneOff = "%TAG_NAME (%PANEL_TIMELINE)"; Position = Cursor;
+
+//*************
+// Block menu *
+//*************
+Frame	Id = 1; Frame = -2; Layout = Vertical; Pad = 2;
+
+Frame	Id = 11; Frame = 1; Layout = Horizontal;
+
+//Button	Frame = 11; Image = "blkmenu.ico"; FeedBack = "Block //menu"; Style = BUTTON_STYLE; \
+//		Action = Menu,"BlockExplorerBlock";
+		
+Stub		Frame = 11; Size = 2,0;
+
+Variable	VAR_NOEDIT; Frame = 11; Tag = "%TAG_NAME@B_desc"; Width = 200;
+
+Frame	Frame = 1; Id=101; Layout = Horizontal; Space = 3; 
+Label	Frame=101; Label="#(%TAG_NAME@B_dimdsc[3])"; SameWidth = 10;
+Stub		Frame=101; SameWidth = 15;
+Variable	Frame = 101; Editable; Sample = 1; Tag =  "%TAG_NAME@B_dims[3]"; \
+		 Background = White;SameWidth = 101;
+
+Column	Header = "Action number"; Name = "Action number"; Source = Tag,"%TAG_NAME:ActionNumber"; Width = 150; VAR_LV_EDIT; 
+
+Column	Header = "Delay time for action (#(%TAG_NAME:ActionDelayTime@V_units))"; Name = "Delay time for action"; Source = Tag,"%TAG_NAME:ActionDelayTime"; Width = 150; VAR_LV_EDIT; 
+
+Column	Header = "Action name"; Name = "ActionName"; Source = Tag,"%TAG_NAME:ActionName@V_array"; Tag = "%LVITEM"; Width = 150; TEXT_LV_EDIT; 
+
+ListView	Frame = 0; Grid;  Id = 300; Style = MultiSelect;
+
+
+Frame	Frame = -4; Id = 104; Layout = Horizontal; Space = 5; Label = "Action text filename";
+
+Field	Frame = 104; Id = 1040; Type = String; Width = 200; \
+	Tag = "%TAG_NAME:TextfileName";
+Button  Frame = 104; Image = "browser.ico"; SameWidth = 1; Style = BUTTON_STYLE; \
+	Action = SelectFinder,-,"*.txt","Action text filename"; \
+	Action = SetField,1040,%_FINDER_SEL_NAME;
+	
+Button	Frame = 104; Label = Set; SameWidth = 1; Style = BUTTON_STYLE; \
+	Action = Set,FNAME,!1040; \
+	ActionIf = '"%FNAME" == ""',MessageBox,"A filename must be entered",Error; \
+	ActionIf = *,Break; \
+	Action = Send,SetVariable,S,"%TAG_NAME:TextfileName",S,%FNAME; \
+        Action = Send,SetVariable,S,"%TAG_NAME:@B_state",i,5; \
+        Action = Send,SetVariable,S,"%TAG_NAME@B_step"; \
+        Action = Send,SetVariable,S,"%TAG_NAME:@B_state",i,1;
+
+Button	Frame = 104; Label = "Edit..."; SameWidth = 1; Style = BUTTON_STYLE; \
+	Action = Set,FNAME,!1040; \
+	ActionIf = '"%FNAME" == ""',MessageBox,"A filename must be entered",Error; \
+	ActionIf = *,Break; \
+	ActionIf = 'empty($EDITOR)',Exec,'notepad "$KSPICE_MODEL\%FNAME"'; \
+	ActionElse = Exec,'$EDITOR "$KSPICE_MODEL\%FNAME"';
+
+#ifdef '#(%TAG_NAME@B_dims[2]) > 0'
+Stub	Frame = 104; Size = 50,1;
+Button  Frame = 104; Label = "Aliases..."; Action = Panel,"CauseAndEffectChart_dim2.pnl"; Style = BUTTON_STYLE; 
+#endif

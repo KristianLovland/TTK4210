@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="18">
+ <header xy="863,1021" xmin="844" ymin="1014.25" xmax="868.999" ymax="1038">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Choke valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="SymName" type="text" value="ValveChoke_OTS"/>
+  <attribute name="SelectBox" type="real" value="-6,-6,6,9"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="19-12-13 14:57:42"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="0.25,0.25" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <symbol id="1186" estat="ext" xy="850,1032" name="x_ValveTagName" fixedlay="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <attribute name="SymName" type="text" value="x_ValveTagName"/>
+  <relation type="child" subid="3" id="1221,1219"/>
+  <attribute name="Static" type="null"/>
+ </symbol>
+ <symbol id="1212" depth="10" estat="ext" xy="863,1021" name="x_Valve_BodyChoke" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_Valve_BodyChoke"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="yellow">
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == 1" priority="0" foreground="green"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedClosed} == 1" priority="0"/>
+   <state type="expression" expression="(({%TAG_NAME:IsDefinedOpen}) == 1 &amp;&amp; ({%TAG_NAME:IsDefinedClosed} == 1))" priority="5" foreground="magenta"/>
+  </animation>
+ </symbol>
+ <symbol id="1218" estat="ext" xy="844,1016,868,1038" name="MalfunctionOutline" xscl="24" yscl="22" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <line id="1026" colour="blue" depth="15" xy="867,1019,863,1021">
+  <attribute name="AnimGraphic" type="null"/>
+ </line>
+ <line id="1027" colour="blue" depth="15" xy="861,1017,863,1021">
+  <attribute name="AnimGraphic" type="null"/>
+ </line>
+ <line id="1028" colour="blue" depth="15" xy="867,1023,867,1019">
+  <attribute name="AnimGraphic" type="null"/>
+ </line>
+ <line id="1029" colour="blue" depth="15" xy="865,1017,861,1017">
+  <attribute name="AnimGraphic" type="null"/>
+ </line>
+ <line id="1030" colour="blue" depth="15" xy="863,1021,863,1027">
+  <attribute name="AnimGraphic" type="null"/>
+ </line>
+ <line id="1032" colour="blue" depth="15" xy="863,1021,865,1017">
+  <attribute name="AnimGraphic" type="null"/>
+ </line>
+ <line id="1033" colour="blue" depth="15" xy="863,1021,867,1023">
+  <attribute name="AnimGraphic" type="null"/>
+ </line>
+ <arc id="1034" colour="blue" depth="60" xy="863,1027" radius="2" start="360" end="540">
+  <attribute name="AnimGraphic" type="null"/>
+ </arc>
+ <line id="1035" colour="blue" depth="60" xy="861,1027,865,1027">
+  <attribute name="AnimGraphic" type="null"/>
+ </line>
+ <cpoint id="1189" depth="10" estat="ref" xy="863,1021">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Choke valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="SymName" type="text" value="ValveChoke_OTS"/>
+  <parameter name="AUTOCONNECT_PIPEFLOW" value="Output;CvAtCurrentOpening;ValveCv[*];Output;FLAtCurrentOpening;ValveFL[*];Output;XTAtCurrentOpening;ValveXT[*];Output;FdAtCurrentOpening;ValveFd[*];Output;ValveSizeInfo;ValveSize[*]"/>
+  <parameter name="AUTOCONNECT_FLOWLINE" value="Output;CvAtCurrentOpening;ValveCv[-]"/>
+ </cpoint>
+ <string id="1213" depth="10" style="1" estat="ref" xy="857,1015,857,1030,869,1030,869,1015,857,1015">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <tnode id="1219" layer="Engineer" estat="rel" xy="859.25,1014.25" height="2" hjust="right" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%1"/>
+  <relation type="parent" subid="3" id="1186"/>
+ </tnode>
+ <tnode id="1221" colour="white" layer="Engineer" depth="100" estat="rel" xy="855,1037" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="parent" subid="3" id="1186"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <tnode id="1222" weight="3" estat="ext" xy="869,1032" height="4" hjust="centre" font="Arial" nts="true" ntr="true" ntm="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:ValveStemPosition@V_Unit" format="%s">
+  </animation>
+ </tnode>
+ <tnode id="1244" weight="3" estat="ext" xy="861,1032" height="4" hjust="centre" font="Arial" nts="true" ntr="true" ntm="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:ValveStemPosition" format="%5.1f">
+  </animation>
+ </tnode>
+</sym>

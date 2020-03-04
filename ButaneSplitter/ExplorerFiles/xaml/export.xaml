@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<MenuItem Header="root" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:SimExplorer="clr-namespace:Kongsberg.KSpice.SimExplorer;assembly=SimExplorer" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <SimExplorer:UIControlMenuItem Header="Data export" Name="barmenu_export_1_0">
+    <SimExplorer:UIControlMenuItem Header="Export trend data for spreadsheet..." Name="barmenu_export_2_0"/>
+    <SimExplorer:UIControlMenuItem Header="Stream Report..." Name="barmenu_export_3_0"/>
+  </SimExplorer:UIControlMenuItem>
+
+  <SimExplorer:UIControlMenuItem Header="Graphics Export" Name="barmenu_export_4_0">
+    <SimExplorer:UIControlMenuItem Header="Screendump Graphic Window" Name="barmenu_export_5_0"/>
+    <SimExplorer:UIControlMenuItem Header="Screendump Whole Screen" Name="barmenu_export_6_0"/>
+    <SimExplorer:UIControlMenuItem Header="Save to Metafile..." Name="barmenu_export_7_0"/>
+    <SimExplorer:UIControlMenuItem Header="Save to Clipboard" Name="barmenu_export_8_0"/>
+  </SimExplorer:UIControlMenuItem>
+
+</MenuItem>

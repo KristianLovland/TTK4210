@@ -1,0 +1,13 @@
+#include $EXPLORER_RESOURCES/panel/DefaultVars_Online.def
+
+Header	Type = Virtual; Name = "EmbeddedProfileDisplay"; \
+	Mid = "%_CURRENTAPP";\
+	ActionIf = -,'"%_BE_TREND_AUTOFIT_EMB1" == "True"',SetSwitch,11,1; \
+	ActionIf = -,*,Display,10,AutoFit,On;\
+	ActionIf = -,'"%_BE_TREND_AUTOFIT_EMB2" == "True"',SetSwitch,21,1; \
+	ActionIf = -,*,Display,20,AutoFit,On;\
+	ActionIf = -,'"%_BE_TREND_AUTOFIT_EMB3" == "True"',SetSwitch,31,1; \
+	ActionIf = -,*,Display,30,AutoFit,On;\
+	ActionIf = -,'"%_BE_TREND_AUTOFIT_EMB4" == "True"',SetSwitch,41,1; \
+	ActionIf = -,*,Display,40,AutoFit,On;\
+

@@ -1,0 +1,5 @@
+Button	Label = "Neptune";
+//		Action = Execute,Neptune;
+
+// user extensions
+#include_noerror $EXPLORER_RESOURCES/menu/UserTraining.mnu

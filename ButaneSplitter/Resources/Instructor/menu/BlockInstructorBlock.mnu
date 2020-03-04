@@ -1,0 +1,48 @@
+
+// can be sourced from an alternative block name
+#ifdef '!empty(%USE_TAG_NAME)'
+set	variable=TAG_NAME,%USE_TAG_NAME;
+#endif
+
+#ifdef '"HEADER_INCLUDED" != "TRUE"'
+#ifdef '!empty(%BE_TIMELINE_APP)'
+header	mid=%BE_TIMELINE_APP;
+#endif
+#endif
+
+#ifdef '"#(%TAG_NAME:@B_trend,-1)" != "No match"'
+	Button	Level = 2; Label = "Trends..."; \
+			Action = Set,TNAME,"#(%TAG_NAME:@B_trend,-1)"; \
+			Action = Panel,"BlockExplorerTrends";
+#endif
+
+Button	Label = "Faceplate..."; Default; \
+		Action = Set,EXISTS,"exists(panel:#(%TAG_NAME@B_type)_cmp)"; \
+		ActionIf = '"%EXISTS" == "1"',Panel,"#(%TAG_NAME@B_type)_cmp"; \
+		ActionElse = Panel,BlockInstructorBlock;
+
+// add custom menu
+#include_noerror $EXPLORER_RESOURCES/menu/#(%TAG_NAME@B_type).cmn
+
+Gap
+// browse connections
+Button	Label = "Browse connections..."; \
+		Action = Panel,"BlockExplorerBrowseIO";
+
+Button	Label = "Help..."; \
+		Action = Help,"#(%TAG_NAME@B_type)";
+
+// allow find options if not in imagearea
+#ifdef '"%IMAGEAREA_PARENT" != "TRUE"'
+Gap
+Button	Label = "Find block"; \
+		Action = FindGraphic,"%TAG_NAME",%BE_TIMELINE_APP;
+Button	Label = "Highlight block"; \
+		Action = Hilight,-1; \
+		Action = FindGraphic,"%TAG_NAME",NoZoom,%BE_TIMELINE_APP;
+#else
+#ifdef '"BLOCKCOPY" == "TRUE"'
+Button	Label = "Find master block graphic"; \
+		Action = FindGraphic,"%TAG_NAME";
+#endif
+#endif

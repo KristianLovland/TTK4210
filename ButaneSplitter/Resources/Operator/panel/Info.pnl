@@ -1,0 +1,41 @@
+header	Title="Educational Information"; position=centre; oneoff; 
+
+//Separator
+#ifdef '"#(%TAG_NAME@B_desc)" == "Horizontal separator"'
+button	image="$EXPLORER_RESOURCES/Info/Horizontal separator.bmp"; size=871,579;
+#endif
+
+//Coalescer
+#ifdef '"#(%TAG_NAME@B_desc)" == "Coalescer"'
+button	image="$EXPLORER_RESOURCES/Info/Coalescer.bmp"; size=900,592;
+#endif
+
+//Valve
+#ifdef '"#(%TAG_NAME@B_type)" == "PulseControlledValve" || "#(%TAG_NAME@B_type)" == "Valve"'
+button	image="$EXPLORER_RESOURCES/Info/Valve_Des.bmp"; size=871,579;
+#endif
+
+//Pump
+#ifdef '"#(%TAG_NAME@B_type)" == "CentrifugalPump"'
+button	image="$EXPLORER_RESOURCES/Info/CentrifugalPump.bmp"; size=880,547;
+#endif
+
+//Drum
+#ifdef '"#(%TAG_NAME@B_type)" == "Drum"'
+button	image="$EXPLORER_RESOURCES/Info/Drum.bmp"; size=900,588;
+#endif
+
+//HeatExchangerST
+#ifdef '"#(%TAG_NAME@B_desc)" == "Heat Exchanger Stream - Shell and Tube - Shell side" || "#(%TAG_NAME:@B_desc)" == "Heat Exchanger Stream - Shell and Tube 1"'
+button	image="$EXPLORER_RESOURCES/Info/HeatExST.bmp"; size=900,589;
+#endif
+
+//HeatExchangerPlate
+#ifdef '"#(%TAG_NAME@B_desc)" == "Heat Exchanger Stream - Plate Side 1" || "#(%TAG_NAME:@B_desc)" == "Heat Exchanger Stream - Plate Side 2"'
+button	image="$EXPLORER_RESOURCES/Info/HeatExPlate.bmp"; size=900,582;
+#endif
+
+//Compressor
+#ifdef '"#(%TAG_NAME@B_type)" == "ContinuousFlowCompressor"'
+button	image="$EXPLORER_RESOURCES/Info/CentrifugalCompressor.bmp"; size=900,576;
+#endif

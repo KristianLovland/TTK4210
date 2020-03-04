@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="470,226" xmin="462" ymin="212" xmax="478.001" ymax="233.999">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="CentrifugalPump"/>
+  <attribute name="Itemdesc" type="text" value="Online CentrifugalPump"/>
+  <attribute name="Module" type="text" value="CentrifugalPump"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="CentrifugalPump_Online"/>
+  <attribute name="SelectBox" type="real" value="-6,-6,6,6"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="2295" estat="ext" xy="470,226" name="x_CentrifugalPump_3D.sym">
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymName" type="text" value="x_CentrifugalPump_3D"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1759,2296"/>
+ </symbol>
+ <symbol id="1759" estat="ext" xy="468,228,472,224" name="x_squaregreen" xscl="4" yscl="-4" fitted="true">
+  <attribute name="SymName" type="text" value="x_SquareGreen"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="2297,2295"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:speed@V_unscaled} &lt; 1" priority="0" foreground="red"/>
+  </animation>
+ </symbol>
+ <string id="2297" style="1" estat="ref" xy="464,220,464,232,476,232,476,220,464,220">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="2294,1759"/>
+ </string>
+ <tnode id="2294" depth="10" estat="ext" xy="470,212" height="2" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="2296,2297"/>
+ </tnode>
+ <cpoint id="2296" estat="ref" xy="470,226">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="CentrifugalPump"/>
+  <attribute name="Itemdesc" type="text" value="Online CentrifugalPump"/>
+  <attribute name="Module" type="text" value="CentrifugalPump"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="CentrifugalPump_Online"/>
+  <relation type="mutual" subid="100" id="2295,2294"/>
+ </cpoint>
+</sym>

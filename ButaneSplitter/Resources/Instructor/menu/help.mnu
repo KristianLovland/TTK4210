@@ -1,0 +1,16 @@
+Header	Help = "K-SpiceUserGuide.chm","HelpMenu.htm";
+
+Button	Label = "Instuctor User Guide"; \
+		Action = ShellOpen,"$EXPLORER_RESOURCES\Documents\K-Spice GTS - Instructor Manual.pdf";
+Button	Label = "Instuctor ScenarioSystem"; \
+		Action = ShellOpen,"$EXPLORER_RESOURCES\Documents\NeptuneInstructorSystem.pdf";
+#ifdef '"%_ENVIRONMENT" == "Developer"'
+Button	Label = "Tutorial"; \
+		Action = Help,"$INSTALL_PATH/Explorer/Resources/Standard/help/K-SpiceTutorial.chm";
+#endif
+Button	Label = "www.kongsberg.com/K-Spice"; \
+		Action = ShellOpen,"www.kongsberg.com/K-Spice";
+
+// user extensions
+#include_noerror $EXPLORER_RESOURCES/menu/UserHelp.mnu
+

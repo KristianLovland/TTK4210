@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="1128.5,884.5" xmin="1125" ymin="871" xmax="1146.5" ymax="900.499">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="SteadyStateIdentifier"/>
+  <attribute name="Itemdesc" type="text" value="Operator_SteadyStateIdentifier"/>
+  <attribute name="Category" type="text" value="Operator"/>
+  <attribute name="SymName" type="text" value="Operator_SteadyStateIdentifier"/>
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <symbol id="1420" estat="ext" xy="1128,885" name="x_ss_not_monitor.sym">
+  <attribute name="Itemdesc" type="text" value="Steady state indication symbol"/>
+  <attribute name="SymName" type="text" value="x_ss_not_monitor"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <animation type="graphic">
+  </animation>
+ </symbol>
+ <symbol id="1396" estat="ext" xy="1130,884" name="x_ss_monitor.sym">
+  <attribute name="SymName" type="text" value="x_ss_monitor"/>
+  <attribute name="Itemdesc" type="text" value="Steady state indication symbol"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <animation type="graphic">
+  </animation>
+ </symbol>
+ <tnode id="1104" estat="ext" xy="1138,872" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="SS_Identifier_%TAG_NAME:Duration" format="%6.1f">
+  </animation>
+ </tnode>
+ <cpoint id="1105" estat="ref" xy="1125,871">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_welldisplay_steadystate"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </cpoint>
+ <cpoint id="1417" estat="ref" xy="1128.5,884.5">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="SteadyStateIdentifier"/>
+  <attribute name="Itemdesc" type="text" value="Operator_SteadyStateIdentifier"/>
+  <attribute name="Category" type="text" value="Operator"/>
+  <attribute name="SymName" type="text" value="Operator_SteadyStateIdentifier"/>
+  <attribute name="AttPage" type="text" value="ItemName"/>
+ </cpoint>
+</sym>

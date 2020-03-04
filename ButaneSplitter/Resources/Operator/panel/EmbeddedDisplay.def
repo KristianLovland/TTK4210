@@ -1,0 +1,111 @@
+
+// top-left display 
+#ifdef '!empty(_DISP1VARY1_) && !empty(_DISP1VARX_)'
+Dataset	Name = "Display1Var1"; Tag = "_DISP1VARY1_","_DISP1VARX_";  Label = "_DISP1NAMEY1_"; Colour = TREND_COL1; Style = Link; 
+#endif
+
+#ifdef '!empty(_DISP1VARY2_) && !empty(_DISP1VARX_)'
+Dataset	Name = "Display1Var2"; Tag = "_DISP1VARY2_","_DISP1VARX_";  Label = "_DISP1NAMEY2_"; Colour = TREND_COL2; Style = Link; 
+#endif
+
+#ifdef '!empty(_DISP1VARY1_) && !empty(_DISP1VARY2_)'
+#define _DISP1DATASETS_ "Display1Var1","Display1Var2"
+#elseifdef '!empty(_DISP1VARY1_)'
+#define _DISP1DATASETS_ "Display1Var1"
+#else
+#define _DISP1DATASETS_ "Display1Var2"
+#endif
+
+#ifdef '"%AUTOFITEMBEDDED" == "True"'
+#define _AUTOFITYAXIS_ AutoFit = YAxis
+#else
+#define _AUTOFITYAXIS_
+#endif
+
+#ifdef '(!empty(_DISP1VARY1_) || !empty(_DISP1VARY2_)) && !empty(_DISP1VARX_)'
+Display	Type = XY; Position = Anchor,emb1; Id = 10;\
+	Dataset = _DISP1DATASETS_; Background = VGradient; Sample; YAxis = ByDataSet; \
+	XTitle = "_DISP1NAMEX_ [#(_DISP1VARX_@V_units)]"; 
+
+	
+#endif
+
+
+// top-right display 
+#ifdef '!empty(_DISP2VARY1_) && !empty(_DISP2VARX_)'
+Dataset	Name = "Display1Var1"; Tag = "_DISP2VARY1_","_DISP2VARX_";  Label = "_DISP2NAMEY1_"; Colour = TREND_COL1; Style = Link;
+#endif
+
+#ifdef '!empty(_DISP2VARY2_) && !empty(_DISP2VARX_)'
+Dataset	Name = "Display1Var2"; Tag = "_DISP2VARY2_","_DISP2VARX_";  Label = "_DISP2NAMEY2_"; Colour = TREND_COL2; Style = Link;
+#endif
+
+#ifdef '!empty(_DISP2VARY1_) && !empty(_DISP2VARY2_)'
+#define _DISP2DATASETS_ "Display1Var1","Display1Var2"
+#elseifdef '!empty(_DISP2VARY1_)'
+#define _DISP2DATASETS_ "Display1Var1"
+#else
+#define _DISP2DATASETS_ "Display1Var2"
+#endif
+
+#ifdef '(!empty(_DISP2VARY1_) || !empty(_DISP2VARY2_)) && !empty(_DISP2VARX_)'
+Display	Type = XY; Position = Anchor,emb3; Id = 20;\
+	Dataset = _DISP2DATASETS_; Background = VGradient; Sample; YAxis = ByDataSet; \
+	XTitle = "_DISP2NAMEX_ [#(_DISP2VARX_@V_units)]"; 
+#endif
+
+
+// low-left display 
+#ifdef '!empty(_DISP3VARY1_) && !empty(_DISP3VARX_)'
+Dataset	Name = "Display1Var1"; Tag = "_DISP3VARY1_","_DISP3VARX_";  Label = "_DISP3NAMEY1_"; Colour = TREND_COL1; Style = Link;
+#endif
+
+#ifdef '!empty(_DISP3VARY2_) && !empty(_DISP3VARX_)'
+Dataset	Name = "Display1Var2"; Tag = "_DISP3VARY2_","_DISP3VARX_";  Label = "_DISP3NAMEY2_"; Colour = TREND_COL2; Style = Link;
+#endif
+
+#ifdef '!empty(_DISP3VARY1_) && !empty(_DISP3VARY2_)'
+#define _DISP3DATASETS_ "Display1Var1","Display1Var2"
+#elseifdef '!empty(_DISP3VARY1_)'
+#define _DISP3DATASETS_ "Display1Var1"
+#else
+#define _DISP3DATASETS_ "Display1Var2"
+#endif
+
+#ifdef '(!empty(_DISP3VARY1_) || !empty(_DISP3VARY2_)) && !empty(_DISP3VARX_)'
+Display	Type = XY; Position = Anchor,emb2; Id = 30;\
+	Dataset = _DISP3DATASETS_; Background = VGradient; Sample; YAxis = ByDataSet; \
+	XTitle = "_DISP3NAMEX_ [#(_DISP3VARX_@V_units)]"; 
+#endif
+
+
+
+
+// low-right display 
+#ifdef '!empty(_DISP4VARY1_) && !empty(_DISP4VARX_)'
+Dataset	Name = "Display1Var1"; Tag = "_DISP4VARY1_","_DISP4VARX_";  Label = "_DISP4NAMEY1_"; Colour = TREND_COL1; Style = Link;
+#endif
+
+#ifdef '!empty(_DISP4VARY2_) && !empty(_DISP4VARX_)'
+Dataset	Name = "Display1Var2"; Tag = "_DISP4VARY2_","_DISP4VARX_";  Label = "_DISP4NAMEY2_"; Colour = TREND_COL2; Style = Link;
+#endif
+
+#ifdef '!empty(_DISP4VARY1_) && !empty(_DISP4VARY2_)'
+#define _DISP4DATASETS_ "Display1Var1","Display1Var2"
+#elseifdef '!empty(_DISP4VARY1_)'
+#define _DISP4DATASETS_ "Display1Var1"
+#else
+#define _DISP4DATASETS_ "Display1Var2"
+#endif
+
+#ifdef '(!empty(_DISP4VARY1_) || !empty(_DISP4VARY2_)) && !empty(_DISP4VARX_)'
+Display	Type = XY; Position = Anchor,emb4; Id = 40;\
+	Dataset = _DISP4DATASETS_; Background = VGradient; Sample; YAxis = ByDataSet; \
+	XTitle = "_DISP4NAMEX_ [#(_DISP4VARX_@V_units)]"; 
+#endif
+
+
+
+
+
+

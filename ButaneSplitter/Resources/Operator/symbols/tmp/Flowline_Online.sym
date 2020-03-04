@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="6">
+ <header xy="467,302" xmin="466.999" ymin="294.001" xmax="487" ymax="304.001" parametric="3" tdist="20" pdist="10" pitch="1">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ParaType" type="text" value="Normal"/>
+  <attribute name="ItemType" type="text" value="Flowline"/>
+  <attribute name="Itemdesc" type="text" value="Flowline"/>
+  <attribute name="Module" type="text" value="Flowline"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Flowline_Online"/>
+  <attribute name="SelectBox" type="real" value="0,-2,20,2"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="2048" layer="3D" depth="-10" estat="ext" xy="467,300,487,304" name="PipeFlow_3D.sym" xscl="20" yscl="4" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="PipeFlow_3D"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="ParaType" type="text" value="Stretch"/>
+  <relation type="mutual" subid="100" id="1802,2023"/>
+ </symbol>
+ <tnode id="1802" layer="TAGNAMES" depth="40" estat="ext" xy="477,294" height="5" hjust="centre" ntm="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <attribute name="PropPlacement" type="null"/>
+  <attribute name="ParaType" type="text" value="Proportional"/>
+  <relation type="mutual" subid="100" id="2021,2048"/>
+ </tnode>
+ <cpoint id="2021" estat="ref" xy="487,302">
+  <attribute name="TransPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="2020,1802"/>
+ </cpoint>
+ <cpoint id="2020" estat="ref" xy="477,302">
+  <attribute name="PropPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="2022,2021"/>
+ </cpoint>
+ <string id="2022" style="1" estat="ref" xy="467,300,467,304,487,304,487,300,467,300">
+  <attribute name="SelectMask" type="null"/>
+  <attribute name="ParaType" type="text" value="Stretch"/>
+  <relation type="mutual" subid="100" id="2023,2020"/>
+ </string>
+ <cpoint id="2023" estat="ref" xy="467,302">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ParaType" type="text" value="Normal"/>
+  <attribute name="ItemType" type="text" value="Flowline"/>
+  <attribute name="Itemdesc" type="text" value="Flowline"/>
+  <attribute name="Module" type="text" value="Flowline"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Flowline_Online"/>
+  <relation type="mutual" subid="100" id="2048,2022"/>
+ </cpoint>
+</sym>

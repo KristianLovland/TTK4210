@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="12">
+ <header xy="182,1138" xmin="181.999" ymin="1138" xmax="222" ymax="1155">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="Calibrator"/>
+  <attribute name="Itemdesc" type="text" value="Calibrator"/>
+  <attribute name="Module" type="text" value="Calibrator"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Calibrator_Online"/>
+  <attribute name="SelectBox" type="real" value="1,1,39,15"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <symbol id="1695" estat="ext" xy="182,1138,222,1154" name="x_Online_Background.sym" xscl="40" yscl="16" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1693,1751"/>
+ </symbol>
+ <symbol id="1696" estat="ext" xy="182,1138,222,1154" name="x_Online_SolidFrame.sym" xscl="40" yscl="16" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1697,1693"/>
+ </symbol>
+ <symbol id="1699" estat="ext" xy="215,1147" name="x_Adapter_Saturated_H.sym">
+  <attribute name="SymName" type="text" value="x_Adapter_Saturated_H"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Adapter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1700,1697"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:CalibrationSettingHighLimit} &lt;= {%TAG_NAME:CalibrationSetting}" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1700" estat="ext" xy="215,1153" name="x_Adapter_Saturated_L.sym">
+  <attribute name="SymName" type="text" value="x_Adapter_Saturated_L"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Adapter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1701,1699"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:CalibrationSettingLowLimit} &gt;= {%TAG_NAME:CalibrationSetting}" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1710" estat="ext" xy="208,1148" name="x_Calibrator_on.sym">
+  <attribute name="SymName" type="text" value="x_Calibrator_on"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Calibrator"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1712,1704"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:CalibratorActive} == True" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1712" estat="ext" xy="207,1148" name="x_Calibrator_off.sym">
+  <attribute name="SymName" type="text" value="x_Calibrator_off"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Calibrator"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1751,1710"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:CalibratorActive} == False" priority="0"/>
+  </animation>
+ </symbol>
+ <text id="1751" estat="rel" xy="184,1148" height="4" font="Verdana" bold="true">
+  <tstring>Calib</tstring>
+  <relation type="parent" subid="1" id="1697"/>
+  <relation type="mutual" subid="100" id="1695,1712"/>
+ </text>
+ <tnode id="1693" layer="Hidden" estat="ext" xy="183,1155" height="2" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1696,1695"/>
+ </tnode>
+ <tnode id="1697" estat="ext" xy="184,1148" height="4" font="Verdana" bold="true">
+  <relation type="child" subid="1" id="1751"/>
+  <relation type="mutual" subid="100" id="1699,1696"/>
+ </tnode>
+ <cpoint id="1701" estat="ref" xy="182,1138">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <relation type="mutual" subid="100" id="1703,1700"/>
+  <attribute name="ItemType" type="text" value="Calibrator"/>
+  <attribute name="Itemdesc" type="text" value="Calibrator"/>
+  <attribute name="Module" type="text" value="Calibrator"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Calibrator_Online"/>
+ </cpoint>
+ <tnode id="1703" estat="ext" xy="202,1140" height="4" hjust="centre" font="Verdana" bold="true">
+  <relation type="mutual" subid="100" id="1704,1701"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:ReferenceValue@V_UnitCategory">
+   <state type="expression" expression="{%TAG_NAME:ReferenceValue@V_UnitCategory} == &quot;diff_temp&quot; || {%TAG_NAME:ReferenceValue@V_UnitCategory} == &quot;diff_temp&quot; || {%TAG_NAME:ReferenceValue@V_UnitCategory} == &quot;solar_temp&quot; || {%TAG_NAME:ReferenceValue@V_UnitCategory} == &quot;temperature&quot;" priority="0" text="Temperature"/>
+   <state type="expression" expression="{%TAG_NAME:ReferenceValue@V_UnitCategory} == &quot;level&quot;" priority="0" text="Level"/>
+   <state type="expression" expression="{%TAG_NAME:ReferenceValue@V_UnitCategory} == &quot;diff_pressure&quot; || {%TAG_NAME:ReferenceValue@V_UnitCategory} == &quot;pressure&quot;" priority="0" text="Pressure"/>
+   <state type="expression" expression="{%TAG_NAME:ReferenceValue@V_UnitCategory} == &quot;massflow&quot; || {%TAG_NAME:ReferenceValue@V_UnitCategory} == &quot;moleflow&quot; || {%TAG_NAME:ReferenceValue@V_UnitCategory} == &quot;volflow&quot;" priority="0" text="Flow"/>
+   <state type="expression" expression="{%TAG_NAME:ReferenceValue@V_Unit} == &quot;fract&quot;" priority="0" text="Fraction"/>
+   <state type="expression" expression="{%TAG_NAME:ReferenceValue@V_Unit} == &quot;%%&quot;" priority="0" text="%%"/>
+   <state type="expression" expression="{%TAG_NAME:ReferenceValue@V_Unit} == &quot;ppm&quot;" priority="0" text="ppm"/>
+  </animation>
+ </tnode>
+ <string id="1704" style="1" estat="ref" xy="183,1139,183,1153,221,1153,221,1139,183,1139">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1710,1703"/>
+ </string>
+</sym>

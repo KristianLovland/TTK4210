@@ -1,0 +1,116 @@
+set	variable=LOCAL_ACTIVE_TIMELINE_APP,%_ACTIVE_TIMELINE_APP;
+
+
+set	variable=TIME_INC, "1.0";
+set	variable=ST, "1";
+set	variable=SW, "0";
+set	variable=RAMP_TAG,%(TAG_NAME)_r;
+
+
+header	title=Ramping; position=cursor; controls=Start,"Monitor...",Close; \
+	Help = "K-SpiceUserGuide.chm","Control_Ramping.htm"; \
+	type=exclusive; margin=none; \
+	mid=%LOCAL_ACTIVE_TIMELINE_APP; \
+	action=-,setstate,25,0; \
+	action=-,disableitem,53; \
+	actionif=-,'!empty(%TAG)',setfield,61,"#(%TAG)"; \
+	action="Monitor...",rampmonitor; \
+	action=close,popdown; \
+	actionif=-,'empty(%_RAMP_NO)',set,_RAMP_NO,0; \
+	action=start,set,TAG,"%TAG_NAME:InternalSetpoint"; \
+	action=start,set,START_VALUE,!61; \
+//	action=start,set,TIME_INC,!51; \
+	action=start,set,VAL_INC,!52; \
+	action=start,set,TIME_SPAN,!53; \
+	action=start,set,TARGET,!54; \
+	actionif=start,'empty(%TAG)',messagebox,"No data item entered",error; \
+	actionif=start,*,break; \
+	action=start,listpush,ramp_tag,%TAG; \
+//	action=start,set,SW,!62; \
+	actionif=start,'%SW == 1 && empty(%START_VALUE)',messagebox,"No start value entered",error; \
+	actionif=start,*,break; \
+	actionif=start,'empty(%TIME_INC)',messagebox,"No time increment entered",error; \
+	actionif=start,*,break; \
+//	action=start,set,ST,!25; \
+	actionif=start,'empty(%VAL_INC)',messagebox,"No value increment entered",error; \
+	actionif=start,*,break; \
+//	action=start,set,ST,!26; \
+	actionif=start,'%ST == 0 && empty(%TIME_SPAN)',messagebox,"No time span entered",error; \
+	actionif=start,*,break; \
+	actionif=start,'empty(%TARGET)',messagebox,"No target value entered",error; \
+	actionif=start,*,break; \
+	actionif=start,'%SW == 1',send,SetVariable,S,%TAG,R,%START_VALUE; \
+	action=start,set,_RAMP_NO,"x(%_RAMP_NO + 1)"; \
+	actionif=start,'%ST == 1',ramp,R%_RAMP_NO,%TAG,Rate,%VAL_INC,%TIME_INC,%TARGET; \
+	actionelse=start,ramp,R%_RAMP_NO,%TAG,Span,%TIME_SPAN,%TIME_INC,%TARGET; \
+	action=start,set,SET_DIFF,"x(#(%TAG)-%TARGET)"; \
+	action=start,set,RAMP_TIME,"x(%SET_DIFF/%VAL_INC)"; \
+	action=start,set,RAMP_TIME_NEG,"x((%RAMP_TIME)*-1)"; \
+	actionif=start,'%RAMP_TIME > 0',send,SetVarz|iable,S,%RAMP_TAG:SetPeriod,R,%RAMP_TIME; \
+	actionif=start,'%RAMP_TIME < 0',send,SetVariable,S,%RAMP_TAG:SetPeriod,R,%RAMP_TIME_NEG; \
+	action=start,send,SetVariable,S,%RAMP_TAG:Start,R,1; \
+//	action=start,panel,Dummy.pnl; \
+	action=start,popdown;
+
+Frame	Id = 99; Layout = Vertical;
+
+//#define TL_TBAR_PARENT 99
+//#include TimelineAppToolbar.def
+
+frame	frame=99; id=1; layout=vertical; space=5; pad=8;
+
+frame	frame=1; id=10; layout=horizontal; space=4;
+
+label	frame=10; label="Data item:"; samewidth=1;
+label	frame=10; label="%ST"; samewidth=1;
+
+//selection	frame=10; style=dropdownedit; id=50; size=200; source=listname,ramp_tag; select=%TAG;
+//button	frame=10; image="select.ico"; \
+//	action=set,SB_USE_DATAITEM,TRUE; \
+//	action=panel,BlockSelect,block; \
+//	ActionIf = 'empty(%_SB_BLOCK)', Break; \
+//	ActionIf = 'empty(%_SB_DATAITEM)', Break; \
+//	action=setfield,50,"%_SB_BLOCK:%_SB_DATAITEM"; \
+//	action=setfield,61,"#(%_SB_BLOCK:%_SB_DATAITEM)";
+
+//frame	frame=1; id=60; layout=horizontal; space=4;
+//label	frame=60; label="Start value:"; samewidth=1;
+//field	frame=60; id=61; width=100; type=real;
+//switch	frame=60; id=62; label="Set start value";
+
+
+////////TIME INCREMENT/////////////////////////////////////////////////////////
+//frame	frame=1; id=30; layout=horizontal; space=4;
+//label	frame=30; label="Time increment:"; samewidth=1;
+//label	frame=30; label="%TIME_INC"; samewidth=1;
+//label	frame=30; label="(s)"; samewidth=1;
+//field	frame=30; id=51; width=100; value=1; type=real;
+
+
+////////VALUE INCREMENT/////////////////////////////////////////////////////////
+frame	frame=1; id=22; layout=horizontal; space=4;
+label	frame=22; label="Value increment:"; samewidth=1;
+field	frame=22; id=52; width=100; type=real;
+label	frame=22; label="#(%TAG_NAME:InternalSetpoint@V_Unit)";
+label	frame=22; label="/s  ";
+label	frame=22; label="%VAL_INC";
+//state	frame=22; id=25; label="Ramp by value"; \
+//	action=set,ST,!25; \
+//	actionif='%ST == 0',setstate,26,1; \
+//	actionif=*,disableitem,53; \
+//	actionif=*,enableitem,52;
+
+////////TIME SPAN//////////////////////////////////////////////////////////////
+//frame	frame=1; id=23; layout=horizontal; space=4;
+//label	frame=23; label="Time span:"; samewidth=1;
+//field	frame=23; id=53; width=100; type=real;
+//state	frame=23; id=26; label="Ramp by span"; \
+//	action=set,ST,!26; \
+//	actionif='%ST == 0',setstate,25,1; \
+//	actionif=*,disableitem,52; \
+//	actionif=*,enableitem,53;
+
+frame	frame=1; id=40; layout=horizontal; space=4;
+label	frame=40; label="Target:"; samewidth=1;
+field	frame=40; id=54; width=100; type=real;
+label	frame=40; label="#(%TAG_NAME:InternalSetpoint@V_Unit)";

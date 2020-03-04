@@ -1,0 +1,50 @@
+#include $PROJECT_ROOT/Resources/Yme/System/Panel/project_panel.def
+
+Header	Title = "Find Tag"; Controls = "Update","Find","Cancel"; \
+	OneOff; Position = Cursor; Name = "Emu_Point"; \
+	Action = -,Set,_SELECTION_20,""; \
+	Action = -,KickStart,20; \
+	ActionIf = -,'empty(%_FIND_TYPE)',Set,_FIND_TYPE,"*"; \
+	Action = -,Set,"FIND_BUTTON","False"; \
+	Action = "Update",Set,_FIND_FILTER,!10; \
+	Action = "Update",KickStart,20; \
+	Action = "Find",Set,"FIND_BUTTON","True"; \
+	Action = "Find",ExecuteSelect,20; \
+	Action = "Cancel",Popdown;
+
+Frame	Id=1; Layout = Vertical; Space=5; Pad=5;
+
+Frame	Frame = 1; Id = 2; Layout = Vertical;
+	Label	Frame=  2; Label = "Tag filter:"; SameWidth = 1; Bold;
+
+	Field	Frame=2; Id=10;	Value=%_FIND_FILTER; Width = 250; SameWidth=2; \
+		Action = Set,_FIND_FILTER,!10; \
+		Action = KickStart,20;
+
+Frame	Frame = 1; Id = 3; Layout = Vertical;
+	Label	Frame = 3; Label = "Equipment:"; SameWidth = 1; Bold;
+
+	Selection	Frame = 3; Id = 15; SameWidth=2; Sort; Style = DropDown;\
+// _INCLUDELIST is set in "Sidebar_virtual.pnl"
+		Select = "%_FIND_TYPE"; Source = List,"*",%+_INCLUDELIST; \
+		Action = SetRegistry,_FINDER_TYPE,!15; \
+// need to switch * to be a list of valid block types when supported rather than all types
+		ActionIf = "'%_FINDER_TYPE' == '*'",SetRegistry,_FIND_TYPE,%_FINDLIST; \
+		ActionElse = SetRegistry,_FIND_TYPE,%_FINDER_TYPE; \
+		Action = KickStart,20;
+
+Frame	Frame = 1; Id = 4; Layout = Vertical;
+	Label	Frame = 4; Label = "Equipment:"; SameWidth = 1; Bold;
+
+	Selection	Frame = 4; Id = 20; SameWidth = 2; Sort; \
+		Source = Tag,'$top@name(%_FIND_FILTER)@type(%_FIND_TYPE)@B_n_lst,-1'; \
+		ActionIf = '"%_SELECTION_20" == ""',MessageBox,"No item selected",Error; \
+		ActionIf = *,Break; \
+		ActionIf = '"%_DBL_CLICK" == "True"',Set,FIND_BUTTON,"True"; \
+		ActionIf = '"%FIND_BUTTON" != "True"',Break; \
+		Action = Lookup,"%_PROJECT_DATABASE/find_tag_in_drawing.txt","%_SELECTION_20",1,"",_DRAWING%SCREEN,2; \
+		ActionIf = 'empty(%_DRAWING%SCREEN)',MessageBox,"No drawing associated with this block",Warning; \
+		ActionIf = *,Set,FIND_BUTTON,"False"; \
+		ActionIf = *,Break; \
+			LOAD_DRAWING \
+		Action = Popdown;

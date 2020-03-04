@@ -1,0 +1,25 @@
+// Set-point change for controller 23LIC0001
+
+// Load inital Conditions
+LoadConditions("Assignment1")
+LoadParameters("Assignment1")
+
+// Run Model for 30 minutes
+RunUntil([000:030:00.00])
+// Set simulation speed
+SetSpeed(400)
+
+// Set Controller parameters for 23LIC0001
+{23LIC0001:Gain} = 63
+{23LIC0001:IntegralTime} = 250
+{23LIC0001:DerivativeTime} = 0.0
+// Set Controller parameters for 23LIC0002
+{23LIC0002:Gain} = 0.2
+{23LIC0002:IntegralTime} = 25
+{23LIC0002:DerivativeTime} = 0.0
+
+// Obtain current value for Set-point (SP) 
+at ([04:00.00]) SP = {23LIC0001:InternalSetpoint}
+
+// Increase Set-point with 5%  
+at ([05:00.00]) {23LIC0001:InternalSetpoint} = SP + 0.05

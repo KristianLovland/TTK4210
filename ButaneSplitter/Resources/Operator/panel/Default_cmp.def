@@ -1,0 +1,323 @@
+// need to change @B_tagtype to @B_tagtype when corrected in kernel
+
+#include $EXPLORER_RESOURCES/panel/DefaultVars.def
+
+#ifdef '"%USEHEADERACTIONS" == "True"'
+// we have header actions - no need to define dummy actions
+#else
+// define dummy actions
+#define _HEADERACTIONS_  
+#endif
+
+// check for definition of only map or custom trend
+#ifdef '"COMBINEDTREND" == "TRUE" && "MAPAVAILABLE" == "TRUE"'
+#define _MAPWARNING_ Action = -,MessageBox,"Error - map and combined trends cannot both be defined.";
+#else
+#define _MAPWARNING_ 
+#endif
+
+//*********
+// header *
+//*********
+#ifdef '"%TREND_VAR" == "" && "%SHOWMAP" != "1" && "%SHOWCT" != "1"'
+// trends hidden - not resizable
+	Header	Position = Cursor; Title = "%TAG_NAME"; _HEADERACTIONS_ _MAPWARNING_
+	Frame	Id = 1; Layout = Vertical; Pad = 2;
+#else
+// trends visible - resizable
+	Header	Position = Cursor; Title = "%TAG_NAME"; _HEADERACTIONS_ _MAPWARNING_ \
+			Resizable=SaveSize,LargerOnly; 
+	Frame	Id = 1; Frame = -2; Layout = Vertical; Pad = 2;
+#endif
+
+//*************
+// Block menu *
+//*************
+Frame		Id = 11; Frame = 1; Layout = Horizontal;
+#ifdef '"%_ENVIRONMENT" == "Engineer"'
+	Button	Frame = 11; Image = "blkmenu.ico"; FeedBack = "Block menu"; Style = BUTTON_STYLE; \
+			Action = Menu,"BlockExplorerBlock";
+
+#ifdef '"%HIDEVARS" != "1"'
+	Button	Frame = 11; Image = "HideVars.ico"; FeedBack = "Hide variables"; Style = BUTTON_STYLE; \
+			Action = Set,HIDEVARS,1; \
+			Action = Remap;
+#else
+	Button	Frame = 11; Image = "ShowVars.ico"; FeedBack = "Show variables"; Style = BUTTON_STYLE; \
+			Action = Set,HIDEVARS,0; \
+			Action = Remap;
+#endif
+#endif
+
+//******
+// MAP *
+//******
+#ifdef '"MAPAVAILABLE" == "TRUE"'
+#ifdef '"%SHOWMAP" != "1"'
+	Button	Frame = 11; Image = "map.ico"; FeedBack = "Show map"; Style = BUTTON_STYLE; \
+			Action = Set,SHOWMAP,1; \
+			Action = Remap;
+#else
+	Button	Frame = 11; Image = "map.ico"; FeedBack = "Hide map"; Style = BUTTON_STYLE; \
+			Action = Set,SHOWMAP,0; \
+			Action = Remap;
+#endif
+#endif 
+		
+//***************
+// custom trend *
+//***************
+#ifdef '"COMBINEDTREND" == "TRUE" && "MAPAVAILABLE" != "TRUE"'
+#ifdef '"%SHOWCT" != "1"'
+	Button	Frame = 11; Image = "ShowTrend.ico"; FeedBack = "Show combined trend"; Style = BUTTON_STYLE; \
+			Action = Set,SHOWCT,1; \
+			Action = Remap;
+#else
+	Button	Frame = 11; Image = "HideTrend.ico"; FeedBack = "Hide combined trend"; Style = BUTTON_STYLE; \
+			Action = Set,SHOWCT,0; \
+			Action = Remap;
+#endif
+#endif 
+	
+//********************
+// Block description *
+//********************
+Stub		Frame = 11; Size = 2,0;
+Variable	VAR_NOEDIT; Frame = 11; Tag = "%TAG_NAME@B_desc"; Width = 200;
+
+#ifdef '"%HIDEVARS" != "1"'
+
+//*******
+// VAR1 *
+//*******
+#ifdef '"VAR1" != ""'
+Frame	Id = 12; Frame = 1; Layout = Horizontal;
+#ifdef '"%TREND_VAR" == "VAR1"'
+	Button	Frame=12; Image="HideTrend.ico"; FeedBack = "Hide trend"; Style = BUTTON_STYLE; \
+		SameWidth = 100; \
+		Action = Set,TREND_VAR,""; \
+		Action = Remap;
+#else
+	Button	Frame=12; Image="ShowTrend.ico"; FeedBack = "Show trend"; Style = BUTTON_STYLE; \
+		Dependency = '(#(%TAG_NAME:VAR1@V_type) == VAR_REAL) || (#(%TAG_NAME:VAR1@V_type) == VAR_INT) || (#(%TAG_NAME:VAR1@V_type) == VAR_BOOLEAN)'; \
+		SameWidth = 100; \
+		Action = Set,TREND_VAR,"VAR1"; \
+		Action = Remap;
+#endif
+
+#ifdef '#(%TAG_NAME:VAR1@V_IsEnumerated) || (#(%TAG_NAME:VAR1@V_type) == VAR_BOOLEAN) || \
+		("#(%TAG_NAME:VAR1@V_units)" == "none") || ("#(%TAG_NAME:VAR1@V_units)" == "text")'
+#define SUFFIX1 
+#else
+#define SUFFIX1 Suffix = "#(%TAG_NAME:VAR1@V_units)";
+#endif
+
+#ifdef '#(%TAG_NAME:VAR1@V_TypeMask) == KT_REAL'
+#define VFORMAT1 Format = %12.6g;
+#else
+#define VFORMAT1 
+#endif
+
+#ifdef '("#(%TAG_NAME:VAR1@B_tagtype)" == "p") || ("#(%TAG_NAME:VAR1@B_tagtype)" == "m")'
+	Variable	VAR_PARAM_EDIT; Frame = 12; Caption = "#(%TAG_NAME:VAR1@V_desc)"; Tag = "%TAG_NAME:VAR1"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR1"; VFORMAT1 SUFFIX1 \
+			Action = Set,PARAMETER,"%TAG_NAME:VAR1"; \
+			Action = Panel,"ParameterEdit"; 
+#elseifdef '("#(%TAG_NAME:VAR1@B_tagtype)" == "i") && (#(%TAG_NAME:VAR1@V_InputType) == 0) VAR1DEPENDENCY'
+	Variable	VAR_EDIT; Frame = 12; Caption = "#(%TAG_NAME:VAR1@V_desc)"; Tag = "%TAG_NAME:VAR1"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR1"; VFORMAT1 SUFFIX1
+#else
+	Variable	VAR_NOEDIT; Frame = 12; Caption = "#(%TAG_NAME:VAR1@V_desc)"; Tag = "%TAG_NAME:VAR1"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR1"; VFORMAT1 SUFFIX1
+#endif
+#endif
+
+//*******
+// VAR2 *
+//*******
+#ifdef '"VAR2" != ""'
+Frame	Id = 13; Frame = 1; Layout = Horizontal;
+#ifdef '"%TREND_VAR" == "VAR2"'
+	Button	Frame=13; Image="HideTrend.ico"; FeedBack = "Hide trend"; Style = BUTTON_STYLE; \
+		SameWidth = 100; \
+		Action = Set,TREND_VAR,""; \
+		Action = Remap;
+#else
+	Button	Frame=13; Image="ShowTrend.ico"; FeedBack = "Show trend"; Style = BUTTON_STYLE; \
+		Dependency = '(#(%TAG_NAME:VAR2@V_type) == VAR_REAL) || (#(%TAG_NAME:VAR2@V_type) == VAR_INT) || (#(%TAG_NAME:VAR2@V_type) == VAR_BOOLEAN)'; \
+		SameWidth = 100; \
+		Action = Set,TREND_VAR,"VAR2"; \
+		Action = Remap;
+#endif
+
+#ifdef '#(%TAG_NAME:VAR2@V_IsEnumerated) || (#(%TAG_NAME:VAR2@V_type) == VAR_BOOLEAN) || \
+		("#(%TAG_NAME:VAR2@V_units)" == "none") || ("#(%TAG_NAME:VAR2@V_units)" == "text")'
+#define SUFFIX2 
+#else
+#define SUFFIX2 Suffix = "#(%TAG_NAME:VAR2@V_units)";
+#endif
+
+#ifdef '#(%TAG_NAME:VAR2@V_TypeMask) == KT_REAL'
+#define VFORMAT2 Format = %12.6g;
+#else
+#define VFORMAT2 
+#endif
+
+#ifdef '("#(%TAG_NAME:VAR2@B_tagtype)" == "p") || ("#(%TAG_NAME:VAR2@B_tagtype)" == "m")'
+	Variable	VAR_PARAM_EDIT; Frame = 13; Caption = "#(%TAG_NAME:VAR2@V_desc)"; Tag = "%TAG_NAME:VAR2"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR2"; VFORMAT2 SUFFIX2 \
+			Action = Set,PARAMETER,"%TAG_NAME:VAR2"; \
+			Action = Panel,"ParameterEdit"; 
+#elseifdef '("#(%TAG_NAME:VAR2@B_tagtype)" == "i") && (#(%TAG_NAME:VAR2@V_InputType) == 0) VAR2DEPENDENCY'
+	Variable	VAR_EDIT; Frame = 13; Caption = "#(%TAG_NAME:VAR2@V_desc)"; Tag = "%TAG_NAME:VAR2"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR2"; VFORMAT2 SUFFIX2
+#else
+	Variable	VAR_NOEDIT; Frame = 13; Caption = "#(%TAG_NAME:VAR2@V_desc)"; Tag = "%TAG_NAME:VAR2"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR2"; VFORMAT2 SUFFIX2
+#endif
+#endif
+
+// Displaying only 2 VAR in Operator View
+#ifdef '"#(%TAG_NAME:@B_desc)" != "FieldTransmitter"'
+
+
+//*******
+// VAR3 *
+//*******
+#ifdef '"VAR3" != ""'
+Frame	Id = 14; Frame = 1; Layout = Horizontal;
+#ifdef '"%TREND_VAR" == "VAR3"'
+	Button	Frame=14; Image="HideTrend.ico"; FeedBack = "Hide trend"; Style = BUTTON_STYLE; \
+		SameWidth = 100; \
+		Action = Set,TREND_VAR,""; \
+		Action = Remap;
+#else
+	Button	Frame=14; Image="ShowTrend.ico"; FeedBack = "Show trend"; Style = BUTTON_STYLE; \
+		Dependency = '(#(%TAG_NAME:VAR3@V_type) == VAR_REAL) || (#(%TAG_NAME:VAR3@V_type) == VAR_INT) || (#(%TAG_NAME:VAR3@V_type) == VAR_BOOLEAN)'; \
+		SameWidth = 100; \
+		Action = Set,TREND_VAR,"VAR3"; \
+		Action = Remap;
+#endif
+
+#ifdef '#(%TAG_NAME:VAR3@V_IsEnumerated) || (#(%TAG_NAME:VAR3@V_type) == VAR_BOOLEAN) || \
+		("#(%TAG_NAME:VAR3@V_units)" == "none") || ("#(%TAG_NAME:VAR3@V_units)" == "text")'
+#define SUFFIX3 
+#else
+#define SUFFIX3 Suffix = "#(%TAG_NAME:VAR3@V_units)";
+#endif
+
+#ifdef '#(%TAG_NAME:VAR3@V_TypeMask) == KT_REAL'
+#define VFORMAT3 Format = %12.6g;
+#else
+#define VFORMAT3 
+#endif
+
+#ifdef '("#(%TAG_NAME:VAR3@B_tagtype)" == "p") || ("#(%TAG_NAME:VAR3@B_tagtype)" == "m")'
+	Variable	VAR_PARAM_EDIT; Frame = 14; Caption = "#(%TAG_NAME:VAR3@V_desc)"; Tag = "%TAG_NAME:VAR3"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR3"; VFORMAT3 SUFFIX3 \
+			Action = Set,PARAMETER,"%TAG_NAME:VAR3"; \
+			Action = Panel,"ParameterEdit"; 
+#elseifdef '("#(%TAG_NAME:VAR3@B_tagtype)" == "i") && (#(%TAG_NAME:VAR3@V_InputType) == 0) VAR3DEPENDENCY'
+	Variable	VAR_EDIT; Frame = 14; Caption = "#(%TAG_NAME:VAR3@V_desc)"; Tag = "%TAG_NAME:VAR3"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR3"; VFORMAT3 SUFFIX3
+#else
+	Variable	VAR_NOEDIT; Frame = 14; Caption = "#(%TAG_NAME:VAR3@V_desc)"; Tag = "%TAG_NAME:VAR3"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR3"; VFORMAT3 SUFFIX3
+#endif
+#endif
+
+//*******
+// VAR4 *
+//*******
+#ifdef '"VAR4" != ""'
+Frame	Id = 15; Frame = 1; Layout = Horizontal;
+#ifdef '"%TREND_VAR" == "VAR4"'
+	Button	Frame=15; Image="HideTrend.ico"; FeedBack = "Hide trend"; Style = BUTTON_STYLE; \
+		SameWidth = 100; \
+		Action = Set,TREND_VAR,""; \
+		Action = Remap;
+#else
+	Button	Frame=15; Image="ShowTrend.ico"; FeedBack = "Show trend"; Style = BUTTON_STYLE; \
+		Dependency = '(#(%TAG_NAME:VAR4@V_type) == VAR_REAL) || (#(%TAG_NAME:VAR4@V_type) == VAR_INT) || (#(%TAG_NAME:VAR4@V_type) == VAR_BOOLEAN)'; \
+		SameWidth = 100; \
+		Action = Set,TREND_VAR,"VAR4"; \
+		Action = Remap;
+#endif
+
+#ifdef '#(%TAG_NAME:VAR4@V_IsEnumerated) || (#(%TAG_NAME:VAR4@V_type) == VAR_BOOLEAN) || \
+		("#(%TAG_NAME:VAR4@V_units)" == "none") || ("#(%TAG_NAME:VAR4@V_units)" == "text")'
+#define SUFFIX4 
+#else
+#define SUFFIX4 Suffix = "#(%TAG_NAME:VAR4@V_units)";
+#endif
+
+#ifdef '#(%TAG_NAME:VAR4@V_TypeMask) == KT_REAL'
+#define VFORMAT4 Format = %12.6g;
+#else
+#define VFORMAT4 
+#endif
+
+#ifdef '("#(%TAG_NAME:VAR4@B_tagtype)" == "p") || ("#(%TAG_NAME:VAR4@B_tagtype)" == "m")'
+	Variable	VAR_PARAM_EDIT; Frame = 15; Caption = "#(%TAG_NAME:VAR4@V_desc)"; Tag = "%TAG_NAME:VAR4"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR4"; VFORMAT4 SUFFIX4 \
+			Action = Set,PARAMETER,"%TAG_NAME:VAR4"; \
+			Action = Panel,"ParameterEdit"; 
+#elseifdef '("#(%TAG_NAME:VAR4@B_tagtype)" == "i") && (#(%TAG_NAME:VAR4@V_InputType) == 0) VAR4DEPENDENCY'
+	Variable	VAR_EDIT; Frame = 15; Caption = "#(%TAG_NAME:VAR4@V_desc)"; Tag = "%TAG_NAME:VAR4"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR4"; VFORMAT4 SUFFIX4
+#else
+	Variable	VAR_NOEDIT; Frame = 15; Caption = "#(%TAG_NAME:VAR4@V_desc)"; Tag = "%TAG_NAME:VAR4"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR4"; VFORMAT4 SUFFIX4
+#endif
+#endif
+
+//*******
+// VAR5 *
+//*******
+#ifdef '"VAR5" != ""'
+Frame	Id = 16; Frame = 1; Layout = Horizontal;
+#ifdef '"%TREND_VAR" == "VAR5"'
+	Button	Frame=16; Image="HideTrend.ico"; FeedBack = "Hide trend"; Style = BUTTON_STYLE; \
+		SameWidth = 100; \
+		Action = Set,TREND_VAR,""; \
+		Action = Remap;
+#else
+	Button	Frame=16; Image="ShowTrend.ico"; FeedBack = "Show trend"; Style = BUTTON_STYLE; \
+		Dependency = '(#(%TAG_NAME:VAR5@V_type) == VAR_REAL) || (#(%TAG_NAME:VAR5@V_type) == VAR_INT) || (#(%TAG_NAME:VAR5@V_type) == VAR_BOOLEAN)'; \
+		SameWidth = 100; \
+		Action = Set,TREND_VAR,"VAR5"; \
+		Action = Remap;
+#endif
+
+#ifdef '#(%TAG_NAME:VAR5@V_IsEnumerated) || (#(%TAG_NAME:VAR5@V_type) == VAR_BOOLEAN) || \
+		("#(%TAG_NAME:VAR5@V_units)" == "none") || ("#(%TAG_NAME:VAR5@V_units)" == "text")'
+#define SUFFIX5 
+#else
+#define SUFFIX5 Suffix = "#(%TAG_NAME:VAR5@V_units)";
+#endif
+
+#ifdef '#(%TAG_NAME:VAR5@V_TypeMask) == KT_REAL'
+#define VFORMAT5 Format = %12.6g;
+#else
+#define VFORMAT5 
+#endif
+
+#ifdef '("#(%TAG_NAME:VAR5@B_tagtype)" == "p") || ("#(%TAG_NAME:VAR5@B_tagtype)" == "m")'
+	Variable	VAR_PARAM_EDIT; Frame = 16; Caption = "#(%TAG_NAME:VAR5@V_desc)"; Tag = "%TAG_NAME:VAR5"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR5"; VFORMAT5 SUFFIX5 \
+			Action = Set,PARAMETER,"%TAG_NAME:VAR5"; \
+			Action = Panel,"ParameterEdit"; 
+#elseifdef '("#(%TAG_NAME:VAR5@B_tagtype)" == "i") && (#(%TAG_NAME:VAR5@V_InputType) == 0) VAR5DEPENDENCY'
+	Variable	VAR_EDIT; Frame = 16; Caption = "#(%TAG_NAME:VAR5@V_desc)"; Tag = "%TAG_NAME:VAR5"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR5"; VFORMAT5 SUFFIX5
+#else
+	Variable	VAR_NOEDIT; Frame = 16; Caption = "#(%TAG_NAME:VAR5@V_desc)"; Tag = "%TAG_NAME:VAR5"; \
+			SameWidth = +1; Help = "#(%TAG_NAME@B_type),VAR5"; VFORMAT5 SUFFIX5
+#endif
+#endif
+
+// end of #ifedf '"%HIDEVARS" != "1"'
+#endif
+
+#endif
+

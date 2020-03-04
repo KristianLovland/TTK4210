@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="156,204" xmin="156" ymin="198" xmax="172.001" ymax="212">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Online Manual valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="ValveManual_Online"/>
+  <attribute name="SelectBox" type="real" value="0,0,16,8"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="1680" estat="ext" xy="156,204" name="x_Online_ValveBody.sym">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_Online_ValveBody"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1688,1684"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == True &amp;&amp; {%TAG_NAME:IsDefinedClosed} == True " priority="10" foreground="magenta"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == True " priority="1" foreground="green3"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedClosed} == True " priority="0" foreground="red"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == False &amp;&amp; {%TAG_NAME:IsDefinedClosed} == False" priority="0" foreground="yellow"/>
+  </animation>
+ </symbol>
+ <symbol id="1691" depth="1" estat="ext" xy="156,204,172,212" name="x_ValveMask.sym" xscl="16" yscl="8" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_ValveMask"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="1685,1688"/>
+ </symbol>
+ <string id="1688" depth="10" style="1" estat="ref" xy="156,204,156,212,172,212,172,204,156,204">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1691,1680"/>
+ </string>
+ <tnode id="1685" layer="TAGNAMES" estat="ext" xy="164,198" height="5" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1684,1691"/>
+ </tnode>
+ <cpoint id="1684" estat="ref" xy="156,204">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Online Manual valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="ValveManual_Online"/>
+  <relation type="mutual" subid="100" id="1680,1685"/>
+ </cpoint>
+</sym>

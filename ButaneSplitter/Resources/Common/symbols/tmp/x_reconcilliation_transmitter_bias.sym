@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="3">
+ <header xy="318,1300" xmin="318.001" ymin="1296.01" xmax="325.987" ymax="1303.99">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_bias"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <polygon id="3501" colour="0x8054aa" xy="318,1300,321.993,1303.99,325.986,1300,321.993,1296.01,318,1300">
+  <relation type="mutual" subid="100" id="3497,3499"/>
+ </polygon>
+ <text id="3497" colour="white" depth="1" xy="320.75,1298.75" height="3" font="Arial">
+  <tstring>B</tstring>
+  <relation type="mutual" subid="100" id="3499,3501"/>
+ </text>
+ <cpoint id="3499" estat="ref" xy="318,1300">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_bias"/>
+  <relation type="mutual" subid="100" id="3501,3497"/>
+ </cpoint>
+</sym>

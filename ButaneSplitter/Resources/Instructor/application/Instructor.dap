@@ -1,0 +1,41 @@
+#include $EXPLORER_RESOURCES/panel/alrmcodes.def
+
+// root MID
+Set	variable=_ROOT,"";
+
+Header	Group = "Instructor"; Console = None; Environment=Instructor; \
+		Navigator=Disable,"Common","Resources","Workspace","Shortcuts"; \
+		Margin = 0, 26, 0, 0; \
+		Action = -,ListPush,"RecentProjectList","#(ProjectInfo,S,ProjectHome)",10; \
+		Action = -,ListPush,BlockNameFilter,*; \
+		Action = -,SetTopLevelText,"K-Spice SimExplorer - Instructor Interface - Model: filename($PROJECT_ROOT)"; \
+// F3 - find
+		Action = F3,LoadDLL,block_select; \
+		Action = F3,CallDLL,block_select,BlockSelect,-mid,%_ACTIVE_TIMELINE_APP; \
+		Action = F3,FreeDLL,block_select; \
+		ActionIf = F3,'empty(%_SBD_BLOCK)', Break; \
+		Action = F3,Set,BLOCK,%_SBD_BLOCK; \
+		Action = F3,Set,GRAPHIC,"#(%_SBD_TIMELINE_APP|%BLOCK@B_graphic)"; \
+		ActionIf = F3,'"%GRAPHIC" != ""',FindGraphic,%BLOCK,%_SBD_TIMELINE_APP; \
+		ActionIf = F3,*,ListPush,"RecentBlockSearch",%BLOCK,20; \
+		ActionIf = F3,*,KickStart,"InstructorToolBar:999"; \
+		ActionElse = F3,MessageBox,"%BLOCK has no associated graphic",Error; \
+// F5 - redraw
+		Action = F5,ZoomExtents;
+
+BarMenu	Category = &File,file, \
+		&Control,control_inst, \
+		&View,view_inst, \
+		Too&ls,tools_inst, \
+		&Alarms,AlarmSystem, \
+		Help,Help;
+
+//		&Training,training, \
+
+ImageArea Type = XDR,StatusBar; Style = Tabbed; Size = 1000,760; Source = Overview.xdr; \
+		MenuIf = '!empty(%MODULE)',"BlockInstructorBlock"; \
+		Menu = "%TAG_TYPE"; \
+		Action = Onload,Layer,Exclude,Control,Engineer,Hidden;
+//		ActionIf = Onload,'"%_IS_LINK" == "True"',ListPush,"RecentImageList","%_IMAGE_SOURCE_LINK",10; \
+//		ActionIf = Onload,'"%_IS_LINK" != "True"',ListPush,"RecentImageList","%_IMAGE_SOURCE_MAIN",10;
+

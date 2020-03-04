@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="400,683" xmin="396" ymin="679.022" xmax="404" ymax="686.978">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="xdcs_connector_s1"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="841" vheight="1251" gpitch="1,1" goffset="0,0" height="2" hjust="right" font="Arial"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <polygon id="1026" colour="green" depth="10" xy="404,683,403.91,683.832,403.65,684.627,403.24,685.351,402.68,685.973,402,686.464,401.24,686.804,400.42,686.978,399.58,686.978,398.76,686.804,398,686.464,397.32,685.973,396.76,685.351,396.35,684.627,396.09,683.832,396,683,396.09,682.168,396.35,681.373,396.76,680.649,397.32,680.027,398,679.536,398.76,679.196,399.58,679.022,400.42,679.022,401.24,679.196,402,679.536,402.68,680.027,403.24,680.649,403.65,681.373,403.91,682.168,404,683"/>
+ <cpoint id="1028" depth="11" estat="ref" xy="400,683">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="xdcs_connector_s1"/>
+ </cpoint>
+</sym>

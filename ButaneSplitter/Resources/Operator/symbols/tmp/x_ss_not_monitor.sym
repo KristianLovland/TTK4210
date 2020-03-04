@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="4">
+ <header xy="568,494" xmin="568.001" ymin="493.999" xmax="576" ymax="502.001">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_ss_not_monitor"/>
+  <attribute name="Itemdesc" type="text" value="Steady state indication symbol"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\DemoProject\Resources\Common\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <polygon id="1209" colour="0xdfdfdf" depth="-6" xy="568,494,568,502,576,502,576,494,568,494">
+  <attribute name="Itemdesc" type="text" value="Steady state indication symbol"/>
+ </polygon>
+ <cpoint id="1189" estat="ref" xy="568,494">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_ss_not_monitor"/>
+  <attribute name="Itemdesc" type="text" value="Steady state indication symbol"/>
+ </cpoint>
+ <text id="1224" colour="0x555555" xy="568.25,495" height="7" font="Arial" bold="true">
+  <tstring>=</tstring>
+ </text>
+ <line id="1230" colour="0x555555" weight="3" xy="569.25,495.5,574.75,500.5"/>
+</sym>

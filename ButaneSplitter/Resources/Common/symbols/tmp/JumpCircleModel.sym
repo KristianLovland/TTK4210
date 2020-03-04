@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="404,1182" xmin="393.999" ymin="1172" xmax="414" ymax="1192">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Jump" type="null"/>
+  <attribute name="ItemType" type="text" value="connector_draw"/>
+  <attribute name="SymName" type="text" value="JumpCircle"/>
+  <attribute name="SelectBox" type="real" value="-10,-10,10,10"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="ProcessValues"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\DemoProject\Resources\Common\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="ProcessValues"/>
+ <arc id="1025" depth="1" xy="404,1182" radius="8"/>
+ <string id="1703" style="1" estat="ref" xy="394,1172,394,1192,414,1192,414,1172,394,1172">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1708,1706"/>
+ </string>
+ <tnode id="1706" layer="Hidden" depth="100" estat="ext" xy="404,1182" height="2" hjust="centre" vjust="middle" font="Arial">
+  <attribute name="DrawName" type="null"/>
+  <relation type="mutual" subid="100" id="1703,1707"/>
+ </tnode>
+ <polygon id="1707" colour="gray70" xy="412,1182,411.799,1183.78,411.208,1185.47,410.255,1186.99,408.988,1188.25,407.471,1189.21,405.78,1189.8,404,1190,402.22,1189.8,400.529,1189.21,399.012,1188.25,397.745,1186.99,396.792,1185.47,396.201,1183.78,396,1182,396.201,1180.22,396.792,1178.53,397.745,1177.01,399.012,1175.75,400.529,1174.79,402.22,1174.2,404,1174,405.78,1174.2,407.471,1174.79,408.988,1175.75,410.255,1177.01,411.208,1178.53,411.799,1180.22,412,1182">
+  <relation type="mutual" subid="100" id="1706,1708"/>
+ </polygon>
+ <cpoint id="1708" layer="3D" depth="-5" estat="ref" xy="404,1182">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Jump" type="null"/>
+  <attribute name="ItemType" type="text" value="connector_draw"/>
+  <attribute name="SymName" type="text" value="JumpCircle"/>
+  <relation type="mutual" subid="100" id="1707,1703"/>
+ </cpoint>
+</sym>

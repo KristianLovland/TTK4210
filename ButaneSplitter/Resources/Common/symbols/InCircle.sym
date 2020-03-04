@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="189,596" xmin="179.027" ymin="576.007" xmax="199" ymax="596" vunits="mm">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="InCircle"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="0xc5c3c6" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="01-12-14 13:36:04"/>
+ </drawing>
+ <viewport id="2" vwidth="39.9473" vheight="39.9863" vunits="mm" gpitch="2,2" goffset="0,0"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <polygon id="1418" colour="red" xy="199,586,198.893,587.456,198.576,588.881,198.054,590.245,197.34,591.518,196.448,592.673,195.397,593.686,194.209,594.536,192.911,595.203,191.529,595.675,190.094,595.94,188.635,595.993,187.184,595.834,185.771,595.464,184.428,594.893,183.181,594.133,182.059,593.199,181.085,592.112,180.28,590.894,179.66,589.572,179.239,588.174,179.027,586.73,179.027,585.27,179.239,583.826,179.66,582.428,180.28,581.106,181.085,579.888,182.059,578.801,183.181,577.867,184.428,577.107,185.771,576.536,187.184,576.166,188.635,576.007,190.094,576.06,191.529,576.325,192.911,576.797,194.209,577.464,195.397,578.314,196.448,579.327,197.34,580.482,198.054,581.755,198.576,583.119,198.893,584.544,199,586"/>
+ <cpoint id="1419" estat="ref" xy="189,596">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="InCircle"/>
+ </cpoint>
+</sym>

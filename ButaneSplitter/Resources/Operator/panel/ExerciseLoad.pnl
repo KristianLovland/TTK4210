@@ -1,0 +1,26 @@
+header	position=cursor; title="Load Exercise"; controls=Apply,Close; \
+//	action=apply,set,USER,!20; \
+//	actionif=apply,'empty(%USER)',messagebox,"No Username entered",error; \
+	action=apply,set,EXERCISE,!30; \
+	actionif=apply,'empty(%EXERCISE)',messagebox,"No Exercise entered",error; \
+	action=apply,SendSetValue,"%_ACTIVE_TIMELINE/ExerciseServer/LoadExercise",!30; \
+	actionif=apply,'!empty(%EXERCISE)',Panel,"SetUserName.pnl"; \
+	actionif=apply,'!empty(%EXERCISE)',popdown; \
+//	action=Close,set,USER,!20; \
+//	actionif=Close,'empty(%USER)',messagebox,"No Username entered",error; \
+//	action=Close,SendSetValue,"/OG-Production/ExerciseServer/SetUsername",!20; \
+	action=Close,popdown;
+
+frame   id=10; layout=vertical; space=5;
+frame   frame=10; id=2; layout=horizontal; space=5;
+frame	frame=10; id=3; layout=horizontal;
+frame   frame=10; id=4; layout=horizontal;
+
+button	label="%_ACTIVE_TIMELINE/ExerciseServer";
+//field   caption="UserName:"; frame=2; type=string; id=20; samewidth=1; \
+//		size=300,-1; \
+		
+field	caption="Exercise:"; frame=3; samewidth=1; image=browser.ico; \
+	action=openfinder,"=%_PROJECT_ROOT/Exercises/","*"; size=300,-1; id=30;
+
+

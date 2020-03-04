@@ -1,0 +1,38 @@
+#include $EXPLORER_RESOURCES/panel/DefaultVars.def
+
+set	variable=VAR,%TAG_NAME:ValveStemPosition;
+
+#set \
+	PREFETCH_VARDESC %TAG_NAME:ValveStemPosition@V_desc \
+	PREFETCH_VARTYPE %TAG_NAME:ValveStemPosition@V_type \
+	PREFETCH_VARUNIT %TAG_NAME:ValveStemPosition@V_unit 
+
+
+	
+Header	Title = "%PANEL_TIMELINE - %VAR"; Name = "BlockExplorerTrend"; \
+		Resizable = SaveGeometry,LargerOnly; \
+		OneOff = "(%PANEL_TIMELINE) %VAR"; Position = Cursor; \
+		ActionIf = -,'"%_BE_TREND_AUTOFIT" == "True"',SetSwitch,13,1; \
+		ActionIf = -,*,Display,20,AutoFit,On;
+
+Dataset	Name = "d1"; Tag = "%VAR"; Colour = TREND_COL1; Label = "%VAR"; Id = 201;
+Display	Dataset = "d1"; Type = Trend; Background = TREND_BG; Id = 20; \
+		Size = TREND_MIN_SIZE; Grid = TREND_GRID; \
+		Title = "%PREFETCH_VARDESC"; XTitle = Time; YTitle = "%PREFETCH_VARUNIT"; 
+		
+Frame	Frame = -4; Id = 10; Layout = Horizontal; Space = 5;
+// test for integer type which will have a different format
+//#ifdef '%PREFETCH_VARTYPE == C_INTG'
+//Variable	Frame = 10; VAR_NOEDIT; Tag = "%VAR"; Caption = "Value:"; SameHeight = 10;
+//#else
+//Variable	Frame = 10; VAR_NOEDIT; Tag = "%VAR"; Format = %_NUMFORMAT; \
+//		Caption = "Value:"; Suffix = "%PREFETCH_VARUNIT"; SameHeight = 10;
+//#endif
+
+Stub		Frame = 10; Size = 5,1;
+Switch	Frame = 10; Label = "Autofit Y axis"; Id = 13; SameHeight = 10; \
+		Action = Set,SV,!13; \
+		ActionIf = '%SV == 0',SetRegistry,_BE_TREND_AUTOFIT,False; \
+		ActionIf = *,Display,20,AutoFit,Off; \
+		ActionElse = SetRegistry,_BE_TREND_AUTOFIT,True; \
+		ActionIf = *,Display,20,AutoFit,On;

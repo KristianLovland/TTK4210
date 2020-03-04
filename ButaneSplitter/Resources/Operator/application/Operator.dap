@@ -1,0 +1,77 @@
+// Application for Operator interface
+
+#include $EXPLORER_RESOURCES/panel/alrmcodes.def
+//#include $EXPLORER_RESOURCES/Panel/OnlineDefinitions.def
+//#include $EXPLORER_RESOURCES/Panel/AccessLevels.def
+
+////////////////////////////////////////////////////////////
+///Used for Flowline Profile ///////////////////////////////
+Set	Variable=_CURRENTAPP,"/SubseaFlowline/ProcessModel";
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+// Margins
+// no left margin
+#define _MARGIN_LEFT_ 0
+// top margins - fixed at 28 pixles for the toolbar 
+// +5 for padding the project dialog
+// + 24 pixels for latest RT/planning alarm + 24 pixels for latest LAH alarm
+#define _MARGIN_TOOLBAR_ 28
+#define _MARGIN_PROJECT_TOP_ 33
+#define _MARGIN_PLANNING_TOP_ 52
+#define _MARGIN_TOP_ 76
+//#define _MARGIN_TOP_ 165
+// margin for buttons on RHS
+#define _MARGIN_RIGHT_ 180
+// margin at bottom
+#define _MARGIN_BOTTOM_ 0
+// margin for alarm summary
+#define _MARGIN_STATUSBAR_ 24
+
+#define _CONSOLE_ Console = None; Disable = KeyboardZoom
+#define _IMAGETYPE_ XDR,StatusBar,ZoomExtentsOnOpen,NoControls
+#define _GROUP_ Operator
+//#define _MARGINTOP_ _MARGIN_PLANNING_TOP_
+
+Header	Group = "_GROUP_"; AccessControl = Disabled; Mid = "%_CURRENTAPP"; \
+Title = "K-Spice SimExplorer - Operator Interface - Model: filename($PROJECT_ROOT)"; \
+Margin = _MARGIN_LEFT_, _MARGIN_TOOLBAR_, _MARGIN_RIGHT_, _MARGIN_BOTTOM_; \
+	Action = -,Set,_INSTR_LAYER,"HIDE"; \
+		_CONSOLE_;
+//Header	Group = "Runtime"; \
+//		Margin = 0, 28, 0, 0; \
+//		_CONSOLE_; 
+//Environment=Runtime; Navigator; \
+		//Action = -,ListPush,"RecentProjectList","#(ProjectInfo,S,ProjectHome)",10; \
+		//action = -,ListPush,BlockNameFilter,*;
+
+BarMenu	Category = &File,File_Operator, \
+		&View,view_operator, \
+		&Training,training, \
+		&Export,export, \
+		&Alarms,AlarmSystem, \
+		&Help,Help;
+
+ImageArea	Type = _IMAGETYPE_; Size = 1000,760; \
+	Mid = %_CURRENTAPP; \
+	Source = Overview_BasicPC.xdr; \
+	MenuIf = '!empty(%MODULE)',"Operator"; \
+	Menu = "%TAG_TYPE", Exclude, PipeVolume; \
+	Action = Onload,Layer,Exclude,Control,Engineer,Instructor,FOD,Hidden, TagNames, ProcessValues; \
+	Action = OnLoad,Set,_INSTR_LAYER,"HIDE"; \
+	Action = OnLoad,Popdown,"EmbeddedProfileDisplay"; \
+	ActionIf = OnLoad,'!empty(%PIPENAME) && "%PIPENAME" != ""',Panel,"%(PIPENAME)_Profile"; \
+	ActionIf = OnLoad,*,Set,PIPENAME,"";
+
+
+// dont run consistency checks
+Set	Variable = _OPT_RUN_CONSISTENCY_CHECKS,False;
+Set	Variable = _OPT_CHKMDL,"";
+Set	Variable = _OPT_CHKINP,"";
+Set	Variable = _OPT_CHKDB,"";
+
+// initialise number format
+#ifdef '"%_NUMFORMAT" == ""'
+Set        Variable = _NUMFORMAT,"%15.6f";
+Set        Variable = _NUMFTYPE,Fixed;
+#endif

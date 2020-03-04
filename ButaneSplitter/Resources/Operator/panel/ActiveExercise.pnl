@@ -1,0 +1,19 @@
+Header	position=cursor; title="Active Exercise"; 
+	
+
+frame   id=10; layout=vertical; space=5;
+frame   frame=10; id=2; layout=horizontal; space=5;
+frame	frame=10; id=3; layout=horizontal;
+frame   frame=10; id=4; layout=horizontal;
+
+	
+
+Variable  Caption = "Active Exercise: #(GetValue;%_ACTIVE_TIMELINE/ExerciseServer|ExerciseName,OG-Production)";
+Variable  Caption = "Active User Name: #(GetValue;%_ACTIVE_TIMELINE/ExerciseServer|UserName,OG-Production)";
+Variable  Caption = "Assessment Score: #(GetValue;%_ACTIVE_TIMELINE/ExerciseServer|AssessmentScore,OG-Production)";
+Variable  Caption = "Assessment Evaluation: #(GetValue;%_ACTIVE_TIMELINE/ExerciseServer|AssessmentPassed,OG-Production)"; Type = Enumerator; Values = "Failed","Passed";
+Label	Label =  "(0 = Failed / 1 = Passed)";
+// Variable  Caption = "#(GetValue;%_ACTIVE_TIMELINE/ExerciseServer|AssessmentNames,OG-Production)";
+
+// Button 	Label = "Save report"; \
+// 		Action = Panel,"SaveReport.pnl";

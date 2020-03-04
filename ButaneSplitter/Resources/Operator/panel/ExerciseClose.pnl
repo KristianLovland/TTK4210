@@ -1,0 +1,11 @@
+Header	position=cursor; title="Close Active Exercise"; controls=OK,Cancel; \
+	action = Cancel,popdown; \
+	action = OK,SendSetValue,"%_ACTIVE_TIMELINE/ExerciseServer/CloseExercise",""; \
+	action = OK,popdown;
+
+frame   id=10; layout=vertical; space=5;
+frame   frame=10; id=2; layout=horizontal; space=5;
+frame	frame=10; id=3; layout=horizontal;
+frame   frame=10; id=4; layout=horizontal;
+
+Label	label = "Do you want to Close Active Exercise ?";

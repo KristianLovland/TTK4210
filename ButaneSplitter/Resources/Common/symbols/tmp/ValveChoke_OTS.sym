@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="11">
+ <header xy="863,1021" xmin="844" ymin="1015" xmax="868.999" ymax="1038">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Choke valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="SymName" type="text" value="ValveChoke_OTS"/>
+  <attribute name="SelectBox" type="real" value="-6,-6,6,9"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="0.25,0.25" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <symbol id="1218" estat="ext" xy="844,1016,868,1038" name="MalfunctionOutline" xscl="24" yscl="22" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <relation type="mutual" subid="100" id="1244,1213"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1186" estat="ext" xy="850,1032" name="x_ValveTagName" fixedlay="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <attribute name="SymName" type="text" value="x_ValveTagName"/>
+  <relation type="child" subid="3" id="1187,1221,1222,1219"/>
+  <relation type="mutual" subid="100" id="1221,1187"/>
+  <attribute name="Static" type="null"/>
+ </symbol>
+ <symbol id="1188" depth="10" estat="ext" xy="863,1021" name="x_Valve_Choke_Outline" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_Valve_Choke_Outline"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <relation type="mutual" subid="100" id="1189,1219"/>
+ </symbol>
+ <symbol id="1212" depth="10" estat="ext" xy="863,1021" name="x_Valve_BodyChoke" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_Valve_BodyChoke"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <relation type="mutual" subid="100" id="1213,1189"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="yellow">
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == 1" priority="0" foreground="green"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedClosed} == 1" priority="0"/>
+   <state type="expression" expression="(({%TAG_NAME:IsDefinedOpen}) == 1 &amp;&amp; ({%TAG_NAME:IsDefinedClosed} == 1))" priority="5" foreground="magenta"/>
+  </animation>
+ </symbol>
+ <tnode id="1244" estat="ext" xy="848,1022" height="4" hjust="centre" font="Arial" nts="true" ntr="true" ntm="true">
+  <relation type="mutual" subid="100" id="1187,1218"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:ValveStemPosition" format="%8.0f">
+  </animation>
+ </tnode>
+ <tnode id="1187" estat="rel" xy="850,1033" height="2" hjust="centre" nts="true" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%2"/>
+  <relation type="parent" subid="3" id="1186"/>
+  <relation type="mutual" subid="100" id="1186,1244"/>
+ </tnode>
+ <tnode id="1221" colour="white" layer="Engineer" depth="100" estat="rel" xy="855,1037" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="parent" subid="3" id="1186"/>
+  <relation type="mutual" subid="100" id="1222,1186"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <tnode id="1222" estat="rel" xy="850,1030" height="2" hjust="centre" nts="true" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%3"/>
+  <relation type="parent" subid="3" id="1186"/>
+  <relation type="mutual" subid="100" id="1219,1221"/>
+ </tnode>
+ <tnode id="1219" estat="rel" xy="846,1036" height="2" hjust="right" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%1"/>
+  <relation type="parent" subid="3" id="1186"/>
+  <relation type="mutual" subid="100" id="1188,1222"/>
+ </tnode>
+ <cpoint id="1189" depth="10" estat="ref" xy="863,1021">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Choke valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="SymName" type="text" value="ValveChoke_OTS"/>
+  <relation type="mutual" subid="100" id="1212,1188"/>
+  <parameter name="AUTOCONNECT_PIPEFLOW" value="Output;CvAtCurrentOpening;ValveCv[*];Output;FLAtCurrentOpening;ValveFL[*];Output;XTAtCurrentOpening;ValveXT[*];Output;FdAtCurrentOpening;ValveFd[*];Output;ValveSizeInfo;ValveSize[*]"/>
+  <parameter name="AUTOCONNECT_FLOWLINE" value="Output;CvAtCurrentOpening;ValveCv[-]"/>
+ </cpoint>
+ <string id="1213" depth="10" style="1" estat="ref" xy="857,1015,857,1030,869,1030,869,1015,857,1015">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1218,1212"/>
+ </string>
+</sym>

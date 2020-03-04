@@ -1,0 +1,26 @@
+#include $EXPLORER_RESOURCES/panel/DefaultVars.def
+
+Header	Resizable = SaveSize,LargerOnly; Title = "%PROFTYPE Profile - %TAG1_Y (%PANEL_TIMELINE)"; Name = "LedaDisplayProfile"; \
+		OneOff = "%TAG1_Y (%PANEL_TIMELINE)"; Position = Cursor; \
+		ActionIf = -,'"%_BE_PROFILE_AUTOFIT" == "True"',SetSwitch,13,1; \
+		ActionIf = -,*,Display,20,AutoFit,On;
+
+Dataset	Id = 801; Name = "d1"; Tag = "%(TAG1_Y)","%(TAG1_X)";  label="%LABEL1"; Colour = TREND_COL1; style=link;
+#ifdef  %REVERSE
+Display	Dataset = "d1"; Type = XY; Background = TREND_BG; Id = 20; \
+		Title = "%TITLE"; XTitle = "#(%TAG1_X@V_unit)"; YTitle = "#(%TAG1_Y@V_unit)"; \
+		sample = 2; Grid = TREND_GRID; Size = TREND_MIN_SIZE; reverse;
+#else
+Display	Dataset = "d1"; Type = XY; Background = TREND_BG; Id = 20; \
+		Title = "%TITLE"; XTitle = "#(%TAG1_X@V_unit)"; YTitle = "#(%TAG1_Y@V_unit)"; \
+		sample = 2; Grid = TREND_GRID; Size = TREND_MIN_SIZE;
+#endif
+
+Frame	Frame = -4; Id = 12; Layout = Horizontal;
+Stub		Frame = 12; Size = 8,1;
+Switch	Frame = 12; Label = "Autofit Y axis"; Id = 13; \
+		Action = Set,SV,!13; \
+		ActionIf = '%SV == 0',SetRegistry,_BE_PROFILE_AUTOFIT,False; \
+		ActionIf = *,Display,20,AutoFit,Off; \
+		ActionElse = SetRegistry,_BE_PROFILE_AUTOFIT,True; \
+		ActionIf = *,Display,20,AutoFit,On;		

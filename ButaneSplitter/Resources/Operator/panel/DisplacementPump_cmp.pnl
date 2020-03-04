@@ -1,0 +1,11 @@
+
+#include $EXPLORER_RESOURCES/panel/DisplacementPump_auto_cmp.def
+
+#include $EXPLORER_RESOURCES/panel/Default_cmp.def
+
+// optional stuff
+#ifdef '"%HIDEVARS" != "1"'
+*Frame		Id = 100; Frame = 1; Layout = Horizontal; Space = 5;
+#endif
+
+#include $EXPLORER_RESOURCES/panel/CustomPanelTrend.def

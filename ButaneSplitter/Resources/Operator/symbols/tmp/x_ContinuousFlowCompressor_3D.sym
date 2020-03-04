@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="201">
+ <header xy="853,1126" xmin="853.001" ymin="1126" xmax="868.999" ymax="1142">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_ContinuousFlowCompressor_3D"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\Dev\Explorer\Resources\UnscaledLevels"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="8,8" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <cpoint id="5328" layer="3D" depth="-5" estat="ref" xy="853,1126">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_ContinuousFlowCompressor_3D"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <relation type="mutual" subid="100" id="6090,1188"/>
+ </cpoint>
+ <polygon id="6090" colour="gray79" layer="3D" depth="-5" xy="853,1134.38,853,1134.5,869,1134.25,869,1134.19,853,1134.38">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6091,5328"/>
+ </polygon>
+ <polygon id="6091" colour="gray78" layer="3D" depth="-5" xy="853,1134.5,853,1134.63,869,1134.31,869,1134.25,853,1134.5">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6092,6090"/>
+ </polygon>
+ <polygon id="6092" colour="gray77" layer="3D" depth="-5" xy="853,1134.63,853,1134.75,869,1134.38,869,1134.31,853,1134.63">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6093,6091"/>
+ </polygon>
+ <polygon id="6093" colour="#c1c1c1" layer="3D" depth="-5" xy="853,1134.75,853,1134.88,869,1134.44,869,1134.38,853,1134.75">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6094,6092"/>
+ </polygon>
+ <polygon id="6094" colour="gray75" layer="3D" depth="-5" xy="853,1134.88,853,1135,869,1134.5,869,1134.44,853,1134.88">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6096,6093"/>
+ </polygon>
+ <polygon id="6096" colour="#bcbcbc" layer="3D" depth="-5" xy="853,1135,853,1135.13,869,1134.56,869,1134.5,853,1135">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6097,6094"/>
+ </polygon>
+ <polygon id="6097" colour="#b9b9b9" layer="3D" depth="-5" xy="853,1135.13,853,1135.25,869,1134.63,869,1134.56,853,1135.13">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6098,6096"/>
+ </polygon>
+ <polygon id="6098" colour="#b7b7b7" layer="3D" depth="-5" xy="853,1135.25,853,1135.38,869,1134.69,869,1134.63,853,1135.25">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6099,6097"/>
+ </polygon>
+ <polygon id="6099" colour="#b4b4b4" layer="3D" depth="-5" xy="853,1135.38,853,1135.5,869,1134.75,869,1134.69,853,1135.38">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6100,6098"/>
+ </polygon>
+ <polygon id="6100" colour="#b2b2b2" layer="3D" depth="-5" xy="853,1135.5,853,1135.62,869,1134.81,869,1134.75,853,1135.5">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6101,6099"/>
+ </polygon>
+ <polygon id="6101" colour="#afafaf" layer="3D" depth="-5" xy="853,1135.62,853,1135.75,869,1134.87,869,1134.81,853,1135.62">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6102,6100"/>
+ </polygon>
+ <polygon id="6102" colour="#acacac" layer="3D" depth="-5" xy="853,1135.75,853,1135.87,869,1134.93,869,1134.87,853,1135.75">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6103,6101"/>
+ </polygon>
+ <polygon id="6103" colour="#aaaaaa" layer="3D" depth="-5" xy="853,1135.87,853,1135.99,869,1134.99,869,1134.93,853,1135.87">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6104,6102"/>
+ </polygon>
+ <polygon id="6104" colour="#a7a7a7" layer="3D" depth="-5" xy="853,1135.99,853,1136.11,869,1135.06,869,1134.99,853,1135.99">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6105,6103"/>
+ </polygon>
+ <polygon id="6105" colour="#a5a5a5" layer="3D" depth="-5" xy="853,1136.11,853,1136.23,869,1135.12,869,1135.06,853,1136.11">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6106,6104"/>
+ </polygon>
+ <polygon id="6106" colour="#a2a2a2" layer="3D" depth="-5" xy="853,1136.23,853,1136.35,869,1135.18,869,1135.12,853,1136.23">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6107,6105"/>
+ </polygon>
+ <polygon id="6107" colour="#9f9f9f" layer="3D" depth="-5" xy="853,1136.35,853,1136.47,869,1135.24,869,1135.18,853,1136.35">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6108,6106"/>
+ </polygon>
+ <polygon id="6108" colour="#9d9d9d" layer="3D" depth="-5" xy="853,1136.47,853,1136.59,869,1135.3,869,1135.24,853,1136.47">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6109,6107"/>
+ </polygon>
+ <polygon id="6109" colour="#9a9a9a" layer="3D" depth="-5" xy="853,1136.59,853,1136.71,869,1135.35,869,1135.3,853,1136.59">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6110,6108"/>
+ </polygon>
+ <polygon id="6110" colour="#989898" layer="3D" depth="-5" xy="853,1136.71,853,1136.83,869,1135.41,869,1135.35,853,1136.71">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6111,6109"/>
+ </polygon>
+ <polygon id="6111" colour="#959595" layer="3D" depth="-5" xy="853,1136.83,853,1136.94,869,1135.47,869,1135.41,853,1136.83">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6112,6110"/>
+ </polygon>
+ <polygon id="6112" colour="#939393" layer="3D" depth="-5" xy="853,1136.94,853,1137.06,869,1135.53,869,1135.47,853,1136.94">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6113,6111"/>
+ </polygon>
+ <polygon id="6113" colour="#909090" layer="3D" depth="-5" xy="853,1137.06,853,1137.18,869,1135.59,869,1135.53,853,1137.06">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6114,6112"/>
+ </polygon>
+ <polygon id="6114" colour="#8e8e8e" layer="3D" depth="-5" xy="853,1137.18,853,1137.29,869,1135.65,869,1135.59,853,1137.18">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6115,6113"/>
+ </polygon>
+ <polygon id="6115" colour="gray55" layer="3D" depth="-5" xy="853,1137.29,853,1137.41,869,1135.7,869,1135.65,853,1137.29">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6116,6114"/>
+ </polygon>
+ <polygon id="6116" colour="#898989" layer="3D" depth="-5" xy="853,1137.41,853,1137.52,869,1135.76,869,1135.7,853,1137.41">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6117,6115"/>
+ </polygon>
+ <polygon id="6117" colour="gray53" layer="3D" depth="-5" xy="853,1137.52,853,1137.63,869,1135.82,869,1135.76,853,1137.52">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6118,6116"/>
+ </polygon>
+ <polygon id="6118" colour="#848484" layer="3D" depth="-5" xy="853,1137.63,853,1137.74,869,1135.87,869,1135.82,853,1137.63">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6119,6117"/>
+ </polygon>
+ <polygon id="6119" colour="gray51" layer="3D" depth="-5" xy="853,1137.74,853,1137.85,869,1135.93,869,1135.87,853,1137.74">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6120,6118"/>
+ </polygon>
+ <polygon id="6120" colour="#808080" layer="3D" depth="-5" xy="853,1137.85,853,1137.96,869,1135.98,869,1135.93,853,1137.85">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6121,6119"/>
+ </polygon>
+ <polygon id="6121" colour="gray49" layer="3D" depth="-5" xy="853,1137.96,853,1138.07,869,1136.04,869,1135.98,853,1137.96">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6122,6120"/>
+ </polygon>
+ <polygon id="6122" colour="#7b7b7b" layer="3D" depth="-5" xy="853,1138.07,853,1138.18,869,1136.09,869,1136.04,853,1138.07">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6123,6121"/>
+ </polygon>
+ <polygon id="6123" colour="#797979" layer="3D" depth="-5" xy="853,1138.18,853,1138.29,869,1136.14,869,1136.09,853,1138.18">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6124,6122"/>
+ </polygon>
+ <polygon id="6124" colour="#777777" layer="3D" depth="-5" xy="853,1138.29,853,1138.39,869,1136.2,869,1136.14,853,1138.29">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6125,6123"/>
+ </polygon>
+ <polygon id="6125" colour="#747474" layer="3D" depth="-5" xy="853,1138.39,853,1138.5,869,1136.25,869,1136.2,853,1138.39">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6126,6124"/>
+ </polygon>
+ <polygon id="6126" colour="#727272" layer="3D" depth="-5" xy="853,1138.5,853,1138.6,869,1136.3,869,1136.25,853,1138.5">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6127,6125"/>
+ </polygon>
+ <polygon id="6127" colour="gray44" layer="3D" depth="-5" xy="853,1138.6,853,1138.7,869,1136.35,869,1136.3,853,1138.6">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6128,6126"/>
+ </polygon>
+ <polygon id="6128" colour="gray43" layer="3D" depth="-5" xy="853,1138.7,853,1138.8,869,1136.4,869,1136.35,853,1138.7">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6129,6127"/>
+ </polygon>
+ <polygon id="6129" colour="#6c6c6c" layer="3D" depth="-5" xy="853,1138.8,853,1138.9,869,1136.45,869,1136.4,853,1138.8">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6130,6128"/>
+ </polygon>
+ <polygon id="6130" colour="#6a6a6a" layer="3D" depth="-5" xy="853,1138.9,853,1139,869,1136.5,869,1136.45,853,1138.9">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6131,6129"/>
+ </polygon>
+ <polygon id="6131" colour="#686868" layer="3D" depth="-5" xy="853,1139,853,1139.1,869,1136.55,869,1136.5,853,1139">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6132,6130"/>
+ </polygon>
+ <polygon id="6132" colour="gray40" layer="3D" depth="-5" xy="853,1139.1,853,1139.2,869,1136.6,869,1136.55,853,1139.1">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6133,6131"/>
+ </polygon>
+ <polygon id="6133" colour="#646464" layer="3D" depth="-5" xy="853,1139.2,853,1139.29,869,1136.65,869,1136.6,853,1139.2">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6134,6132"/>
+ </polygon>
+ <polygon id="6134" colour="#626262" layer="3D" depth="-5" xy="853,1139.29,853,1139.38,869,1136.69,869,1136.65,853,1139.29">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6135,6133"/>
+ </polygon>
+ <polygon id="6135" colour="#606060" layer="3D" depth="-5" xy="853,1139.38,853,1139.48,869,1136.74,869,1136.69,853,1139.38">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6136,6134"/>
+ </polygon>
+ <polygon id="6136" colour="gray37" layer="3D" depth="-5" xy="853,1139.48,853,1139.57,869,1136.78,869,1136.74,853,1139.48">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6137,6135"/>
+ </polygon>
+ <polygon id="6137" colour="gray36" layer="3D" depth="-5" xy="853,1139.57,853,1139.66,869,1136.83,869,1136.78,853,1139.57">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6138,6136"/>
+ </polygon>
+ <polygon id="6138" colour="#5a5a5a" layer="3D" depth="-5" xy="853,1139.66,853,1139.74,869,1136.87,869,1136.83,853,1139.66">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6139,6137"/>
+ </polygon>
+ <polygon id="6139" colour="#585858" layer="3D" depth="-5" xy="853,1139.74,853,1139.83,869,1136.92,869,1136.87,853,1139.74">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6140,6138"/>
+ </polygon>
+ <polygon id="6140" colour="#565656" layer="3D" depth="-5" xy="853,1139.83,853,1139.92,869,1136.96,869,1136.92,853,1139.83">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6141,6139"/>
+ </polygon>
+ <polygon id="6141" colour="gray33" layer="3D" depth="-5" xy="853,1139.92,853,1140,869,1137,869,1136.96,853,1139.92">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6142,6140"/>
+ </polygon>
+ <polygon id="6142" colour="#535353" layer="3D" depth="-5" xy="853,1140,853,1140.08,869,1137.04,869,1137,853,1140">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6143,6141"/>
+ </polygon>
+ <polygon id="6143" colour="#515151" layer="3D" depth="-5" xy="853,1140.08,853,1140.16,869,1137.08,869,1137.04,853,1140.08">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6144,6142"/>
+ </polygon>
+ <polygon id="6144" colour="gray31" layer="3D" depth="-5" xy="853,1140.16,853,1140.24,869,1137.12,869,1137.08,853,1140.16">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6145,6143"/>
+ </polygon>
+ <polygon id="6145" colour="#4e4e4e" layer="3D" depth="-5" xy="853,1140.24,853,1140.32,869,1137.16,869,1137.12,853,1140.24">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6146,6144"/>
+ </polygon>
+ <polygon id="6146" colour="#4c4c4c" layer="3D" depth="-5" xy="853,1140.32,853,1140.4,869,1137.2,869,1137.16,853,1140.32">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6147,6145"/>
+ </polygon>
+ <polygon id="6147" colour="gray29" layer="3D" depth="-5" xy="853,1140.4,853,1140.47,869,1137.24,869,1137.2,853,1140.4">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6148,6146"/>
+ </polygon>
+ <polygon id="6148" colour="#494949" layer="3D" depth="-5" xy="853,1140.47,853,1140.55,869,1137.27,869,1137.24,853,1140.47">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6149,6147"/>
+ </polygon>
+ <polygon id="6149" colour="gray28" layer="3D" depth="-5" xy="853,1140.55,853,1140.62,869,1137.31,869,1137.27,853,1140.55">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6150,6148"/>
+ </polygon>
+ <polygon id="6150" colour="#464646" layer="3D" depth="-5" xy="853,1140.62,853,1140.69,869,1137.34,869,1137.31,853,1140.62">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6151,6149"/>
+ </polygon>
+ <polygon id="6151" colour="#444444" layer="3D" depth="-5" xy="853,1140.69,853,1140.75,869,1137.38,869,1137.34,853,1140.69">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6152,6150"/>
+ </polygon>
+ <polygon id="6152" colour="#434343" layer="3D" depth="-5" xy="853,1140.75,853,1140.82,869,1137.41,869,1137.38,853,1140.75">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6153,6151"/>
+ </polygon>
+ <polygon id="6153" colour="gray26" layer="3D" depth="-5" xy="853,1140.82,853,1140.89,869,1137.44,869,1137.41,853,1140.82">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6154,6152"/>
+ </polygon>
+ <polygon id="6154" colour="gray25" layer="3D" depth="-5" xy="853,1140.89,853,1140.95,869,1137.47,869,1137.44,853,1140.89">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6155,6153"/>
+ </polygon>
+ <polygon id="6155" colour="#3f3f3f" layer="3D" depth="-5" xy="853,1140.95,853,1141.01,869,1137.51,869,1137.47,853,1140.95">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6156,6154"/>
+ </polygon>
+ <polygon id="6156" colour="#3e3e3e" layer="3D" depth="-5" xy="853,1141.01,853,1141.07,869,1137.54,869,1137.51,853,1141.01">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6157,6155"/>
+ </polygon>
+ <polygon id="6157" colour="gray24" layer="3D" depth="-5" xy="853,1141.07,853,1141.13,869,1137.56,869,1137.54,853,1141.07">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6158,6156"/>
+ </polygon>
+ <polygon id="6158" colour="gray23" layer="3D" depth="-5" xy="853,1141.13,853,1141.18,869,1137.59,869,1137.56,853,1141.13">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6159,6157"/>
+ </polygon>
+ <polygon id="6159" colour="#3a3a3a" layer="3D" depth="-5" xy="853,1141.18,853,1141.24,869,1137.62,869,1137.59,853,1141.18">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6160,6158"/>
+ </polygon>
+ <polygon id="6160" colour="#393939" layer="3D" depth="-5" xy="853,1141.24,853,1141.29,869,1137.65,869,1137.62,853,1141.24">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6161,6159"/>
+ </polygon>
+ <polygon id="6161" colour="gray22" layer="3D" depth="-5" xy="853,1141.29,853,1141.34,869,1137.67,869,1137.65,853,1141.29">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6162,6160"/>
+ </polygon>
+ <polygon id="6162" colour="#373737" layer="3D" depth="-5" xy="853,1141.34,853,1141.39,869,1137.7,869,1137.67,853,1141.34">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6163,6161"/>
+ </polygon>
+ <polygon id="6163" colour="gray21" layer="3D" depth="-5" xy="853,1141.39,853,1141.44,869,1137.72,869,1137.7,853,1141.39">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6164,6162"/>
+ </polygon>
+ <polygon id="6164" colour="#353535" layer="3D" depth="-5" xy="853,1141.44,853,1141.48,869,1137.74,869,1137.72,853,1141.44">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6165,6163"/>
+ </polygon>
+ <polygon id="6165" colour="#343434" layer="3D" depth="-5" xy="853,1141.48,853,1141.53,869,1137.76,869,1137.74,853,1141.48">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6166,6164"/>
+ </polygon>
+ <polygon id="6166" colour="gray20" layer="3D" depth="-5" xy="853,1141.53,853,1141.57,869,1137.78,869,1137.76,853,1141.53">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6167,6165"/>
+ </polygon>
+ <polygon id="6167" colour="#323232" layer="3D" depth="-5" xy="853,1141.57,853,1141.61,869,1137.8,869,1137.78,853,1141.57">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6168,6166"/>
+ </polygon>
+ <polygon id="6168" colour="#323232" layer="3D" depth="-5" xy="853,1141.61,853,1141.65,869,1137.82,869,1137.8,853,1141.61">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6169,6167"/>
+ </polygon>
+ <polygon id="6169" colour="#313131" layer="3D" depth="-5" xy="853,1141.65,853,1141.68,869,1137.84,869,1137.82,853,1141.65">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6170,6168"/>
+ </polygon>
+ <polygon id="6170" colour="gray19" layer="3D" depth="-5" xy="853,1141.68,853,1141.72,869,1137.86,869,1137.84,853,1141.68">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6171,6169"/>
+ </polygon>
+ <polygon id="6171" colour="#2f2f2f" layer="3D" depth="-5" xy="853,1141.72,853,1141.75,869,1137.87,869,1137.86,853,1141.72">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6172,6170"/>
+ </polygon>
+ <polygon id="6172" colour="#2f2f2f" layer="3D" depth="-5" xy="853,1141.75,853,1141.78,869,1137.89,869,1137.87,853,1141.75">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6173,6171"/>
+ </polygon>
+ <polygon id="6173" colour="gray18" layer="3D" depth="-5" xy="853,1141.78,853,1141.81,869,1137.9,869,1137.89,853,1141.78">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6174,6172"/>
+ </polygon>
+ <polygon id="6174" colour="gray18" layer="3D" depth="-5" xy="853,1141.81,853,1141.83,869,1137.92,869,1137.9,853,1141.81">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6175,6173"/>
+ </polygon>
+ <polygon id="6175" colour="#2d2d2d" layer="3D" depth="-5" xy="853,1141.83,853,1141.86,869,1137.93,869,1137.92,853,1141.83">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6176,6174"/>
+ </polygon>
+ <polygon id="6176" colour="#2d2d2d" layer="3D" depth="-5" xy="853,1141.86,853,1141.88,869,1137.94,869,1137.93,853,1141.86">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6177,6175"/>
+ </polygon>
+ <polygon id="6177" colour="#2c2c2c" layer="3D" depth="-5" xy="853,1141.88,853,1141.9,869,1137.95,869,1137.94,853,1141.88">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6178,6176"/>
+ </polygon>
+ <polygon id="6178" colour="#2c2c2c" layer="3D" depth="-5" xy="853,1141.9,853,1141.92,869,1137.96,869,1137.95,853,1141.9">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6179,6177"/>
+ </polygon>
+ <polygon id="6179" colour="gray17" layer="3D" depth="-5" xy="853,1141.92,853,1141.94,869,1137.97,869,1137.96,853,1141.92">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6180,6178"/>
+ </polygon>
+ <polygon id="6180" colour="gray17" layer="3D" depth="-5" xy="853,1141.94,853,1141.95,869,1137.98,869,1137.97,853,1141.94">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6181,6179"/>
+ </polygon>
+ <polygon id="6181" colour="gray17" layer="3D" depth="-5" xy="853,1141.95,853,1141.96,869,1137.98,869,1137.98,853,1141.95">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6182,6180"/>
+ </polygon>
+ <polygon id="6182" colour="gray17" layer="3D" depth="-5" xy="853,1141.96,853,1141.98,869,1137.99,869,1137.98,853,1141.96">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6183,6181"/>
+ </polygon>
+ <polygon id="6183" colour="#2a2a2a" layer="3D" depth="-5" xy="853,1141.98,853,1141.98,869,1137.99,869,1137.99,853,1141.98">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6184,6182"/>
+ </polygon>
+ <polygon id="6184" colour="#2a2a2a" layer="3D" depth="-5" xy="853,1141.98,853,1141.99,869,1138,869,1137.99,853,1141.98">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6185,6183"/>
+ </polygon>
+ <polygon id="6185" colour="#2a2a2a" layer="3D" depth="-5" xy="853,1141.99,853,1142,869,1138,869,1138,853,1141.99">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6186,6184"/>
+ </polygon>
+ <polygon id="6186" colour="#2a2a2a" layer="3D" depth="-5" xy="853,1142,853,1142,869,1138,869,1138,853,1142">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6187,6185"/>
+ </polygon>
+ <polygon id="6187" colour="#2a2a2a" layer="3D" depth="-5" xy="853,1142,853,1142,869,1138,869,1138,853,1142">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6188,6186"/>
+ </polygon>
+ <polygon id="6188" colour="gray82" layer="3D" depth="-5" xy="853,1134,853,1133.87,869,1133.94,869,1134,853,1134">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6189,6187"/>
+ </polygon>
+ <polygon id="6189" colour="gray81" layer="3D" depth="-5" xy="853,1133.87,853,1133.75,869,1133.87,869,1133.94,853,1133.87">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6190,6188"/>
+ </polygon>
+ <polygon id="6190" colour="gray80" layer="3D" depth="-5" xy="853,1133.75,853,1133.62,869,1133.81,869,1133.87,853,1133.75">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6191,6189"/>
+ </polygon>
+ <polygon id="6191" colour="gray79" layer="3D" depth="-5" xy="853,1133.62,853,1133.5,869,1133.75,869,1133.81,853,1133.62">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6192,6190"/>
+ </polygon>
+ <polygon id="6192" colour="gray78" layer="3D" depth="-5" xy="853,1133.5,853,1133.37,869,1133.69,869,1133.75,853,1133.5">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6193,6191"/>
+ </polygon>
+ <polygon id="6193" colour="gray77" layer="3D" depth="-5" xy="853,1133.37,853,1133.25,869,1133.62,869,1133.69,853,1133.37">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6194,6192"/>
+ </polygon>
+ <polygon id="6194" colour="#c1c1c1" layer="3D" depth="-5" xy="853,1133.25,853,1133.12,869,1133.56,869,1133.62,853,1133.25">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6195,6193"/>
+ </polygon>
+ <polygon id="6195" colour="gray75" layer="3D" depth="-5" xy="853,1133.12,853,1133,869,1133.5,869,1133.56,853,1133.12">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6196,6194"/>
+ </polygon>
+ <polygon id="6196" colour="#bcbcbc" layer="3D" depth="-5" xy="853,1133,853,1132.87,869,1133.44,869,1133.5,853,1133">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6197,6195"/>
+ </polygon>
+ <polygon id="6197" colour="#b9b9b9" layer="3D" depth="-5" xy="853,1132.87,853,1132.75,869,1133.37,869,1133.44,853,1132.87">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6198,6196"/>
+ </polygon>
+ <polygon id="6198" colour="#b7b7b7" layer="3D" depth="-5" xy="853,1132.75,853,1132.62,869,1133.31,869,1133.37,853,1132.75">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6199,6197"/>
+ </polygon>
+ <polygon id="6199" colour="#b4b4b4" layer="3D" depth="-5" xy="853,1132.62,853,1132.5,869,1133.25,869,1133.31,853,1132.62">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6200,6198"/>
+ </polygon>
+ <polygon id="6200" colour="#b2b2b2" layer="3D" depth="-5" xy="853,1132.5,853,1132.38,869,1133.19,869,1133.25,853,1132.5">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6201,6199"/>
+ </polygon>
+ <polygon id="6201" colour="#afafaf" layer="3D" depth="-5" xy="853,1132.38,853,1132.25,869,1133.13,869,1133.19,853,1132.38">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6202,6200"/>
+ </polygon>
+ <polygon id="6202" colour="#acacac" layer="3D" depth="-5" xy="853,1132.25,853,1132.13,869,1133.07,869,1133.13,853,1132.25">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6203,6201"/>
+ </polygon>
+ <polygon id="6203" colour="#aaaaaa" layer="3D" depth="-5" xy="853,1132.13,853,1132.01,869,1133.01,869,1133.07,853,1132.13">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6204,6202"/>
+ </polygon>
+ <polygon id="6204" colour="#a7a7a7" layer="3D" depth="-5" xy="853,1132.01,853,1131.89,869,1132.94,869,1133.01,853,1132.01">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6205,6203"/>
+ </polygon>
+ <polygon id="6205" colour="#a5a5a5" layer="3D" depth="-5" xy="853,1131.89,853,1131.77,869,1132.88,869,1132.94,853,1131.89">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6206,6204"/>
+ </polygon>
+ <polygon id="6206" colour="#a2a2a2" layer="3D" depth="-5" xy="853,1131.77,853,1131.65,869,1132.82,869,1132.88,853,1131.77">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6207,6205"/>
+ </polygon>
+ <polygon id="6207" colour="#9f9f9f" layer="3D" depth="-5" xy="853,1131.65,853,1131.53,869,1132.76,869,1132.82,853,1131.65">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6208,6206"/>
+ </polygon>
+ <polygon id="6208" colour="#9d9d9d" layer="3D" depth="-5" xy="853,1131.53,853,1131.41,869,1132.7,869,1132.76,853,1131.53">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6209,6207"/>
+ </polygon>
+ <polygon id="6209" colour="#9a9a9a" layer="3D" depth="-5" xy="853,1131.41,853,1131.29,869,1132.65,869,1132.7,853,1131.41">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6210,6208"/>
+ </polygon>
+ <polygon id="6210" colour="#989898" layer="3D" depth="-5" xy="853,1131.29,853,1131.17,869,1132.59,869,1132.65,853,1131.29">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6211,6209"/>
+ </polygon>
+ <polygon id="6211" colour="#959595" layer="3D" depth="-5" xy="853,1131.17,853,1131.06,869,1132.53,869,1132.59,853,1131.17">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6212,6210"/>
+ </polygon>
+ <polygon id="6212" colour="#939393" layer="3D" depth="-5" xy="853,1131.06,853,1130.94,869,1132.47,869,1132.53,853,1131.06">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6213,6211"/>
+ </polygon>
+ <polygon id="6213" colour="#909090" layer="3D" depth="-5" xy="853,1130.94,853,1130.82,869,1132.41,869,1132.47,853,1130.94">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6214,6212"/>
+ </polygon>
+ <polygon id="6214" colour="#8e8e8e" layer="3D" depth="-5" xy="853,1130.82,853,1130.71,869,1132.35,869,1132.41,853,1130.82">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6215,6213"/>
+ </polygon>
+ <polygon id="6215" colour="gray55" layer="3D" depth="-5" xy="853,1130.71,853,1130.59,869,1132.3,869,1132.35,853,1130.71">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6216,6214"/>
+ </polygon>
+ <polygon id="6216" colour="#898989" layer="3D" depth="-5" xy="853,1130.59,853,1130.48,869,1132.24,869,1132.3,853,1130.59">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6217,6215"/>
+ </polygon>
+ <polygon id="6217" colour="gray53" layer="3D" depth="-5" xy="853,1130.48,853,1130.37,869,1132.18,869,1132.24,853,1130.48">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6218,6216"/>
+ </polygon>
+ <polygon id="6218" colour="#848484" layer="3D" depth="-5" xy="853,1130.37,853,1130.26,869,1132.13,869,1132.18,853,1130.37">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6219,6217"/>
+ </polygon>
+ <polygon id="6219" colour="gray51" layer="3D" depth="-5" xy="853,1130.26,853,1130.15,869,1132.07,869,1132.13,853,1130.26">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6220,6218"/>
+ </polygon>
+ <polygon id="6220" colour="#808080" layer="3D" depth="-5" xy="853,1130.15,853,1130.04,869,1132.02,869,1132.07,853,1130.15">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6221,6219"/>
+ </polygon>
+ <polygon id="6221" colour="gray49" layer="3D" depth="-5" xy="853,1130.04,853,1129.93,869,1131.96,869,1132.02,853,1130.04">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6222,6220"/>
+ </polygon>
+ <polygon id="6222" colour="#7b7b7b" layer="3D" depth="-5" xy="853,1129.93,853,1129.82,869,1131.91,869,1131.96,853,1129.93">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6223,6221"/>
+ </polygon>
+ <polygon id="6223" colour="#797979" layer="3D" depth="-5" xy="853,1129.82,853,1129.71,869,1131.86,869,1131.91,853,1129.82">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6224,6222"/>
+ </polygon>
+ <polygon id="6224" colour="#777777" layer="3D" depth="-5" xy="853,1129.71,853,1129.61,869,1131.8,869,1131.86,853,1129.71">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6225,6223"/>
+ </polygon>
+ <polygon id="6225" colour="#747474" layer="3D" depth="-5" xy="853,1129.61,853,1129.5,869,1131.75,869,1131.8,853,1129.61">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6226,6224"/>
+ </polygon>
+ <polygon id="6226" colour="#727272" layer="3D" depth="-5" xy="853,1129.5,853,1129.4,869,1131.7,869,1131.75,853,1129.5">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6227,6225"/>
+ </polygon>
+ <polygon id="6227" colour="gray44" layer="3D" depth="-5" xy="853,1129.4,853,1129.3,869,1131.65,869,1131.7,853,1129.4">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6228,6226"/>
+ </polygon>
+ <polygon id="6228" colour="gray43" layer="3D" depth="-5" xy="853,1129.3,853,1129.2,869,1131.6,869,1131.65,853,1129.3">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6229,6227"/>
+ </polygon>
+ <polygon id="6229" colour="#6c6c6c" layer="3D" depth="-5" xy="853,1129.2,853,1129.1,869,1131.55,869,1131.6,853,1129.2">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6230,6228"/>
+ </polygon>
+ <polygon id="6230" colour="#6a6a6a" layer="3D" depth="-5" xy="853,1129.1,853,1129,869,1131.5,869,1131.55,853,1129.1">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6231,6229"/>
+ </polygon>
+ <polygon id="6231" colour="#686868" layer="3D" depth="-5" xy="853,1129,853,1128.9,869,1131.45,869,1131.5,853,1129">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6232,6230"/>
+ </polygon>
+ <polygon id="6232" colour="gray40" layer="3D" depth="-5" xy="853,1128.9,853,1128.8,869,1131.4,869,1131.45,853,1128.9">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6233,6231"/>
+ </polygon>
+ <polygon id="6233" colour="#646464" layer="3D" depth="-5" xy="853,1128.8,853,1128.71,869,1131.35,869,1131.4,853,1128.8">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6234,6232"/>
+ </polygon>
+ <polygon id="6234" colour="#626262" layer="3D" depth="-5" xy="853,1128.71,853,1128.62,869,1131.31,869,1131.35,853,1128.71">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6235,6233"/>
+ </polygon>
+ <polygon id="6235" colour="#606060" layer="3D" depth="-5" xy="853,1128.62,853,1128.52,869,1131.26,869,1131.31,853,1128.62">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6236,6234"/>
+ </polygon>
+ <polygon id="6236" colour="gray37" layer="3D" depth="-5" xy="853,1128.52,853,1128.43,869,1131.22,869,1131.26,853,1128.52">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6237,6235"/>
+ </polygon>
+ <polygon id="6237" colour="gray36" layer="3D" depth="-5" xy="853,1128.43,853,1128.34,869,1131.17,869,1131.22,853,1128.43">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6238,6236"/>
+ </polygon>
+ <polygon id="6238" colour="#5a5a5a" layer="3D" depth="-5" xy="853,1128.34,853,1128.26,869,1131.13,869,1131.17,853,1128.34">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6239,6237"/>
+ </polygon>
+ <polygon id="6239" colour="#585858" layer="3D" depth="-5" xy="853,1128.26,853,1128.17,869,1131.08,869,1131.13,853,1128.26">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6240,6238"/>
+ </polygon>
+ <polygon id="6240" colour="#565656" layer="3D" depth="-5" xy="853,1128.17,853,1128.08,869,1131.04,869,1131.08,853,1128.17">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6241,6239"/>
+ </polygon>
+ <polygon id="6241" colour="gray33" layer="3D" depth="-5" xy="853,1128.08,853,1128,869,1131,869,1131.04,853,1128.08">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6242,6240"/>
+ </polygon>
+ <polygon id="6242" colour="#535353" layer="3D" depth="-5" xy="853,1128,853,1127.92,869,1130.96,869,1131,853,1128">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6243,6241"/>
+ </polygon>
+ <polygon id="6243" colour="#515151" layer="3D" depth="-5" xy="853,1127.92,853,1127.84,869,1130.92,869,1130.96,853,1127.92">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6244,6242"/>
+ </polygon>
+ <polygon id="6244" colour="gray31" layer="3D" depth="-5" xy="853,1127.84,853,1127.76,869,1130.88,869,1130.92,853,1127.84">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6245,6243"/>
+ </polygon>
+ <polygon id="6245" colour="#4e4e4e" layer="3D" depth="-5" xy="853,1127.76,853,1127.68,869,1130.84,869,1130.88,853,1127.76">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6246,6244"/>
+ </polygon>
+ <polygon id="6246" colour="#4c4c4c" layer="3D" depth="-5" xy="853,1127.68,853,1127.6,869,1130.8,869,1130.84,853,1127.68">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6247,6245"/>
+ </polygon>
+ <polygon id="6247" colour="gray29" layer="3D" depth="-5" xy="853,1127.6,853,1127.53,869,1130.76,869,1130.8,853,1127.6">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6248,6246"/>
+ </polygon>
+ <polygon id="6248" colour="#494949" layer="3D" depth="-5" xy="853,1127.53,853,1127.45,869,1130.73,869,1130.76,853,1127.53">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6249,6247"/>
+ </polygon>
+ <polygon id="6249" colour="gray28" layer="3D" depth="-5" xy="853,1127.45,853,1127.38,869,1130.69,869,1130.73,853,1127.45">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6250,6248"/>
+ </polygon>
+ <polygon id="6250" colour="#464646" layer="3D" depth="-5" xy="853,1127.38,853,1127.31,869,1130.66,869,1130.69,853,1127.38">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6251,6249"/>
+ </polygon>
+ <polygon id="6251" colour="#444444" layer="3D" depth="-5" xy="853,1127.31,853,1127.25,869,1130.62,869,1130.66,853,1127.31">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6252,6250"/>
+ </polygon>
+ <polygon id="6252" colour="#434343" layer="3D" depth="-5" xy="853,1127.25,853,1127.18,869,1130.59,869,1130.62,853,1127.25">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6253,6251"/>
+ </polygon>
+ <polygon id="6253" colour="gray26" layer="3D" depth="-5" xy="853,1127.18,853,1127.11,869,1130.56,869,1130.59,853,1127.18">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6254,6252"/>
+ </polygon>
+ <polygon id="6254" colour="gray25" layer="3D" depth="-5" xy="853,1127.11,853,1127.05,869,1130.53,869,1130.56,853,1127.11">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6255,6253"/>
+ </polygon>
+ <polygon id="6255" colour="#3f3f3f" layer="3D" depth="-5" xy="853,1127.05,853,1126.99,869,1130.49,869,1130.53,853,1127.05">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6256,6254"/>
+ </polygon>
+ <polygon id="6256" colour="#3e3e3e" layer="3D" depth="-5" xy="853,1126.99,853,1126.93,869,1130.46,869,1130.49,853,1126.99">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6257,6255"/>
+ </polygon>
+ <polygon id="6257" colour="gray24" layer="3D" depth="-5" xy="853,1126.93,853,1126.87,869,1130.44,869,1130.46,853,1126.93">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6258,6256"/>
+ </polygon>
+ <polygon id="6258" colour="gray23" layer="3D" depth="-5" xy="853,1126.87,853,1126.82,869,1130.41,869,1130.44,853,1126.87">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6259,6257"/>
+ </polygon>
+ <polygon id="6259" colour="#3a3a3a" layer="3D" depth="-5" xy="853,1126.82,853,1126.76,869,1130.38,869,1130.41,853,1126.82">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6260,6258"/>
+ </polygon>
+ <polygon id="6260" colour="#393939" layer="3D" depth="-5" xy="853,1126.76,853,1126.71,869,1130.35,869,1130.38,853,1126.76">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6261,6259"/>
+ </polygon>
+ <polygon id="6261" colour="gray22" layer="3D" depth="-5" xy="853,1126.71,853,1126.66,869,1130.33,869,1130.35,853,1126.71">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6262,6260"/>
+ </polygon>
+ <polygon id="6262" colour="#373737" layer="3D" depth="-5" xy="853,1126.66,853,1126.61,869,1130.3,869,1130.33,853,1126.66">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6263,6261"/>
+ </polygon>
+ <polygon id="6263" colour="gray21" layer="3D" depth="-5" xy="853,1126.61,853,1126.56,869,1130.28,869,1130.3,853,1126.61">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6264,6262"/>
+ </polygon>
+ <polygon id="6264" colour="#353535" layer="3D" depth="-5" xy="853,1126.56,853,1126.52,869,1130.26,869,1130.28,853,1126.56">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6265,6263"/>
+ </polygon>
+ <polygon id="6265" colour="#343434" layer="3D" depth="-5" xy="853,1126.52,853,1126.47,869,1130.24,869,1130.26,853,1126.52">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6266,6264"/>
+ </polygon>
+ <polygon id="6266" colour="gray20" layer="3D" depth="-5" xy="853,1126.47,853,1126.43,869,1130.22,869,1130.24,853,1126.47">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6267,6265"/>
+ </polygon>
+ <polygon id="6267" colour="#323232" layer="3D" depth="-5" xy="853,1126.43,853,1126.39,869,1130.2,869,1130.22,853,1126.43">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6268,6266"/>
+ </polygon>
+ <polygon id="6268" colour="#323232" layer="3D" depth="-5" xy="853,1126.39,853,1126.35,869,1130.18,869,1130.2,853,1126.39">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6269,6267"/>
+ </polygon>
+ <polygon id="6269" colour="#313131" layer="3D" depth="-5" xy="853,1126.35,853,1126.32,869,1130.16,869,1130.18,853,1126.35">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6270,6268"/>
+ </polygon>
+ <polygon id="6270" colour="gray19" layer="3D" depth="-5" xy="853,1126.32,853,1126.28,869,1130.14,869,1130.16,853,1126.32">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6271,6269"/>
+ </polygon>
+ <polygon id="6271" colour="#2f2f2f" layer="3D" depth="-5" xy="853,1126.28,853,1126.25,869,1130.13,869,1130.14,853,1126.28">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6272,6270"/>
+ </polygon>
+ <polygon id="6272" colour="#2f2f2f" layer="3D" depth="-5" xy="853,1126.25,853,1126.22,869,1130.11,869,1130.13,853,1126.25">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6273,6271"/>
+ </polygon>
+ <polygon id="6273" colour="gray18" layer="3D" depth="-5" xy="853,1126.22,853,1126.19,869,1130.1,869,1130.11,853,1126.22">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6274,6272"/>
+ </polygon>
+ <polygon id="6274" colour="gray18" layer="3D" depth="-5" xy="853,1126.19,853,1126.17,869,1130.08,869,1130.1,853,1126.19">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6275,6273"/>
+ </polygon>
+ <polygon id="6275" colour="#2d2d2d" layer="3D" depth="-5" xy="853,1126.17,853,1126.14,869,1130.07,869,1130.08,853,1126.17">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6276,6274"/>
+ </polygon>
+ <polygon id="6276" colour="#2d2d2d" layer="3D" depth="-5" xy="853,1126.14,853,1126.12,869,1130.06,869,1130.07,853,1126.14">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6277,6275"/>
+ </polygon>
+ <polygon id="6277" colour="#2c2c2c" layer="3D" depth="-5" xy="853,1126.12,853,1126.1,869,1130.05,869,1130.06,853,1126.12">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6278,6276"/>
+ </polygon>
+ <polygon id="6278" colour="#2c2c2c" layer="3D" depth="-5" xy="853,1126.1,853,1126.08,869,1130.04,869,1130.05,853,1126.1">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6279,6277"/>
+ </polygon>
+ <polygon id="6279" colour="gray17" layer="3D" depth="-5" xy="853,1126.08,853,1126.06,869,1130.03,869,1130.04,853,1126.08">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6280,6278"/>
+ </polygon>
+ <polygon id="6280" colour="gray17" layer="3D" depth="-5" xy="853,1126.06,853,1126.05,869,1130.02,869,1130.03,853,1126.06">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6281,6279"/>
+ </polygon>
+ <polygon id="6281" colour="gray17" layer="3D" depth="-5" xy="853,1126.05,853,1126.04,869,1130.02,869,1130.02,853,1126.05">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6282,6280"/>
+ </polygon>
+ <polygon id="6282" colour="gray17" layer="3D" depth="-5" xy="853,1126.04,853,1126.02,869,1130.01,869,1130.02,853,1126.04">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6283,6281"/>
+ </polygon>
+ <polygon id="6283" colour="#2a2a2a" layer="3D" depth="-5" xy="853,1126.02,853,1126.02,869,1130.01,869,1130.01,853,1126.02">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6284,6282"/>
+ </polygon>
+ <polygon id="6284" colour="#2a2a2a" layer="3D" depth="-5" xy="853,1126.02,853,1126.01,869,1130,869,1130.01,853,1126.02">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6285,6283"/>
+ </polygon>
+ <polygon id="6285" colour="#2a2a2a" layer="3D" depth="-5" xy="853,1126.01,853,1126,869,1130,869,1130,853,1126.01">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6286,6284"/>
+ </polygon>
+ <polygon id="6286" colour="#2a2a2a" layer="3D" depth="-5" xy="853,1126,853,1126,869,1130,869,1130,853,1126">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="6287,6285"/>
+ </polygon>
+ <polygon id="6287" colour="#2a2a2a" layer="3D" depth="-5" xy="853,1126,853,1126,869,1130,869,1130,853,1126">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="1187,6286"/>
+ </polygon>
+ <polygon id="1187" colour="gray81" layer="3D" depth="-5" xy="853,1134.13,853,1134.25,869,1134.13,869,1134.06,853,1134.13">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="1186,6287"/>
+ </polygon>
+ <polygon id="1186" colour="gray82" layer="3D" depth="-5" xy="853,1134,853,1134.13,869,1134.06,869,1134,853,1134">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="1188,1187"/>
+ </polygon>
+ <polygon id="1188" colour="gray80" layer="3D" depth="-5" xy="853,1134.25,853,1134.38,869,1134.19,869,1134.13,853,1134.25">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="5328,1186"/>
+ </polygon>
+</sym>

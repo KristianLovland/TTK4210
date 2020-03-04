@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<MenuItem Header="root" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:SimExplorer="clr-namespace:Kongsberg.KSpice.SimExplorer;assembly=SimExplorer" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <SimExplorer:UIControlMenuItem Header="Configure Connection..." IsEnabled="False" Name="barmenu_edit_1_0">
+    <MenuItem.Icon>
+      <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\cfgconn.ico"/>
+    </MenuItem.Icon>
+  </SimExplorer:UIControlMenuItem>
+
+  <Separator/>
+
+  <SimExplorer:UIControlMenuItem Header="Cut" IsEnabled="False" Name="barmenu_edit_3_0">
+    <MenuItem.Icon>
+      <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\cut.ico"/>
+    </MenuItem.Icon>
+  </SimExplorer:UIControlMenuItem>
+
+  <SimExplorer:UIControlMenuItem Header="Copy" Name="barmenu_edit_4_0">
+    <SimExplorer:UIControlMenuItem Header="To Clipboard" IsEnabled="False" Name="barmenu_edit_5_0">
+      <MenuItem.Icon>
+        <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\copy.ico"/>
+      </MenuItem.Icon>
+    </SimExplorer:UIControlMenuItem>
+    <SimExplorer:UIControlMenuItem Header="To File..." IsEnabled="False" Name="barmenu_edit_6_0"/>
+  </SimExplorer:UIControlMenuItem>
+
+  <SimExplorer:UIControlMenuItem Header="Paste" Name="barmenu_edit_7_0">
+    <SimExplorer:UIControlMenuItem Header="From Clipboard" IsEnabled="False" Name="barmenu_edit_8_0">
+      <MenuItem.Icon>
+        <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\paste.ico"/>
+      </MenuItem.Icon>
+    </SimExplorer:UIControlMenuItem>
+    <SimExplorer:UIControlMenuItem Header="From File..." Name="barmenu_edit_9_0"/>
+  </SimExplorer:UIControlMenuItem>
+
+  <SimExplorer:UIControlMenuItem Header="Move" IsEnabled="False" Name="barmenu_edit_10_0">
+    <MenuItem.Icon>
+      <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\move.ico"/>
+    </MenuItem.Icon>
+  </SimExplorer:UIControlMenuItem>
+
+  <SimExplorer:UIControlMenuItem Header="Rename..." IsEnabled="False" Name="barmenu_edit_11_0">
+    <MenuItem.Icon>
+      <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\rename.ico"/>
+    </MenuItem.Icon>
+  </SimExplorer:UIControlMenuItem>
+
+  <SimExplorer:UIControlMenuItem Header="Copy Values..." IsEnabled="False" Name="barmenu_edit_12_0">
+    <MenuItem.Icon>
+      <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\copypar.ico"/>
+    </MenuItem.Icon>
+  </SimExplorer:UIControlMenuItem>
+
+  <SimExplorer:UIControlMenuItem Header="Change Module Type..." IsEnabled="False" Name="barmenu_edit_13_0"/>
+
+  <Separator/>
+
+  <SimExplorer:UIControlMenuItem Header="Reorder Blocks" Name="barmenu_edit_15_0">
+    <SimExplorer:UIControlMenuItem Header="Dialog..." Name="barmenu_edit_16_0">
+      <MenuItem.Icon>
+        <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\reorder.ico"/>
+      </MenuItem.Icon>
+    </SimExplorer:UIControlMenuItem>
+    <SimExplorer:UIControlMenuItem Header="By Selection..." Name="barmenu_edit_17_0">
+      <MenuItem.Icon>
+        <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\reorder_s.ico"/>
+      </MenuItem.Icon>
+    </SimExplorer:UIControlMenuItem>
+  </SimExplorer:UIControlMenuItem>
+
+  <SimExplorer:UIControlMenuItem Header="Configure Animation..." IsEnabled="False" Name="barmenu_edit_18_0">
+    <MenuItem.Icon>
+      <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\cfganim.ico"/>
+    </MenuItem.Icon>
+  </SimExplorer:UIControlMenuItem>
+
+  <Separator/>
+
+  <SimExplorer:UIControlMenuItem Header="Text..." Name="barmenu_edit_20_0">
+    <MenuItem.Icon>
+      <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\text.ico"/>
+    </MenuItem.Icon>
+  </SimExplorer:UIControlMenuItem>
+
+  <SimExplorer:UIControlMenuItem Header="Add Highlight" IsEnabled="False" Name="barmenu_edit_21_0">
+    <MenuItem.Icon>
+      <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\addhilite.ico"/>
+    </MenuItem.Icon>
+  </SimExplorer:UIControlMenuItem>
+
+  <SimExplorer:UIControlMenuItem Header="Remove Highlight" IsEnabled="False" Name="barmenu_edit_22_0">
+    <MenuItem.Icon>
+      <Image Source="C:\Program Files (x86)\Kongsberg\K-Spice\Explorer\Resources\Standard\bitmaps\remhilite.ico"/>
+    </MenuItem.Icon>
+  </SimExplorer:UIControlMenuItem>
+
+  <SimExplorer:UIControlMenuItem Header="Highlights" IsCheckable="True" IsChecked="True" Name="barmenu_edit_23_0"/>
+
+  <Separator/>
+
+  <SimExplorer:UIControlMenuItem Header="Undo" IsEnabled="False" Name="barmenu_edit_25_0"/>
+
+</MenuItem>

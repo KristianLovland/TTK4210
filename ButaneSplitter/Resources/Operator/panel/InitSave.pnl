@@ -1,0 +1,91 @@
+
+// shortcuts for load commands
+#define SAVEPARA	SetModelParameter,s,ParaName@F_save,s,%LOCAL_ACTIVE_TIMELINE
+#define SAVEINIT	SetModelParameter,s,InitName@F_save,s,%LOCAL_ACTIVE_TIMELINE
+#define SAVEHIST	SetModelParameter,s,HistName@F_save,s,%LOCAL_ACTIVE_TIMELINE
+
+Set Variable = PARNAME,"#(GetModelParameter;%_ROOT|ParaName,%_ACTIVE_TIMELINE)";
+Set Variable = VALNAME,"#(GetModelParameter;%_ROOT|InitName,%_ACTIVE_TIMELINE)";
+
+Header	Title = "Save Conditions"; Position = Centrescreen; \
+		Type = Exclusive; Name = "Open"; OneOff; \
+		Mid = %_ROOT; \
+		Action=Apply,set,DESC,!105; \
+		Action=Apply,send,SetModelParameter,s,%TYPE@F_Desc,s,%LOCAL_ACTIVE_TIMELINE,s,%FNAME,s,%DESC; \
+		ActionIf = -,'empty(%_OP_OPT1)',Set,_OP_OPT1,0; \
+		ActionIf = -,'empty(%_OP_OPT2)',Set,_OP_OPT2,0; \
+		ActionIf = -,'empty(%_OP_OPT3)',Set,_OP_OPT3,0; \
+		ActionIf = -,'%_OP_OPT3 == 1',SetSwitch,74,1; \
+		ActionIf = -,'empty(%VALNAME)',SetField,104,"%(_ACTIVE_TIMELINE[0,1])_Model"; \
+		ActionElse = -,SetField,104,%VALNAME;
+
+Frame	Id = 9; Layout = Vertical;
+
+// add timeline toolbar with custom actions
+#define TL_TBAR_PARENT 9
+#define TL_TBAR_INCLUDE_SELECTION_ITEM FALSE
+#include $EXPLORER_RESOURCES/Panel/TimelineToolbar.def
+
+TIMELINE_SELECTION_ITEM \
+	Action = Set,VALNAME,"#(GetModelParameter;%_ROOT|InitName,%LOCAL_ACTIVE_TIMELINE)"; \
+	ActionIf = 'empty(%VALNAME)',SetField,104,"%(LOCAL_ACTIVE_TIMELINE[0,1])_Model"; \
+	ActionElse = SetField,104,%VALNAME;
+
+Frame	Id = 10; Frame = 9; Layout = Vertical; Space = 5; Pad = 8; 
+
+// toolbar
+
+Frame	Frame = 10; Id = 82; Layout = Horizontal;
+
+Frame	Frame = 82; Id = 81; Layout = Vertical;
+
+// Initial Conditions file
+Frame	Frame = 10; Id = 4; Layout = Horizontal; Space = 5; 
+Label	Frame = 4; Label = "Condition filename:"; SameWidth = 30;
+Field	Frame = 4; Id = 104; Width = 200;
+Label	Frame = 4; Label = "Description:"; SameWidth = 20;
+Field	Frame = 4; Id = 105; Width = 400;
+
+Button	Frame = 4; Image = "browser.ico"; SameHeight = 5; \
+		FeedBack = "Browse for conditions files"; \
+		Action = SMBrowserSave,ModelFiles,%LOCAL_ACTIVE_TIMELINE,InitName; \
+		Action = SetField,104,%_BROWSER_SELECTED_NAME; \
+		ActionIf = '"%LOCAL_ACTIVE_TIMELINE" != "%_BROWSER_SELECTED_TIMELINE"',Set,LOCAL_ACTIVE_TIMELINE,%_BROWSER_SELECTED_TIMELINE; \
+		ActionIf = *,Set,SELECTED_TIMELINE,"%(_BROWSER_SELECTED_TIMELINE[0,1])"; \
+		ActionIf = *,KickStart;
+
+
+//Button	Frame = 4; Image = "fileinfo.ico"; SameHeight = 5; \
+//		Action = Set,File,"Conditions"; \
+//		FeedBack = "Add descriptive comments to the conditions file"; \
+//		Action = Set,ACT,"InitName@F_hdr"; \
+//		Action = Set,Type,"InitName"; \
+//		Action = Set,FNAME,!104; \
+//		Action = Panel,coninfo.pnl;
+
+Button	Frame = 4; Label = "Save"; SameHeight = 5; \
+		Action = Set,FILENAME,!104; \
+		ActionIf = 'empty(%FILENAME)',MessageBox,"A conditions filename must be entered.",Error; \
+		ActionIf = *,Break; \
+		Action = Set,SV,!74; \
+		ActionIf = '%SV == 0',MessageYesNo,"Are you sure you want to save conditions file\n%FILENAME?",-,-,Question; \
+		ActionIf = "%SV == 0 && '%_MSG_YESNO' == 'Yes'",Send,SAVEINIT,s,%FILENAME; \
+		ActionIf = '%SV == 0',popdown; \
+		ActionIf = '%SV == 0',Break; \
+		Action = MessageYesNo,"Are you sure you want to save conditions and history files\n%FILENAME?",-,-,Question; \
+		ActionIf = "'%_MSG_YESNO' == 'Yes'",Send,SAVEHIST,s,%FILENAME; \
+		ActionIf = *,Send,SAVEINIT,s,%FILENAME;
+
+Frame	Frame = 10; Id = 80; Layout = Horizontal; Space = 5;
+Stub		Frame = 80; SameWidth = 30;
+Switch	Frame = 80; Id = 74; Label = "Save conditions with trend history"; \
+		Action = SetRegistry,_OP_OPT3,!74;
+
+//Button	Frame = 80; Image = "fileinfo.ico"; SameHeight = 5; \
+//		Action = Set,File,"History"; \
+//		FeedBack = "Add descriptive comments to the history file"; \
+//		Action = Set,ACT,"HistName@F_hdr"; \
+//		Action = Set,Type,"HistName"; \
+//		Action = Set,FNAME,!105; \
+//		Action = Panel,coninfo.pnl;
+

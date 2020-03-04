@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<KSPICE_PROJECT xmlns="">
+
+  <Version>3.2.0.9</Version>
+
+  <!--Timeline ButaneSplitter-->
+
+  <TIME_LINE name="ButaneSplitter">
+    <OPTION AutoActivate="True" AutoLoad="ButaneSplitter" AutoRun="False" CatchUpLag="30.00" ConditionAsStartState="False" CyclicSession="False" ExternalFilePath="" InitFileFormatHint="0" LoadInitRewind="0" LoadInitStrategy="0" LoadSnapRewind="0" LoadSnapStrategy="1" ManualSession="False" MaxSlip="0" ModelSpeedMax="20.00" ModelSpeedReq="20.00" ResetSpeedCalcOnSnapshotSave="False" RunForTime="0.00" RunMode="Engineering" ScenarioList="" SessionInterval="0.00" SessionScenario="False" SnapFileFormatHint="1" StartStateTime="0.00" StartStateTimeInterval="0.00" StartStateType="0" StepSize="1.00" TimeDelay="0.00" TimeFormat="0" TimeLineStateSource=""/>
+    <SNAPSHOTS AutoLoadOnStart="False" AutoSave="False" AutosaveOnExactHour="False" DeleteAllOnLoadIC="True" DeleteNewerOnLoadIC="False" DeleteOnLoad="True" DeleteOnStartup="True" MaxNoOfSnapshots="10" MinimumAgeAutoLoad="0.00" SnapInterval="600.00" WithHistory="False"/>
+    <STEPCONTROL/>
+    <!--Application ProcessModel in Timeline ButaneSplitter-->
+    <APPLICATION name="ProcessModel">
+      <OPTION Background="True" CommandLineExtension="" Enabled="True" TestMode="False"/>
+      <PROGNAME>ModelServer</PROGNAME>
+      <HOSTNAME>localhost</HOSTNAME>
+    </APPLICATION>
+  </TIME_LINE>
+
+</KSPICE_PROJECT>

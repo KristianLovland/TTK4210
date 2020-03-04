@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="9">
+ <header xy="282,319" xmin="261" ymin="285" xmax="302" ymax="336">
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Valve"/>
+  <attribute name="ItemType" type="text" value="DcsValveControl"/>
+  <attribute name="SymName" type="text" value="DcsValveControl"/>
+  <attribute name="SelectBox" type="real" value="-17,-9,17,17"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="gray66" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="841" vheight="594" gpitch="1,1" goffset="0,0"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <symbol id="1119" estat="ext" xy="282,319" name="xdcs_valve_s1" pr6layer="0">
+  <attribute name="SymName" type="text" value="xdcs_valve_s1"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="0xe60000">
+   <state type="expression" expression="{%TAG_NAME:vsp@V_unscaled} &gt; 0.000001 + {%TAG_NAME:light@V_unscaled}" priority="1" foreground="0x00bb00"/>
+  </animation>
+ </symbol>
+ <string id="1115" colour="darkorange1" layer="Hidden" estat="ref" xy="265,310,265,336,299,336,299,310,265,310">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <polygon id="1116" xy="281.5,329,281.5,319,282.5,319,282.5,329,281.5,329"/>
+ <polygon id="1117" xy="273.34,329,290.66,329,289.934,330.087,289.071,331.071,288.088,331.933,287,332.66,285.827,333.239,284.588,333.659,283.305,333.914,282,334,280.695,333.914,279.412,333.659,278.173,333.239,277,332.66,275.912,331.934,274.929,331.071,274.066,330.088,273.34,329"/>
+ <cpoint id="1118" depth="11" estat="ref" xy="282,319">
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Valve"/>
+  <attribute name="ItemType" type="text" value="DcsValveControl"/>
+  <attribute name="SymName" type="text" value="DcsValveControl"/>
+ </cpoint>
+ <tnode id="1120" colour="red" layer="Hidden" depth="50" estat="ext" xy="282,285" height="6" hjust="centre" font="Arial">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <polygon id="1122" colour="0xfffff1" xy="261,295,261,307,302,307,302,295,261,295"/>
+ <tnode id="1123" depth="50" estat="ext" xy="291.75,296" height="10" hjust="right" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:vsp" format="%3.1f">
+  </animation>
+ </tnode>
+ <tnode id="1124" depth="50" estat="ext" xy="292,296" height="7" font="Arial">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:vsp@V_units" format="%s">
+  </animation>
+ </tnode>
+</sym>

@@ -1,0 +1,47 @@
+
+#include $EXPLORER_RESOURCES/panel/ContinuousFlowCompressor_auto_cmp.def
+
+#define MAPAVAILABLE TRUE
+
+#include $EXPLORER_RESOURCES/panel/Default_cmp.def
+
+// optional stuff
+#ifdef '"%HIDEVARS" != "1"'
+Frame	Id = 100; Frame = 1; Layout = Vertical; Space = 5; Pad = 1;
+
+Variable	Frame = 100; VAR_NOEDIT; SameWidth = +1; \
+		Caption = "#(%TAG_NAME:Status@V_desc)"; Tag = "%TAG_NAME:Status";
+
+#endif
+
+#include $EXPLORER_RESOURCES/panel/CustomPanelMapFrame.def
+#include $EXPLORER_RESOURCES/panel/CustomPanelTrend.def
+
+// Map
+#ifdef '"%SHOWMAP" == "1"'
+
+Dataset	Name = "d1"; id = 3101; Tag = "%TAG_NAME:DisplayInletVolumeFlow@%TAG_NAME:DisplayPolytropicHead"; \
+		Colour = Green3; Static;
+
+Dataset	Name = "d2"; id = 3102; Tag = "%TAG_NAME:DisplaySurgeLimitPolytropicHead","%TAG_NAME:DisplaySurgeLimitVolumeFlow"; \
+		Colour = Red; Static;
+
+Dataset	Name = "d3"; id = 3103; Tag = "%TAG_NAME:DisplayChokeLimitPolytropicHead","%TAG_NAME:DisplayChokeLimitVolumeFlow"; \
+		Colour = Blue; Static;
+
+Dataset	Name = "d4"; id = 3105; Tag = "%TAG_NAME:PolytropicHead","%TAG_NAME:VolumeFlow"; \
+		Colour = Grey2;
+
+Display	Frame = TREND_FRAME; \
+		Size = TREND_WIDTH,250; \
+		Type = Trajectory; id = 3001; \
+		Dataset = "d1","d2","d3","d4"; \
+		XTitle = "flow rate #%TAG_NAME:VolumeFlow@V_units"; \
+		YTitle = "head #%TAG_NAME:PolytropicHead@V_units"; \
+		Background = TREND_BG; \
+		Foreground = TREND_FG; \
+		Grid = TREND_GRID; \
+		AutoFit;
+#endif
+
+

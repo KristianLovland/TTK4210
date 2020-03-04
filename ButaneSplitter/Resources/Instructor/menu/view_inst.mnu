@@ -1,0 +1,14 @@
+header	dll=ViewMenu;
+button	label="Layers..."; dependency='%SV_GRAPHICLOADED'; \
+	action=layer,dialog;
+// button	label=Console; checked=%SV_CONSOLEMAPPED; \
+//	actionif=%SV_CONSOLEMAPPED,mapconsole,off; \
+//	actionelse=mapconsole,on;
+#ifdef %SV_NAVIGATORENABLED
+button	label=Navigator; checked=%SV_NAVIGATORMAPPED; \
+	actionif=%SV_NAVIGATORMAPPED,mapnavigator,off; \
+	actionelse=mapnavigator,on;
+#endif
+
+// user extensions
+#include_noerror $EXPLORER_RESOURCES/menu/UserView.mnu

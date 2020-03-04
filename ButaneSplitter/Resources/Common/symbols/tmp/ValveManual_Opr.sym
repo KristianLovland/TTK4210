@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="14">
+ <header xy="546,727" xmin="537.001" ymin="721.001" xmax="555" ymax="736" vunits="mm">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Manual valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="Basic Process"/>
+  <attribute name="SymName" type="text" value="ValveManual"/>
+  <attribute name="transformation" type="int" value="0,2,4,7"/>
+  <attribute name="SelectBox" type="real" value="-9,-6,9,9"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="11-11-14 10:47:36"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" vunits="mm" gpitch="0.25,0.25" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <symbol id="1851" depth="4" estat="ext" xy="546,727" name="x_Valve_Body" xscl="1.5" yscl="1.5">
+  <attribute name="SymName" type="text" value="x_Valve_Body"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="yellow">
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == 1" priority="0" foreground="green"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedClosed} == 1" priority="0"/>
+   <state type="expression" expression="(({%TAG_NAME:IsDefinedOpen}) == 1 &amp;&amp; ({%TAG_NAME:IsDefinedClosed} == 1))" priority="5" foreground="magenta"/>
+  </animation>
+ </symbol>
+ <symbol id="2450" estat="ext" xy="538.5,722.5,553.5,734.5" name="MalfunctionOutline" xscl="15" yscl="12" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="3386" estat="ext" xy="546,727" name="x_Valve_Manual_Outline" xscl="1.5" yscl="1.5" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_Valve_Manual_Outline"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </symbol>
+ <symbol id="4891" estat="ext" xy="546,727" name="x_Valve_Mask" xscl="1.5" yscl="1.5" fixedlay="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="SymName" type="text" value="x_Valve_Mask"/>
+ </symbol>
+ <line id="2424" colour="blue" depth="5" xy="546,727,546,733"/>
+ <line id="2425" colour="blue" xy="549,733,543,733"/>
+ <string id="2428" depth="10" style="1" estat="ref" xy="537,721,537,736,555,736,555,721,537,721">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <tnode id="2430" colour="white" layer="Engineer" depth="100" estat="ext" xy="552,733" height="1.5" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <cpoint id="2431" depth="10" estat="ref" xy="546,727">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Manual valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="Basic Process"/>
+  <attribute name="SymName" type="text" value="ValveManual"/>
+  <parameter name="AUTOCONNECT_PIPEFLOW" value="Output;CvAtCurrentOpening;ValveCv[*];Output;FLAtCurrentOpening;ValveFL[*];Output;XTAtCurrentOpening;ValveXT[*];Output;FdAtCurrentOpening;ValveFd[*];Output;ValveSizeInfo;ValveSize[*]"/>
+  <parameter name="AUTOCONNECT_FLOWLINE" value="Output;CvAtCurrentOpening;ValveCv[-]"/>
+  <attribute name="transformation" type="int" value="0,2,4,7"/>
+ </cpoint>
+ <line id="2432" colour="blue" depth="15" xy="540,730,540,724"/>
+ <line id="2433" colour="blue" depth="15" xy="552,730,552,724"/>
+ <line id="2434" colour="blue" depth="15" xy="540,724,552,730"/>
+ <line id="2435" colour="blue" depth="15" xy="552,724,540,730"/>
+ <tnode id="2440" layer="Hidden" weight="3" estat="ext" xy="546,721" height="2" hjust="centre" nts="true" ntr="true" ntm="true">
+  <attribute name="ItemName" type="null"/>
+  <attribute name="autoposition" type="null"/>
+ </tnode>
+</sym>

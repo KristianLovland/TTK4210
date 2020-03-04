@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="21">
+ <header xy="776,725" xmin="757" ymin="719" xmax="782" ymax="742.001">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="SafetyValve"/>
+  <attribute name="Itemdesc" type="text" value="Safety valve"/>
+  <attribute name="Module" type="text" value="SafetyValve"/>
+  <attribute name="Category" type="text" value="Basic Process"/>
+  <attribute name="SymName" type="text" value="SafetyValve"/>
+  <attribute name="SelectBox" type="real" value="-6,-6,6,11"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\Dev\Explorer\Resources\Standard\symbols">
+  <attribute name="VersionDate" type="text" value="23-01-13 12:09:24"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="0.25,0.25" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <symbol id="1068" estat="ext" xy="757,720,781,742" name="MalfunctionOutline" xscl="24" yscl="22" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <relation type="mutual" subid="100" id="4603,4631"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="4613" estat="ext" xy="776,725" name="x_Valve_BodyChoke">
+  <attribute name="SymName" type="text" value="x_Valve_BodyChoke"/>
+  <relation type="mutual" subid="100" id="4614,4606"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="yellow">
+   <state type="expression" expression="{%TAG_NAME:ValveStatus} == 0 || {%TAG_NAME:ValveStatus} == 2" priority="0"/>
+   <state type="expression" expression="{%TAG_NAME:ValveStatus} == 1 || {%TAG_NAME:ValveStatus} == 3" priority="0" foreground="green"/>
+  </animation>
+ </symbol>
+ <symbol id="4629" estat="ext" xy="763,736" name="x_ValveTagName" fixedlay="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <attribute name="SymName" type="text" value="x_ValveTagName"/>
+  <relation type="child" subid="3" id="4631,4603,4614,4630"/>
+  <relation type="mutual" subid="100" id="4630,4626"/>
+  <attribute name="Static" type="null"/>
+ </symbol>
+ <cpoint id="4601" depth="5" estat="ref" xy="776,725">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="SafetyValve"/>
+  <attribute name="Itemdesc" type="text" value="Safety valve"/>
+  <attribute name="Module" type="text" value="SafetyValve"/>
+  <attribute name="Category" type="text" value="Basic Process"/>
+  <attribute name="SymName" type="text" value="SafetyValve"/>
+  <relation type="mutual" subid="100" id="4604,4603"/>
+ </cpoint>
+ <tnode id="4603" colour="white" layer="Engineer" depth="100" estat="rel" xy="768,741" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="parent" subid="3" id="4629"/>
+  <relation type="mutual" subid="100" id="4601,1068"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <line id="4604" colour="blue" depth="5" xy="778,721,774,721">
+  <relation type="mutual" subid="100" id="4605,4601"/>
+ </line>
+ <line id="4605" colour="blue" depth="50" xy="778,733,774,731">
+  <relation type="mutual" subid="100" id="4606,4604"/>
+ </line>
+ <line id="4606" colour="blue" depth="5" xy="776,725,776,733">
+  <relation type="mutual" subid="100" id="4613,4605"/>
+ </line>
+ <tnode id="4614" estat="rel" xy="763,734" height="2" hjust="centre" nts="true" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%3"/>
+  <relation type="parent" subid="3" id="4629"/>
+  <relation type="mutual" subid="100" id="4615,4613"/>
+ </tnode>
+ <string id="4615" colour="blue" xy="776,725,766.7,732.634">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="4616,4614"/>
+ </string>
+ <line id="4616" colour="blue" depth="5" xy="780,723,776,725">
+  <relation type="mutual" subid="100" id="4617,4615"/>
+ </line>
+ <line id="4617" colour="blue" depth="5" xy="774,721,776,725">
+  <relation type="mutual" subid="100" id="4618,4616"/>
+ </line>
+ <line id="4618" colour="blue" depth="5" xy="780,727,780,723">
+  <relation type="mutual" subid="100" id="4619,4617"/>
+ </line>
+ <line id="4619" colour="blue" depth="50" xy="778,729,774,727">
+  <relation type="mutual" subid="100" id="4621,4618"/>
+ </line>
+ <line id="4621" colour="blue" depth="50" xy="778,731,774,729">
+  <relation type="mutual" subid="100" id="4622,4619"/>
+ </line>
+ <string id="4622" depth="5" style="1" estat="ref" xy="770,719,770,736,782,736,782,719,770,719">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="4624,4621"/>
+ </string>
+ <arc id="4624" colour="blue" xy="763,736" radius="5">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="4625,4622"/>
+ </arc>
+ <line id="4625" colour="blue" depth="5" xy="776,725,778,721">
+  <relation type="mutual" subid="100" id="4626,4624"/>
+ </line>
+ <line id="4626" colour="blue" depth="5" xy="776,725,780,727">
+  <relation type="mutual" subid="100" id="4629,4625"/>
+ </line>
+ <tnode id="4630" estat="rel" xy="759,740" height="2" hjust="right" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%1"/>
+  <relation type="parent" subid="3" id="4629"/>
+  <relation type="mutual" subid="100" id="4631,4629"/>
+ </tnode>
+ <tnode id="4631" estat="rel" xy="763,737" height="2" hjust="centre" nts="true" ntr="true" ntm="true">
+  <attribute name="SubItemName" type="text" value="%2"/>
+  <relation type="parent" subid="3" id="4629"/>
+  <relation type="mutual" subid="100" id="1068,4630"/>
+ </tnode>
+</sym>

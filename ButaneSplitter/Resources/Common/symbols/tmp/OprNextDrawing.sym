@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="3">
+ <header xy="414,985" xmin="414" ymin="985.001" xmax="415.001" ymax="986">
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="OprNextDrawing"/>
+  <attribute name="ItemType" type="text" value="OprNextDrawing"/>
+  <attribute name="SelectBox" type="real" value="0,0,1,1"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\Dev\Explorer\Resources\Standard\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <string id="1026" colour="orange" layer="Hidden" depth="50" weight="2" estat="ref" xy="414,985,414,986,415,986,415,985,414,985">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <cpoint id="1027" colour="blue" layer="Hidden" estat="ref" xy="414,985">
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="OprNextDrawing"/>
+  <attribute name="ItemType" type="text" value="OprNextDrawing"/>
+ </cpoint>
+ <tnode id="1028" colour="#007fff" layer="Hidden" estat="ext" xy="414,985" height="0.05" font="Arial">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+</sym>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="309,966" xmin="292.001" ymin="950" xmax="326" ymax="983">
+  <attribute name="AttPage" type="text" value="DcsOlgaValve"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="OlgaValve"/>
+  <attribute name="ItemType" type="text" value="DcsOlgaValve"/>
+  <attribute name="SymName" type="text" value="DcsValveManualOlga_nopos"/>
+  <attribute name="SelectBox" type="real" value="-17,-9,17,17"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="841" vheight="1251" gpitch="1,1" goffset="0,0" height="2" hjust="right" font="Arial"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <symbol id="1637" estat="ext" xy="309,966" name="xdcs_valve_s1" pr6layer="0">
+  <attribute name="AttPage" type="text" value="DcsValve"/>
+  <attribute name="SymName" type="text" value="DcsValveManualOlga_nopos"/>
+ </symbol>
+ <symbol id="1657" depth="10" estat="ext" xy="309,966" name="xdcs_valve_s1" pr6layer="0">
+  <attribute name="AttPage" type="text" value="DcsValve"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="DcsValveManualOlga_nopos"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:OutputPosition@V_unscaled} &gt; 0.999999 - {%TAG_NAME:RunningLightPosition@V_unscaled}" priority="1" foreground="#00bb00"/>
+   <state type="expression" expression="{%TAG_NAME:OutputPosition@V_unscaled} &lt; 0.000001 + {%TAG_NAME:RunningLightPosition@V_unscaled}" priority="1" foreground="#e60000"/>
+   <state type="expression" expression="2+2==4" priority="0" fflash="true" foreground="#00bb00"/>
+  </animation>
+ </symbol>
+ <string id="1639" colour="darkorange1" layer="Hidden" estat="ref" xy="292,957,292,983,326,983,326,957,292,957">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <tnode id="1655" colour="red" layer="Hidden" depth="50" estat="ext" xy="309,950" height="6" hjust="centre" font="Arial">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <cpoint id="1656" depth="11" estat="ref" xy="309,966">
+  <attribute name="AttPage" type="text" value="DcsOlgaValve"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="OlgaValve"/>
+  <attribute name="ItemType" type="text" value="DcsOlgaValve"/>
+  <attribute name="SymName" type="text" value="DcsValveManualOlga_nopos"/>
+ </cpoint>
+</sym>

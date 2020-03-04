@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="896,826" xmin="879.999" ymin="826" xmax="896" ymax="862">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="SymName" type="text" value="x_Online_Separator_Weir"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\Program Files\Kongsberg\K-Spice\Explorer\Resources\Modules\MSeparator\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <symbol id="4808" layer="3D" depth="-3" estat="ext" xy="888,830,892,852" name="x_SquareOil" xscl="4" yscl="22" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_SquareOil"/>
+  <attribute name="LayerLocked" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="3057,4807"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="rect" mtag="%TAG_NAME:LevelOverflowLiquid@V_unscaled" mmin="%TAG_NAME:MinLiquidLevelOverflowSide@V_unscaled" mmax="%TAG_NAME:MaxLiquidLevelOverflowSide@V_unscaled" rect="0,0,4,0,0,0,4,32" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:CalculateHoldUpOverflowSide} == True" priority="0"/>
+  </animation>
+ </symbol>
+ <string id="4806" layer="3D" depth="10" weight="2" xy="888,830,888,862,892,862,892,830,888,830">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="4807,1042"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </string>
+ <polygon id="4807" colour="white" layer="3D" depth="-4" xy="888,830,888,862,892,862,892,830,888,830">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="4808,4806"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </polygon>
+ <cpoint id="3057" layer="3D" depth="-5" estat="ref" xy="896,826">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="SymName" type="text" value="x_Separator_Weir"/>
+  <relation type="mutual" subid="100" id="1042,4808"/>
+ </cpoint>
+</sym>

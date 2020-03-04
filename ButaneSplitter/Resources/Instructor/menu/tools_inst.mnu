@@ -1,0 +1,122 @@
+Button	Label = "Find Block..."; dependency='%SV_TIMELINESACTIVE'; \
+		Action = LoadDLL,block_select; \
+		Action = CallDLL,block_select,BlockSelect,-mid,%_ACTIVE_TIMELINE_APP; \
+		Action = FreeDLL,block_select; \
+		ActionIf = 'empty(%_SBD_BLOCK)', Break; \
+		Action = Set,BLOCK,%_SBD_BLOCK; \
+		action = set,GRAPHIC,"#(%_SBD_TIMELINE_APP|%BLOCK@B_graphic)"; \
+		ActionIf = '"%GRAPHIC" != ""',FindGraphic,%BLOCK,%_SBD_TIMELINE_APP; \
+		ActionIf = *,ListPush,"RecentBlockSearch",%BLOCK,20; \
+		ActionIf = *,KickStart,"EngineeringToolBar:999"; \
+		ActionElse = MessageBox,"%BLOCK has no associated graphic",Error;
+
+Button	Label = "View Block..."; dependency='%SV_TIMELINESACTIVE'; \
+		Action = LoadDLL,block_select; \
+		Action = CallDLL,block_select,BlockSelect,-mid,%_ACTIVE_TIMELINE_APP; \
+		Action = FreeDLL,block_select; \
+		ActionIf = 'empty(%_SBD_BLOCK)', Break; \
+		Action = Set,TAG_NAME,%_SBD_BLOCK; \
+		Action = Set,TAG_TYPE,"#(%TAG_NAME:@B_type)"; \
+		Action = Panel,"BlockExplorerBlock",%_SBD_TIMELINE_APP;
+Gap
+
+Button	Label = "Graphs"; Level = 1; 
+	Button	Label = "Trend..."; Level = 2; dependency='%SV_TIMELINESACTIVE'; \
+			Action = Panel,"trend_nme.pnl";
+	Button	Label = "Trajectory..."; Level = 2; dependency='%SV_TIMELINESACTIVE'; \
+			Action = Panel,"traject_nme.pnl";
+	Button	Label = "Profile..."; Level = 2; dependency='%SV_TIMELINESACTIVE'; \
+			Action = Panel,"profile_nme.pnl";
+	Button	Label = "XY Plot..."; Level = 2; dependency='%SV_TIMELINESACTIVE'; \
+			Action = Panel,"xyplot_nme.pnl";
+
+Button	Label = "Define Custom Trend..."; dependency='%SV_TIMELINESACTIVE'; \
+		Action = Panel,"choose_yaxis.pnl";
+Button	Label = "Open Custom Trend..."; dependency='%SV_TIMELINESACTIVE'; \
+		action = SMBrowserOpen,ExplorerResources,"*.mtp","Custom Trend"; \
+		Action = Set,_MODIFY,no; \
+		ActionIf = 'empty(%BROWSER_SELECTED_TIMELINE) || empty(%BROWSER_SELECTED_APP)',Panel,"%_BROWSER_SELECTED_FULL"; \
+		ActionElse = Panel,"%_BROWSER_SELECTED_FULL","/%BROWSER_SELECTED_TIMELINE/%BROWSER_SELECTED_APP";
+Button	Label = "Global History Settings..."; dependency='%SV_TIMELINESACTIVE'; \
+		Action = Panel,"trend_timespan.pnl";
+
+#ifdef '%_IDCAD'
+Gap
+
+//Button	Label = "Load Panel..."; Level = 1; \
+//		Action = Panel,"allpanels.pnl";
+//Gap
+
+//Button	Label = "Model Build &Utilities..."; Dependency = '%SV_MODELLOADED && !%SV_MODELRUNNING'; \
+//		Action = LoadDLL,mbutilities; \
+//		Action = CallDLL,mbutilities,dialog; \
+//		Action = FreeDLL,mbutilities;
+
+//Button	Label = "Converters"; Level = 1;
+//
+//	Button	Label = "TDC3000 Eb Loader..."; Level = 2; \
+//			Dependency = '%SV_MODELLOADED && !%SV_MODELRUNNING'; \
+//			Action = LoadDLL,TDC3000EB; \
+//			Action = CallDLL,TDC3000EB,dialog; \
+//			Action = FreeDLL,TDC3000EB;
+//	Button	Label = "FSC Converter..."; Level = 2; \
+//			Dependency = '%SV_MODELLOADED && !%SV_MODELRUNNING'; \
+//			Action = LoadDLL,FSC; \
+//			Action = CallDLL,FSC,dialog; \
+//			Action = FreeDLL,FSC;
+//	Button	Label = "PlantScape Import"; Level = 2; \
+//			Dependency = '%SV_MODELLOADED && !%SV_MODELRUNNING'; \
+//			Action = LoadDLL,plantscape; \
+//			Action = CallDLL,plantscape,dialog; \
+//			Action = FreeDLL,plantscape;
+//	Button	Label = "Triconex Converter..."; Level = 2; \
+//			Dependency = '%SV_MODELLOADED && !%SV_MODELRUNNING'; \
+//			Action = SetAnimation,Off; \
+//			Action = LoadDLL,Triconex; \
+//			Action = CallDLL,Triconex,TriDialog; \
+//			Action = FreeDLL,Triconex; \
+//			Action = SetAnimation,On;
+//	Button	Label = "Fanuc Converter..."; Level = 2; \
+//			Dependency = '%SV_MODELLOADED && !%SV_MODELRUNNING'; \
+//			Action = SetAnimation,Off; \
+//			Action = LoadDLL,Fanuc; \
+//			Action = CallDLL,Fanuc,FanucConverter; \
+//			Action = FreeDLL,Fanuc; \
+//			Action = SetAnimation,On;
+//	button label = "Start Log"; action=log,"c:/kongsberg/fanuc/model/log.txt";
+//	button label = "End Log"; action=log,end;
+//	Button	Label = "Import DWG..."; Level = 2; \
+//			Dependency = '%SV_GRAPHICLOADED && !%SV_MODELRUNNING'; \
+//			Action = OpenFinder,-,"*.dwg",DWG; \
+//			Action = LoadDLL,dwgservices; \
+//			Action = CallDLL,dwgservices,ConvertDWG,-name,%_FINDER_SELECTION; \
+//			Action = FreeDLL,dwgservices;	
+//	Button	Label = "Batch import DWG..."; Level = 2; \
+//			Dependency = '%SV_MODELLOADED && !%SV_MODELRUNNING'; \
+//			Action = LoadDLL,dwgservices; \
+//			Action = CallDLL,dwgservices,ConvertDWGDialog; \
+//			Action = FreeDLL,dwgservices;
+
+Button	Label = "Highlight Element..."; \
+		Dependency = '%SV_GRAPHICLOADED'; \
+		Action = Panel,"hilight";
+Gap
+
+Button	Label = "Run Batch Script..."; \
+		Action = LoadDLL,RunBatch; \
+		Action = CallDLL,RunBatch,RunDialog; \
+		Action = FreeDLL,RunBatch;
+Gap
+
+Button	Label = "Options..."; \
+		Action = Panel,"options";
+Gap
+
+Button	Label = "Table Builder..."; dependency = "!empty($MF40APP)";  \
+		Action = LoadDLL,TableBuilderGUI; \
+		Action = CallDLL,TableBuilderGUI,RunDialog; \
+		Action = FreeDLL,TableBuilderGUI;	
+#endif
+
+// user extensions
+#include_noerror $EXPLORER_RESOURCES/menu/UserTools.mnu

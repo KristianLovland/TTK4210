@@ -1,0 +1,60 @@
+"H2O1"       :   0.2103E-01
+"N2"         :   0.6422E-03
+"C1O2"       :   0.1600E-02
+"C1H4"       :   0.4225E-01
+"C2H6"       :   0.1128    
+"C3H8"       :   0.3262    
+"C4"         :   0.2868    
+"C5"         :   0.1328    
+"NC6"        :   0.4331E-01
+"C7"         :   0.2149E-01
+"C8"         :   0.7807E-02
+"PS0"        :   0.3321E-02
+"PS01"       :   0.9141E-04
+"PS02"       :   0.1430E-06
+"PS03"       :   0.9000E-09
+ -----------------------------------------
+ 
+ 350.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S*
+ 325.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S*
+ 310.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S*
+ 306.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S*
+ 305.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S*
+ 304.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S*
+ 303.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S*
+ 300.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S*
+ 295.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S*
+ 255.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S*
+ 220.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S*
+ 190.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW S**
+ 170.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 155.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 151.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 150.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 149.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 147.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 141.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 140.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 139.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 138.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 135.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 130.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+ 115.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+  90.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S**
+  70.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S** S**
+  55.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S** S**
+  45.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* *S* S** S**
+  40.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S** S** S**
+  37.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* S** S** S**
+  36.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* *S* S** S** S**
+  35.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* *S* S** S** S**
+  34.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* *S* *S* S** S** S**
+  33.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* *S* *S* *S* S** S** S**
+  31.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* *S* *S* *S* S** S** S**
+  25.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW *S* *S* *S* *S* S** S** S** S** S**
+  15.0 *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *LW *SW *SW *SW *SW *SW *SW *SW *SW *SW S** S** S** S** S** S** S** S** S**
+   8.0 *LW *LW VLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SL* SS* SS* SS* SS* SS* SS* S** S** S**
+   3.0 VLW VLW VLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SLW SL* SL* SL* SL* SL* SL* S** S** S** S** S** S** S** S** S**
+   0.1 VLW VLW VLW VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* VL* SL* S** S** S** S** S** S** S** S** S** S** S** S** S** S** S** S** S**
+  bar/
+   / K 258.270.290.300.302.303.304.306.310.315.317.318.319.321.322.323.324.326.327.328.329.331.338.348.360.364.365.366.367.369.375.385.400.418.421.423.424.425.430.445.465.490.

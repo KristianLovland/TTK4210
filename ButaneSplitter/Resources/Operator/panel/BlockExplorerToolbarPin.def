@@ -1,0 +1,21 @@
+
+// add the lock/unlock tab button
+#ifdef %SV_TABBED
+Stub		Frame = PIN_TBAR_PARENT; background=window; size=1,1; sameheight=PIN_TBAR_PARENT;
+
+#ifdef '!empty(%_PINSTATUS) || "%PINNED" == "TRUE"'
+set		variable=_PINSTATUS,"";
+set		variable=PINNED,TRUE;
+button		frame=PIN_TBAR_PARENT; image=unpin.ico; style=toolbar; position=lock,right,5,top,2; feedback="Unlock to dialog"; \
+		sameheight=PIN_TBAR_PARENT; \
+		action=set,PINNED,FALSE; \
+		action=remap;
+#else
+set		variable=PINNED,FALSE;
+button		frame=PIN_TBAR_PARENT; image=pin.ico; style=toolbar; position=lock,right,5,top,2; feedback="Lock to tab"; \
+		sameheight=PIN_TBAR_PARENT; \
+		action=set,_PINSTATUS,"type=VirtualTab;"; \
+		action=set,PINNED,TRUE; \
+		action=remap;
+#endif
+#endif

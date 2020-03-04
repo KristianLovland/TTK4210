@@ -1,0 +1,22 @@
+#include $EXPLORER_RESOURCES/panel/BlockExplorerStyle.def
+
+// include this file to add a /Timeline/App selection toolbar to a panel:
+
+// #define TL_TBAR_PARENT 99
+// #include TimelineToolbar.def
+
+// variables to track selected Timeline
+#ifdef '!("LOCAL_ACTIVE_TIMELINE_APP_SET" == "TRUE" || "%LOCAL_ACTIVE_TIMELINE_APP_SET" == "TRUE")'
+set	variable=LOCAL_ACTIVE_TIMELINE_APP,%_ACTIVE_TIMELINE_APP;
+#endif
+
+#define TOOLBAR_ID 10101
+
+// active timeline
+frame		frame=TL_TBAR_PARENT; id=10100; layout=fixed; background=TOOLBAR_BG;  position=Lock,Left,0,Right,0;
+frame		frame=10100; id=TOOLBAR_ID; layout=horizontal; space=1; pad=2;
+label		frame=TOOLBAR_ID; label="Application:"; sameheight=TOOLBAR_ID;
+selection	frame=TOOLBAR_ID; style=dropdown; id=10102; source=tag,"AllApplications,s,@hasBlockList(true)Connected(true)"; get=GetModelParameter; \
+		mid=%_ROOT; size=200; sameheight=TOOLBAR_ID; select=%LOCAL_ACTIVE_TIMELINE_APP; \
+			action=set,LOCAL_ACTIVE_TIMELINE_APP,!10102; \
+			action=kickstart;

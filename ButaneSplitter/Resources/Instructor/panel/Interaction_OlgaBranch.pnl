@@ -1,0 +1,74 @@
+* Setup the title
+set variable=TITLE,"Pipeline Profile";
+
+* if no flowline details provided, use the description from the blockname
+set variable = _FLOWLINE,#(%TAG_NAME@B_desc);
+
+* Setup whether the plot is holdups or PT
+#ifdef '"%_FLOWLINEPLOT" == "HOLDUP"'
+dataset Name = dY1; Tag = "%TAG_NAME:Y[4]", "%TAG_NAME:Xzzbou"; Colour = Red;   Label = "#(%TAG_NAME:disp_label[4])";
+dataset Name = dY2; Tag = "%TAG_NAME:Y[5]", "%TAG_NAME:Xzzbou"; Colour = Blue;  Label = "#(%TAG_NAME:disp_label[5])";
+dataset Name = dY3; Tag = "%TAG_NAME:Y[10]", "%TAG_NAME:Xzzbou"; Colour = Black; Label = "#(%TAG_NAME:disp_label[10])";
+set variable=YT1,"Mass Flow (ton/hr)";
+set variable=YT2,"Liquid Holdup (%)";
+set variable=YT3,"Elevation (m)";
+set variable=_FLOWLINEPLOT,"HOLDUP";
+#else
+dataset Name = dY1; Tag = "%TAG_NAME:Y[7]", "%TAG_NAME:Xzzbou"; Colour = Red;   Label = "#(%TAG_NAME:disp_label[7])";
+dataset Name = dY2; Tag = "%TAG_NAME:Y[8]", "%TAG_NAME:Xzzbou"; Colour = Blue;  Label = "#(%TAG_NAME:disp_label[8])";
+dataset Name = dY3; Tag = "%TAG_NAME:Y[10]", "%TAG_NAME:Xzzbou"; Colour = Black; Label = "#(%TAG_NAME:disp_label[10])";
+set variable=YT1,"Pressure (bara)";
+set variable=YT2,"Temperature (C)";
+set variable=YT3,"Elevation (m)";
+set variable=_FLOWLINEPLOT,"PT";
+#endif
+
+Header	Type = Virtual; Position = 5,5; Name = "OLGAPROFILE"; Background = Ivory1;
+Frame	Id = 1; Layout = Vertical; Background = Ivory1;
+
+Frame	Id = 2; Frame = 1; Layout = Fixed; size = 1400,900; Background = Ivory1;
+Frame	Id = 10; Frame = 2; Layout = Vertical; pad=2; space=2;
+
+Frame	Id = 100; Frame = 10; Layout = horizontal; pad=5; space=5;
+
+	Label	Frame = 100; Label = "Pipeline Profile Conditions for %_FLOWLINE"; Bold;
+
+Frame	Id = 110; Frame = 2; Layout = Fixed; position = 1000,5;
+
+#ifdef '"%_FLOWLINEPLOT" == "HOLDUP"'
+	Button	Frame = 110; Label = " Pressure / Temperature "; Foreground=Black; background=yellow; border;\
+		Action = Set,_FLOWLINEPLOT,PT; \
+		Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+		Action = Panel,%_BRANCHPANEL; \
+		Action = Popdown;
+#else
+	Button	Frame = 110; Label = "      Flow / Holdup     "; Foreground=Black; background=yellow; border;\
+		Action = Set,_FLOWLINEPLOT,HOLDUP; \
+		Action = Set,_BRANCHPANEL,Interaction_OLGABranch; \
+		Action = Panel,%_BRANCHPANEL; \
+		Action = Popdown;
+#endif
+
+Frame	Id = 120; Frame = 2; Layout = Fixed; position = 1200,5;
+	Button	Frame = 120; Label = " Exit "; Foreground=Black; background=yellow; border;\
+		Action = Popdown;
+
+Frame	Id = 20; Frame = 10; Layout = Vertical; pad=2; space=2;
+
+Frame 	Id = 210; Frame = 20; Layout = Horizontal; Background = White;
+	Display	Frame = 210; Type = XY; Dataset = dY1; \
+		XTitle = "Pipeline Profile (#(%TAG_NAME:Xzzbou@V_units))"; YTitle =%YT1;  \
+		Sample = 2; AutoFit; SameWidth = 10; size = 1350,230; \
+		Background = Ivory1; Foreground = Black; Grid = Ivory3;
+
+Frame 	Id = 220; Frame = 20; Layout = Horizontal; Background = White;
+	Display	Frame = 220; Type = XY; Dataset = dY2; \
+		XTitle = "Pipeline Profile (#(%TAG_NAME:Xzzbou@V_units))"; YTitle =%YT2;  \
+		Sample = 2; AutoFit; SameWidth = 10; size = 1350,230; \
+		Background = Ivory1; Foreground = Black; Grid = Ivory3;
+
+Frame 	Id = 230; Frame = 20; Layout = Horizontal; Background = White;
+	Display	Frame = 230; Type = XY; Dataset = dY3; \
+		XTitle = "Pipeline Profile (#(%TAG_NAME:Xzzbou@V_units))"; YTitle =%YT3;  \
+		Sample = 2; AutoFit; SameWidth = 10; size = 1350,230; \
+		Background = Ivory1; Foreground = Black; Grid = Ivory3;

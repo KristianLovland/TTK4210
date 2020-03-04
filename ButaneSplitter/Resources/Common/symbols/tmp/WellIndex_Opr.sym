@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="12">
+ <header xy="435,384" xmin="411.001" ymin="368" xmax="457.191" ymax="392.178">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="WellIndex"/>
+  <attribute name="Itemdesc" type="text" value="Well Index"/>
+  <attribute name="Module" type="text" value="WellIndex"/>
+  <attribute name="Category" type="text" value="Auxiliary"/>
+  <attribute name="SymName" type="text" value="WellIndex"/>
+  <attribute name="SelectBox" type="real" value="-4,-12,4,6"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\Documents and Settings\ivarj\My Documents\diverse\symboler"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <cpoint id="3743" estat="ref" xy="435,384">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="WellIndex"/>
+  <attribute name="Itemdesc" type="text" value="Well Index"/>
+  <attribute name="Module" type="text" value="WellIndex"/>
+  <attribute name="Category" type="text" value="Auxiliary"/>
+  <attribute name="SymName" type="text" value="WellIndex"/>
+  <relation type="mutual" subid="100" id="3737,3389"/>
+ </cpoint>
+ <tnode id="3737" layer="Hidden" estat="ext" xy="437,368" height="4" nts="true" ntr="true" ntm="true">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="3738,3743"/>
+ </tnode>
+ <spline id="3738" xy="435,392,427,392,421,390,417,388,411,386,417,382,427,382,437,380,443,380,451,382,457,386,455,390,449,392,441,392,437,392,435,392" cp="0,0.43739">
+  <relation type="mutual" subid="100" id="3746,3737"/>
+ </spline>
+ <spline id="3746" xy="435,392,427,392,421,390,417,388,411,386,417,382,427,382,437,380,443,380,451,382,457,386,455,390,449,392,441,392,437,392,435,392" cp="0.466667,1">
+  <relation type="mutual" subid="100" id="3744,3738"/>
+ </spline>
+ <spline id="3744" xy="435,392,427,392,421,390,417,388,411,386,417,382,427,382,437,380,443,380,451,382,457,386,455,390,449,392,441,392,437,392,435,392" cp="0.43739,0.466667">
+  <relation type="mutual" subid="100" id="3388,3746"/>
+ </spline>
+ <line id="3388" colour="blue" xy="437,374,437,386">
+  <relation type="mutual" subid="100" id="3741,3744"/>
+ </line>
+ <line id="3741" colour="blue" xy="433,386,433,374">
+  <relation type="mutual" subid="100" id="3739,3388"/>
+ </line>
+ <line id="3739" colour="blue" xy="435,388,433,386">
+  <relation type="mutual" subid="100" id="3740,3741"/>
+ </line>
+ <line id="3740" colour="blue" xy="437,386,435,388">
+  <relation type="mutual" subid="100" id="3734,3739"/>
+ </line>
+ <line id="3734" colour="blue" xy="433,374,437,374">
+  <relation type="mutual" subid="100" id="3742,3740"/>
+ </line>
+ <tnode id="3742" colour="white" layer="Engineer" depth="100" estat="ext" xy="437,387" height="1" hjust="centre" font="Arial" background="#aaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="3389,3734"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <string id="3389" style="1" estat="ref" xy="431,372,431,390,439,390,439,372,431,372">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="3743,3742"/>
+ </string>
+</sym>

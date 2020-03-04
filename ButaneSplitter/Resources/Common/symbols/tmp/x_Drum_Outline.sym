@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="7">
+ <header xy="435,804" xmin="381.001" ymin="784" xmax="489" ymax="823.999">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymName" type="text" value="x_Drum_Outline"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <attribute name="AllowConnections" type="null"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\Dev\Explorer\Resources\UnscaledLevels"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="8,8" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <cpoint id="2570" layer="3D" depth="-10" estat="ref" xy="435,804">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymName" type="text" value="x_Drum_Outline"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <attribute name="AllowConnections" type="null"/>
+  <relation type="mutual" subid="100" id="2565,2569"/>
+ </cpoint>
+ <line id="2565" colour="blue" depth="50" xy="391,784,391,824">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <attribute name="AllowConnections" type="null"/>
+  <relation type="mutual" subid="100" id="2564,2570"/>
+ </line>
+ <ellipse id="2564" colour="blue" depth="50" xy="391,804" major="20" minor="10" angle="90" start="360" end="540">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <attribute name="AllowConnections" type="null"/>
+  <relation type="mutual" subid="100" id="2566,2565"/>
+ </ellipse>
+ <line id="2566" colour="blue" depth="50" xy="479,824,479,784">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <attribute name="AllowConnections" type="null"/>
+  <relation type="mutual" subid="100" id="2567,2564"/>
+ </line>
+ <ellipse id="2567" colour="blue" depth="50" xy="479,804" major="20" minor="10" angle="270" start="360" end="540">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <attribute name="AllowConnections" type="null"/>
+  <relation type="mutual" subid="100" id="2568,2566"/>
+ </ellipse>
+ <line id="2568" colour="blue" depth="50" xy="391,824,479,824">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <attribute name="AllowConnections" type="null"/>
+  <relation type="mutual" subid="100" id="2569,2567"/>
+ </line>
+ <line id="2569" colour="blue" depth="50" xy="479,784,391,784">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ShowStateAnim" type="null"/>
+  <attribute name="AllowConnections" type="null"/>
+  <relation type="mutual" subid="100" id="2570,2568"/>
+ </line>
+</sym>

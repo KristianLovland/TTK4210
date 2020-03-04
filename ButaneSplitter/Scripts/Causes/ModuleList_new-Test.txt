@@ -1,0 +1,2 @@
+ESD_1_0;<Destination>ESD_1_0:InputTripSignal[2]</Destination>;<Source>87HS0001:Running</Source>
+ESD_2_0;<Destination>ESD_2_0:InputTripSignal[2]</Destination>;<Source>87HS0002:Running</Source>

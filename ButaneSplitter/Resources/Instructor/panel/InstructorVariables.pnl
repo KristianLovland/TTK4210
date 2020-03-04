@@ -1,0 +1,993 @@
+#include $EXPLORER_RESOURCES/Panel/Instructor.def
+
+Header	Type=VirtualNavigator,"Instructor";
+
+Frame	Id=1; Layout=Vertical;
+
+// Default to 1 minute for ramping if it is undefined
+#ifdef '"%_DEFAULT_RAMP_TIME" == ""'
+Set Variable = _DEFAULT_RAMP_TIME,60.0;
+#elseifdef '%_DEFAULT_RAMP_TIME <= 0'
+Set Variable = _DEFAULT_RAMP_TIME,60.0;
+#endif
+
+Stub	Frame = 1; Size = 1,7;
+Label	Frame = 1; Label = "Instructor Variables:"; Bold;
+
+Frame	Id = 2; Layout = Tabbed; _TAB_POSITION1_; \
+	Tabs = "Pipelines","Ambient","Utilities","Plant","Misc"; \
+//	Tabs = "Pipelines","Ambient"; \
+	Default = 0;
+
+//*  ____________
+//*_/Pipeline P&T\_____________
+//
+Frame	Frame = 2; Id = 100; Layout = Fixed; Size = 212,450;
+Frame	Frame = 100; Id = 101; Layout = Vertical; Space = 5;
+//
+//* Gas pipeline pressure
+	Frame	Frame = 101; Id = 1010; Border; Pad = 2;
+
+	Stub	Frame = 1010; Size = 5,5;
+
+	Frame	Id = 1011; Frame = 1010; Layout = Horizontal; 
+
+	Button	Frame = 1011; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_Gas_Pressure; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 1011; Label="EWPL Back Pressure"; Bold;
+	Stub	Frame = 1010; Size = 5,5;
+
+	Variable	Frame = 1010; Tag = "GasPipeline:Pressure"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(GasPipeline:Pressure@V_units))"; SameWidth = 310;
+//* Ramp
+	Field	Frame = 1010; Id = 1012; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 1010; Id = 1013; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 1013; Id = 1014; Value = "#(GasPipeline:Pressure)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New gas pipeline pressure";
+
+		Button	Frame = 1013; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(GasPipeline:Pressure) == !1014',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"GasPipelinePressure","GasPipeline:Pressure",SPAN,!1012,1,!1014;
+
+		Stub	Frame = 1013; Size = 5,5;
+		Stub	Frame = 1010; Size = 5,5;
+
+//* Gas pipeline temperature
+	Frame	Frame = 101; Id = 1020; Border; Pad = 2;
+
+	Stub	Frame = 1020; Size = 5,5;
+
+	Frame	Id = 1021; Frame = 1020; Layout = Horizontal; 
+
+	Button	Frame = 1021; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_Gas_Temperature; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 1021; Label="Gas Pipeline Temperature"; Bold;
+	Stub	Frame = 1020; Size = 5,5;
+
+	Variable	Frame = 1020; Tag = "GasPipeline:Temperature"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(GasPipeline:Temperature@V_units))"; SameWidth = 310;
+//* Ramp
+	Field	Frame = 1020; Id = 1022; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 1020; Id = 1023; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 1023; Id = 1024; Value = "#(GasPipeline:Temperature)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New gas pipeline temperature";
+
+		Button	Frame = 1023; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(GasPipeline:Temperature) == !1024',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"GasPipelineTemperature","GasPipeline:Temperature",SPAN,!1022,1,!1024;
+//
+		Stub	Frame = 1023; Size = 5,5;
+		Stub	Frame = 1020; Size = 5,5;
+//
+//* GAIL pipeline pressure
+	Frame	Frame = 101; Id = 1030; Border; Pad = 2;
+
+	Stub	Frame = 1030; Size = 5,5;
+
+	Frame	Id = 1031; Frame = 1030; Layout = Horizontal; 
+
+	Button	Frame = 1031; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_Gas_Pressure; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 1031; Label="GAIL Back Pressure"; Bold;
+	Stub	Frame = 1030; Size = 5,5;
+
+	Variable	Frame = 1030; Tag = "GAILPipeline:Pressure"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(GAILPipeline:Pressure@V_units))"; SameWidth = 310;
+//* Ramp
+	Field	Frame = 1030; Id = 1032; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 1030; Id = 1033; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 1033; Id = 1034; Value = "#(GAILPipeline:Pressure)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New GAIL pipeline pressure";
+
+		Button	Frame = 1033; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(GAILPipeline:Pressure) == !1034',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"GAILPipelinePressure","GAILPipeline:Pressure",SPAN,!1032,1,!1034;
+
+		Stub	Frame = 1033; Size = 5,5;
+		Stub	Frame = 1030; Size = 5,5;
+
+//* GAIL pipeline temperature
+	Frame	Frame = 101; Id = 1040; Border; Pad = 2;
+
+	Stub	Frame = 1040; Size = 5,5;
+
+	Frame	Id = 1041; Frame = 1040; Layout = Horizontal; 
+
+	Button	Frame = 1041; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_Gas_Temperature; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 1041; Label="GAIL Pipeline Temperature"; Bold;
+	Stub	Frame = 1040; Size = 5,5;
+
+	Variable	Frame = 1040; Tag = "GAILPipeline:Temperature"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(GAILPipeline:Temperature@V_units))"; SameWidth = 310;
+//* Ramp
+	Field	Frame = 1040; Id = 1042; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 1040; Id = 1043; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 1043; Id = 1044; Value = "#(GAILPipeline:Temperature)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New GAIL pipeline temperature";
+
+		Button	Frame = 1043; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(GAILPipeline:Temperature) == !1044',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"GAILPipelineTemperature","GAILPipeline:Temperature",SPAN,!1042,1,!1044;
+//
+		Stub	Frame = 1043; Size = 5,5;
+		Stub	Frame = 1040; Size = 5,5;
+//
+//* Oil pipeline pressure
+//	Frame	Frame = 101; Id = 1030; Border; Pad = 2;
+//
+//	Stub	Frame = 1030; Size = 5,5;
+//
+//	Frame	Id = 1031; Frame = 1030; Layout = Horizontal; 
+//
+//	Button	Frame = 1031; Image=questionmark.bmp; \
+//		Action = Popdown,%_HELPPANEL; \
+//		Action = Set,_HELPPANEL,Help_Oil_Pressure; \
+//		Action = Panel,%_HELPPANEL;
+//	Label	Frame = 1031; Label="Oil pipeline pressure"; Bold;
+//	Stub	Frame = 1030; Size = 5,5;
+//
+//	Variable	Frame = 1030; Tag = "OilPipeline:Pressure"; Caption = "  Current:"; Width = 60; \
+//			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(OilPipeline:Pressure@V_units))"; SameWidth = 310;
+//* Ramp
+//	Field	Frame = 1030; Id = 1032; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+//		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+//		FeedBack = "Time to ramp from current value to required value";
+//
+//	Frame	Frame = 1030; Id = 1033; Layout = Horizontal; Space = 5;
+//
+//		Field	Frame = 1033; Id = 1034; Value = "#(OilPipeline:Pressure)"; Type = Real; \
+//			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+//			FeedBack = "New oil pipeline pressure";
+//
+//		Button	Frame = 1033; Label = "Ramp"; Justify = Centre; \
+//			FeedBack = "Start ramping current value to target value"; \
+//			Action = Ramp,"OilPipelinePressure","OilPipeline:Pressure",SPAN,!1032,1,!1034;
+//
+//		Stub	Frame = 1033; Size = 5,5;
+//		Stub	Frame = 1030; Size = 5,5;
+//
+//* Oil pipeline temperature
+//	Frame	Frame = 101; Id = 1040; Border; Pad = 2;
+//
+//	Stub	Frame = 1040; Size = 5,5;
+//
+//	Frame	Id = 1041; Frame = 1040; Layout = Horizontal; 
+//
+//	Button	Frame = 1041; Image=questionmark.bmp; \
+//		Action = Popdown,%_HELPPANEL; \
+//		Action = Set,_HELPPANEL,Help_Oil_Temperature; \
+//		Action = Panel,%_HELPPANEL;
+//	Label	Frame = 1041; Label="Oil pipeline temperature"; Bold;
+//	Stub	Frame = 1040; Size = 5,5;
+//
+//	Variable	Frame = 1040; Tag = "OilPipeline:Temperature"; Caption = "  Current:"; Width = 60; \
+//			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(OilPipeline:Temperature@V_units))"; SameWidth = 310;
+//* Ramp
+//	Field	Frame = 1040; Id = 1042; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+//		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+//		FeedBack = "Time to ramp from current value to required value";
+//
+//	Frame	Frame = 1040; Id = 1043; Layout = Horizontal; Space = 5;
+//
+//		Field	Frame = 1043; Id = 1044; Value = "#(OilPipeline:Temperature)"; Type = Real; \
+//			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+//			FeedBack = "New oil pipeline temperature";
+//
+//		Button	Frame = 1043; Label = "Ramp"; Justify = Centre; \
+//			FeedBack = "Start ramping current value to target value"; \
+//			Action = Ramp,"OilPipelineTemperature","OilPipeline:Temperature",SPAN,!1042,1,!1044;
+//
+//		Stub	Frame = 1043; Size = 5,5;
+//		Stub	Frame = 1040; Size = 5,5;
+//
+//* Water injection pressure
+//	Frame	Frame = 101; Id = 1050; Border; Pad = 2;
+//
+//	Stub	Frame = 1050; Size = 5,5;
+//
+//	Frame	Id = 1051; Frame = 1050; Layout = Horizontal; 
+//
+//	Button	Frame = 1051; Image=questionmark.bmp; \
+//		Action = Popdown,%_HELPPANEL; \
+//		Action = Set,_HELPPANEL,Help_SeawaterInj_Pressure; \
+//		Action = Panel,%_HELPPANEL;
+//	Label	Frame = 1051; Label="Water injection pressure"; Bold;
+//	Stub	Frame = 1050; Size = 5,5;
+//
+//	Variable	Frame = 1050; Tag = "SeawaterInjection:Pressure"; Caption = "  Current:"; Width = 60; \
+//			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(SeawaterInjection:Pressure@V_units))"; SameWidth = 310;
+//* Ramp
+//	Field	Frame = 1050; Id = 1052; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+//		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+//		FeedBack = "Time to ramp from current value to required value";
+//
+//	Frame	Frame = 1050; Id = 1053; Layout = Horizontal; Space = 5;
+//
+//		Field	Frame = 1053; Id = 1054; Value = "#(SeawaterInjection:Pressure)"; Type = Real; \
+//			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+//			FeedBack = "New seawater inection pressure";
+//
+//		Button	Frame = 1053; Label = "Ramp"; Justify = Centre; \
+//			FeedBack = "Start ramping current value to target value"; \
+//			Action = Ramp,"OilPipelinePressure","SeawaterInjection:Pressure",SPAN,!1032,1,!1034;
+//
+//		Stub	Frame = 1053; Size = 5,5;
+//		Stub	Frame = 1050; Size = 5,5;
+//
+
+//  _______
+//_/Ambient\_____________
+
+Frame	Frame = 2; Id = 200; Layout = Fixed; 
+	Frame	Frame = 200; Id = 201; Layout = Vertical; Space = 5;
+
+// Ambient pressure
+	Frame	Frame = 201; Id = 2010; Border; Pad = 2;
+
+	Stub	Frame = 2010; Size = 5,5;
+
+	Frame	Id = 2011; Frame = 2010; Layout = Horizontal; 
+
+	Button	Frame = 2011; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_Ambient_Pressure; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 2011; Label="Ambient pressure"; Bold;
+	Stub	Frame = 2010; Size = 5,5;
+
+	Variable	Frame = 2010; Tag = "Ambient:Pressure"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(Ambient:Pressure@V_units))"; SameWidth = 310;
+// Ramp
+	Field	Frame = 2010; Id = 2012; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 2010; Id = 2013; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 2013; Id = 2014; Value = "#(Ambient:Pressure)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New ambient pressure";
+
+		Button	Frame = 2013; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(Ambient:Pressure) == !2014',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"AmbientPressure","Ambient:Pressure",SPAN,!2012,1,!2014;
+
+		Stub	Frame = 2013; Size = 5,5;
+		Stub	Frame = 2010; Size = 5,5;
+
+// Ambient temperature
+	Frame	Frame = 201; Id = 2020; Border; Pad = 2;
+
+	Stub	Frame = 2020; Size = 5,5;
+
+	Frame	Id = 2021; Frame = 2020; Layout = Horizontal; 
+
+	Button	Frame = 2021; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_Ambient_Temperature; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 2021; Label="Ambient temperature"; Bold;
+	Stub	Frame = 2020; Size = 5,5;
+
+	Variable	Frame = 2020; Tag = "Ambient:Temperature"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(Ambient:Temperature@V_units))"; SameWidth = 310;
+// Ramp
+	Field	Frame = 2020; Id = 2022; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 2020; Id = 2023; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 2023; Id = 2024; Value = "#(Ambient:Temperature)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New ambient temperature";
+
+		Button	Frame = 2023; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(Ambient:Temperature) == !2024',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"AmbientTemperature","Ambient:Temperature",SPAN,!2022,1,!2024;
+
+		Stub	Frame = 2023; Size = 5,5;
+		Stub	Frame = 2020; Size = 5,5;
+
+//* seawater pressure
+//	Frame	Frame = 201; Id = 2030; Border; Pad = 2;
+//
+//	Stub	Frame = 2030; Size = 5,5;
+//
+//	Frame	Id = 2031; Frame = 2030; Layout = Horizontal; 
+//
+//	Button	Frame = 2031; Image=questionmark.bmp; \
+//		Action = Popdown,%_HELPPANEL; \
+//		Action = Set,_HELPPANEL,Help_Seawater_Pressure; \
+//		Action = Panel,%_HELPPANEL;
+//	Label	Frame = 2031; Label="Seawater pressure"; Bold;
+//	Stub	Frame = 2030; Size = 5,5;
+//
+//	Variable	Frame = 2030; Tag = "Seawater:Pressure"; Caption = "  Current:"; Width = 60; \
+//			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(Seawater:Pressure@V_units))"; SameWidth = 310;
+//* Ramp
+//	Field	Frame = 2030; Id = 2032; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+//		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+//		FeedBack = "Time to ramp from current value to required value";
+//
+//	Frame	Frame = 2030; Id = 2033; Layout = Horizontal; Space = 5;
+//
+//		Field	Frame = 2033; Id = 2034; Value = "#(Seawater:Pressure)"; Type = Real; \
+//			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+//			FeedBack = "New seawater pressure";
+//
+//		Button	Frame = 2033; Label = "Ramp"; Justify = Centre; \
+//			FeedBack = "Start ramping current value to target value"; \
+//			Action = Ramp,"SeawaterPressure","Seawater:Pressure",SPAN,!2032,1,!2034;
+//
+//		Stub	Frame = 2033; Size = 5,5;
+//		Stub	Frame = 2030; Size = 5,5;
+//
+//* seawater temperature
+//	Frame	Frame = 201; Id = 2040; Border; Pad = 2;
+//
+//	Stub	Frame = 2040; Size = 5,5;
+//
+//	Frame	Id = 2041; Frame = 2040; Layout = Horizontal; 
+//
+//	Button	Frame = 2041; Image=questionmark.bmp; \
+//		Action = Popdown,%_HELPPANEL; \
+//		Action = Set,_HELPPANEL,Help_Seawater_Temperature; \
+//		Action = Panel,%_HELPPANEL;
+//	Label	Frame = 2041; Label="Seawater temperature"; Bold;
+//	Stub	Frame = 2040; Size = 5,5;
+//
+//	Variable	Frame = 2040; Tag = "Seawater:Temperature"; Caption = "  Current:"; Width = 60; \
+//			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(Seawater:Temperature@V_units))"; SameWidth = 310;
+//* Ramp
+//	Field	Frame = 2040; Id = 2042; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+//		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+//		FeedBack = "Time to ramp from current value to required value";
+//
+//	Frame	Frame = 2040; Id = 2043; Layout = Horizontal; Space = 5;
+//
+//		Field	Frame = 2043; Id = 2044; Value = "#(Seawater:Temperature)"; Type = Real; \
+//			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+//			FeedBack = "New seawater temperature";
+//
+//		Button	Frame = 2043; Label = "Ramp"; Justify = Centre; \
+//			FeedBack = "Start ramping current value to target value"; \
+//			Action = Ramp,"SeawaterTemperature","Seawater:Temperature",SPAN,!2042,1,!2044;
+//
+//		Stub	Frame = 2043; Size = 5,5;
+//		Stub	Frame = 2040; Size = 5,5;
+//
+//*  __
+//*_/N2\_____________
+//
+Frame	Frame = 2; Id = 300; Layout = Fixed; 
+	Frame	Frame = 300; Id = 301; Layout = Vertical; Space = 5;
+//
+//** HP N2 pressure
+//*	Frame	Frame = 301; Id = 3010; Border; Pad = 2;
+//*
+//*	Stub	Frame = 3010; Size = 5,5;
+//*
+//*	Frame	Id = 3011; Frame = 3010; Layout = Horizontal; 
+//*
+//*	Button	Frame = 3011; Image=questionmark.bmp; \
+//*		Action = Popdown,%_HELPPANEL; \
+//*		Action = Set,_HELPPANEL,Help_HPNitrogen_Pressure; \
+//*		Action = Panel,%_HELPPANEL;
+//*	Label	Frame = 3011; Label="HP nitrogen pressure"; Bold;
+//*	Stub	Frame = 3010; Size = 5,5;
+//*
+//*	Variable	Frame = 3010; Tag = "HPNitrogen:Pressure"; Caption = "  Current:"; Width = 60; \
+//*			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(HPNitrogen:Pressure@V_units))"; SameWidth = 310;
+//** Ramp
+//*	Field	Frame = 3010; Id = 3012; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+//*		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+//*		FeedBack = "Time to ramp from current value to required value";
+//*
+//*	Frame	Frame = 3010; Id = 3013; Layout = Horizontal; Space = 5;
+//*
+//*		Field	Frame = 3013; Id = 3014; Value = "#(HPNitrogen:Pressure)"; Type = Real; \
+//*			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+//*			FeedBack = "New HP nitrogen pressure";
+//*
+//*		Button	Frame = 3013; Label = "Ramp"; Justify = Centre; \
+//*			FeedBack = "Start ramping current value to target value"; \
+//*			Action = Ramp,"HPNitrogenPressure","HPNitrogen:Pressure",SPAN,!3012,1,!3014;
+//*
+//*		Stub	Frame = 3013; Size = 5,5;
+//*		Stub	Frame = 3010; Size = 5,5;
+//*
+//** HP N2 temperature
+//*	Frame	Frame = 301; Id = 3020; Border; Pad = 2;
+//*
+//*	Stub	Frame = 3020; Size = 5,5;
+//*
+//*	Frame	Id = 3021; Frame = 3020; Layout = Horizontal; 
+//*
+//*	Button	Frame = 3021; Image=questionmark.bmp; \
+//*		Action = Popdown,%_HELPPANEL; \
+//*		Action = Set,_HELPPANEL,Help_HPNitrogen_Temperature; \
+//*		Action = Panel,%_HELPPANEL;
+//*	Label	Frame = 3021; Label="HP nitrogen temperature"; Bold;
+//*	Stub	Frame = 3020; Size = 5,5;
+//*
+//*	Variable	Frame = 3020; Tag = "HPNitrogen:Temperature"; Caption = "  Current:"; Width = 60; \
+//*			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(HPNitrogen:Temperature@V_units))"; SameWidth = 310;
+//** Ramp
+//*	Field	Frame = 3020; Id = 3022; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+//*		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+//*		FeedBack = "Time to ramp from current value to required value";
+//*
+//*	Frame	Frame = 3020; Id = 3023; Layout = Horizontal; Space = 5;
+//*
+//*		Field	Frame = 3023; Id = 3024; Value = "#(HPNitrogen:Temperature)"; Type = Real; \
+//*			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+//*			FeedBack = "New HP nitrogen temperature";
+//*
+//*		Button	Frame = 3023; Label = "Ramp"; Justify = Centre; \
+//*			FeedBack = "Start ramping current value to target value"; \
+//*			Action = Ramp,"HPNitrogenTemperature","HPNitrogen:Temperature",SPAN,!3022,1,!3024;
+//*
+//*		Stub	Frame = 3023; Size = 5,5;
+//*		Stub	Frame = 3020; Size = 5,5;
+//
+//* OT Supply N2 pressure
+	Frame	Frame = 301; Id = 3030; Border; Pad = 2;
+
+	Stub	Frame = 3030; Size = 5,5;
+
+	Frame	Id = 3031; Frame = 3030; Layout = Horizontal; 
+
+	Button	Frame = 3031; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_NitrogenSupply_Pressure; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 3031; Label="OT Nitrogen supply pressure"; Bold;
+	Stub	Frame = 3030; Size = 5,5;
+
+	Variable	Frame = 3030; Tag = "NitrogenSupply:Pressure"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(NitrogenSupply:Pressure@V_units))"; SameWidth = 310;
+//* Ramp
+	Field	Frame = 3030; Id = 3032; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 3030; Id = 3033; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 3033; Id = 3034; Value = "#(NitrogenSupply:Pressure)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New nitrogen supply pressure";
+
+		Button	Frame = 3033; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(NitrogenSupply:Pressure) == !3034',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"NitrogenSupplyPressure","NitrogenSupply:Pressure",SPAN,!3032,1,!3034;
+
+		Stub	Frame = 3033; Size = 5,5;
+		Stub	Frame = 3030; Size = 5,5;
+//
+//* OT Instrument Air pressure
+	Frame	Frame = 301; Id = 3040; Border; Pad = 2;
+
+	Stub	Frame = 3040; Size = 5,5;
+
+	Frame	Id = 3041; Frame = 3040; Layout = Horizontal; 
+
+	Button	Frame = 3041; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_InstrumentAir_Pressure; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 3041; Label="OT Instrument Air pressure"; Bold;
+	Stub	Frame = 3040; Size = 5,5;
+
+	Variable	Frame = 3040; Tag = "InstrumentAir:Pressure"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(bara)"; SameWidth = 310;
+//* Ramp
+	Field	Frame = 3040; Id = 3042; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 3040; Id = 3043; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 3043; Id = 3044; Value = "#(InstrumentAir:Pressure)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New Instrument Air pressure";
+
+		Button	Frame = 3043; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(InstrumentAir:Pressure) == !3044',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"InstrumentAirPressure","InstrumentAir:Pressure",SPAN,!3042,1,!3044;
+
+		Stub	Frame = 3043; Size = 5,5;
+		Stub	Frame = 3040; Size = 5,5;
+//* High Hydraulic Pressure
+	Frame	Frame = 301; Id = 3050; Border; Pad = 2;
+
+	Stub	Frame = 3050; Size = 5,5;
+
+	Frame	Id = 3051; Frame = 3050; Layout = Horizontal; 
+
+	Button	Frame = 3051; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_HighHydraulic_Pressure; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 3051; Label="High Hydraulic Pressure"; Bold;
+	Stub	Frame = 3050; Size = 5,5;
+
+	Variable	Frame = 3050; Tag = "High_Hydraulic:Pressure"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(bara)"; SameWidth = 310;
+//* Ramp
+	Field	Frame = 3050; Id = 3052; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 3050; Id = 3053; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 3053; Id = 3054; Value = "#(High_Hydraulic:Pressure)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New High Hydraulic pressure";
+
+		Button	Frame = 3053; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(High_Hydraulic:Pressure) == !3054',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"High Hydraulic Pressure","High_Hydraulic:Pressure",SPAN,!3052,1,!3054;
+
+		Stub	Frame = 3053; Size = 5,5;
+		Stub	Frame = 3050; Size = 5,5;
+//* Low Hydraulic Pressure
+	Frame	Frame = 301; Id = 3060; Border; Pad = 2;
+
+	Stub	Frame = 3060; Size = 5,5;
+
+	Frame	Id = 3061; Frame = 3060; Layout = Horizontal; 
+
+	Button	Frame = 3061; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_LowHydraulic_Pressure; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 3061; Label="Low Hydraulic Pressure"; Bold;
+	Stub	Frame = 3060; Size = 5,5;
+
+	Variable	Frame = 3060; Tag = "Low_Hydraulic:Pressure"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(bara)"; SameWidth = 310;
+//* Ramp
+	Field	Frame = 3060; Id = 3062; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 3060; Id = 3063; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 3063; Id = 3064; Value = "#(Low_Hydraulic:Pressure)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New Low Hydraulic pressure";
+
+		Button	Frame = 3063; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(Low_Hydraulic:Pressure) == !3064',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"Low Hydraulic Pressure","Low_Hydraulic:Pressure",SPAN,!3062,1,!3064;
+
+		Stub	Frame = 3063; Size = 5,5;
+		Stub	Frame = 3060; Size = 5,5;
+//
+//* CRP N2 Supply Pressure
+	Frame	Frame = 301; Id = 3070; Border; Pad = 2;
+
+	Stub	Frame = 3070; Size = 5,5;
+
+	Frame	Id = 3071; Frame = 3070; Layout = Horizontal; 
+
+	Button	Frame = 3071; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_CRP_NitrogenSupply_Pressure; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 3071; Label="CRP N2 Supply Pressure"; Bold;
+	Stub	Frame = 3070; Size = 5,5;
+
+	Variable	Frame = 3070; Tag = "CRP_NitrogenSupply:Pressure"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(bara)"; SameWidth = 310;
+//* Ramp
+	Field	Frame = 3070; Id = 3072; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 3070; Id = 3073; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 3073; Id = 3074; Value = "#(CRP_NitrogenSupply:Pressure)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New CRP N2 Supply Pressure";
+
+		Button	Frame = 3073; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(CRP_NitrogenSupply:Pressure) == !3074',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"CRP N2 Supply Pressure","CRP_NitrogenSupply:Pressure",SPAN,!3072,1,!3074;
+
+		Stub	Frame = 3073; Size = 5,5;
+		Stub	Frame = 3070; Size = 5,5;
+
+//* CRP Instrument Air pressure
+	Frame	Frame = 301; Id = 3080; Border; Pad = 2;
+
+	Stub	Frame = 3080; Size = 5,5;
+
+	Frame	Id = 3081; Frame = 3080; Layout = Horizontal; 
+
+	Button	Frame = 3081; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_InstrumentAir_Pressure; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 3081; Label="CRP Instrument Air pressure"; Bold;
+	Stub	Frame = 3080; Size = 5,5;
+
+	Variable	Frame = 3080; Tag = "CRP_Instrument_Air:Pressure"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(bara)"; SameWidth = 310;
+//* Ramp
+	Field	Frame = 3080; Id = 3082; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 3080; Id = 3083; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 3083; Id = 3084; Value = "#(CRP_Instrument_Air:Pressure)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New Instrument Air pressure";
+
+		Button	Frame = 3083; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			ActionIf = '#(CRP_Instrument_Air:Pressure) == !3084',MessageBox,"Please provide a different target value",Warning; \
+			ActionIf = *,Break; \
+			Action = Ramp,"InstrumentAirPressure","CRP_Instrument_Air:Pressure",SPAN,!3082,1,!3084;
+
+		Stub	Frame = 3083; Size = 5,5;
+		Stub	Frame = 3080; Size = 5,5;
+//
+//* Supply N2 temperature
+//	Frame	Frame = 301; Id = 3040; Border; Pad = 2;
+//
+//	Stub	Frame = 3040; Size = 5,5;
+//
+//	Frame	Id = 3041; Frame = 3040; Layout = Horizontal; 
+//
+//	Button	Frame = 3041; Image=questionmark.bmp; \
+//		Action = Popdown,%_HELPPANEL; \
+//		Action = Set,_HELPPANEL,Help_NitrogenSupply_Temperature; \
+//		Action = Panel,%_HELPPANEL;
+//	Label	Frame = 3041; Label="Nitrogen supply temperature"; Bold;
+//	Stub	Frame = 3040; Size = 5,5;
+//
+//	Variable	Frame = 3040; Tag = "NitrogenSupply:Temperature"; Caption = "  Current:"; Width = 60; \
+//			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(NitrogenSupply:Temperature@V_units))"; SameWidth = 310;
+//* Ramp
+//	Field	Frame = 3040; Id = 3042; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+//		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+//		FeedBack = "Time to ramp from current value to required value";
+//
+//	Frame	Frame = 3040; Id = 3043; Layout = Horizontal; Space = 5;
+//
+//		Field	Frame = 3043; Id = 3044; Value = "#(NitrogenSupply:Temperature)"; Type = Real; \
+//			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+//			FeedBack = "New nitrogen supply temperature";
+//
+//		Button	Frame = 3043; Label = "Ramp"; Justify = Centre; \
+//			FeedBack = "Start ramping current value to target value"; \
+//			Action = Ramp,"NitrogenSupplyTemperature","NitrogenSupply:Temperature",SPAN,!3042,1,!3044;
+//
+//		Stub	Frame = 3043; Size = 5,5;
+//		Stub	Frame = 3040; Size = 5,5;
+//
+//** Supply MEOH pressure
+//*	Frame	Frame = 301; Id = 3050; Border; Pad = 2;
+//*
+//*	Stub	Frame = 3050; Size = 5,5;
+//*
+//*	Frame	Id = 3051; Frame = 3050; Layout = Horizontal; 
+//*
+//*	Button	Frame = 3051; Image=questionmark.bmp; \
+//*		Action = Popdown,%_HELPPANEL; \
+//*		Action = Set,_HELPPANEL,Help_MEOHSupply_Pressure; \
+//*		Action = Panel,%_HELPPANEL;
+//*	Label	Frame = 3051; Label="MEOH supply pressure"; Bold;
+//*	Stub	Frame = 3050; Size = 5,5;
+//*
+//*	Variable	Frame = 3050; Tag = "MEOHInjection:Pressure"; Caption = "  Current:"; Width = 60; \
+//*			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(MEOHInjection:Pressure@V_units))"; SameWidth = 310;
+//** Ramp
+//*	Field	Frame = 3050; Id = 3052; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+//*		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+//*		FeedBack = "Time to ramp from current value to required value";
+//*
+//*	Frame	Frame = 3050; Id = 3053; Layout = Horizontal; Space = 5;
+//*
+//*		Field	Frame = 3053; Id = 3054; Value = "#(MEOHInjection:Pressure)"; Type = Real; \
+//*			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+//*			FeedBack = "New MEOH supply pressure";
+//*
+//*		Button	Frame = 3053; Label = "Ramp"; Justify = Centre; \
+//*			FeedBack = "Start ramping current value to target value"; \
+//*			Action = Ramp,"MEOHInjectionPressure","MEOHInjection:Pressure",SPAN,!3052,1,!3054;
+//*
+//*		Stub	Frame = 3053; Size = 5,5;
+//*		Stub	Frame = 3050; Size = 5,5;
+//*
+//** Supply MEOH temperature
+//*	Frame	Frame = 301; Id = 3060; Border; Pad = 2;
+//*
+//*	Stub	Frame = 3060; Size = 5,5;
+//*
+//*	Frame	Id = 3061; Frame = 3060; Layout = Horizontal; 
+//*
+//*	Button	Frame = 3061; Image=questionmark.bmp; \
+//*		Action = Popdown,%_HELPPANEL; \
+//*		Action = Set,_HELPPANEL,Help_MEOHSupply_Temperature; \
+//*		Action = Panel,%_HELPPANEL;
+//*	Label	Frame = 3061; Label="MEOH supply temperature"; Bold;
+//*	Stub	Frame = 3060; Size = 5,5;
+//*
+//*	Variable	Frame = 3060; Tag = "MEOHInjection:Temperature"; Caption = "  Current:"; Width = 60; \
+//*			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(#(MEOHInjection:Temperature@V_units))"; SameWidth = 310;
+//** Ramp
+//*	Field	Frame = 3060; Id = 3062; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+//*		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+//*		FeedBack = "Time to ramp from current value to required value";
+//*
+//*	Frame	Frame = 3060; Id = 3063; Layout = Horizontal; Space = 5;
+//*
+//*		Field	Frame = 3063; Id = 3064; Value = "#(MEOHInjection:Temperature)"; Type = Real; \
+//*			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+//*			FeedBack = "New MEOH supply temperature";
+//*
+//*		Button	Frame = 3063; Label = "Ramp"; Justify = Centre; \
+//*			FeedBack = "Start ramping current value to target value"; \
+//*			Action = Ramp,"MEOHInjectionTemperature","MEOHInjection:Temperature",SPAN,!3062,1,!3064;
+//*
+//*		Stub	Frame = 3063; Size = 5,5;
+//*		Stub	Frame = 3060; Size = 5,5;
+//
+//*  _____
+//*_/PLANT\_____________
+
+Frame	Frame = 2; Id = 400; Layout = Fixed; 
+	Frame	Frame = 400; Id = 401; Layout = Vertical; Space = 5;
+
+//* Utility air failure
+	Frame	Frame = 401; Id = 4010; Border; Pad = 2;
+
+	Stub	Frame = 4010; Size = 5,5;
+
+	Frame	Id = 4011; Frame = 4010; Layout = Horizontal; 
+
+	Button	Frame = 4011; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_UtilityAir_Failure; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 4011; Label="Utility air failure"; Bold;
+	Stub	Frame = 4010; Size = 5,5;
+
+	Variable	Frame = 4010; Tag = "UtilityAir:Failure"; Caption = "  Current status:"; Width = 60; \
+			Type = Enumerator; Values = "OK","Failed"; Justify = Centre; ShowState = EnumValues; \
+			Foreground = Black,Black; Background = Green3,Red; Sample = 1; Editable; SameWidth = 310;
+
+//* power failure
+	Frame	Frame = 401; Id = 4020; Border; Pad = 2;
+
+	Stub	Frame = 4020; Size = 5,5;
+
+	Frame	Id = 4021; Frame = 4020; Layout = Horizontal; 
+
+	Button	Frame = 4021; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_Power_Failure; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 4021; Label="Power failure"; Bold;
+	Stub	Frame = 4020; Size = 5,5;
+
+	Variable	Frame = 4020; Tag = "Power:Failure"; Caption = "  Current status:"; Width = 60; \
+			Type = Enumerator; Values = "Failed","OK"; Justify = Centre; ShowState = EnumValues; \
+			Foreground = Black,Black; Background = Red,Green3; Sample = 1; Editable; SameWidth = 310;
+//* ESD 0
+	Frame	Frame = 401; Id = 4030; Border; Pad = 2;
+
+	Stub	Frame = 4030; Size = 5,5;
+
+	Frame	Id = 4031; Frame = 4030; Layout = Horizontal; 
+
+	Button	Frame = 4031; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_ESD0_Trip; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 4031; Label="ESD 0/Abandon Platform Cellar Deck (N)"; Bold;
+	Stub	Frame = 4030; Size = 5,5;
+
+	Variable	Frame = 4030; Tag = DI_ESD_0_CRP_INS:in; Width = 60; \
+			Type = Enumerator; Values = "Activated","OK"; Justify = Centre; ShowState = EnumValues; \
+			Foreground = Black,Black; Background = Red,Green3; Sample = 1; Editable; SameWidth = 310;
+//* ESD 1A
+	Frame	Frame = 401; Id = 4040; Border; Pad = 2;
+
+	Stub	Frame = 4040; Size = 5,5;
+
+	Frame	Id = 4041; Frame = 4040; Layout = Horizontal; 
+
+	Button	Frame = 4041; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_ESD1A_Trip; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 4041; Label="ESD 1A/Fire Detectors Activated on N Cellar"; Bold;
+	Stub	Frame = 4040; Size = 5,5;
+
+	Variable	Frame = 4040; Tag = DI_ESD_1A_CRP:in; Width = 60; \
+			Type = Enumerator; Values = "Activated","OK"; Justify = Centre; ShowState = EnumValues; \
+			Foreground = Black,Black; Background = Red,Green3; Sample = 1; Editable; SameWidth = 310;
+//* ESD 1B
+	Frame	Frame = 401; Id = 4050; Border; Pad = 2;
+
+	Stub	Frame = 4050; Size = 5,5;
+
+	Frame	Id = 4051; Frame = 4050; Layout = Horizontal; 
+
+	Button	Frame = 4051; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_ESD1B_Trip; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 4051; Label="ESD 1B/Gas Detectors Activated on N Cellar"; Bold;
+	Stub	Frame = 4050; Size = 5,5;
+
+	Variable	Frame = 4050; Tag = DI_ESD_1B_CRP:in; Width = 60; \
+			Type = Enumerator; Values = "Activated","OK"; Justify = Centre; ShowState = EnumValues; \
+			Foreground = Black,Black; Background = Red,Green3; Sample = 1; Editable; SameWidth = 310;
+//* ESD 2
+	Frame	Frame = 401; Id = 4060; Border; Pad = 2;
+
+	Stub	Frame = 4060; Size = 5,5;
+
+	Frame	Id = 4061; Frame = 4060; Layout = Horizontal; 
+
+	Button	Frame = 4061; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_ESD2_Trip; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 4061; Label="Cellar Deck North MAC ESD PB/ESD 2"; Bold;
+	Stub	Frame = 4060; Size = 5,5;
+
+	Variable	Frame = 4060; Tag = DI_ESD_2_CRP:in; Width = 60; \
+			Type = Enumerator; Values = "Activated","OK"; Justify = Centre; ShowState = EnumValues; \
+			Foreground = Black,Black; Background = Red,Green3; Sample = 1; Editable; SameWidth = 310;
+
+//* Cellar Deck North MAC FIRE PB
+	Frame	Frame = 401; Id = 4070; Border; Pad = 2;
+
+	Stub	Frame = 4070; Size = 5,5;
+
+	Frame	Id = 4071; Frame = 4070; Layout = Horizontal; 
+
+	Button	Frame = 4071; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_ESD1A_Trip; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 4071; Label="Cellar Deck North MAC Fire PB/ESD-1A"; Bold;
+	Stub	Frame = 4070; Size = 5,5;
+
+	Variable	Frame = 4070; Tag = DI_ESD_1A_MAC_FIRE:in; Width = 60; \
+			Type = Enumerator; Values = "Activated","OK"; Justify = Centre; ShowState = EnumValues; \
+			Foreground = Black,Black; Background = Red,Green3; Sample = 1; Editable; SameWidth = 310;
+//* Cellar Deck North MAC GAS PB
+	Frame	Frame = 401; Id = 4080; Border; Pad = 2;
+
+	Stub	Frame = 4080; Size = 5,5;
+
+	Frame	Id = 4081; Frame = 4080; Layout = Horizontal; 
+
+	Button	Frame = 4081; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_ESD1B_Trip; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 4081; Label="Cellar Deck North MAC Gas PB/ESD-1B"; Bold;
+	Stub	Frame = 4080; Size = 5,5;
+
+	Variable	Frame = 4080; Tag = DI_ESD_1B_MAC_GAS:in; Width = 60; \
+			Type = Enumerator; Values = "Activated","OK"; Justify = Centre; ShowState = EnumValues; \
+			Foreground = Black,Black; Background = Red,Green3; Sample = 1; Editable; SameWidth = 310;
+//*  _____
+//*_/MISC\_____________
+
+Frame	Frame = 2; Id = 500; Layout = Fixed; 
+	Frame	Frame = 500; Id = 501; Layout = Vertical; Space = 5;
+
+//* A20 Sand Rate
+	Frame	Frame = 501; Id = 5050; Border; Pad = 2;
+
+	Stub	Frame = 5050; Size = 5,5;
+
+	Frame	Id = 5051; Frame = 5050; Layout = Horizontal; 
+
+	Button	Frame = 5051; Image=questionmark.bmp; \
+		Action = Popdown,%_HELPPANEL; \
+		Action = Set,_HELPPANEL,Help_A20_Sand_Rate; \
+		Action = Panel,%_HELPPANEL;
+	Label	Frame = 5051; Label="A20 Sand Rate"; Bold;
+	Stub	Frame = 5050; Size = 5,5;
+
+	Variable	Frame = 5050; Tag = "A20_Sand:Rate"; Caption = "  Current:"; Width = 60; \
+			Type = Real; Sample = 1; Format = %5.2f; Suffix = "(kg/hr)"; SameWidth = 310;
+//* Ramp
+	Field	Frame = 5050; Id = 5052; Value=%_DEFAULT_RAMP_TIME; Type = Real; \
+		Caption="  Ramp time:"; Suffix = "(s)"; Width = 60; SameWidth = 310; \
+		FeedBack = "Time to ramp from current value to required value";
+
+	Frame	Frame = 5050; Id = 5053; Layout = Horizontal; Space = 5;
+
+		Field	Frame = 5053; Id = 5054; Value = "#(A20_Sand:Rate)"; Type = Real; \
+			Caption = "  Target:"; Width = 60; SameWidth = 310; \
+			FeedBack = "New A20 Sand Rate";
+
+		Button	Frame = 5053; Label = "Ramp"; Justify = Centre; \
+			FeedBack = "Start ramping current value to target value"; \
+			Action = Ramp,"A20 Sand Rate","A20_Sand:Rate",SPAN,!5052,1,!5054;
+
+		Stub	Frame = 5053; Size = 5,5;
+		Stub	Frame = 5050; Size = 5,5;

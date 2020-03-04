@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xdr revision="7" entities="29">
+ <drawing id="1" syscol1="gray90" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="71" vheight="238" vunits="mm" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="3D"/>
+ <cpoint id="1025" xy="0,0">
+  <attribute name="ImageMin" type="null"/>
+ </cpoint>
+ <cpoint id="1026" xy="71,238">
+  <attribute name="ImageMax" type="null"/>
+ </cpoint>
+ <polygon id="1027" colour="0x838184" xy="21,2,25,6,25,235,21,235,21,2">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1028" colour="0x838184" xy="37,235,33,231,25,231,25,235,37,235">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1029" colour="white" xy="33,231,33,2,37,2,37,235,33,231">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1030" colour="white" xy="21,2,25,6,33,6,33,2,21,2">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1031" xy="25,6,25,231,33,231,33,6,25,6"/>
+ <polygon id="1032" xy="38,6,38,7,50,7,50,6,38,6">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1033" xy="41,17,41,18,46,18,46,17,41,17">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1034" xy="41,29,41,30,46,30,46,29,41,29">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1035" xy="41,39,41,40,46,40,46,39,41,39">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1036" xy="41,51,41,52,46,52,46,51,41,51">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1037" xy="38,62,38,63,50,63,50,62,38,62">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1038" xy="41,74,41,75,46,75,46,74,41,74">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1039" xy="41,85,41,86,46,86,46,85,41,85">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1040" xy="41,96,41,97,46,97,46,96,41,96">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1041" xy="41,108,41,109,46,109,46,108,41,108">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1042" xy="38,118,38,119,50,119,50,118,38,118">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1043" xy="41,130,41,131,46,131,46,130,41,130">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1044" xy="41,141,41,142,46,142,46,141,41,141">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1045" xy="41,153,41,154,46,154,46,153,41,153">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1046" xy="41,163,41,164,46,164,46,163,41,163">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1047" xy="38,175,38,176,50,176,50,175,38,175">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1048" xy="41,186,41,187,46,187,46,186,41,186">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1049" xy="41,198,41,199,46,199,46,198,41,198">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1050" xy="41,208,41,209,46,209,46,208,41,208">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1051" xy="41,220,41,221,46,221,46,220,41,220">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1052" xy="38,231,38,232,50,232,50,231,38,231">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <symbol id="1053" xy="25,6,33,231" name="Level_s2" xscl="8" yscl="225" fitted="true" >
+  <attribute name="symname" type="text" value="Level_s2"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="rect" mtag="%TMTAG:DisplayValue@V_unscaled" mmin="%TMTAG:LowerLimitProcessVariableOutput@V_Unscaled" mmax="%TMTAG:UpperLimitProcessVariableOutput@V_Unscaled" rect="0,0,8,0,0,0,8,225" atag="%TMTAG:UpperLimitProcessVariableOutput@V_Unscaled" amin="0" amax="0" axis="0,0,0,0">
+  </animation>
+ </symbol>
+</xdr>

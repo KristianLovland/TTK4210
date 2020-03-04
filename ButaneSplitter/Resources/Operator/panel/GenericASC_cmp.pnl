@@ -1,0 +1,122 @@
+#include $EXPLORER_RESOURCES/panel/DefaultVars.def
+#include $EXPLORER_RESOURCES/panel/Definitions.def
+
+Header	Title = "%TAG_NAME (%PANEL_TIMELINE)"; \
+		Position = Cursor; Resizable = SaveSize,LargerOnly; \
+		OneOff = "%TAG_NAME (%PANEL_TIMELINE)"; Help = "#(%TAG_NAME@B_type)";
+
+Frame	Id = 1; Frame = -2; Layout = Horizontal; Pad = 2; Space = 2;
+//Button	Frame = 1; Image = "blkmenu.ico"; FeedBack = "Block //menu"; Style = BUTTON_STYLE; \
+//		Action = Menu,"BlockExplorerBlock";
+Variable	VAR_NOEDIT; Frame = 1; Tag = "%TAG_NAME:@B_desc"; Width = 300;
+
+//Button	Frame = 1; Label = " info "; Width = 100;\
+//action=panel,GenericASC_Info.pnl;
+
+//**** Display Panel ****
+Frame	Frame = 0; Id = 3; Layout = Tabbed; Tabs = "Trend","Map"; Default = 0;
+
+//**** Trend tab ****
+Dataset	Name = "SP"; id = 800; Colour = Red; Label = "Flow setpoint"; Tag = "%TAG_NAME:NormalizedFlowSetpoint@V_unscaled";
+Dataset	Name = "PV"; id = 801; Colour = Green3; Label = "Flow"; Tag = "%TAG_NAME:NormalizedFlow@V_unscaled";
+Dataset	Name = "AL"; id = 802; Colour = Orange; Label = "Flow asymmetric limit"; Tag = "%TAG_NAME:NormalizedAsymmetricLimit@V_unscaled";
+Dataset	Name = "OP"; id = 803; Colour = Blue; Label = "Output"; Tag = "%TAG_NAME:Output@V_unscaled";
+
+Display	Frame = 3; Sample = 1; Type = Trend; Id = 3000; Size = 260,400;\
+		TimeAxis = 30; XTitle = "Time"; YTitle = "Fraction"; \
+		Dataset = "SP","PV","AL","OP"; YAxis = 0.,1.0,0.,-,-,-,0.1;\
+		Background = TREND_BG; Foreground = TREND_FG; Grid = TREND_GRID; Title = "%TAG_NAME";
+
+//**** Map tab ****
+Dataset	Name = "d1"; Id = 901; Tag = "%TAG_NAME:NormalizedPolytropicHead","%TAG_NAME:NormalizedFlow"; \
+		Colour = Grey2; Weight = 2;
+//		Colour = Grey2; Weight = 2; Label = "Current position";
+
+Dataset	Name = "d2"; Id = 902; Tag = "%TAG_NAME:NormalizedPolytropicHead","%TAG_NAME:NormalizedFlowSetpoint"; \
+		Colour = Blue; Weight = 2;
+//		Colour = Blue; Weight = 2; Label = "Control position";
+
+Dataset	Name = "d3"; Id = 903; Tag = "%TAG_NAME:NormalizedSurgePolytropicHead","%TAG_NAME:NormalizedSurgeFlow"; \
+		Colour = Red; Data = XY; Label = "Surge limit";
+
+Dataset	Name = "d5"; Id = 905; Tag = "%TAG_NAME:NormalizedSurgePolytropicHead","%TAG_NAME:NormalizedControlFlow"; \
+		Colour = Blue; Data = XY; Label = "Control line";
+
+Dataset	Name = "d4"; Id = 904; Tag = "%TAG_NAME:NormalizedSurgePolytropicHead","%TAG_NAME:NormalizedAsymmetricFlow"; \
+		Colour = Green; Data = XY; Label = "Asymmetric line";
+
+Display	Frame = 3; Type = Trajectory; TimeAxis = 20; Id = 220;  \
+		Dataset = "d1","d2","d3","d4","d5"; Background = TREND_BG; Foreground = TREND_FG; Grid = TREND_GRID; \
+		XTitle = "Normalized flow ( #%TAG_NAME:NormalizedFlow@V_units )"; \
+		YTitle = "Normalized head ( #%TAG_NAME:NormalizedPolytropicHead@V_units )"; \
+		Title = "%TAG_NAME"; AutoFit;
+//		XAxis = 0.4,1,10; YAxis = 0.2,1,-,-,-,-,10;
+
+
+//**** Value area ****
+Frame	Frame = -4; Id = 4; Layout = Tabbed; Tabs = "Key values","Tuning"; Default = 0;
+
+//**** Key Values tab ****
+Frame	Frame = 4; Id = 40; Layout = Cell; Size = 1,6; Pad = 0; Space = 5;
+
+// OperationMode
+Frame	Id = 400; Frame = 40,1; Layout = Horizontal; Space = 2; 
+Variable	Frame = 400; VAR_EDIT; SameWidth = +11; \
+		Caption = "#(%TAG_NAME:OperationMode@V_desc)"; \
+		Tag = "%TAG_NAME:OperationMode";
+
+Frame	Id = 401; Frame = 40,2; Layout = Horizontal; Space = 2;
+Variable	Frame = 401; VAR_EDIT; Caption = "#(%TAG_NAME:ManualSignal@V_desc)"; \
+		Tag = "%TAG_NAME:ManualSignal"; Suffix = "#(%TAG_NAME:ManualSignal@V_units)"; SameWidth = +11;
+
+Frame	Id = 402; Frame = 40,3; Layout = Horizontal; Space = 2;
+Variable	Frame = 402; VAR_NOEDIT; Caption = "#(%TAG_NAME:NormalizedError@V_desc)"; \
+		Tag = "%TAG_NAME:NormalizedError"; Suffix = "#(%TAG_NAME:NormalizedError@V_units)"; SameWidth = +11;
+Button		Frame = 402; Style = BUTTON_STYLE; Image = "trend.ico"; SameWidth = 12; FeedBack = "Show trend"; \
+		Action = Set,VAR,"%TAG_NAME:NormalizedError"; \
+		Action = Panel,"BlockExplorerTrend";
+
+Frame	Id = 403; Frame = 40,4; Layout = Horizontal; Space = 2;
+Variable	Frame = 403; VAR_NOEDIT; Caption = "#(%TAG_NAME:NormalizedSurgeMargin@V_desc)"; \
+		Tag = "%TAG_NAME:NormalizedSurgeMargin"; Suffix = "#(%TAG_NAME:NormalizedSurgeMargin@V_units)"; SameWidth = +11;
+Button		Frame = 403; Style = BUTTON_STYLE; Image = "trend.ico"; SameWidth = 12; FeedBack = "Show trend"; \
+		Action = Set,VAR,"%TAG_NAME:NormalizedSurgeMargin"; \
+		Action = Panel,"BlockExplorerTrend";
+
+Frame	Id = 404; Frame = 40,5; Layout = Horizontal; Space = 2;
+Variable	Frame = 404; VAR_NOEDIT; Caption = "#(%TAG_NAME:Output@V_desc)"; \
+		Tag = "%TAG_NAME:Output"; Suffix = "#(%TAG_NAME:Output@V_units)"; SameWidth = +11;
+Button		Frame = 404; Style = BUTTON_STYLE; Image = "trend.ico"; SameWidth = 12; FeedBack = "Show trend"; \
+		Action = Set,VAR,"%TAG_NAME:Output"; \
+		Action = Panel,"BlockExplorerTrend";
+
+Frame	Id = 405; Frame = 40,6; Layout = Horizontal; Space = 2;
+Variable	Frame = 405; VAR_NOEDIT; Caption = "#(%TAG_NAME:Tripped@V_desc)"; \
+		Tag = "%TAG_NAME:Tripped"; SameWidth = +11;
+
+//**** Tuning tab ****
+Frame	Frame = 4; Id = 41; Layout = Vertical; Pad = 0; Space = 5;
+
+Variable	Frame = 41; VAR_EDIT; Caption = "#(%TAG_NAME:FastProportionalGain@V_desc)"; \
+		Tag = "%TAG_NAME:FastProportionalGain"; \
+		Suffix = "#(%TAG_NAME:FastProportionalGain@V_units)"; SameWidth = +11;
+
+Variable	Frame = 41; VAR_EDIT; Caption = "#(%TAG_NAME:SlowProportionalGain@V_desc)"; \
+		Tag = "%TAG_NAME:SlowProportionalGain"; \
+		Suffix = "#(%TAG_NAME:SlowProportionalGain@V_units)"; SameWidth = +11;
+
+Variable	Frame = 41; VAR_EDIT; Caption = "#(%TAG_NAME:FastIntegralTime@V_desc)"; \
+		Tag = "%TAG_NAME:FastIntegralTime"; \
+		Suffix = "#(%TAG_NAME:FastIntegralTime@V_units)"; SameWidth = +11;
+
+Variable	Frame = 41; VAR_EDIT; Caption = "#(%TAG_NAME:SlowIntegralTime@V_desc)"; \
+		Tag = "%TAG_NAME:SlowIntegralTime"; \
+		Suffix = "#(%TAG_NAME:SlowIntegralTime@V_units)"; SameWidth = +11;
+
+Variable	Frame = 41; VAR_EDIT; Caption = "#(%TAG_NAME:ControlLineMargin@V_desc)"; \
+		Tag = "%TAG_NAME:ControlLineMargin"; \
+		Suffix = "#(%TAG_NAME:ControlLineMargin@V_units)"; SameWidth = +11;
+
+Variable	Frame = 41; VAR_EDIT; Caption = "#(%TAG_NAME:AsymmetricLineMargin@V_desc)"; \
+		Tag = "%TAG_NAME:AsymmetricLineMargin"; \
+		Suffix = "#(%TAG_NAME:AsymmetricLineMargin@V_units)"; SameWidth = +11;

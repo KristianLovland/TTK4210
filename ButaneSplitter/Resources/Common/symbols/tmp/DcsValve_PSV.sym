@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="8">
+ <header xy="561,645" xmin="543.999" ymin="611" xmax="571" ymax="662">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Valve"/>
+  <attribute name="SymName" type="text" value="DcsValve_PSV"/>
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <attribute name="ItemType" type="text" value="DcsValveManual"/>
+  <attribute name="SelectBox" type="real" value="-17,-17,10,17"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <parameter name="SAVED_PATH" value="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbolsheets\GeneralSymbolSheet_Prod_Operator.xdr"/>
+ </drawing>
+ <viewport id="2" vwidth="841" vheight="1251" gpitch="1,1" goffset="0,0" height="2" hjust="right" font="Arial"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <symbol id="1434" estat="ext" xy="561,645" name="xdcs_valve_s2" pr6layer="0">
+  <attribute name="SymName" type="text" value="xdcs_valve_s2"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <animation type="graphic" default="#e60000">
+   <state type="int" tag="%TAG_NAME:ValveStatus" value="1" priority="1" foreground="green"/>
+   <state type="int" tag="%TAG_NAME:ValveStatus" value="3" priority="2" foreground="green"/>
+  </animation>
+ </symbol>
+ <string id="1374" colour="darkorange1" layer="Hidden" estat="ref" xy="544,628,544,662,571,662,571,628,544,628">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <cpoint id="1426" depth="11" estat="ref" xy="561,645">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Valve"/>
+  <attribute name="SymName" type="text" value="DcsValve_PSV"/>
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <attribute name="ItemType" type="text" value="DcsValveManual"/>
+ </cpoint>
+ <tnode id="1428" colour="red" layer="Hidden" depth="50" estat="ext" xy="561,611" height="6" hjust="centre" font="Arial">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <line id="1430" xy="555,662,567,658"/>
+ <line id="1433" weight="2" xy="561,645,561,662"/>
+ <line id="1435" xy="555,658,567,654"/>
+ <line id="1437" xy="555,654,567,650"/>
+</sym>

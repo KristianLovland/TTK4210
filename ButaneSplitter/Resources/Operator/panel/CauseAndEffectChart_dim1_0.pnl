@@ -1,0 +1,48 @@
+#include $EXPLORER_RESOURCES/Panel/DefaultVars.def
+
+set	variable=CE_TAG_NAME,%TAG_NAME;
+set	variable=CE_TAG_TYPE,%TAG_TYPE;
+set	variable=CANDE_TAG,%TAG_NAME;
+
+Header	Title = "%TAG_NAME (%PANEL_TIMELINE) Table"; size = 1000,760; Resizable = no; Position = CentreScreen; \
+	HELP1; OneOff = "%TAG_NAME (%PANEL_TIMELINE)";
+
+frame	frame=-2; id=201; layout=vertical; space=5; pad=8;
+
+//*************
+// Block menu *
+//*************
+Frame	Id = 2010; Frame = 201; Layout = Horizontal; Space = 5;
+//	Button	Frame = 2010; Image = "blkmenu.ico"; FeedBack = "Block menu"; Style = BUTTON_STYLE; \
+//			action=set,TAG_NAME,%CE_TAG_NAME; \
+//			action=set,TAG_TYPE,%CE_TAG_TYPE; \
+//			Action = Menu,"BlockExplorerBlock";
+//Variable	VAR_NOEDIT; Frame = 2010; Tag = "%TN@B_name"; Width = 300;
+
+Set Variable = TN,%TAG_NAME;
+Set Variable = TT,%TAG_TYPE;
+
+Frame	Id = 2011; Frame = 201; Layout = Horizontal; Space = 5;
+//Switch	Frame = 2011; Label = "Override all"; Editable; Immediate; Tag = "%TN:OverrideAll";
+//Switch	Frame = 2011; Label = "Disable actions"; Editable; Immediate; Tag = "%TN:NullStep"; \
+//	dependency='#(%TN:@B_dims[3]) != 0';
+
+Frame	Id = 2012; Frame = 201; Layout = Horizontal; Space = 5;
+label	frame=2012; label="Outputs:";
+Variable Frame = 2012; Sample = 1; Tag = "%TN:AnyOutputTripped"; Font = Verdana; \
+	Type = Boolean; Values = "All Outputs Good","Some Outputs Bad"; ShowState = EnumValues; \
+	Foreground = Black,Black,-; Background = PaleGreen3,Red; Border; SameHeight = 1; Justify = Centre;
+
+Button Frame = 2012; Dependency = '#(%TN:AutoResetCauses) != 1 && (#(%TN:ResetAllCauses) == false && #(%TN:AnyInputTripped) == true)'; \
+	label = "Reset causes"; Action = Send,SetVariable,s,'%TN:ResetAllCauses',b,true; sameheight=1;
+
+Button Frame = 2012; Dependency = '#(%TN:AutoResetFirstOut) == false && (#(%TN:ResetFirstOut) == false && #(%TN:FirstOutIsSet) == true)'; \
+	label = "Reset FirstOut"; Action = Send,SetVariable,s,'%TN:ResetFirstOut',b,true; sameheight=1;
+
+Button Frame = 2012; Dependency = '#(%TN:AutoResetAll) == false && (#(%TN:ResetAll) == false && #(%TN:AnyOutputTripped) == true)'; \
+	label = "Reset effects"; Action = Send,SetVariable,s,'%TN:ResetAll',b,true; sameheight=1;
+
+// TableTemplate image
+imagearea	type=xdr,nocontrols,scrollbars; source=CandE_TableTemplate; size=600,600; \
+		menu=%SYM_NAME; selection=cursor,hand; border=line,1,grey80; \
+		mid=%PANEL_MID;

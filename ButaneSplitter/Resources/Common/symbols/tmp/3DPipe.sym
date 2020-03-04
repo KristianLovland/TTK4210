@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="31">
+ <header xy="38,434" xmin="36" ymin="424" xmax="160" ymax="442">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="3DPipe"/>
+  <attribute name="ItemType" type="text" value="3DPipe"/>
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <attribute name="SelectBox" type="real" value="-2,-2,122,8"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="240.001" vheight="32.8131" gpitch="2,2" goffset="0,0"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <string id="1025" style="8" estat="ref" xy="36,432,36,442,160,442,160,432,36,432">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <tnode id="1505" colour="blue" layer="Hidden" estat="ext" xy="38,424" height="2" font="Arial">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <cpoint id="1511" estat="ref" xy="38,434">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="3DPipe"/>
+  <attribute name="ItemType" type="text" value="3DPipe"/>
+  <attribute name="AttPage" type="text" value="ItemName"/>
+ </cpoint>
+ <polygon id="1512" colour="#4b4b4b" xy="38,434.106,158,434.106,158,434.006,38,434.006,38,434.106"/>
+ <polygon id="1513" colour="#a7a7a7" xy="38,435.006,158,435.006,158,434.806,38,434.806,38,435.006"/>
+ <polygon id="1514" colour="#9f9f9f" xy="38,434.806,158,434.806,158,434.606,38,434.606,38,434.806"/>
+ <polygon id="1515" colour="gray61" xy="38,434.606,158,434.606,158,434.506,38,434.506,38,434.606"/>
+ <polygon id="1516" colour="gray59" xy="38,434.506,158,434.506,158,434.406,38,434.406,38,434.506"/>
+ <polygon id="1517" colour="#909090" xy="38,434.406,158,434.406,158,434.306,38,434.306,38,434.406"/>
+ <polygon id="1518" colour="#717171" xy="38,434.206,158,434.206,158,434.106,38,434.106,38,434.206"/>
+ <polygon id="1519" colour="#b7b7b7" xy="38,436.006,158,436.006,158,435.606,38,435.606,38,436.006"/>
+ <polygon id="1520" colour="#b4b4b4" xy="38,435.606,158,435.606,158,435.206,38,435.206,38,435.606"/>
+ <polygon id="1521" colour="#afafaf" xy="38,435.206,158,435.206,158,435.006,38,435.006,38,435.206"/>
+ <polygon id="1522" colour="#848484" xy="38,434.306,158,434.306,158,434.206,38,434.206,38,434.306"/>
+ <polygon id="1523" colour="#b9b9b9" xy="38,436.406,158,436.406,158,436.006,38,436.006,38,436.406"/>
+ <polygon id="1524" colour="gray74" xy="38,437.206,158,437.206,158,436.806,38,436.806,38,437.206"/>
+ <polygon id="1525" colour="#bbbbbb" xy="38,436.806,158,436.806,158,436.406,38,436.406,38,436.806"/>
+ <polygon id="1526" colour="#bebebe" xy="38,437.606,158,437.606,158,437.206,38,437.206,38,437.606"/>
+ <polygon id="1527" colour="gray75" xy="38,438.006,158,438.006,158,437.606,38,437.606,38,438.006"/>
+ <polygon id="1528" colour="#c3c3c3" xy="38,438.806,158,438.806,158,438.406,38,438.406,38,438.806"/>
+ <polygon id="1529" colour="#c1c1c1" xy="38,439.206,158,439.206,158,438.806,38,438.806,38,439.206"/>
+ <polygon id="1530" colour="#c1c1c1" xy="38,438.406,158,438.406,158,438.006,38,438.006,38,438.406"/>
+ <polygon id="1531" colour="gray75" xy="38,439.406,158,439.406,158,439.206,38,439.206,38,439.406"/>
+ <polygon id="1532" colour="#bbbbbb" xy="38,439.606,158,439.606,158,439.406,38,439.406,38,439.606"/>
+ <polygon id="1533" colour="#afafaf" xy="38,439.806,158,439.806,158,439.606,38,439.606,38,439.806"/>
+ <polygon id="1534" colour="#a7a7a7" xy="38,439.906,158,439.906,158,439.806,38,439.806,38,439.906"/>
+ <polygon id="1535" colour="#909090" xy="38,440.206,158,440.206,158,440.106,38,440.106,38,440.206"/>
+ <polygon id="1536" colour="#717171" xy="38,440.406,158,440.406,158,440.306,38,440.306,38,440.406"/>
+ <polygon id="1537" colour="gray59" xy="38,440.106,158,440.106,158,440.006,38,440.006,38,440.106"/>
+ <polygon id="1538" colour="#848484" xy="38,440.306,158,440.306,158,440.206,38,440.206,38,440.306"/>
+ <polygon id="1539" colour="#9f9f9f" xy="38,440.006,158,440.006,158,439.906,38,439.906,38,440.006"/>
+</sym>

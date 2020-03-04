@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="1324,859" xmin="1322" ymin="858.999" xmax="1404" ymax="905.001">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_welldisplay_allocationfactor"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <cpoint id="1989" estat="ref" xy="1324,859">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_welldisplay_allocationfactor"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </cpoint>
+ <tnode id="1991" estat="ext" xy="1391,865" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%FLOW_TARGET:DownstreamFlowAllocationFactor@V_units" format="%s">
+  </animation>
+ </tnode>
+ <text id="1992" xy="1322,887" height="8" font="Arial">
+  <tstring>from downstream:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <tnode id="1988" estat="ext" xy="1349,865" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%FLOW_TARGET:DownstreamFlowAllocationFactor[0]" format="%6.1f">
+  </animation>
+ </tnode>
+ <text id="1990" xy="1322,897" height="8" font="Arial">
+  <tstring>Fraction to well</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+</sym>

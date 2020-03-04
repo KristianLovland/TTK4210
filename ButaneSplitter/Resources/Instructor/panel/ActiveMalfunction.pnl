@@ -1,0 +1,30 @@
+Header	Title = "Active Malfunctions"; Controls = "Details","Find","Cancel"; \
+	Type = Exclusive; OneOff; Position = centrescreen; \
+	Action = -,Set,_SELECTION_20,""; \
+	ActionIf = "Details",'"%_SELECTION_20" != ""',Set,TAG_NAME,%_SELECTION_20; \
+	ActionIf = "Details",*,Panel,"#(%TAG_NAME@B_type)_ins"; \
+	ActionIf = "Details",*,Popdown; \
+	ActionElse = "Details",MessageBox,"No malfunctioned module selected.","Error"; \
+	ActionIf = "Find",'"%_SELECTION_20" != ""',Set,TAG_NAME,%_SELECTION_20; \
+	ActionIf = "Find",*,FindGraphic,%TAG_NAME,NoZoom; \
+	ActionIf = "Find",*,Popdown; \
+	ActionElse = "Find",MessageBox,"No malfunctioned module selected.","Error"; \
+	Action = "Cancel",Popdown;
+
+Frame	Id = 1; Layout = Vertical;
+
+Stub	Frame = 1; Size = 5,5;
+
+Frame	Frame = 1; Id = 3; Layout = Vertical;
+
+	Label		Frame = 3; Label = "Module(s) with active malfunction(s):"; Bold; SameWidth = 1;
+
+	Stub		Frame = 3; Size = 5,5;
+
+	Selection	Frame = 3; Id = 20; Sort; Width = 25; SameWidth = 2; \
+			Source = Tag,"$top@name(*)@itemvalue(B_Malfunction=1)@B_n_lst"; \
+			ActionIf = '"%_DBL_CLICK" == "True"',FindGraphic,%_SELECTION_20,NoZoom; \
+			ActionIf = *,Popdown;
+
+	Stub		Frame = 3; Size = 5,5;
+

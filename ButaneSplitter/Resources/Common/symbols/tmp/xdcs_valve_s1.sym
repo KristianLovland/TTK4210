@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="196,828" xmin="180" ymin="820" xmax="212" ymax="836">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="xdcs_valve_s1"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="841" vheight="1251" gpitch="1,1" goffset="0,0" height="2" hjust="right" font="Arial"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <cpoint id="1103" depth="11" estat="ref" xy="196,828">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="xdcs_valve_s1"/>
+ </cpoint>
+ <polygon id="1106" xy="180,836,180,820,212,836,212,820,180,836"/>
+</sym>

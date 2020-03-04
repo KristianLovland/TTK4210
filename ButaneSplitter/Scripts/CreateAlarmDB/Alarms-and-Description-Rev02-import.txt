@@ -1,0 +1,269 @@
+13PDT2014_alarm;13PDT2014;01**13;AlarmAnalog;p1;Diff Pressure Production Manifold Valves 
+13PDT2016_alarm;13PDT2016;01**13;AlarmAnalog;p1;Diff Pressure Test Manifold Valves 
+13PST0103_alarm;13PST0103;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 01
+13PST0106_alarm;13PST0106;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 01
+13PST0109_alarm;13PST0109;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 01
+13PST0203_alarm;13PST0203;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 02
+13PST0206_alarm;13PST0206;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 02
+13PST0209_alarm;13PST0209;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 02
+13PST0303_alarm;13PST0303;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 03
+13PST0306_alarm;13PST0306;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 03
+13PST0309_alarm;13PST0309;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 03
+13PST0403_alarm;13PST0403;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 04
+13PST0406_alarm;13PST0406;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 04
+13PST0409_alarm;13PST0409;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 04
+13PST0503_alarm;13PST0503;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 05
+13PST0506_alarm;13PST0506;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 05
+13PST0509_alarm;13PST0509;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 05
+13PST0603_alarm;13PST0603;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 06
+13PST0606_alarm;13PST0606;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 06
+13PST0609_alarm;13PST0609;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 06
+13PST0703_alarm;13PST0703;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 07
+13PST0706_alarm;13PST0706;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 07
+13PST0709_alarm;13PST0709;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 07
+13PST0803_alarm;13PST0803;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 08
+13PST0806_alarm;13PST0806;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 08
+13PST0809_alarm;13PST0809;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 08
+13PST0903_alarm;13PST0903;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 09
+13PST0906_alarm;13PST0906;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 09
+13PST0909_alarm;13PST0909;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 09
+13PST1003_alarm;13PST1003;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 10
+13PST1006_alarm;13PST1006;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 10
+13PST1009_alarm;13PST1009;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 10
+13PST1103_alarm;13PST1103;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 11
+13PST1106_alarm;13PST1106;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 11
+13PST1109_alarm;13PST1109;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 11
+13PST1203_alarm;13PST1203;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 12
+13PST1206_alarm;13PST1206;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 12
+13PST1209_alarm;13PST1209;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 12
+13PST1303_alarm;13PST1303;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 13
+13PST1306_alarm;13PST1306;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 13
+13PST1309_alarm;13PST1309;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 13
+13PST1403_alarm;13PST1403;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 14
+13PST1406_alarm;13PST1406;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 14
+13PST1409_alarm;13PST1409;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 14
+13PST1503_alarm;13PST1503;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 15
+13PST1506_alarm;13PST1506;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 15
+13PST1509_alarm;13PST1509;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 15
+13PST1603_alarm;13PST1603;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 16
+13PST1606_alarm;13PST1606;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 16
+13PST1609_alarm;13PST1609;01**13;AlarmAnalog;p1;Pressure Downstram Choke - Well 16
+13PT0104_alarm;13PT0104;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 01
+13PT0204_alarm;13PT0204;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 02
+13PT0304_alarm;13PT0304;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 03
+13PT0404_alarm;13PT0404;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 04
+13PT0504_alarm;13PT0504;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 05
+13PT0604_alarm;13PT0604;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 06
+13PT0704_alarm;13PT0704;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 07
+13PT0804_alarm;13PT0804;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 08
+13PT0904_alarm;13PT0904;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 09
+13PT1004_alarm;13PT1004;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 10
+13PT1104_alarm;13PT1104;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 11
+13PT1204_alarm;13PT1204;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 12
+13PT1304_alarm;13PT1304;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 13
+13PT1404_alarm;13PT1404;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 14
+13PT1504_alarm;13PT1504;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 15
+13PT1604_alarm;13PT1604;01**13;AlarmAnalog;p1;Pressure Upstream Choke - Well 16
+13PT2010_alarm;13PT2010;01**13;AlarmAnalog;p1;Pressure Production Manifold
+13PT2012_alarm;13PT2012;01**13;AlarmAnalog;p1;Pressure Test Manifold
+17PST1705_alarm;17PST1705;01**17;AlarmAnalog;p1;Pressure DwnStr Gas ReInjection Choke - Well 17
+17PST1707_alarm;17PST1707;01**17;AlarmAnalog;p1;Pressure DwnStr Gas ReInjection Choke - Well 17
+17PST1805_alarm;17PST1805;01**17;AlarmAnalog;p1;Pressure DwnStr Gas ReInjection Choke - Well 18
+17PST1807_alarm;17PST1807;01**17;AlarmAnalog;p1;Pressure DwnStr Gas ReInjection Choke - Well 18
+17PST1905_alarm;17PST1905;01**17;AlarmAnalog;p1;Pressure DwnStr Gas ReInjection Choke - Well 19
+17PST1907_alarm;17PST1907;01**17;AlarmAnalog;p1;Pressure DwnStr Gas ReInjection Choke - Well 19
+17PST2005_alarm;17PST2005;01**17;AlarmAnalog;p1;Pressure DwnStr Water Injection Choke - Well 20
+17PST2007_alarm;17PST2007;01**17;AlarmAnalog;p1;Pressure DwnStr Water Injection Choke - Well 20
+17PST2105_alarm;17PST2105;01**17;AlarmAnalog;p1;Pressure DwnStr Water Injection Choke - Well 21
+17PST2107_alarm;17PST2107;01**17;AlarmAnalog;p1;Pressure DwnStr Water Injection Choke - Well 21
+17PST2205_alarm;17PST2205;01**17;AlarmAnalog;p1;Pressure DwnStr Water Injection Choke - Well 22
+17PST2207_alarm;17PST2207;01**17;AlarmAnalog;p1;Pressure DwnStr Water Injection Choke - Well 22
+17PT1704_alarm;17PT1704;01**17;AlarmAnalog;p1;Pressure DwnStr Gas ReInjection Choke - Well 17
+17PT1804_alarm;17PT1804;01**17;AlarmAnalog;p1;Pressure DwnStr Gas ReInjection Choke - Well 18
+17PT1904_alarm;17PT1904;01**17;AlarmAnalog;p1;Pressure DwnStr Gas ReInjection Choke - Well 19
+17PT2004_alarm;17PT2004;01**17;AlarmAnalog;p1;Pressure DwnStr Water Injection Choke - Well 20
+17PT2104_alarm;17PT2104;01**17;AlarmAnalog;p1;Pressure DwnStr Water Injection Choke - Well 21
+17PT2204_alarm;17PT2204;01**17;AlarmAnalog;p1;Pressure DwnStr Water Injection Choke - Well 22
+20LST0016_alarm;20LST0016;01**20;AlarmAnalog;p1;Level Oil in Test Separator
+20LST0017_alarm;20LST0017;01**20;AlarmAnalog;p1;Level Water in Test Separator
+20LST1016_alarm;20LST1016;01**20;AlarmAnalog;p1;Level Oil in HP Separator
+20LST1017_alarm;20LST1017;01**20;AlarmAnalog;p1;Level Water in HP Separator
+20LST2016_alarm;20LST2016;01**20;AlarmAnalog;p1;Level Oil in MP Separator
+20LST3016_alarm;20LST3016;01**20;AlarmAnalog;p1;Level Oil in LP Separator
+20LST5010_alarm;20LST5010;01**20;AlarmAnalog;p1;Level Water in Coalescer
+20LT0015_alarm;20LT0015;01**20;AlarmAnalog;p1;Level Oil in Test Separator
+20LT0018_alarm;20LT0018;01**20;AlarmAnalog;p1;Level Water in Test Separator
+20LT1015_alarm;20LT1015;01**20;AlarmAnalog;p1;Level Oil in HP Separator
+20LT1018_alarm;20LT1018;01**20;AlarmAnalog;p1;Level Water in HP Separator
+20LT2015_alarm;20LT2015;01**20;AlarmAnalog;p1;Level Oil in MP Separator
+20LT3015_alarm;20LT3015;01**20;AlarmAnalog;p1;Level Oil in LP Separator
+20LT5009_alarm;20LT5009;01**20;AlarmAnalog;p1;Level Water in Coalescer
+20PDT0004_alarm;20PDT0004;01**20;AlarmAnalog;p1;Diff Pressure Gas Valve Test Sep to MP Sep
+20PDT0014_alarm;20PDT0014;01**20;AlarmAnalog;p1;Diff Pressure Gas Valve Test Sep to Dehydration
+20PDT1006_alarm;20PDT1006;01**20;AlarmAnalog;p1;Diff Pressure Gas Valve HP Sep
+20PDT2006_alarm;20PDT2006;01**20;AlarmAnalog;p1;Diff Pressure Gas Valve MP Sep
+20PDT3006_alarm;20PDT3006;01**20;AlarmAnalog;p1;Diff Pressure Gas Valve LP Sep
+20PST0013_alarm;20PST0013;01**20;AlarmAnalog;p1;Pressure Test Separator
+20PST1013_alarm;20PST1013;01**20;AlarmAnalog;p1;Pressure HP Separator
+20PST2013_alarm;20PST2013;01**20;AlarmAnalog;p1;Pressure MP Separator
+20PST3013_alarm;20PST3013;01**20;AlarmAnalog;p1;Pressure LP Separator
+20PST5011_alarm;20PST5011;01**20;AlarmAnalog;p1;Discharge Pressure PW PumpA Coalescer
+20PST5012_alarm;20PST5012;01**20;AlarmAnalog;p1;Discharge Pressure PW PumpB Coalescer
+20PST5016_alarm;20PST5016;01**20;AlarmAnalog;p1;Suction Pressure Oil Booster PumpA
+20PST5017_alarm;20PST5017;01**20;AlarmAnalog;p1;Suction Pressure Oil Booster PumpB
+20PT0014_alarm;20PT0014;01**20;AlarmAnalog;p1;Pressure Test Separator
+20PT1014_alarm;20PT1014;01**20;AlarmAnalog;p1;Pressure HP Separator
+20PT2014_alarm;20PT2014;01**20;AlarmAnalog;p1;Pressure MP Separator
+20PT3014_alarm;20PT3014;01**20;AlarmAnalog;p1;Pressure LP Separator
+20PT4006A_alarm;20PT4006A;01**20;AlarmAnalog;p1;Pressure Crude Heater Inlet
+20PT4006B_alarm;20PT4006B;01**20;AlarmAnalog;p1;Pressure Crude Heater Outlet
+20TST4007_alarm;20TST4007;01**20;AlarmAnalog;p1;Temperature Crude Heater Outlet
+20TST5015_alarm;20TST5015;01**20;AlarmAnalog;p1;Temperature Inlet Oil Booster Pumps
+20TT4008_alarm;20TT4008;01**20;AlarmAnalog;p1;Temperature Crude Heater Outlet
+21PST0010_alarm;21PST0010;01**21;AlarmAnalog;p1;Discharge Pressure Oil Booster PumpA
+21PST0011_alarm;21PST0011;01**21;AlarmAnalog;p1;Discharge Pressure Oil Booster PumpB
+21PST0014_alarm;21PST0014;01**21;AlarmAnalog;p1;Pressure Inlet Header Oil Export Pumps
+21PST0015_alarm;21PST0015;01**21;AlarmAnalog;p1;Suction Pressure Oil Export PumpA
+21PST0016_alarm;21PST0016;01**21;AlarmAnalog;p1;Suction Pressure Oil Export PumpB
+21PST0019_alarm;21PST0019;01**21;AlarmAnalog;p1;Discharge Pressure Oil Export PumpA
+21PST0020_alarm;21PST0020;01**21;AlarmAnalog;p1;Discharge Pressure Oil Export PumpB
+21PST0028_alarm;21PST0028;01**21;AlarmAnalog;p1;Pressure Oil Export
+21TST0026_alarm;21TST0026;01**21;AlarmAnalog;p1;Temperature Oil Export Pumps Outlet
+21TT0023_alarm;21TT0023;01**21;AlarmAnalog;p1;High Select Discharge Temperature Oil Export Pumps
+22LST0006_alarm;22LST0006;01**22;AlarmAnalog;p1;Level Oil Storage Tank A
+22LST0008_alarm;22LST0008;01**22;AlarmAnalog;p1;Level Oil Storage Tank B
+22LST0010_alarm;22LST0010;01**22;AlarmAnalog;p1;Level Oil Storage Tank C
+22LT0005_alarm;22LT0005;01**22;AlarmAnalog;p1;Level Oil Storage Tank A
+22LT0007_alarm;22LT0007;01**22;AlarmAnalog;p1;Level Oil Storage Tank B
+22LT0009_alarm;22LT0009;01**22;AlarmAnalog;p1;Level Oil Storage Tank C
+23LST1012_alarm;23LST1012;01**23;AlarmAnalog;p1;Level 1st Stage Recompr Inlet Scrubber
+23LST1019_alarm;23LST1019;01**23;AlarmAnalog;p1;Level 2nd Stage Recompr Inlet Scrubber
+23LT1011_alarm;23LT1011;01**23;AlarmAnalog;p1;Level 1st Stage Recompr Inlet Scrubber
+23LT1018_alarm;23LT1018;01**23;AlarmAnalog;p1;Level 2nd Stage Recompr Inlet Scrubber
+23PST0016_alarm;23PST0016;01**23;AlarmAnalog;p1;Discharge Pressure 1st Stage Recompr 
+23PST0020_alarm;23PST0020;01**23;AlarmAnalog;p1;Suction Pressure 2nd Stage Recompr 
+23PST0021_alarm;23PST0021;01**23;AlarmAnalog;p1;Discharge Pressure 2nd Stage Recompr 
+23PST1013_alarm;23PST1013;01**23;AlarmAnalog;p1;Discharge Pressure 1st Stage Recompr Condensate PumpA 
+23PST1014_alarm;23PST1014;01**23;AlarmAnalog;p1;Discharge Pressure 1st Stage Recompr Condensate PumpB
+23PST1015_alarm;23PST1015;01**23;AlarmAnalog;p1;Suction Pressure 1st Stage Recompr
+23PST1020_alarm;23PST1020;01**23;AlarmAnalog;p1;Discharge Pressure 2nd Stage Recompr Condensate PumpA 
+23PST1021_alarm;23PST1021;01**23;AlarmAnalog;p1;Discharge Pressure 2nd Stage Recompr Condensate PumpB
+23PT0014A_alarm;23PT0014A;01**23;AlarmAnalog;p1;Suction Pressure 1st Stage Recompr
+23PT0014B_alarm;23PT0014B;01**23;AlarmAnalog;p1;Discharge Pressure 1st Stage Recompr 
+23PT0019A_alarm;23PT0019A;01**23;AlarmAnalog;p1;Suction Pressure 2nd Stage Recompr 
+23PT0019B_alarm;23PT0019B;01**23;AlarmAnalog;p1;Discharge Pressure 2nd Stage Recompr 
+23TST0017_alarm;23TST0017;01**23;AlarmAnalog;p1;Discharge Temperature 1st Stage Recompr
+23TST0022_alarm;23TST0022;01**23;AlarmAnalog;p1;Discharge Temperature 2nd Stage Recompr
+23TT1010_alarm;23TT1010;01**23;AlarmAnalog;p1;Inlet Temperature 1st Stage Recompr Inlet Scrubber
+23TT1020_alarm;23TT1020;01**23;AlarmAnalog;p1;Inlet Temperature 2nd Stage Recompr Inlet Scrubber
+24AT0005_alarm;24AT0005;01**24;AlarmAnalog;p1;Water Content at Dehydrated Gas Outlet Contactor
+24FT2005_alarm;24FT2005;01**24;AlarmAnalog;p1;Glycol Flow Inlet Contactor
+24FT2028_alarm;24FT2028;01**24;AlarmAnalog;p1;Stripping Gas Flow from Glycol Contactor
+24LST0008_alarm;24LST0008;01**24;AlarmAnalog;p1;Condensate Level Contactor
+24LST0009_alarm;24LST0009;01**24;AlarmAnalog;p1;Glycol Level Contactor
+24LST1008_alarm;24LST1008;01**24;AlarmAnalog;p1;Level Dehydration Inlet Scrubber
+24LST2009_alarm;24LST2009;01**24;AlarmAnalog;p1;Level Glycol Reboiler
+24LST2016_alarm;24LST2016;01**24;AlarmAnalog;p1;Level Glycol Surge Drum
+24LST2027_alarm;24LST2027;01**24;AlarmAnalog;p1;Level Glycol Flash Drum
+24LST2044_alarm;24LST2044;01**24;AlarmAnalog;p1;Level Glycol Storage Tank
+24LT0006_alarm;24LT0006;01**24;AlarmAnalog;p1;Glycol Level Contactor
+24LT0007_alarm;24LT0007;01**24;AlarmAnalog;p1;Condensate Level Contactor
+24LT1007_alarm;24LT1007;01**24;AlarmAnalog;p1;Level Dehydration Inlet Scrubber
+24LT2025_alarm;24LT2025;01**24;AlarmAnalog;p1;Level Glycol Flash Drum
+24LT2162_alarm;24LT2162;01**24;AlarmAnalog;p1;Level Aquastripper OH Drum
+24PDT1006_alarm;24PDT1006;01**24;AlarmAnalog;p1;Diff Pressure Dehydration Inlet Cooler
+24PST2008_alarm;24PST2008;01**24;AlarmAnalog;p1;Pressure Glycol Reboiler
+24PST2026_alarm;24PST2026;01**24;AlarmAnalog;p1;Pressure Glycol Flash Drum
+24PST2029_alarm;24PST2029;01**24;AlarmAnalog;p1;Stripping Gas Pressure from Glycol Contactor
+24PST2030_alarm;24PST2030;01**24;AlarmAnalog;p1;Suction Pressure Lean Glycol Pumps
+24PST2031_alarm;24PST2031;01**24;AlarmAnalog;p1;Discharge Pressure Lean Glycol Pump A
+24PST2032_alarm;24PST2032;01**24;AlarmAnalog;p1;Discharge Pressure Lean Glycol Pump B
+24PT0010_alarm;24PT0010;01**24;AlarmAnalog;p1;Pressure Contactor Gas Outlet
+24PT2020_alarm;24PT2020;01**24;AlarmAnalog;p1;Inlet Pressure Glygol/Glycol Exchanger
+24PT2022_alarm;24PT2022;01**24;AlarmAnalog;p1;Pressure at Inlet Glycol Fine Filter
+24PT2023_alarm;24PT2023;01**24;AlarmAnalog;p1;Pressure at Outlet Glycol Fine Filter
+24PT2024_alarm;24PT2024;01**24;AlarmAnalog;p1;Pressure Glycol Flash Drum
+24PT2034_alarm;24PT2034;01**24;AlarmAnalog;p1;Discharge Pressure Lean Glycol Pumps
+24PT2039_alarm;24PT2039;01**24;AlarmAnalog;p1;Pressure Aquastripper OH Drum
+24TST2017_alarm;24TST2017;01**24;AlarmAnalog;p1;Temperature Glycol Surge Drum
+24TT2018_alarm;24TT2018;01**24;AlarmAnalog;p1;Temperature Glycol Surge Drum
+24TST2033_alarm;24TST2033;01**24;AlarmAnalog;p1;Temperature Lean Glycol to Contactor
+24TST2040_alarm;24TST2040;01**24;AlarmAnalog;p1;Temperature Glycol Reboiler
+24TT1009_alarm;24TT1009;01**24;AlarmAnalog;p1;Temperature Dehydration Inlet Scrubber
+24TT2010_alarm;24TT2010;01**24;AlarmAnalog;p1;Temperature Glycol Reboiler
+24TT2015_alarm;24TT2015;01**24;AlarmAnalog;p1;Temperature Glycol Stil Column OH Gas
+24TT2035_alarm;24TT2035;01**24;AlarmAnalog;p1;Temperature Lean Glycol to Contactor
+24TT3037_alarm;24TT3037;01**24;AlarmAnalog;p1;Temperature Aquastripper OH Drum
+26LST1006_alarm;26LST1006;01**26;AlarmAnalog;p1;Level Gas Reinjection Inlet Scrubber
+26LT1005_alarm;26LT1005;01**26;AlarmAnalog;p1;Level Gas Reinjection Inlet Scrubber
+26PDT0016_alarm;26PDT0016;01**26;AlarmAnalog;p1;Diff Pressure Gas Reinjection Wells Manifold Main Valve
+26PDT0018_alarm;26PDT0018;01**26;AlarmAnalog;p1;Diff Pressure Gas Reinjection Compressor After Cooler
+26PDT1003_alarm;26PDT1003;01**26;AlarmAnalog;p1;Diff Pressure Gas Reinjection Inlet Cooler
+26PST0012_alarm;26PST0012;01**26;AlarmAnalog;p1;Suction Pressure Gas Reinjection Compressor
+26PST0013_alarm;26PST0013;01**26;AlarmAnalog;p1;Discharge Pressure Gas Reinjection Compressor
+26PT0011A_alarm;26PT0011A;01**26;AlarmAnalog;p1;Suction Pressure Gas Reinjection Compressor
+26PT0011B_alarm;26PT0011B;01**26;AlarmAnalog;p1;Discharge Pressure Gas Reinjection Compressor
+26PT0015_alarm;26PT0015;01**26;AlarmAnalog;p1;Pressure Gas Reinjection Manifold
+26TST0014_alarm;26TST0014;01**26;AlarmAnalog;p1;Discharge Temperature Gas Reinjection Compressor
+26TST0018_alarm;26TST0018;01**26;AlarmAnalog;p1;Temperature Gas Reinjection Manifold
+26TT0017_alarm;26TT0017;01**26;AlarmAnalog;p1;Outlet Temperature Gas Reinjection Compressor After Cooler
+26TT1004_alarm;26TT1004;01**26;AlarmAnalog;p1;Temperature Gas Reinjection Inlet Scrubber
+27LST1008_alarm;27LST1008;01**27;AlarmAnalog;p1;Level Export Compressor Inlet Scrubber
+27LT1007_alarm;27LT1007;01**27;AlarmAnalog;p1;Level Export Compressor Inlet Scrubber
+27PDT0016_alarm;27PDT0016;01**27;AlarmAnalog;p1;Diff Pressure Gas Export Main Valve
+27PDT0018_alarm;27PDT0018;01**27;AlarmAnalog;p1;Diff Pressure Gas Reinjection Main Valve
+27PST0012_alarm;27PST0012;01**27;AlarmAnalog;p1;Suction Pressure Gas Export Compressor
+27PST0013_alarm;27PST0013;01**27;AlarmAnalog;p1;Discharge Pressure Gas Export Compressor
+27PST1015_alarm;27PST1015;01**27;AlarmAnalog;p1;Pressure Gas Export Pipeline
+27PT0011A_alarm;27PT0011A;01**27;AlarmAnalog;p1;Suction Pressure Gas Export Compressor
+27PT0011B_alarm;27PT0011B;01**27;AlarmAnalog;p1;Discharge Pressure Gas Export Compressor
+27PT1009_alarm;27PT1009;01**27;AlarmAnalog;p1;Pressure Control Gas Export
+27TST0014_alarm;27TST0014;01**27;AlarmAnalog;p1;Discharge Temperature Gas Export Compressor
+27TST1013_alarm;27TST1013;01**27;AlarmAnalog;p1;Temperature Gas Export Cooler Outlet 
+27TT1012_alarm;27TT1012;01**27;AlarmAnalog;p1;Temperature Gas Export Cooler Outlet 
+40LST0004_alarm;40LST0004;01**40;AlarmAnalog;p1;Level Cooling Medium Expansion Tank
+40LT0002_alarm;40LT0002;01**40;AlarmAnalog;p1;Level Cooling Medium Expansion Tank
+40PST0001_alarm;40PST0001;01**40;AlarmAnalog;p1;Pressure Cooling Medium Expansion Tank
+40PT0005_alarm;40PT0005;01**40;AlarmAnalog;p1;Pressure Cooling Medium Expansion Tank
+40PT0009_alarm;40PT0009;01**40;AlarmAnalog;p1;Discharge Pressure Cooling Medium PumpA
+40PT0010_alarm;40PT0010;01**40;AlarmAnalog;p1;Discharge Pressure Cooling Medium PumpB
+40TT0012_alarm;40TT0012;01**40;AlarmAnalog;p1;Outlet Temperature Cooling Medium CoolerA
+40TT0013_alarm;40TT0013;01**40;AlarmAnalog;p1;Outlet Temperature Cooling Medium CoolerB
+43FT0015_alarm;43FT0015;01**43;AlarmAnalog;p1;Flow to HP Flare Tip
+43LST0006_alarm;43LST0006;01**43;AlarmAnalog;p1;Level HP Flare KO Drum
+43LST0009_alarm;43LST0009;01**43;AlarmAnalog;p1;Level HP Flare KO Drum
+43LT0005_alarm;43LT0005;01**43;AlarmAnalog;p1;Level HP Flare KO Drum
+43PST0004_alarm;43PST0004;01**43;AlarmAnalog;p1;Pressure HP Flare KO Drum
+43TST0007_alarm;43TST0007;01**43;AlarmAnalog;p1;Temperature HP Flare KO Drum
+43TST0010_alarm;43TST0010;01**43;AlarmAnalog;p1;Temperature HP Flare KO Drum
+43TT0008_alarm;43TT0008;01**43;AlarmAnalog;p1;Temperature Control El Heater HP Flare KO Drum
+44LST1005_alarm;44LST1005;01**44;AlarmAnalog;p1;Water Level PW Degassing Drum
+44LST1007_alarm;44LST1007;01**44;AlarmAnalog;p1;Oil Level PW Degassing Drum
+44PDT0003B_alarm;44PDT0003B;01**44;AlarmAnalog;p1;Diff Pressure Main Hydrocyclone Water - Reject Oil
+44PDT0004B_alarm;44PDT0004B;01**44;AlarmAnalog;p1;Diff Pressure Test Hydrocyclone Water - Reject Oil
+44PST1006_alarm;44PST1006;01**44;AlarmAnalog;p1;Pressure PW Degassing Drum
+44PST1011_alarm;44PST1011;01**44;AlarmAnalog;p1;Discharge Pressure PW Booster PumpA
+44PST1012_alarm;44PST1012;01**44;AlarmAnalog;p1;Discharge Pressure PW Booster PumpB
+44TT1016_alarm;44TT1016;01**44;AlarmAnalog;p1;Outlet Temperature PW Injection Cooler
+50FT005A_alarm;50FT005A;01**50;AlarmAnalog;p1;Flow Sea Water Booster PumpA
+50FT005B_alarm;50FT005B;01**50;AlarmAnalog;p1;Flow Sea Water Booster PumpB
+50PDT0002_alarm;50PDT0002;01**50;AlarmAnalog;p1;Diff Pressure Sea Water Booster Pumps Inlet Filter
+50PDT1005_alarm;50PDT1005;01**50;AlarmAnalog;p1;Diff Pressure Sea Water Booster Pumps Outlet Filter
+50PT0006_alarm;50PT0006;01**50;AlarmAnalog;p1;Discharge Pressure Sea Water Booster Pumps
+50PT1008_alarm;50PT1008;01**50;AlarmAnalog;p1;Pressure Sea Water Return Header Pressure Control
+51FST3008_alarm;51FST3008;01**51;AlarmAnalog;p1;Flow Water Injection PumpA
+51FST3009_alarm;51FST3009;01**51;AlarmAnalog;p1;Flow Water Injection PumpB
+51FT3006_alarm;51FT3006;01**51;AlarmAnalog;p1;Flow Water Injection PumpA
+51FT3007_alarm;51FT3007;01**51;AlarmAnalog;p1;Flow Water Injection PumpB
+51LST2001_alarm;51LST2001;01**51;AlarmAnalog;p1;Level Sea Water Deaerator
+51LT2002_alarm;51LT2002;01**51;AlarmAnalog;p1;Level Sea Water Deaerator
+51PDT1002_alarm;51PDT1002;01**51;AlarmAnalog;p1;Diff Pressure Sea Water Injection Filter
+51PST3010_alarm;51PST3010;01**51;AlarmAnalog;p1;Suction Pressure Water Injection PumpA
+51PST3011_alarm;51PST3011;01**51;AlarmAnalog;p1;Suction Pressure Water Injection PumpB
+51PST3012_alarm;51PST3012;01**51;AlarmAnalog;p1;Discharge Pressure Water Injection PumpA
+51PST3013_alarm;51PST3013;01**51;AlarmAnalog;p1;Discharge Pressure Water Injection PumpB
+55PDST1007_alarm;55PDST1007;01**55;AlarmAnalog;p1;Diff Pressure Crude Oil Heater
+57LST1003_alarm;57LST1003;01**57;AlarmAnalog;p1;Level Closed Drain Drum
+57LT1004_alarm;57LT1004;01**57;AlarmAnalog;p1;Level Closed Drain Drum
+57TST1002_alarm;57TST1002;01**57;AlarmAnalog;p1;Temperature Closed Drain Drum
+57TT1001_alarm;57TT1001;01**57;AlarmAnalog;p1;Temperature Closed Drain Drum

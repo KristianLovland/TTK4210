@@ -1,0 +1,127 @@
+#include $EXPLORER_RESOURCES/Panel/DefaultVars.def
+
+Header	Title = "%TAG_NAME (%PANEL_TIMELINE) Table";Resizable; Position = Cursor; \
+	HELP1; OneOff = "%TAG_NAME (%PANEL_TIMELINE)";
+
+Frame	Id = 1; Layout = Horizontal;
+Frame	Id = 2; Frame = 1; Layout = Vertical;
+stub	frame = 2; size = 1,2;
+Frame	Id = 20; Frame = 2; Layout = Vertical; Space = 2;
+Frame	Id = 201; Frame = 20; Layout = Vertical; SameHeight = 1; Pad = 1;
+Frame	Id = 202; Frame = 20; Layout = Horizontal;
+Frame	Id = 300; Frame = 1; Layout = Horizontal;
+//******************
+//,Scrolling;Border;
+//******************
+Frame	Id = 3; Frame = 300; Layout = Vertical;Resizable;
+
+//*************
+// Block menu *
+//*************
+Frame	Id = 2010; Frame = 201; Layout = Horizontal; Space = 2;
+	Button	Frame = 2010; Image = "blkmenu.ico"; FeedBack = "Block menu"; Style = BUTTON_STYLE; \
+			Action = Menu,"BlockExplorerBlock";
+	Variable	VAR_EDIT; Frame = 2010; Tag = "%TAG_NAME@B_desc"; Width = 200;
+
+Set Variable = TN,%TAG_NAME;
+Set Variable = TT,%TAG_TYPE;
+
+Frame	Id = 2011; Frame = 201; Layout = Horizontal; Space = 10;
+Stub	Frame = 2011; Size = 1,0;
+Switch	Frame = 2011; Label = "Override all"; Editable; Immediate; Tag = "%TN:OverrideAll";
+Switch	Frame = 2011; Label = "Disable actions"; Editable; Immediate; Tag = "%TN:NullStep";
+
+Stub	Frame = 201; Size = 30,3;
+
+Frame	Id = 2012; Frame = 201; Layout = Horizontal; Space = 3;
+Variable Frame = 2012; Caption = "Outputs: "; Sample = 1; Tag = "%TN:AnyOutputTripped"; \
+	Type = Boolean; Values = "All Outputs Good","Any Outputs Bad"; ShowState = EnumValues; \
+	Foreground = Black,Black,-; Background = PaleGreen3,Red; Border; SameWidth = 21; 
+
+
+Button Frame = 2012; Dependency = '#(%TN:ResetAll) == false'; label = "Reset All"; \
+	Action = Send,SetVariable,s,'%TN:ResetAll',b,true;
+
+Frame	Id = 211; Frame = 202; Layout = Horizontal;
+Stub	Frame = 211; SameWidth = 10; 
+Stub	Frame = 211; SameWidth = 10; 
+Stub	Frame = 211; SameWidth = 10; 
+Stub	Frame = 211; SameWidth = 12; 
+Stub	Frame = 211; SameWidth = 13; 
+Frame	Id = 212; Frame = 202; Layout = Vertical;Justify = Right;
+Label	Frame = 212; Label = "Individual override"; Justify = Right;SameHeight = 2;
+Label	Frame = 212; Label = "Individual resets"; Justify = Right;SameHeight = 5;
+
+Frame	Id = 22; Frame = 2; Layout = Horizontal;  Border;
+Label	Frame = 22; Label = "Source"; Justify = Centre; SameWidth = 11;
+Label	Frame = 22; Label = "Alarm"; Justify = Centre; SameWidth = 12;
+Label	Frame = 22; Label = "State"; Justify = Centre; SameWidth = 13;
+Label	Frame = 22; Label = "Inhibit"; Justify = Centre; SameWidth = 14;SameHeight = 4;
+
+Frame	Id = 23; Frame = 2; Layout = Horizontal; Space = 2; Border;
+
+Frame	Id = 231; Frame = 23; Layout = Array; Tag = "%TAG_NAME:InputTripSignal@V_array";
+Button	Frame = 231;Image = "selsml.bmp"; Size = 20,20; SameHeight = 3; \
+	Action = Set,IP_NAME,"#%***@V_input"; \
+	Action = Find,"#%IP_NAME@B_name";
+Button	Frame = 231;Image = "menu.bmp"; Size = 15,20; SameHeight = 3; \
+	Action = Set,TGNAME,"%TAG_NAME"; Action = Set,TTYPE,"%TAG_TYPE"; \
+	Action = Set,IP_NAME,"#%***@V_input"; \
+	Action = Set,TAG_NAME,"#%IP_NAME@B_name"; \
+	Action = Set,TAG_TYPE,"#%TAG_NAME:@B_type"; \
+	ActionIf = '"%TAG_TYPE" != "*FAIL*"',Menu,BlockExplorerBlock; \
+	ActionElse = Panel,outputs.pnl; \
+	Action = Set,TAG_NAME,"%TGNAME"; \
+	Action = Set,TAG_TYPE,"%TTYPE";
+Variable Frame = 231; Type = String; SameWidth = 12; Width = 220; Position = 0,180; \
+	Tag = "%***@V_input"; \
+	Action = Set,TGNAME,"%TAG_NAME"; \
+	Action = Set,TTYPE,"%TAG_TYPE"; \
+	Action = Set,IP_NAME,"#%***@V_input"; \
+	Action = Set,TAG_NAME,"#%IP_NAME@B_name"; \
+	Action = Set,TAG_TYPE,"#%TAG_NAME:@B_type"; \
+	ActionIf = '"%TAG_TYPE" == "Transmitter"',Panel,"Transmitter_alm.pnl"; \
+	ActionIf = '"%TAG_TYPE" == "CauseAndEffectChartP"',Panel,"CauseAndEffectChartP_tab.pnl"; \
+	Action = Set,TAG_NAME,"%TGNAME"; \
+	Action = Set,TAG_TYPE,"%TTYPE";
+
+
+
+Variable Frame = 23; Sample = 1; Array; Type = Boolean; SameWidth = 13; SameHeight = 3;\
+	Tag = "%TAG_NAME:InputSignal"; Values = OK,BAD; \
+	ShowState = EnumValues; Foreground = Black,Black,-; Background = PaleGreen3,Red;
+
+Frame	Frame = 23; Id = 232; Layout = Vertical; Space = 5;
+Variable Frame = 232; Editable; Sample; Type = Boolean; Array; SameWidth = 14; SameHeight = 3; \
+	Tag = "%TAG_NAME:Inhibit"; Values = -,Inhibit;\
+	ShowState = EnumValues; Foreground = Black,Black,-; Background = -,Yellow;
+
+Frame	Id = 31; Frame = 3; Layout = Vertical;SameHeight = 1;Border;
+
+Frame	Id = 301; Frame = 31; Layout = Array,Horizontal; Tag = "%TAG_NAME:OutputNames@V_array";
+Label	Frame = 301; Label = "#(%***)"; Angle = 90; Justify = Left; Size = 20,100; SameWidth = 15; \
+	Font = Times-Roman; 
+
+Stub	Frame = 3; Size = 1,1;
+
+Frame	Id = 312; Frame = 3; Layout = Array,Horizontal; Tag = "%TAG_NAME:Override@V_array";
+Variable Frame = 312; Tag = "%***"; Sample; SameWidth = 15;\
+	Type = Boolean; Values = "-","OR"; Editable; ShowState = EnumValues; \
+	Foreground = Black,Black,-; Background = -,Yellow;SameHeight = 2;
+	
+Frame	Id = 313; Frame = 3; Layout = Array,Horizontal; Tag = "%TAG_NAME:Reset@V_array";
+Variable Frame = 313; Tag = "%***"; Sample; SameWidth = 15;\
+	Type = Boolean; Values = "-","R"; Editable; ShowState = EnumValues; \
+	Foreground = Black,Black,-; Background = -,SkyBlue;SameHeight = 2;
+
+Frame	Id = 314; Frame = 3; Layout = Array,Horizontal; Border; Tag = "%TAG_NAME:OutputTripSignal@V_array";
+Variable Frame = 314; Tag = "%***"; Sample; SameWidth = 15;\
+	Type = Boolean; Values = "OK","BAD"; ShowState = EnumValues; \
+	Foreground = Black,Black,-; Background = -,Red;SameHeight = 4;
+
+Frame	Id = 32; Frame = 3; Layout = Array,Horizontal; Border;Tag = "%TAG_NAME:OutputTripSignal@V_indlst";
+Variable Frame = 32; Editable; Type = Enumerator; Array; SameWidth = 15; \
+	Values =  %+ENMVALS; SameHeight = 3; \
+	Tag = "%TN:CauseAndEffectMatrix[%***]"; ShowState = EnumValues; \
+	Foreground = Black,-; Background = -;
+

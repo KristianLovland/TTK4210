@@ -1,0 +1,81 @@
+
+
+// model section
+//Button	Label = "Load Model..."; Image = "openmdl.bmp"; \
+//		Dependency = '%SV_TIMELINESACTIVE && !%SV_MODELRUNNING && %SV_SERVERLICENSE'; \
+//		Action = Panel,"open.pnl"; 
+//Gap
+
+Button	Label="&Load Inital Conditions"; \
+	Dependency='%SV_KERNELCONNECTED && %SV_MODELLOADED'; \
+	Action=Send,ClearFileList,s,%FILE_FILT; \
+	Action=Set,FILE_FILT,"*.val"; \
+	Action=Set,PATHOPTION,1; \
+	Action=Set,PAGE_LIST,$top; \
+	Action=Set,NOPATsH,""; \
+	Action=Set,PATHBUTTON,"Remove path from match"; \
+	Action=Set,RELMODEL,""; \
+	Action=Set,RELPARAM,""; \
+	Action=Set,RELVALS,""; \
+	Action=Set,_BY_DATE,0; \
+	Action = Panel,InitLoad.pnl;
+
+Button	Label="&Save Initial Conditions"; \
+	Dependency='%SV_KERNELCONNECTED && %SV_MODELLOADED'; \
+	Action=Set,FILE_FILT,"*.val"; \
+	Action=Set,PATHOPTION,1; \
+	Action=Set,PAGE_LIST,$top; \
+	Action=Set,NOPATH,""; \
+	Action=Set,PATHBUTTON,"Remove path from match"; \
+	Action=Set,RELMODEL,""; \
+	Action=Set,RELPARAM,""; \
+	Action=Set,RELVALS,""; \
+	Action = Panel,InitSave.pnl; \
+
+Button	Label = "Snapshots..."; Dependency = '%SV_TIMELINESACTIVE'; \
+		Action = Set,PAGE_LIST,"$bot"; \
+		Action = Panel,"SnapSum.pnl";
+
+Gap
+
+// graphics section
+Button	Label = "&Open Graphic..."; \
+		Dependency = '%SV_MODELLOADED'; \
+		Action = SMBrowserOpen,ExplorerResources,"*.xdr;*.klink",Graphic; \
+		Action = Command,Open,-Name,"%_BROWSER_SELECTED_FULL";
+
+// Close all if image area tabbed
+#ifdef '%SV_TABBED'
+Button	Label = "Close All Graphics"; Dependency = '%SV_GRAPHICLOADED'; \
+		Action = Command,Close,-AllXDR;
+#endif
+Button	Label = "&Close Graphic"; Dependency = '%SV_GRAPHICLOADED'; \
+		Action = Command,Close;
+#endif
+
+// recent graphics
+Button	Label = "Recent Graphics"; Level = 1; dependency=%SV_TIMELINEACTIVE;
+Button	Label = "filename(%***)"; Level = 2; ListName = "RecentImageList"; \
+		ActionIf = '"%***" != "<empty>"',Command,Open,-Name,"%***";
+Gap
+
+// printing
+Button	Label = "Page Setup..."; \
+		Action = PageSetupDialog; \
+		Dependency = '%SV_GRAPHICLOADED';
+
+Button	Label = "&Print..."; \
+		Action = PrintDialog; \
+		Dependency = '%SV_GRAPHICLOADED';
+
+Button	Label = "Copy..."; \
+		Dependency = '%SV_GRAPHICLOADED'; \
+		Action = PrintMetafile,Clipboard;
+Gap
+
+#endif
+Button	Label = "E&xit"; \
+		Action = Quit;
+
+// user extensions
+#include_noerror $EXPLORER_RESOURCES/menu/UserFile.mnu

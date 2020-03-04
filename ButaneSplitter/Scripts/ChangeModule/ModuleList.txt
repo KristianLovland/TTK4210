@@ -1,0 +1,16 @@
+Valve;13HV0107;Choke Valve
+Valve;13HV0207;Choke Valve
+Valve;13HV0307;Choke Valve
+Valve;13HV0507;Choke Valve
+Valve;13HV0607;Choke Valve
+Valve;13HV0707;Choke Valve
+Valve;13HV0907;Choke Valve
+Valve;13HV1007;Choke Valve
+Valve;13HV1107;Choke Valve
+Valve;13HV1307;Choke Valve
+Valve;13HV1407;Choke Valve
+Valve;13HV1507;Choke Valve
+Valve;13HV1607;Choke Valve
+Valve;13HV1207;Choke Valve
+Valve;13HV0807;Choke Valve
+Valve;13HV0407;Choke Valve

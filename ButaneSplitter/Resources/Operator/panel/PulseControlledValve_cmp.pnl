@@ -1,0 +1,87 @@
+
+#define BACKCOLOUR #C5C3C6
+
+set		variable=SF,"AlarmList,S,%TAG_NAME:SignalFailure/0,I,   6";
+set		variable=PF,"AlarmList,S,%TAG_NAME:PowerFailure/0,I,   6";
+set		variable=ALARM_TAG,%(TAG_NAME);
+
+header	position=cursor; Title="%TAG_NAME"; oneoff=%TAG_NAME;
+
+//frame		id=1; layout=vertical; pad=10; space = 5; 
+frame		id=2; layout=vertical; pad=10; space = 5; 
+
+//frame	frame=1; id=5;  layout=horizontal; 
+frame	frame=2; id=10; layout=horizontal; 
+frame	frame=2; id=20; layout=horizontal;  
+frame	frame=2; id=30; layout=horizontal; border=sunken;
+frame	frame=2; id=31; layout=horizontal; 
+frame	frame=2; id=32; layout=horizontal;
+frame	frame=2; id=40; layout=horizontal;
+
+//label	frame=5; label="#(%TAG_NAME:@B_Desc)";
+
+#ifdef '"#(%TAG_NAME:@B_desc)" != "Keyswitch"'
+
+Button	Frame = 10; Label = "           Open           "; Dependency = '#(%TAG_NAME:IsDefinedOpen) == 0 && #(%TAG_NAME:Tripped) == 0'; \
+	Action = Send,SetVariable,S,"%TAG_NAME:LocalSetOpen",R,1;
+	
+stub 	frame=10; size=5,5;
+
+Button	Frame = 20; Label = "           Close           "; Dependency = '#(%TAG_NAME:IsDefinedClosed) == 0 && #(%TAG_NAME:Tripped) == 0'; \
+	Action = Send,SetVariable,S,"%TAG_NAME:LocalSetClosed",R,1;
+
+#elseif
+
+Button	Frame = 10; Label = "            On            "; Dependency = '#(%TAG_NAME:IsDefinedOpen) == 0 && #(%TAG_NAME:Tripped) == 0'; \
+	Action = Send,SetVariable,S,"%TAG_NAME:LocalSetOpen",R,1;
+	
+stub 	frame=10; size=5,5;
+
+Button	Frame = 20; Label = "            Off            "; Dependency = '#(%TAG_NAME:IsDefinedClosed) == 0 && #(%TAG_NAME:Tripped) == 0'; \
+	Action = Send,SetVariable,S,"%TAG_NAME:LocalSetClosed",R,1;
+	
+#endif
+
+
+stub 	frame=20; size=5,5;
+
+////////Testing Only//////////////////////////////
+//Label	label="#(%PF)"; frame=30; Samewidth=100;
+/////////////////////////////////////////////////
+
+Imagearea	frame=30; source="$PROJECT_ROOT\\Resources\Operator\graphic\PValve_Status.xdr"; \
+		type=Xcadfixedimage; size=110,100; doublebuffered; 
+
+//#ifdef	'(#(%TAG_NAME:Tripped) == 1)'
+//label	label="Valve Interlocked"; frame=30; Samewidth=100;
+//Button	Frame = 30; style=toolbar; image="red.ico";
+//#endif
+//
+//#ifdef	'(#(%TAG_NAME:PowerFailure) == 1)'
+//label	label="Valve Power Failure"; frame=31; Samewidth=100;
+//Button	Frame = 31; style=toolbar; image="red.ico";
+//#endif
+//
+//#ifdef	'(#(%TAG_NAME:SignalFailure) == 1)'
+//label	label="Valve Signal Failure"; frame=32; Samewidth=100;
+//Button	Frame = 32; style=toolbar; image="red.ico";
+//#endif
+
+stub		frame=40; size=10,30; 
+
+button		frame=40; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\findDraw.bmp"; size=32,32; \
+		feedback="Find drawing"; \
+		action=set,FINDINMAINWINDOW,TRUE; \
+		action=menu,"BlockExplorerBlock";
+
+button		frame=40; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\TrendButton.bmp"; size=32,32; \
+		feedback="Trend"; \
+		action=panel,PValveTrend.pnl;
+
+//stub		frame=40; size=25,30; 
+
+button		frame=40; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\AckButton.bmp"; size=32,32; \
+		feedback="Acknowledge alarms"; \
+		actionIf='#(%(TAG_NAME):SignalFailure)==1 || #(%SF) == 1',send,SetModelParameter,S,AlarmList,S,%(TAG_NAME):SignalFailure/0,I,AL_ACKTAG; \
+		actionIf='#(%(TAG_NAME):PowerFailure)==1 || #(%PF) == 1',send,SetModelParameter,S,AlarmList,S,%(TAG_NAME):PowerFailure/0,I,AL_ACKTAG;
+		

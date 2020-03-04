@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="808,376" xmin="799.999" ymin="367.001" xmax="808.001" ymax="379.999" vunits="mm">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="StreamBoundary"/>
+  <attribute name="Itemdesc" type="text" value="Stream Boundary"/>
+  <attribute name="Module" type="text" value="StreamBoundary"/>
+  <attribute name="Category" type="text" value="Auxiliary"/>
+  <attribute name="SymName" type="text" value="StreamBoundary"/>
+  <attribute name="SelectBox" type="real" value="-8,-6,0,2"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="13-03-15 08:43:52"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" vunits="mm" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <polygon id="1025" colour="0xe9e9e9" xy="800,370,808,374,800,378,800,370" bordercolour="0xaaaaaa"/>
+ <cpoint id="4627" estat="ref" xy="808,376">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="StreamBoundary"/>
+  <attribute name="Itemdesc" type="text" value="Stream Boundary"/>
+  <attribute name="Module" type="text" value="StreamBoundary"/>
+  <attribute name="Category" type="text" value="Auxiliary"/>
+  <attribute name="SymName" type="text" value="StreamBoundary"/>
+ </cpoint>
+ <tnode id="4636" layer="Hidden" estat="ext" xy="800,367" height="2.5" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <string id="4637" style="1" estat="ref" xy="800,370,800,378,808,378,808,370,800,370">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <tnode id="4640" colour="white" layer="Engineer" depth="100" estat="ext" xy="808,380" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+</sym>

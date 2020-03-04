@@ -1,0 +1,65 @@
+#include $EXPLORER_RESOURCES/Panel/DefaultVars.def
+
+Header	Title = "%TAG_NAME (%PANEL_TIMELINE) Reactions"; Position = Cursor; HELP1; \
+	Resizable = SaveSize; OneOff = "%TAG_NAME (%PANEL_TIMELINE)";
+
+//*************
+// Block menu *
+//*************
+Frame	Id = 2; Frame = -2; Layout = Vertical; Space = 2; Pad = 1;
+Frame	Frame = 2; Id = 21; Layout = Horizontal; Space = 2;
+
+Button	Frame = 21; Image = "blkmenu.ico"; FeedBack = "Block menu"; Style = BUTTON_STYLE; \
+		Action = Menu,"BlockExplorerBlock";
+
+Button		Frame = 21; Label = "#(%TAG_NAME:CheckStoichiometry@V_desc)"; \
+		FeedBack = "Calculate the sum of molar mass on each side of the stoichiometry equations and show the result."; \
+		Action = Send,SetVariable,S,"%TAG_NAME:CheckStoichiometry",b,true; \
+		Action = Set,THREAD,"#%TAG_NAME:@B_thread"; \
+		Action = Set,STATE,"#%TAG_NAME:@B_state"; \
+		Action = Send,SetVariable,S,"%TAG_NAME:@B_thread",S,":"; \
+		Action = Send,SetVariable,S,"%TAG_NAME:@B_state",I,5; \
+		Action = Send,SetVariable,S,"%TAG_NAME:@B_step"; \
+		Action = Send,SetVariable,S,"%TAG_NAME:@B_state",I,%STATE; \
+		Action = Send,SetVariable,S,"%TAG_NAME:@B_thread",S,%THREAD;
+		
+Variable	VAR_EDIT; Frame = 21; Tag = "%TAG_NAME@B_desc"; Width = 350;
+
+Variable	Frame = 21; VAR_EDIT; Caption = "#(%TAG_NAME@B_dimdsc[1])"; Tag = "%TAG_NAME@B_dims[1]";
+
+Column	VAR_LV_NOEDIT; Name = "ReactionStoichiometry"; \
+		Header = "Reaction stoichiometry"; \
+		Source = Tag,"%TAG_NAME:ReactionStoichiometry"; \
+		Action = Set,ACTIVE_LV,1; \
+		Action = Set,VAR,"%LVITEM"; \
+		ARRAY_ACTIONS
+		
+Column	VAR_LV_NOEDIT; Name = "ReactionRateExpression"; \
+		Header = "Expression for reaction rate, mol/l.s"; \
+		Source = Tag,"%TAG_NAME:ReactionRateExpression"; \
+		Action = Set,ACTIVE_LV,1; \
+		Action = Set,VAR,"%LVITEM"; \
+		ARRAY_ACTIONS
+		
+Column	VAR_LV_EDIT; Name = "HeatOfReactionExpression"; \
+		Header = "Expression for heat of reaction, J/mol"; \
+		Source = Tag,"%TAG_NAME:HeatOfReactionExpression"; \
+		Action = Set,ACTIVE_LV,1; \
+		Action = Set,VAR,"%LVITEM"; \
+		ARRAY_ACTIONS
+		
+Column	VAR_LV_NOEDIT; Name = "ReactionRate"; \
+		Header = "Reaction rate (#(%TAG_NAME:ReactionRate@V_units))"; \
+		Source = Tag,"%TAG_NAME:ReactionRate"; \
+		Action = Set,ACTIVE_LV,1; \
+		Action = Set,VAR,"%LVITEM"; \
+		ARRAY_ACTIONS
+		
+Column	VAR_LV_NOEDIT; Name = "ReactionHeat"; \
+		Header = "Reaction heat (#(%TAG_NAME:ReactionHeat@V_units))"; \
+		Source = Tag,"%TAG_NAME:ReactionHeat"; \
+		Action = Set,ACTIVE_LV,1; \
+		Action = Set,VAR,"%LVITEM"; \
+		ARRAY_ACTIONS
+		
+ListView	Frame = 0; Source = Tag,"%TAG_NAME:ReactionStoichiometry@V_indlst"; Grid; Size = 550,350; SaveState;

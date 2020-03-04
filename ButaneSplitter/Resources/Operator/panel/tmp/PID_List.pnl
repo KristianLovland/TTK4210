@@ -1,0 +1,14 @@
+frame		id=1; layout=vertical; pad=10; space = 5;
+
+frame		frame=1; id=2; layout=horizontal;
+frame		frame=1; id=3; layout=horizontal;
+frame		frame=1; id=4; layout=horizontal;
+
+
+frame	frame=1; id=10; layout=horizontal; pad=10;
+
+Button	Frame = 10; Label = " info "; Width = 100;\
+action=panel,CentrifugalCompressorInfo.pnl;
+
+Button	Frame = 10; Label = " info "; Width = 100;\
+action=panel,CentrifugalCompressorInfo.pnl;

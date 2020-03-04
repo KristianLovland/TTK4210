@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="17">
+ <header xy="636,1034" xmin="635.5" ymin="1025" xmax="676.5" ymax="1037" vunits="mm" parametric="3" tdist="40" pdist="20" pitch="0">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Inherit" type="null"/>
+  <attribute name="ItemType" type="text" value="PipeFlow"/>
+  <attribute name="Itemdesc" type="text" value="Pipe Flow"/>
+  <attribute name="Module" type="text" value="PipeFlow"/>
+  <attribute name="ParaType" type="text" value="Normal"/>
+  <attribute name="SymName" type="text" value="PipeFlow_OTS"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="SelectBox" type="real" value="0,-2,40,2"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="12-06-14 13:28:53"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" vunits="mm" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+ <symbol id="1173" depth="2" estat="ext" xy="664,1034" name="x_PipeFlow_CheckBody_L" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_PipeFlow_CheckBody_L"/>
+  <attribute name="ParaType" type="text" value="Transform"/>
+  <relation type="mutual" subid="100" id="1174,1170"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Check} == 2 &amp;&amp; {%TAG_NAME:CheckValveIsClosed} == 1" priority="0" foreground="#aaaaaa"/>
+   <state type="expression" expression="{%TAG_NAME:Check} == 2 &amp;&amp; {%TAG_NAME:CheckValveIsClosed} == 0" priority="0" foreground="#aaaaaa"/>
+  </animation>
+ </symbol>
+ <symbol id="1174" depth="2" estat="ext" xy="672,1034" name="x_PipeFlow_Check_R">
+  <attribute name="SymName" type="text" value="x_PipeFlow_Check_R"/>
+  <attribute name="ParaType" type="text" value="Transform"/>
+  <relation type="mutual" subid="100" id="1175,1173"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Check} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1175" depth="2" estat="ext" xy="672,1034" name="x_PipeFlow_CheckBody_R">
+  <attribute name="SymName" type="text" value="x_PipeFlow_CheckBody_R"/>
+  <attribute name="ParaType" type="text" value="Transform"/>
+  <relation type="mutual" subid="100" id="1176,1174"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Check} == 1 &amp;&amp; {%TAG_NAME:CheckValveIsClosed} == 1" priority="0" foreground="#aaaaaa"/>
+   <state type="expression" expression="{%TAG_NAME:Check} == 1 &amp;&amp; {%TAG_NAME:CheckValveIsClosed} == 0" priority="0" foreground="#aaaaaa"/>
+  </animation>
+ </symbol>
+ <symbol id="1176" depth="2" estat="ext" xy="664,1034" name="x_PipeFlow_Check_L" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_PipeFlow_Check_L"/>
+  <attribute name="ParaType" type="text" value="Transform"/>
+  <relation type="mutual" subid="100" id="1177,1175"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Check} == 2" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1603" estat="ext" xy="635.5,1032.5,676.5,1035.5" name="MalfunctionOutline" xscl="41" yscl="3" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <attribute name="ParaType" type="text" value="Stretch"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1736,1177"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1736" estat="ext" xy="640,1034" name="x_PipeFlow_Orifice.sym">
+  <attribute name="SymName" type="text" value="x_PipeFlow_Orifice"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1765,1603"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:OrificeDiameter} &gt; 0.0000001" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1765" depth="-50" estat="ext" xy="636,1035,676,1033" name="x_SquareInvisible.sym" xscl="40" yscl="-2" fitted="true">
+  <attribute name="ParaType" type="text" value="Stretch"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1050,1736"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:SourceModeEnabled} == True" priority="0" foreground="orange"/>
+  </animation>
+ </symbol>
+ <cpoint id="1035" estat="ref" xy="656,1034">
+  <attribute name="PropPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1049,1048"/>
+ </cpoint>
+ <cpoint id="1048" estat="ref" xy="676,1034">
+  <attribute name="TransPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1035,2826"/>
+ </cpoint>
+ <cpoint id="1049" estat="ref" xy="636,1034">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Inherit" type="null"/>
+  <attribute name="ItemType" type="text" value="PipeFlow"/>
+  <attribute name="Itemdesc" type="text" value="Pipe Flow"/>
+  <attribute name="Module" type="text" value="PipeFlow"/>
+  <attribute name="ParaType" type="text" value="Normal"/>
+  <attribute name="SymName" type="text" value="PipeFlow_OTS"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <parameter name="ACCEPT_AUTOCONNECT" value="*Valve;Filter;*Choke"/>
+  <relation type="mutual" subid="100" id="1051,1035"/>
+ </cpoint>
+ <terminal id="1050" estat="ext" xy="636,1034" nc="1">
+  <relation type="child" subid="11" id="2826"/>
+  <relation type="mutual" subid="100" id="2825,1765"/>
+ </terminal>
+ <string id="1051" style="1" estat="ref" xy="676,1032,636,1032,636,1036,676,1036,676,1032">
+  <attribute name="SelectMask" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="ParaType" type="text" value="Normal"/>
+  <relation type="mutual" subid="100" id="1168,1049"/>
+ </string>
+ <string id="1168" colour="blue" layer="Engineer" xy="636,1033,636,1035,676,1035,676,1033,636,1033">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ParaType" type="text" value="Stretch"/>
+  <relation type="mutual" subid="100" id="1170,1051"/>
+ </string>
+ <tnode id="1170" colour="white" layer="Engineer" depth="100" estat="ext" xy="674,1036" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="ParaType" type="text" value="Transform"/>
+  <relation type="mutual" subid="100" id="1173,1168"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <tnode id="1177" layer="Hidden" depth="40" estat="ext" xy="656,1025" height="3" hjust="centre" nts="true" ntm="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <attribute name="ParaType" type="text" value="Proportional"/>
+  <relation type="mutual" subid="100" id="1603,1176"/>
+ </tnode>
+ <terminal id="2825" estat="ext" xy="676,1034" nc="1">
+  <relation type="child" subid="12" id="2826"/>
+  <attribute name="ParaType" type="text" value="transform"/>
+  <relation type="mutual" subid="100" id="2826,1050"/>
+ </terminal>
+ <netline id="2826" depth="-10" estat="rel" xy="636,1034,676,1034">
+  <relation type="parent" subid="11" id="1050"/>
+  <relation type="parent" subid="12" id="2825"/>
+  <attribute name="Inherit" type="null"/>
+  <attribute name="Internal" type="null"/>
+  <attribute name="ParaType" type="text" value="Stretch"/>
+  <relation type="mutual" subid="100" id="1048,2825"/>
+ </netline>
+</sym>

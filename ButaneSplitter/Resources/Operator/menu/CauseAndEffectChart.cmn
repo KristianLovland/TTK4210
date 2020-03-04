@@ -1,0 +1,11 @@
+button	label="Table..."; default; \
+	action=panel,CauseAndEffectChart_dim1_0;
+	
+//Button  Label = "Actions..."; Level = 1; \
+//	Action = Panel,"CauseAndEffectChart_dim3.pnl";
+
+//Button  Label = "Causes..."; Level = 1; \
+//	Action = Panel,"CauseAndEffectChart_dim0.pnl";
+
+//Button  Label = "Effects..."; Level = 1; \
+//	Action = Panel,"CauseAndEffectChart_dim1.pnl";

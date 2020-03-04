@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="348,1124" xmin="348" ymin="1124" xmax="349.001" ymax="1125">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="Alarm_Background"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Ineos_PP\Resources\Common\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <polygon id="1620" colour="red" depth="-100" xy="348,1124,348,1125,349,1125,349,1124,348,1124">
+  <attribute name="NoStateAnim" type="null"/>
+ </polygon>
+ <cpoint id="1122" depth="-100" estat="ref" xy="348,1124">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="Alarm_Background"/>
+ </cpoint>
+</sym>

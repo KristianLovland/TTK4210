@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="10">
+ <header xy="196,814" xmin="195.999" ymin="813.999" xmax="219.999" ymax="840">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="WaxMarginCalculator"/>
+  <attribute name="Itemdesc" type="text" value="Wax Margin Calculator"/>
+  <attribute name="Module" type="text" value="WaxMarginCalculator"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="WaxMarginCalculator_Online"/>
+  <attribute name="SelectBox" type="real" value="1,1,23,23"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="3516" estat="ext" xy="196,814,220,838" name="x_Online_Background.sym" xscl="24" yscl="24" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3517,3514"/>
+ </symbol>
+ <symbol id="3517" estat="ext" xy="196,814,220,838" name="x_Online_SolidFrame.sym" xscl="24" yscl="24" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3518,3516"/>
+ </symbol>
+ <tnode id="3518" layer="Hidden" estat="ext" xy="208,840" height="2" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="3519,3517"/>
+ </tnode>
+ <text id="3519" xy="199,831" height="5" font="Arial">
+  <tstring>P</tstring>
+  <relation type="mutual" subid="100" id="3520,3518"/>
+ </text>
+ <text id="3520" xy="214,817" height="5" font="Arial">
+  <tstring>T</tstring>
+  <relation type="mutual" subid="100" id="3525,3519"/>
+ </text>
+ <bezier id="3525" xy="216,832,208,830,204,828,202,824,204,820,206,818,212,816" cp="0,1">
+  <relation type="mutual" subid="100" id="3507,3520"/>
+ </bezier>
+ <line id="3507" xy="198,836,198,816">
+  <relation type="mutual" subid="100" id="3505,3525"/>
+ </line>
+ <string id="3505" style="1" estat="ref" xy="197,815,197,837,219,837,219,815,197,815">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="3513,3507"/>
+ </string>
+ <cpoint id="3513" estat="ref" xy="196,814">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_Adapter"/>
+  <attribute name="ItemType" type="text" value="WaxMarginCalculator"/>
+  <attribute name="Itemdesc" type="text" value="Wax Margin Calculator"/>
+  <attribute name="Module" type="text" value="WaxMarginCalculator"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="WaxMarginCalculator_Online"/>
+  <relation type="mutual" subid="100" id="3514,3505"/>
+ </cpoint>
+ <line id="3514" xy="198,816,218,816">
+  <relation type="mutual" subid="100" id="3516,3513"/>
+ </line>
+</sym>

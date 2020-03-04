@@ -1,0 +1,57 @@
+header	position=cursor; Title="%TAG_NAME";
+
+frame		id=1; layout=vertical; pad=10; space = 5;
+
+frame		frame=1; id=2; layout=horizontal;
+frame		frame=1; id=3; layout=horizontal;
+frame		frame=1; id=4; layout=horizontal;
+
+
+frame	frame=1; id=10; layout=horizontal; pad=10;
+
+
+#ifdef '"#(%TAG_NAME:@B_desc)" == "Choke Valve"'
+label		label="Valve Target Position"; frame=2; samewidth=1;
+label		label=" = "; frame=2; samewidth=2;
+
+variable	tag="%TAG_NAME:ControlSignalIn"; frame=2; Width=50; border=sunken; format=%2.1f; editable; background=white;
+
+#endif
+
+#ifdef '"#(%TAG_NAME:@B_desc)" == "Manual valve"'
+label		label="Valve Target Position"; frame=2; samewidth=1;
+label		label=" = "; frame=2; samewidth=2;
+
+variable	tag="%TAG_NAME:ControlSignalIn"; frame=2; Width=50; border=sunken; format=%2.1f; editable; background=white;
+
+#endif
+
+label		label="Valve Stem Position"; frame=3; samewidth=1;
+label		label=" = "; frame=3; samewidth=2;
+
+variable	tag="%TAG_NAME:ValveStemPosition"; frame=3; Width=50; border=sunken; format=%2.1f;
+
+#ifdef '#(%TAG_NAME:ControlSignalIn@V_InputType) == 0'
+
+Button	Frame = 10; Label = "Open"; SameWidth = 105; Dependency = '#(%TAG_NAME:ControlSignalIn) != 100'; \
+	Action = Send,SetVariable,S,"%TAG_NAME:ControlSignalIn",R,100;
+	
+//stub 	frame=10; size=10,10;
+
+Button	Frame = 10; Label = "Close"; SameWidth = 105; Dependency = '#(%TAG_NAME:ControlSignalIn) != 0'; \
+	Action = Send,SetVariable,S,"%TAG_NAME:ControlSignalIn",R,0;
+
+#endif
+
+#ifdef '"#(%TAG_NAME:@B_desc)" == "Choke valve"'
+label		label="Valve Tripped"; frame=4; samewidth=1;
+label		label=" = "; frame=4; samewidth=2;
+
+variable	tag="%TAG_NAME:Tripped"; frame=4; Width=50; border=sunken; format=%2.1f; 
+
+#endif
+
+
+//stub 	frame=10; size=10,10;
+
+frame	frame=1; id=20; layout=horizontal; pad=10;

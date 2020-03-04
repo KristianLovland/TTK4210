@@ -1,0 +1,67 @@
+Active connections :
+
+Connected to                       Host                Socket  
+/Heatexchangers/ProcessModel       WP8369              776     
+/GasDehydration/ProcessModel       WP8369              864     
+/LNG/ProcessModel                  WP8369              876     
+/TEG-Regeneration/ProcessModel     WP8369              880     
+/CompressorSystem/ProcessModel     WP8369              884     
+/SteamTurbine/ProcessModel         WP8369              892     
+/MeOH-SynLoop/ProcessModel         WP8369              896     
+/TurboExpander/ProcessModel        WP8369              1216    
+/3PhaseSep/ExerciseServer          WP8369              1620    
+/CentrifugalPump/ExerciseServer    WP8369              1640    
+/3PhaseSep/ProcessModel            WP8369              1680    
+/AGRU/ProcessModel                 WP8369              1684    
+/BasicPC/ProcessModel              WP8369              1688    
+/2PhaseSep/ProcessModel            WP8369              1692    
+/ButaneSplitter/ProcessModel       WP8369              1696    
+/CentrifugalPump/ProcessModel      WP8369              1700    
+/Hydrocyclone/ProcessModel         WP8369              1708    
+/Column/ProcessModel               WP8369              1712    
+
+
+Network Map :                      
+
+Member name                        Host                Type                Connected   
+/Management/SimulationManager      WP8369              kSimulationManager  1           
+/3PhaseSep                         WP8369              kComEndpoint        1           
+/3PhaseSep/ProcessModel            WP8369              kModelServer        1           
+/3PhaseSep/ExerciseServer          WP8369              kSimLink            1           
+/2PhaseSep                         WP8369              kComEndpoint        1           
+/2PhaseSep/ProcessModel            WP8369              kModelServer        1           
+/CentrifugalPump                   WP8369              kComEndpoint        1           
+/CentrifugalPump/ProcessModel      WP8369              kModelServer        1           
+/CentrifugalPump/ExerciseServer    WP8369              kSimLink            1           
+/CompressorSystem                  WP8369              kComEndpoint        1           
+/CompressorSystem/ProcessModel     WP8369              kModelServer        1           
+/Heatexchangers                    WP8369              kComEndpoint        1           
+/Heatexchangers/ProcessModel       WP8369              kModelServer        1           
+/Hydrocyclone                      WP8369              kComEndpoint        1           
+/Hydrocyclone/ProcessModel         WP8369              kModelServer        1           
+/TurboExpander                     WP8369              kComEndpoint        1           
+/TurboExpander/ProcessModel        WP8369              kModelServer        1           
+/GasDehydration                    WP8369              kComEndpoint        1           
+/GasDehydration/ProcessModel       WP8369              kModelServer        1           
+/MeOH-SynLoop                      WP8369              kComEndpoint        1           
+/MeOH-SynLoop/ProcessModel         WP8369              kModelServer        1           
+/BasicPC                           WP8369              kComEndpoint        1           
+/BasicPC/ProcessModel              WP8369              kModelServer        1           
+/SteamTurbine                      WP8369              kComEndpoint        1           
+/SteamTurbine/ProcessModel         WP8369              kModelServer        1           
+/Column                            WP8369              kComEndpoint        1           
+/Column/ProcessModel               WP8369              kModelServer        1           
+/SubseaFlowline                    WP8369              kComEndpoint        1           
+/SubseaFlowline/ProcessModel       WP8369              kModelServer        0           
+/TEG-Regeneration                  WP8369              kComEndpoint        1           
+/TEG-Regeneration/ProcessModel     WP8369              kModelServer        1           
+/AmmoniaPlant                      WP8369              kComEndpoint        1           
+/AmmoniaPlant/ProcessModel         WP8369              kModelServer        0           
+/NGL                               WP8369              kComEndpoint        1           
+/NGL/ProcessModel                  WP8369              kModelServer        0           
+/LNG                               WP8369              kComEndpoint        1           
+/LNG/ProcessModel                  WP8369              kModelServer        1           
+/ButaneSplitter                    WP8369              kComEndpoint        1           
+/ButaneSplitter/ProcessModel       WP8369              kModelServer        1           
+/AGRU                              WP8369              kComEndpoint        1           
+/AGRU/ProcessModel                 WP8369              kModelServer        1           

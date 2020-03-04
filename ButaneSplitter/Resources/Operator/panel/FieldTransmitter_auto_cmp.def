@@ -1,0 +1,12 @@
+//#define VAR1 Value
+#define VAR1 MeasuredValue
+#define VAR1DEPENDENCY
+
+#define VAR2 
+#define VAR2DEPENDENCY
+#define VAR3 
+#define VAR3DEPENDENCY
+#define VAR4 
+#define VAR4DEPENDENCY
+#define VAR5
+#define VAR5DEPENDENCY

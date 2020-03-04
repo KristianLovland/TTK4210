@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="478,226" xmin="472" ymin="218" xmax="483.999" ymax="230">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="AsynchronousMachine"/>
+  <attribute name="Itemdesc" type="text" value="Online AsynchronousMachine"/>
+  <attribute name="Module" type="text" value="AsynchronousMachine"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="AsynchronousMachine_Online"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="SelectBox" type="real" value="-4,-4,4,4"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\DemoProject\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <symbol id="2289" estat="ext" xy="476,228,480,224" name="x_squaregreen" xscl="4" yscl="-4" fitted="true">
+  <attribute name="SymName" type="text" value="x_SquareGreen"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:MachineStatus} == False" priority="0" foreground="red"/>
+  </animation>
+ </symbol>
+ <symbol id="2287" estat="ext" xy="478,226" name="x_AsynchronousMachine_3D.sym">
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="x_AsynchronousMachine_3D"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </symbol>
+ <cpoint id="2288" estat="ref" xy="478,226">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="AsynchronousMachine"/>
+  <attribute name="Itemdesc" type="text" value="Online AsynchronousMachine"/>
+  <attribute name="Module" type="text" value="AsynchronousMachine"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="AsynchronousMachine_Online"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </cpoint>
+ <tnode id="2285" depth="10" estat="ext" xy="478,218" height="2" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </tnode>
+ <string id="2291" style="1" estat="ref" xy="474,222,474,230,482,230,482,222,474,222">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+</sym>

@@ -1,0 +1,127 @@
+
+// shortcuts for load commands
+#define LOADMODEL	Request,LoadModel,%FILENAME,%_ACTIVE_TIMELINE
+#define LOADPARA	Request,LoadParameters,%FILENAME,%_ACTIVE_TIMELINE
+#define LOADINIT	Request,LoadConditions,%FILENAME,%_ACTIVE_TIMELINE
+
+// OTHER DEFINITIONS
+#define MEDIUMFONT	"Segoe UI-bold-16"
+#define LARGEFONT	"Segoe UI-bold-18"
+
+// initialise variables use to control loading
+Set Variable=LOADALL,0;
+Set Variable=LOADXDR,0;
+
+Set Variable=CURRENTTL,%_ACTIVE_TIMELINE;
+	
+#ifdef '"%_ACTIVE_TIMELINE" != ""'
+Set Variable=CURRENT_MODEL,"#(GetModelParameter;%_ROOT|ModelName,%_ACTIVE_TIMELINE)";
+#else
+Set Variable=CURRENT_MODEL,"";
+#endif
+
+Header	Name = ProjectOpen; Type = Virtual; Mid = %_ROOT; Position = CentreScreen; Oneoff; \
+// use monitor to track the active timeline
+	Monitor = "ResetActiveApp",'"%CURRENTTL" != "%_ACTIVE_TIMELINE"',AlwaysSet; \
+		Action = "ResetACtiveApp",Set,CURRENTTL,%_ACTIVE_TIMELINE; \
+		Action = "ResetACtiveApp",Remap; \
+// monitor used to load parameters, values and xdr
+	Monitor = "loadall",'("%_CONFIG_FILE_STATE" == "FINISHED" || "%_CONFIG_FILE_STATE" == "FAILED") && %LOADALL'; \
+		Action = "loadall",LOADPARA; \
+		Action = "loadall",LOADINIT; \
+		ActionIf = "loadall",'%LOADXDR',Command,Open,-runcc,-progress,-Name,'%FILENAME'; \
+		ActionIf = "loadall",*,Unmap; \
+		ActionElse = "loadall",Remap;
+
+
+Frame	Id = 1000; Layout = Horizontal; Position = 450,170; Font = LARGEFONT;
+
+Frame	Id = 1002; Frame = 1000; Layout = Vertical; Space = 7; Pad = 30; 
+
+Frame	Id = 1001; Frame = 1000; Layout = Vertical; Space = 7; Pad = 30; 
+
+
+Frame	Frame = 1001; Id = 5; Layout = Horizontal; 
+Frame	Frame = 5; Id = 6; Layout = Vertical; Space = 7; 
+
+Frame	Frame = 6; Id = 69; Space = 4; Layout = Horizontal; Dependency = '%SV_TIMELINESACTIVE && !%SV_MODELRUNNING && %SV_SERVERLICENSE';
+Button	Frame = 69; Style = ToolBar; Image = "OG.bmp"; Size = 200,100; SameWidth = 70; SameHeight = 70; \
+	Action = Set,PROJNAME,"OG-Production"; \
+	Action = Set,CURRENTPROJECT,"#(GetModelParameter;ProjectInfo,ProjectName)"; \
+	ActionIf = '"%CURRENTPROJECT" == "%PROJNAME"',MessageBox,"Project '%PROJNAME' is already loaded",Info; \
+	ActionIf = *,Break; \
+	Action = MessageYesNo,"Loading a new project clears the current model. Do you want to continue?",-,-,Warning; \
+	ActionIf = '"%_MSG_YESNO" == "No"',Break; \
+	ActionIf = 'empty(%PROJNAME)',Break; \
+	Actionif = '"%_MSG_YESNO" == "Yes"',exec,"C:\K-Spice-Projects\OG-Production\Resources\Operator\data\Start K-SpiceLearn OG.bat"; 
+Button	Frame = 69; Label = "Oil && Gas Production"; SameWidth = 80; SameHeight = 70; \
+	Action = Set,PROJNAME,"OG-Production"; \
+	Action = Set,CURRENTPROJECT,"#(GetModelParameter;ProjectInfo,ProjectName)"; \
+	ActionIf = '"%CURRENTPROJECT" == "%PROJNAME"',MessageBox,"Project '%PROJNAME' is already loaded",Info; \
+	ActionIf = *,Break; \
+	Action = MessageYesNo,"Loading a new project clears the current model. Do you want to continue?",-,-,Warning; \
+	ActionIf = '"%_MSG_YESNO" == "No"',Break; \
+	ActionIf = 'empty(%PROJNAME)',Break; \
+	Actionif = '"%_MSG_YESNO" == "Yes"',exec,"C:\K-Spice-Projects\OG-Production\Resources\Operator\data\Start K-SpiceLearn OG.bat";
+
+Frame	Frame = 6; Id = 70; Space = 4; Layout = Horizontal; Dependency = '%SV_TIMELINESACTIVE && !%SV_MODELRUNNING && %SV_SERVERLICENSE';
+Button	Frame = 70; Style = ToolBar; Image = "Subsea.bmp"; Size = 200,100; SameWidth = 70; SameHeight = 70; \
+	Action = Set,PROJNAME,"Subsea"; \
+	Action = Set,CURRENTPROJECT,"#(GetModelParameter;ProjectInfo,ProjectName)"; \
+	ActionIf = '"%CURRENTPROJECT" == "%PROJNAME"',MessageBox,"Project '%PROJNAME' is already loaded",Info; \
+	ActionIf = *,Break; \
+	Action = MessageYesNo,"Loading a new project clears the current model. Do you want to continue?",-,-,Warning; \
+	ActionIf = '"%_MSG_YESNO" == "No"',Break; \
+	ActionIf = 'empty(%PROJNAME)',Break; \
+	Actionif = '"%_MSG_YESNO" == "Yes"',exec,"C:\K-Spice-Projects\Subsea\Resources\Operator\data\Start K-SpiceLearn Subsea.bat";
+Button	Frame = 70; Label = "Subsea Operations"; SameWidth = 80; SameHeight = 70; \
+	Action = Set,PROJNAME,"Subsea"; \
+	Action = Set,CURRENTPROJECT,"#(GetModelParameter;ProjectInfo,ProjectName)"; \
+	ActionIf = '"%CURRENTPROJECT" == "%PROJNAME"',MessageBox,"Project '%PROJNAME' is already loaded",Info; \
+	ActionIf = *,Break; \
+	Action = MessageYesNo,"Loading a new project clears the current model. Do you want to continue?",-,-,Warning; \
+	ActionIf = '"%_MSG_YESNO" == "No"',Break; \
+	ActionIf = 'empty(%PROJNAME)',Break; \
+	Actionif = '"%_MSG_YESNO" == "Yes"',exec,"C:\K-Spice-Projects\Subsea\Resources\Operator\data\Start K-SpiceLearn Subsea.bat";
+
+Frame	Frame = 6; Id = 71; Space = 4; Layout = Horizontal; Dependency = '%SV_TIMELINESACTIVE && !%SV_MODELRUNNING && %SV_SERVERLICENSE';
+Button	Frame = 71; Style = ToolBar; Image = "NGL.bmp"; Size = 200,100; SameWidth = 70; SameHeight = 70; \
+	Action = Panel,"NoLicense.pnl"; 
+Button	Frame = 71; Label = "NGL Fractionation"; SameWidth = 80; SameHeight = 70; \
+		Action = Panel,"NoLicense.pnl"; 
+
+Frame	Frame = 6; Id = 72; Space = 4; Layout = Horizontal; Dependency = '%SV_TIMELINESACTIVE && !%SV_MODELRUNNING && %SV_SERVERLICENSE';
+Button	Frame = 72; Style = ToolBar; Image = "LNG.bmp"; Size = 200,100; SameWidth = 70; SameHeight = 70; \
+	Action = Panel,"NoLicense.pnl"; 
+Button	Frame = 72; Label = "LNG Liquefaction"; SameWidth = 80; SameHeight = 70; \
+	Action = Panel,"NoLicense.pnl"; 
+
+Frame	Frame = 6; Id = 73; Space = 4; Layout = Horizontal; Dependency = '%SV_TIMELINESACTIVE && !%SV_MODELRUNNING && %SV_SERVERLICENSE';
+Button	Frame = 73; Style = ToolBar; Image = "Ammonia.bmp"; Size = 200,100; SameWidth = 70; SameHeight = 70; \
+	Action = Panel,"NoLicense.pnl"; 
+Button	Frame = 73; Label = "Ammonia Plant - Steam Reforming"; SameWidth = 80; SameHeight = 70; \
+	Action = Panel,"NoLicense.pnl"; 
+
+Frame	Frame = 6; Id = 74; Space = 4; Layout = Horizontal; Dependency = '%SV_TIMELINESACTIVE && !%SV_MODELRUNNING && %SV_SERVERLICENSE';
+Button	Frame = 74; Style = ToolBar; Image = "BasicC.bmp"; Size = 200,100; SameWidth = 70; SameHeight = 70; \
+	Action = Set,PROJNAME,"BasicProcess"; \
+	Action = Set,CURRENTPROJECT,"#(GetModelParameter;ProjectInfo,ProjectName)"; \
+	ActionIf = '"%CURRENTPROJECT" == "%PROJNAME"',MessageBox,"Project '%PROJNAME' is already loaded",Info; \
+	ActionIf = *,Break; \
+	Action = MessageYesNo,"Loading a new project clears the current model. Do you want to continue?",-,-,Warning; \
+	ActionIf = '"%_MSG_YESNO" == "No"',Break; \
+	ActionIf = 'empty(%PROJNAME)',Break; \
+	Actionif = '"%_MSG_YESNO" == "Yes"',exec,"C:\K-Spice-Projects\BasicProcess\Resources\Operator\data\Start K-SpiceLearn BasicProcess.bat"; 
+Button	Frame = 74; Label = "         Basic Process && Control           "; SameWidth = 80; SameHeight = 70; \
+	Action = Set,PROJNAME,"BasicProcess"; \
+	Action = Set,CURRENTPROJECT,"#(GetModelParameter;ProjectInfo,ProjectName)"; \
+	ActionIf = '"%CURRENTPROJECT" == "%PROJNAME"',MessageBox,"Project '%PROJNAME' is already loaded",Info; \
+	ActionIf = *,Break; \
+	Action = MessageYesNo,"Loading a new project clears the current model. Do you want to continue?",-,-,Warning; \
+	ActionIf = '"%_MSG_YESNO" == "No"',Break; \
+	ActionIf = 'empty(%PROJNAME)',Break; \
+	Actionif = '"%_MSG_YESNO" == "Yes"',exec,"C:\K-Spice-Projects\BasicProcess\Resources\Operator\data\Start K-SpiceLearn BasicProcess.bat";
+
+Button	Frame = 6; Label = "EXIT"; SameWidth = 1; \
+	Action = popdown;
+

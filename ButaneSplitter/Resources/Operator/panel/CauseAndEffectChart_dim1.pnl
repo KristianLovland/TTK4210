@@ -1,0 +1,47 @@
+#include $EXPLORER_RESOURCES/Panel/DefaultVars.def
+
+Header	Title = "%TAG_NAME (%PANEL_TIMELINE) Effects"; Position = Cursor; HELP1; \
+	Resizable = SaveSize,LargerOnly; OneOff = "%TAG_NAME (%PANEL_TIMELINE)";
+
+//*************
+// Block menu *
+//*************
+Frame	Id = 2; Frame = -2; Layout = Vertical; Space = 2; Pad = 1;
+Frame	Frame = 2; Id = 21; Layout = Horizontal; Space = 2;
+//	Button	Frame = 21; Image = "blkmenu.ico"; FeedBack = //"Block menu"; Style = BUTTON_STYLE; \
+//			Action = Menu,"BlockExplorerBlock";
+	Variable	VAR_NOEDIT; Frame = 21; Tag = "%TAG_NAME@B_desc"; Width = 350;
+			
+Frame	Frame = 2; Id=101; Layout = Horizontal; Space = 3; 
+Label	Frame=101; Label="#(%TAG_NAME@B_dimdsc[1])"; SameWidth = 10;
+Stub		Frame=101; SameWidth = 15;
+Variable	Frame = 101; Editable; Sample = 1; Tag =  "%TAG_NAME@B_dims[1]"; \
+		 Background = White;SameWidth = 101;
+		
+Frame	Frame = 2; Id=103; Layout = Horizontal; Space = 3;
+Label	Frame=103; Label="Reset all outputs:"; SameWidth = 10;
+Stub		Frame=103; SameWidth = 15; 		
+Variable	Frame = 103; Editable; Sample = 1; Tag = "%TAG_NAME:ResetAll"; Type=Bool; \
+		Values='False',0,'True',1; Background=White,SkyBlue;\
+		ShowState=EnumValues; SameWidth = 101;
+	
+	
+Column	Header = "Output Name"; Source = Tag,"%TAG_NAME:OutputNames@V_array"; Tag = "%LVITEM";Width = 150; Sample = 1; Editable;
+
+Column	Header = "State";Source = Tag,"%TAG_NAME:OutputState"; Width = 50; Sample = 1;\
+	  Values = 'Good',0,'Bad',1;ShowState=EnumValues; \
+	 Background = PaleGreen3,Red; 
+	
+Column	Header = "Trip Signal"; Source = Tag,"%TAG_NAME:OutputTripSignal"; Width = 50; Sample = 1;\
+	Values = 'Good',0,'Bad',1; ShowState=EnumValues; \
+	Background = PaleGreen3,Red; 
+
+Column	Header = "Primary";TEXT_LV_SSEDIT; Source = Tag,"%TAG_NAME:PrimaryShutdown"; Width = 70; \
+	 Values = "False","True"; Foreground = Black,Black,-; Background = Ivory1,Yellow;
+
+Column	Header = "Override";TEXT_LV_SSEDIT; Source = Tag,"%TAG_NAME:Override"; Width = 70; \
+	 Values = "False","True"; Background = Ivory1,Yellow;
+
+Column	Header = "Report string"; Source = Tag,"%TAG_NAME:ShutdownReport@V_array";Tag = "%LVITEM"; Width = 150; Sample = 1;
+
+ListView	Frame = 0; Source = Tag,"%TAG_NAME:OutputState@V_indlst"; Grid; Size = 550,350; SaveState;

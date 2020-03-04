@@ -1,0 +1,3 @@
+header	Title="Ball Valve"; position=centre; oneoff; resizable;
+
+button	image="$EXPLORER_RESOURCES/bitmaps/BallValve.bmp"; size=540,409;

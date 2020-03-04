@@ -1,0 +1,47 @@
+
+// can be sourced from an alternative block name
+#ifdef '!empty(%USE_TAG_NAME)'
+set	variable=TAG_NAME,%USE_TAG_NAME;
+#endif
+
+#ifdef '"HEADER_INCLUDED" != "TRUE"'
+#ifdef '!empty(%BE_TIMELINE_APP)'
+header	mid=%BE_TIMELINE_APP;
+#endif
+#endif
+
+
+
+#ifdef '"#(%TAG_NAME:@B_type)" == "LogicOperator"'
+Button	Label = "Menu";action=menu,BEB_LO;
+#else
+
+
+// add custom menu
+// #include_noerror $EXPLORER_RESOURCES/menu/blocktype(%TAG_NAME).cmn
+
+// allow find options if not in imagearea
+#ifdef '"%IMAGEAREA_PARENT" != "TRUE"'
+
+#ifdef '"FINDLOCAL" == "TRUE"'
+
+#else
+#ifdef '"%FINDINMAINWINDOW" == "TRUE"'
+
+Button	Label = "Highlight block"; \
+		Action = Hilight,-1; \
+		Action = FindGraphic,"%TAG_NAME",MainWindow,NoZoom,%BE_TIMELINE_APP;
+#else
+
+Button	Label = "Highlight block"; \
+		Action = Hilight,-1; \
+		Action = FindGraphic,"%TAG_NAME",NoZoom,%BE_TIMELINE_APP;
+#endif
+#endif
+#else
+#ifdef '"%BLOCKCOPY" == "TRUE"'
+Button	Label = "Find master block graphic"; \
+		Action = FindGraphic,"%TAG_NAME";
+#endif
+#endif
+#endif 

@@ -1,0 +1,135 @@
+* Historical alarms display
+* Version for standard K-SPICE
+#include $EXPLORER_RESOURCES/panel/panel.def
+#include $EXPLORER_RESOURCES/panel/subcodes.def
+#include $EXPLORER_RESOURCES/panel/alrmcodes.def
+#include $EXPLORER_RESOURCES/panel/alrmstt.def
+
+set		variable=AL_TYPE,AlarmHist;
+
+header		%+_PINSTATUS title="Alarm History"; oneoff=%LOCAL_ACTIVE_TIMELINE_APP; \
+		Help = "K-SpiceUserGuide.chm","Alarms_AlarmHistory.htm"; \
+		mid=%LOCAL_ACTIVE_TIMELINE_APP; \
+		resizable=savegeometry,largeronly; \
+		position=-2,-2; \
+
+Frame	Id = 99; Frame = -2;  Layout = form; position=Lock,Left,0,Right,0;
+
+// application toolbar
+#define TL_TBAR_PARENT 99
+#include TimelineAppToolbar.def
+
+Stub		Frame = TOOLBAR_ID; Size = 2,1;
+Stub		Frame = TOOLBAR_ID; background=window; size=1,1; sameheight=TOOLBAR_ID;
+
+// dump data item list
+Button	Frame = TOOLBAR_ID; Image = "logtags.ico"; Style = ToolBar; SameHeight = TOOLBAR_ID; listdependent; \
+		FeedBack = "Save selected items in current view in csv format"; \
+		Action = SaveFinder,"=%_PROJECT_ROOT/ExplorerFiles","*.csv","Data Item dump"; \
+		Action = LVDump,100,"%_FINDER_SELECTION"; \
+		Action = ShellOpen,"%_FINDER_SELECTION";
+	
+// print
+Button	Frame = TOOLBAR_ID; Image = "print.ico"; Style = ToolBar; SameHeight = TOOLBAR_ID; \
+		FeedBack = "Print current view"; \
+		Action = ScreenDump,100;
+
+// tab pin
+#define PIN_TBAR_PARENT 10101
+#include BlockExplorerToolbarPin.def
+
+frame		id=1; frame=99; layout=vertical; space=5; pad=8; position=lock,top,28;
+
+frame		id=2; frame=1; layout=vertical; space=5; label="Filter settings";
+
+frame		id=8; frame=2; layout=horizontal; space=5;
+label		frame=8; label="Group:"; samewidth=9;
+selection	frame=8; source=tag,"DataItem,I,DBI_GROUPS"; style=dropdown; \
+		size=150,-1; pad=1; get=GetModelParameter; \
+		action=set,DB_GROUP_NM,%_CURRENT_SELECTION; \
+		action=refresh,100;
+button		frame=8; label="All groups"; \
+		action=set,DB_GROUP_NM,*; \
+		action=refresh,100;
+
+frame		id=9; frame=2; layout=horizontal; space=5;
+label		frame=9; label="Alarm tag filter:"; samewidth=9;
+field		id=91; frame=9; value=%TAG_NM; width=150; pad=1; \
+		action=set,TAG_NM,!91; \
+		action=refresh,100;
+button		frame=9; image="refresh.ico"; \
+		action=set,TAG_NM,!91; \
+		action=refresh,100;
+
+frame		frame=2; id=70; layout=horizontal;  space=5;
+label		frame=70; label="Show alarm type:"; samewidth=9;
+state		frame=70; id=71; layout=horizontal; \
+		label="All alarms","Active alarms","Acknowledged alarms"; \
+		action=set,ASTATE,!71; \
+		actionif='%ASTATE == 0',set,ALHST_FLT,0; \
+		actionif='%ASTATE == 1',set,ALHST_FLT,ALRM_ACTIVE; \
+		actionif='%ASTATE == 2',set,ALHST_FLT,ALRM_ACK; \
+		action=refresh,100;
+		
+#define	STYLE1 \
+	foreground=-1,white,white,lightblue,gold,gold; \
+	font="courier new-bold";
+
+// alarm list
+
+column	header="Date/time"; type=ModelTime; get=GetModelParameter; showstate; \
+	tag="AlarmHist,S,%LVITEM,I,AL_MODTIME"; width=100; STYLE1 \
+	menu=AlarmSystemHProps; \
+	action=set,ACT_TAG,%LVITEM; \
+
+// Deleted - "Menu,BlockExplorerBlockCustom" from Right Click Action in Column header below
+
+column	header="Tag"; get=GetModelParameter; showstate; \
+	tag="AlarmHist,S,%LVITEM,I,AL_SYNONYM"; width=150; STYLE1 \
+	action=set,HT_TEST,#(%LVITEM@B_type); \
+	action=set,CUSTOM_TAG,#(%LVITEM@B_name); \
+	actionif='"%RIGHT_CLICK" == "True" && "%HT_TEST" != "*FAIL*"',Menu,AlarmSystemHProps; \
+	actionif='"%RIGHT_CLICK" == "True" && "%HT_TEST" == "*FAIL*"',Menu,AlarmSystemHProps;
+
+column	header="Type"; get=GetModelParameter; showstate; \
+	tag="AlarmHist,S,%LVITEM,I,AL_MESSAGE"; width=60; STYLE1 \
+	menu=AlarmSystemHProps; \
+	action=set,ACT_TAG,%LVITEM;
+
+column	header="Group"; get=GetModelParameter; showstate; \
+	tag="AlarmHist,S,%LVITEM,I,AL_GROUP"; width=60; STYLE1 \
+	menu=AlarmSystemHProps; \
+	action=set,ACT_TAG,%LVITEM;
+
+column	header="Status"; get=GetModelParameter; showstate; \
+	type=enum; values=ACKN,-1,NORMAL,0,NORMAL,1,ACK,2,ALARM,3; \
+	tag="AlarmHist,S,%LVITEM,I,AL_STATUS"; width=60; STYLE1 \
+	menu=AlarmSystemHProps; \
+	action=set,ACT_TAG,%LVITEM;
+
+column	header="Description"; get=GetModelParameter; showstate; \
+	tag="AlarmHist,S,%LVITEM,I,AL_DESC"; width=250; STYLE1 \
+	menu=AlarmSystemHProps; \
+	action=set,ACT_TAG,%LVITEM;
+
+listview	sample=2; id=100; background=darkslategrey; \
+		size=1,400; Style = MultiSelect; \
+		source=tag,"AlarmHist,S,$top,R,0.0,I,%ALHST_FLT,I,%ALACT_LEV,S,@group(%DB_GROUP_NM)@name(%TAG_NM),-1"; \
+	action=set,ACT_TAG,%LVITEM; \
+	actionif='"%DBL_CLICK" == "True"',panel,alrmdetails;
+
+* Filename for saving the alarm history
+frame		frame=-4; id=75; layout=horizontal; space=5; pad=5;
+
+label		frame=75; label=" Alarm history file:"; sameheight=1;
+field		frame=75; id=93; type=string; width=300; sameheight=1; pad=1;
+
+button  	frame=75; image="browser.ico"; \
+		action = SMBrowserOpen,ModelResources,%LOCAL_ACTIVE_TIMELINE_APP,"*.alm"; \
+		action = setfield,93,%_BROWSER_SELECTED_NAME;
+	
+button	frame=75; label=Save; \
+	action=set,FNAME,!93; \
+	actionif='empty(%FNAME)',messagebox,"A filename must be entered",error; \
+	actionif=*,break; \
+	action=send,SetModelParameter,S,AlarmsHist@F_svXML,S,%FNAME;

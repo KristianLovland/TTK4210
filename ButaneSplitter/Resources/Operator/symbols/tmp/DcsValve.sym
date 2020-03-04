@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="10">
+ <header xy="129,912" xmin="112" ymin="895.999" xmax="154.999" ymax="930.978">
+  <attribute name="AttPage" type="text" value="DcsValve"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Valve"/>
+  <attribute name="SymName" type="text" value="DcsValve"/>
+  <attribute name="ItemType" type="text" value="DcsValve"/>
+  <attribute name="SelectBox" type="real" value="-17,-9,17,17"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="841" vheight="1251" gpitch="1,1" goffset="0,0" height="2" hjust="right" font="Arial"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <symbol id="1031" estat="ext" xy="129,912" name="xdcs_valve_s1" pr6layer="0">
+  <attribute name="SymName" type="text" value="xdcs_valve_s1"/>
+  <attribute name="AttPage" type="text" value="DcsValve"/>
+ </symbol>
+ <symbol id="1107" depth="10" estat="ext" xy="129,912" name="xdcs_valve_s1" pr6layer="0">
+  <attribute name="SymName" type="text" value="xdcs_valve_s1"/>
+  <attribute name="AttPage" type="text" value="DcsValve"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:ValveStemPosition@V_unscaled} &gt; 0.999999 - {%TAG_NAME:RunningLightPosition@V_unscaled}" priority="1" foreground="#00bb00"/>
+   <state type="expression" expression="{%TAG_NAME:ValveStemPosition@V_unscaled} &lt; 0.000001 + {%TAG_NAME:RunningLightPosition@V_unscaled}" priority="1" foreground="#e60000"/>
+   <state type="expression" expression="2+2==4" priority="0" fflash="true" foreground="#00bb00"/>
+  </animation>
+ </symbol>
+ <symbol id="1583" estat="ext" xy="151,927" name="xdcs_connector_s1.sym">
+  <attribute name="SymName" type="text" value="xdcs_connector_s1"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <animation type="graphic" default="#555555">
+   <state type="expression" expression="{DCS_%TAG_NAME:OutputStatus} == 0" priority="0"/>
+  </animation>
+ </symbol>
+ <string id="1025" colour="darkorange1" layer="Hidden" estat="ref" xy="112,903,112,929,146,929,146,903,112,903">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <line id="1035" colour="blue" layer="Hidden" weight="2" xy="143,928,147,928"/>
+ <line id="1068" colour="blue" layer="Hidden" weight="2" xy="145,930,145,926"/>
+ <polygon id="1099" xy="128.5,922,128.5,912,129.5,912,129.5,922,128.5,922"/>
+ <polygon id="1100" xy="124,922,124,928,134,928,134,922,124,922"/>
+ <tnode id="1101" colour="red" layer="Hidden" depth="50" estat="ext" xy="129,896" height="6" hjust="centre" font="Arial">
+  <attribute name="ItemName" type="null"/>
+ </tnode>
+ <cpoint id="1104" depth="11" estat="ref" xy="129,912">
+  <attribute name="AttPage" type="text" value="DcsValve"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Valve"/>
+  <attribute name="SymName" type="text" value="DcsValve"/>
+  <attribute name="ItemType" type="text" value="DcsValve"/>
+ </cpoint>
+</sym>

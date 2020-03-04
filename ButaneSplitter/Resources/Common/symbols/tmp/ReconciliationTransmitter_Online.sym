@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="16">
+ <header xy="162,1334" xmin="162.001" ymin="1334" xmax="219.999" ymax="1361">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_ReconciliationTransmitter"/>
+  <attribute name="ItemType" type="text" value="ReconciliationTransmitter"/>
+  <attribute name="Itemdesc" type="text" value="Reconciliation Transmitter"/>
+  <attribute name="Module" type="text" value="ReconciliationTransmitter"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="ReconciliationTransmitter_Online"/>
+  <attribute name="SelectBox" type="real" value="1,1,57,25"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="1027" estat="ext" xy="162,1334,220,1360" name="x_Online_Background.sym" xscl="58" yscl="26" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1752,1711"/>
+ </symbol>
+ <symbol id="1837" estat="ext" xy="204,1344" name="x_reconcilliation_transmitter_badinput.sym">
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_badinput"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1846,1827"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:ReasonForReplacement} &gt; 4" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1846" estat="ext" xy="212,1344" name="x_reconcilliation_transmitter_replacedinput.sym">
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_replacedinput"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1854,1837"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:ReasonForReplacement} &gt; 0 &amp;&amp; {%TAG_NAME:ReasonForReplacement} &lt; 5" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1858" estat="ext" xy="212,1342" name="x_reconcilliation_transmitter_residualneg">
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_residualneg"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1860,1856"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{Alarm_%(TAG_NAME)_OutputStatus:@B_alarm} == 3 &amp;&amp; {%TAG_NAME:OutputStatus} == -1  &amp;&amp; {%TAG_NAME:Residual} &lt; 0" priority="1" fflash="true"/>
+   <state type="expression" expression="{%TAG_NAME:OutputStatus} == -1  &amp;&amp; {%TAG_NAME:Residual} &lt; 0" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1864" estat="ext" xy="212,1337" name="x_reconcilliation_transmitter_residualpos">
+  <attribute name="Itemdesc" type="text" value="x_reconcilliation_transmitter_residualpostive"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_residualpostive"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1895,1860"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:OutputStatus} == -1  &amp;&amp; {%TAG_NAME:Residual} &gt; 0" priority="0"/>
+   <state type="expression" expression="{Alarm_%(TAG_NAME)_OutputStatus:@B_alarm} == 3 &amp;&amp; {%TAG_NAME:OutputStatus} == -1  &amp;&amp; {%TAG_NAME:Residual} &gt; 0" priority="1" fflash="true"/>
+  </animation>
+ </symbol>
+ <symbol id="1895" estat="ext" xy="212,1337" name="x_reconcilliation_transmitter_suppressed.sym">
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_suppressed"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1892,1864"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:OutputStatus}==3" priority="0" foreground="white"/>
+   <state type="expression" expression="&quot;%_CURRENTTLTYPE&quot; == &quot;Planning&quot;" priority="2" foreground="invisible"/>
+  </animation>
+ </symbol>
+ <symbol id="1892" estat="ext" xy="211,1347" name="x_reconcilliation_transmitter_bias.sym">
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_bias"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="mutual" subid="100" id="1875,1895"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%(REPLACER_%TAG_NAME):IsBiased}==1 &amp;&amp; {%(REPLACER_%TAG_NAME):ReasonForReplacement} == 0" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="1366" estat="ext" xy="162,1334,220,1360" name="x_Online_SolidFrame.sym" xscl="58" yscl="26" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1711,1875"/>
+ </symbol>
+ <string id="1752" style="1" estat="ref" xy="163,1335,163,1359,219,1359,219,1335,163,1335">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1757,1027"/>
+ </string>
+ <cpoint id="1757" estat="ref" xy="162,1334">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AttPage" type="text" value="Operator_ReconciliationTransmitter"/>
+  <attribute name="ItemType" type="text" value="ReconciliationTransmitter"/>
+  <attribute name="Itemdesc" type="text" value="Reconciliation Transmitter"/>
+  <attribute name="Module" type="text" value="ReconciliationTransmitter"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="ReconciliationTransmitter_Online"/>
+  <parameter name="DESC" value="UNDEFINED"/>
+  <relation type="mutual" subid="100" id="1827,1752"/>
+ </cpoint>
+ <tnode id="1827" estat="ext" xy="187,1337" height="5" bold="true">
+  <relation type="mutual" subid="100" id="1837,1757"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:DisplayMeasuredValue@V_units" default="0x555555">
+   <state type="expression" expression="{%TAG_NAME:Active}==1" priority="0" foreground="0x0055a9"/>
+   <state type="expression" expression="{%TAG_NAME:OutputStatus} ==-1" priority="1" foreground="red"/>
+   <state type="expression" expression="&quot;%_CURRENTTLTYPE&quot; == &quot;Planning&quot;" priority="2"/>
+  </animation>
+ </tnode>
+ <tnode id="1854" estat="ext" xy="186,1337" height="5" hjust="right" bold="true">
+  <relation type="mutual" subid="100" id="1856,1846"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:DisplayEstimatedValue" format="%6.1f" default="0x555555">
+   <state type="expression" expression="{%TAG_NAME:Active}==1" priority="0" foreground="0x0055a9"/>
+   <state type="expression" expression="{%TAG_NAME:OutputStatus} ==-1" priority="1" foreground="red"/>
+   <state type="expression" expression="&quot;%_CURRENTTLTYPE&quot; == &quot;Planning&quot;" priority="2"/>
+  </animation>
+ </tnode>
+ <tnode id="1856" estat="ext" xy="187,1344" height="5" bold="true">
+  <relation type="mutual" subid="100" id="1858,1854"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:DisplayEstimatedValue@V_units" format="%s" default="green4">
+   <state type="expression" expression="0==1" priority="0" foreground="0x8054aa"/>
+   <state type="expression" expression="{%TAG_NAME:InputStatus} == 1" priority="1" foreground="yellow"/>
+   <state type="expression" expression="&quot;%_CURRENTTLTYPE&quot; == &quot;Planning&quot;" priority="2" foreground="invisible"/>
+   <state type="expression" expression="&quot;%_CURRENTTLTYPE&quot; == &quot;LookAhead&quot;" priority="2" foreground="invisible"/>
+  </animation>
+ </tnode>
+ <tnode id="1860" estat="ext" xy="186,1344" height="5" hjust="right" bold="true">
+  <relation type="mutual" subid="100" id="1864,1858"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME:DisplayMeasuredValue" format="%6.1f" default="green4">
+   <state type="expression" expression="0==1" priority="0" foreground="0x8054aa"/>
+   <state type="expression" expression="{%TAG_NAME:InputStatus} == 1" priority="1" foreground="yellow"/>
+   <state type="expression" expression="&quot;%_CURRENTTLTYPE&quot; == &quot;Planning&quot;" priority="2" foreground="invisible"/>
+   <state type="expression" expression="&quot;%_CURRENTTLTYPE&quot; == &quot;LookAhead&quot;" priority="2" foreground="invisible"/>
+  </animation>
+ </tnode>
+ <tnode id="1875" layer="Hidden" estat="ext" xy="163,1361" height="2" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1366,1892"/>
+ </tnode>
+ <tnode id="1711" estat="ext" xy="190,1352" height="5" hjust="centre">
+  <relation type="mutual" subid="100" id="1027,1366"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_name" format="%s" default="invisible">
+   <state type="expression" expression="&quot;%DESC&quot; != &quot;UNDEFINED&quot;" priority="1" text="%DESC"/>
+   <state type="expression" expression="&quot;%DESC&quot; == &quot;UNDEFINED&quot;" priority="1" text="%TAG_NAME"/>
+   <state type="expression" expression="empty(%(REPLACER_%TAG_NAME)) &amp;&amp; !%_IDCAD" priority="2" text="No source Replacer block!" background="white" foreground="red"/>
+  </animation>
+ </tnode>
+</sym>

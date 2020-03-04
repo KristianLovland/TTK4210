@@ -1,0 +1,44 @@
+
+// Button Label = "ExercisesManager"; Action = ShellOpen,'C:\Program Files (x86)\Kongsberg\K-Spice\bin\Kongsberg.Exercise.Manager.exe';
+
+Button Label = "ExerciseManager"; \
+		Action = Panel, NoAccess.pnl;
+//		Action = ShellOpen,'$PUBLIC\Desktop\ExerciseManager';
+
+Gap
+
+// Load Exercise
+
+Button	Label = "Open Exercise"; \
+		Action = Panel,"ExerciseLoad.pnl";
+
+
+
+Button 	Label = "Close Active Exercise"; \
+		Action = Panel,"ExerciseClose.pnl";
+
+// Set User Name
+
+Button 	Label = "Set User Name"; \
+		Action = Panel,"SetUserName.pnl";
+
+
+Gap
+
+// View Active Exercise
+
+Button 	Label = "Active Exercise Info"; \
+		Action = Panel, "ActiveExercise.pnl";
+
+// Save Report
+
+Button 	Label = "Save report"; \
+		Action = Panel, "SaveReport.pnl";
+//		Action = SendSetValue,"/%_ACTIVE_TIMELINE/ExerciseServer/SaveReport","C:\K-Spice-Projects\BasicProcess\Exercises\Reports\";
+
+
+
+// user extensions
+//#include_noerror $EXPLORER_RESOURCES/menu/UserTraining.mnu
+
+

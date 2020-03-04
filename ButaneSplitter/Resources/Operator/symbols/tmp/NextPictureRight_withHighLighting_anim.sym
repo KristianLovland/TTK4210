@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="671,936" xmin="671" ymin="936" xmax="703" ymax="952">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="NextPictureRight_withHighLighting_anim"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="841" vheight="1251" gpitch="1,1" goffset="0,0" height="2" hjust="right" font="Arial"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <cpoint id="1651" estat="ref" xy="671,936">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="NextPictureRight_withHighLighting_anim"/>
+ </cpoint>
+ <polygon id="1650" colour="magenta" xy="671,952,671,936,695,936,703,944,695,952,671,952">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+</sym>

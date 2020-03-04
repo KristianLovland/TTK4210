@@ -1,0 +1,101 @@
+03-Mar-20 18:19:25 SimExplorer:  Starting session log Z:\Prosjekt\TTK4210\ButaneSplitter\ExplorerFiles\session.log
+03-Mar-20 18:19:37 SimManager: /SimulationManager  INFO: Partner application "/Explorers/Explorer_5" connected. (2020-03-03 18:19:22.703)
+03-Mar-20 18:19:37 SimManager: /SimulationManager  INFO: Partner application "/ButaneSplitter/ProcessModel" connected. (2020-03-03 18:19:23.430)
+03-Mar-20 18:19:37 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Initialising....
+03-Mar-20 18:19:37 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading the available thermo packages.
+03-Mar-20 18:19:37 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: The thermo package "ThermoTable" has been loaded.
+03-Mar-20 18:19:37 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Thermo file directory: Z:\Prosjekt\TTK4210\ButaneSplitter\TimeLines\ButaneSplitter\Applications\ProcessModel\
+03-Mar-20 18:19:37 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: ThermoControl: Number of thermodynamic methods loaded: 0
+03-Mar-20 18:19:37 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Model polling time set to 1 seconds.
+03-Mar-20 18:19:37 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: Model initialisation Complete.
+03-Mar-20 18:19:38 SimManager: /SimulationManager  INFO: /ButaneSplitter : Loading model file "ButaneSplitter". (2020-03-03 18:19:23.793)
+03-Mar-20 18:19:38 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading the available thermo packages.
+03-Mar-20 18:19:38 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: The thermo package "ThermoTable" has been loaded.
+03-Mar-20 18:19:38 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Using user's trend definition settings.
+03-Mar-20 18:19:38 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Removing empty file : pictures.def.
+03-Mar-20 18:19:38 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  WARNING: The trend polling times are not consistent with block execution times.
+03-Mar-20 18:19:38 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Model polling time set to 0.01 seconds.
+03-Mar-20 18:19:39 SimManager: /SimulationManager  INFO: /ButaneSplitter : Loading parameter file "ButaneSplitter". (2020-03-03 18:19:24.734)
+03-Mar-20 18:19:39 SimManager: /SimulationManager  INFO: /ButaneSplitter : Loading initial condition file "ButaneSplitter". (2020-03-03 18:19:25.114)
+03-Mar-20 18:19:39 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Connecting 372 blocks.
+03-Mar-20 18:20:22 SimManager: /SimulationManager  INFO: /ButaneSplitter : Loading model file "ButaneSplitter". (2020-03-03 18:20:22.485)
+03-Mar-20 18:20:22 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading the available thermo packages.
+03-Mar-20 18:20:22 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: The thermo package "ThermoTable" has been loaded.
+03-Mar-20 18:20:23 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Using user's trend definition settings.
+03-Mar-20 18:20:23 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Removing empty file : pictures.def.
+03-Mar-20 18:20:23 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  WARNING: The trend polling times are not consistent with block execution times.
+03-Mar-20 18:20:23 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Model polling time set to 0.01 seconds.
+03-Mar-20 18:20:27 SimManager: /SimulationManager  INFO: /ButaneSplitter : Loading parameter file "ButaneSplitter". (2020-03-03 18:20:23.855)
+03-Mar-20 18:20:27 SimManager: /SimulationManager  INFO: /ButaneSplitter : Loading initial condition file "ButaneSplitter". (2020-03-03 18:20:24.276)
+03-Mar-20 18:20:27 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Connecting 372 blocks.
+03-Mar-20 18:20:35 SimManager: /SimulationManager  INFO: /ButaneSplitter : Loading initial condition file "ButaneSplitter". (2020-03-03 18:20:35.353)
+03-Mar-20 18:20:38 SimManager: /SimulationManager  INFO: Partner application "/Explorers/Mcl_6" connected. (2020-03-03 18:20:38.818)
+03-Mar-20 18:20:39 SimExplorer:  K-Spice SimExplorer client connected on socket 2640
+03-Mar-20 18:20:39 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  ERROR: "24_TC108:DerivativeTime@V_typemask": Cannot find DataItem being requested based on tagname or block type.
+03-Mar-20 18:20:39 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  ERROR: "24_PCD1025:Gain@V_typemask": Cannot find DataItem being requested based on tagname or block type.
+03-Mar-20 18:20:39 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  ERROR: "24_PCD1025:IntegralTime@V_typemask": Cannot find DataItem being requested based on tagname or block type.
+03-Mar-20 18:20:39 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  ERROR: "24_PCD1025:DerivativeTime@V_typemask": Cannot find DataItem being requested based on tagname or block type.
+03-Mar-20 18:20:42 SimExplorer:  K-Spice SimExplorer client disconnected on socket 2640
+03-Mar-20 18:20:42 SimManager: /SimulationManager  INFO: Partner application "/Explorers/Mcl_6" disconnected. (2020-03-03 18:20:42.050)
+03-Mar-20 18:20:43 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Initialising....
+03-Mar-20 18:20:44 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading the available thermo packages.
+03-Mar-20 18:20:44 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: The thermo package "ThermoTable" has been loaded.
+03-Mar-20 18:20:44 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Thermo file directory: Z:\Prosjekt\TTK4210\ButaneSplitter\TimeLines\ButaneSplitter\CommonData
+03-Mar-20 18:20:44 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: ThermoControl: Loading ThermoDynamic Property data.
+03-Mar-20 18:20:44 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No  1 of 20.
+03-Mar-20 18:20:44 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect301     .
+03-Mar-20 18:20:45 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No  2 of 20.
+03-Mar-20 18:20:45 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect302     .
+03-Mar-20 18:20:46 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No  3 of 20.
+03-Mar-20 18:20:46 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect303     .
+03-Mar-20 18:20:46 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No  4 of 20.
+03-Mar-20 18:20:46 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect304     .
+03-Mar-20 18:20:47 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No  5 of 20.
+03-Mar-20 18:20:47 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect305     .
+03-Mar-20 18:20:47 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No  6 of 20.
+03-Mar-20 18:20:47 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect306     .
+03-Mar-20 18:20:47 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No  7 of 20.
+03-Mar-20 18:20:47 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect307     .
+03-Mar-20 18:20:47 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No  8 of 20.
+03-Mar-20 18:20:47 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect308     .
+03-Mar-20 18:20:48 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No  9 of 20.
+03-Mar-20 18:20:48 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect309     .
+03-Mar-20 18:20:49 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No 10 of 20.
+03-Mar-20 18:20:49 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect310     .
+03-Mar-20 18:20:50 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No 11 of 20.
+03-Mar-20 18:20:50 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect311     .
+03-Mar-20 18:20:51 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No 12 of 20.
+03-Mar-20 18:20:51 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect312     .
+03-Mar-20 18:20:52 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No 13 of 20.
+03-Mar-20 18:20:52 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect313     .
+03-Mar-20 18:20:53 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No 14 of 20.
+03-Mar-20 18:20:53 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect314     .
+03-Mar-20 18:20:54 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No 15 of 20.
+03-Mar-20 18:20:54 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect315     .
+03-Mar-20 18:20:54 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No 16 of 20.
+03-Mar-20 18:20:54 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect316     .
+03-Mar-20 18:20:55 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No 17 of 20.
+03-Mar-20 18:20:55 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect317     .
+03-Mar-20 18:20:55 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No 18 of 20.
+03-Mar-20 18:20:55 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect318     .
+03-Mar-20 18:20:56 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No 19 of 20.
+03-Mar-20 18:20:56 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect319     .
+03-Mar-20 18:20:56 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: ThermoControl: Loading thermo method No 20 of 20.
+03-Mar-20 18:20:56 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Loading thermo table: sect320     .
+03-Mar-20 18:20:56 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: ThermoControl: Number of thermodynamic methods loaded: 20
+03-Mar-20 18:20:57 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Model polling time set to 0.01 seconds.
+03-Mar-20 18:20:57 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  WARNING: The trend polling times are not consistent with block execution times.
+03-Mar-20 18:20:57 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: Model initialisation Complete.
+03-Mar-20 18:29:10 SimManager: /SimulationManager  INFO: /ButaneSplitter : Loading initial condition file "ButaneSplitter". (2020-03-03 18:29:10.076)
+03-Mar-20 18:29:17 SimManager: /SimulationManager  INFO: Partner application "/Explorers/Mcl_7" connected. (2020-03-03 18:29:17.326)
+03-Mar-20 18:29:19 SimExplorer:  K-Spice SimExplorer client connected on socket 3008
+03-Mar-20 18:29:19 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  ERROR: "24_TC108:DerivativeTime@V_typemask": Cannot find DataItem being requested based on tagname or block type.
+03-Mar-20 18:29:19 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  ERROR: "24_PCD1025:Gain@V_typemask": Cannot find DataItem being requested based on tagname or block type.
+03-Mar-20 18:29:19 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  ERROR: "24_PCD1025:IntegralTime@V_typemask": Cannot find DataItem being requested based on tagname or block type.
+03-Mar-20 18:29:19 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  ERROR: "24_PCD1025:DerivativeTime@V_typemask": Cannot find DataItem being requested based on tagname or block type.
+03-Mar-20 18:29:22 SimManager: /SimulationManager  INFO: Partner application "/Explorers/Mcl_7" disconnected. (2020-03-03 18:29:22.671)
+03-Mar-20 18:29:22 SimExplorer:  K-Spice SimExplorer client disconnected on socket 3008
+03-Mar-20 18:29:49 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Initialising....
+03-Mar-20 18:29:51 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  INFO: Model polling time set to 0.01 seconds.
+03-Mar-20 18:29:51 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  WARNING: The trend polling times are not consistent with block execution times.
+03-Mar-20 18:29:51 SimManager: /ButaneSplitter/ProcessModel  0000000:00:00  PROGRESS: Model initialisation Complete.

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="4">
+ <header xy="348,1020" xmin="348" ymin="1020" xmax="354" ymax="1026">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_badinput"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\DemoProject\Resources\Common\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <cpoint id="1039" estat="ref" xy="348,1020">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymName" type="text" value="x_reconcilliation_transmitter_badinput"/>
+ </cpoint>
+ <polygon id="1040" colour="yellow" depth="-2" xy="348,1020,348,1026,354,1026,354,1020,348,1020">
+  <attribute name="AnimGraphic" type="null"/>
+ </polygon>
+ <polygon id="1035" colour="white" xy="349,1022.88,349,1023.13,353,1023.13,353,1022.88,349,1022.88">
+  <parameter name="TAG_NAME" value="%TAG_NAME@OutputStatus"/>
+ </polygon>
+ <polygon id="1062" depth="-1" xy="353,1023,352.892,1023.65,352.578,1024.23,352.094,1024.68,351.491,1024.94,350.835,1024.99,350.197,1024.83,349.645,1024.47,349.241,1023.95,349.028,1023.33,349.028,1022.67,349.241,1022.05,349.645,1021.53,350.197,1021.17,350.835,1021.01,351.491,1021.06,352.094,1021.33,352.578,1021.77,352.892,1022.35,353,1023">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+  </animation>
+ </polygon>
+</sym>

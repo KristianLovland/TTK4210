@@ -1,0 +1,5 @@
+Button	Label = "Stream..."; Default; \
+		Action = Set,VAR,"%TAG_NAME_OUT"; \
+		Action = Panel,"BlockExplorerTstr";
+
+

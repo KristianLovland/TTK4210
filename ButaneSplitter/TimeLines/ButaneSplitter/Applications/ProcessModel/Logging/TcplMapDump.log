@@ -1,0 +1,12 @@
+Active connections :
+
+Connected to                       Host                Socket  
+/SimulationManager                 DESKTOP-9R0HTLN     1520    
+
+
+Network Map :                      
+
+Member name                        Host                Type                Connected   
+/SimulationManager                                     kSimulationManager  1           
+/ButaneSplitter                                        kComEndpoint        1           
+/ButaneSplitter/ProcessModel       DESKTOP-9R0HTLN     kModelServer        1           

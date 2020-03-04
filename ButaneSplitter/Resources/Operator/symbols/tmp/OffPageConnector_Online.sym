@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="6">
+ <header xy="203,1080" xmin="179.001" ymin="1076" xmax="232" ymax="1085">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Jump" type="null"/>
+  <attribute name="ItemType" type="text" value="connector_draw"/>
+  <attribute name="SymName" type="text" value="OffPageConnector_Online"/>
+  <attribute name="SelectBox" type="real" value="-23,-3,25,3"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="1719" estat="ext" xy="179,1076,227,1084" name="x_Online_Background.sym" xscl="48" yscl="8" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+ </symbol>
+ <polygon id="1721" colour="gray60" depth="1" xy="227,1084,227,1076,232,1080,227,1084"/>
+ <string id="1722" depth="5" style="1" estat="ref" xy="180,1077,180,1083,228,1083,228,1077,180,1077">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <cpoint id="1728" estat="ref" xy="203,1080">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="Jump" type="null"/>
+  <attribute name="ItemType" type="text" value="connector_draw"/>
+  <attribute name="SymName" type="text" value="OffPageConnector_Online"/>
+  <parameter name="DESC" value="UNDEFINED"/>
+ </cpoint>
+ <tnode id="1727" layer="Hidden" depth="10" estat="ext" xy="180,1085" height="2" font="Verdana" ntr="true" ntm="true">
+  <attribute name="DrawName" type="null"/>
+ </tnode>
+ <tnode id="3465" depth="10" estat="ext" xy="203,1080" height="5" hjust="centre" vjust="middle" font="Verdana" ntr="true" ntm="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="BlockExists,&quot;x&quot;">
+   <state type="expression" expression="&quot;%DESC&quot; != &quot;UNDEFINED&quot;" priority="1" text="%DESC"/>
+   <state type="expression" expression="1 == 1" priority="0" text="%GOTO"/>
+  </animation>
+ </tnode>
+</sym>

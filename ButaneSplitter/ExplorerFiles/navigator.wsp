@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<navigator>
+
+  <navigatorTree>
+    <folder expanded="true" name="Timelines" type="1">
+      <folder expanded="true" name="ButaneSplitter" type="13">
+        <folder expanded="true" name="Models" type="15"/>
+        <folder expanded="true" name="Parameters" type="15"/>
+        <folder expanded="true" name="Conditions" type="15"/>
+        <folder expanded="true" name="MCL" type="9"/>
+      </folder>
+    </folder>
+    <folder expanded="false" name="Recent Graphics" type="23">
+      <node name="ButaneSplitter.xdr" nodeDir="Z:\Prosjekt\TTK4210\ButaneSplitter\Timelines/ButaneSplitter\ExplorerFiles\ProcessModel\ButaneSplitter" nodeName="ButaneSplitter.xdr" nodeSave="true" nodeShortcut="false" nodeType="0" timeline="/ButaneSplitter/ProcessModel"/>
+    </folder>
+    <folder expanded="false" name="Windows" type="3"/>
+    <folder expanded="false" name="Workspace" type="4"/>
+    <folder expanded="false" name="Shortcuts" type="7"/>
+  </navigatorTree>
+
+  <symbolsTree>
+    <folder expanded="false" name="Assemblies" type="19"/>
+    <folder expanded="true" name="Symbols" type="0">
+      <folder expanded="false" name="Frames" type="24"/>
+      <folder expanded="true" name="Connectors" type="18">
+        <folder expanded="true" name="Overview" type="16"/>
+      </folder>
+    </folder>
+    <folder expanded="false" name="Shortcuts" type="7"/>
+  </symbolsTree>
+
+  <watchList>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_PC1024:Measurement"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_PC1024:InternalSetpoint"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_PC1024:ControllerOutput"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_FC1005:Measurement"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_FC1005:InternalSetpoint"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_FC1005:ControllerOutput"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_FC1019:Measurement"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_FC1019:InternalSetpoint"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_FC1019:ControllerOutput"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_LC1016:Measurement"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_LC1016:InternalSetpoint"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_LC1016:ControllerOutput"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_LC1015:Measurement"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_LC1015:InternalSetpoint"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_LC1015:ControllerOutput"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_FC1015:Measurement"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_FC1015:InternalSetpoint"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_FC1015:ControllerOutput"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_LC1028:Measurement"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_LC1028:InternalSetpoint"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_LC1028:ControllerOutput"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_TC1015:Measurement"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_TC1015:InternalSetpoint"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_TC1015:ControllerOutput"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_TC1088:Measurement"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_TC1088:InternalSetpoint"/>
+    <variable mid="/ButaneSplitter/ProcessModel" op="64" tag="24_TC1088:ControllerOutput"/>
+    <trend active="true" opt="1356892160" sclYax="100.000000,0.000000" timeFrame="300.000000" title="1" width="160" yAxis="100.000000,0.000000" yAxisDesc="0" yAxisHome="100.000000,0.000000"/>
+  </watchList>
+
+</navigator>

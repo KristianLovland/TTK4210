@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="10">
+ <header xy="184,226" xmin="184" ymin="219.999" xmax="224.001" ymax="243.999">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Online Control valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="ValveControl_Online"/>
+  <attribute name="SelectBox" type="real" value="0,0,16,12"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="3466" estat="ext" xy="198,236,224,244" name="x_Online_SolidFrame.sym" xscl="26" yscl="8" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_SolidFrame"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_ReconcilliationTransmitter"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="1761,1689"/>
+ </symbol>
+ <symbol id="1761" estat="ext" xy="198,236,224,244" name="x_Online_Background.sym" xscl="26" yscl="8" fitted="true">
+  <attribute name="SymName" type="text" value="x_Online_Background"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="3470,3466"/>
+ </symbol>
+ <symbol id="1677" estat="ext" xy="184,226" name="x_Online_ValveBody.sym">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_Online_ValveBody"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1654,3471"/>
+  <animation type="graphic">
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == True &amp;&amp; {%TAG_NAME:IsDefinedClosed} == True " priority="10" foreground="magenta"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == True " priority="1" foreground="green3"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedClosed} == True " priority="0" foreground="red"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == False &amp;&amp; {%TAG_NAME:IsDefinedClosed} == False" priority="0" foreground="yellow"/>
+  </animation>
+ </symbol>
+ <symbol id="1654" estat="ext" xy="192,230" name="x_Online_ValveActuatorControl.sym">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_Online_ValveActuatorControl"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1678,1677"/>
+ </symbol>
+ <symbol id="1689" depth="1" estat="ext" xy="184,226,200,234" name="x_ValveMask.sym" xscl="16" yscl="8" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_ValveMask"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="3466,1681"/>
+ </symbol>
+ <tnode id="3470" estat="ext" xy="216.5,237.5" height="5" hjust="right">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3471,1761"/>
+  <animation type="text" tag="%TAG_NAME:ValveStemPosition" format="%5.1f">
+  </animation>
+ </tnode>
+ <tnode id="3471" estat="ext" xy="216.5,237.5" height="5">
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1677,3470"/>
+  <animation type="text" tag="%TAG_NAME:ValveStemPosition@V_Unit" format="%s">
+   <state type="expression" expression="{%TAG_NAME:ValveStemPosition@V_unit} == &quot;fract&quot;" priority="0" text="{%TAG_NAME:ValveStemPosition@V_unit}" foreground="invisible"/>
+  </animation>
+ </tnode>
+ <cpoint id="1678" estat="ref" xy="184,226">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Online Control valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="ValveControl_Online"/>
+  <relation type="mutual" subid="100" id="1679,1654"/>
+ </cpoint>
+ <tnode id="1679" layer="TAGNAMES" estat="ext" xy="192,220" height="5" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1681,1678"/>
+ </tnode>
+ <string id="1681" depth="10" style="1" estat="ref" xy="184,226,184,238,200,238,200,226,184,226">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1689,1679"/>
+ </string>
+</sym>

@@ -1,0 +1,227 @@
+#include $EXPLORER_RESOURCES/panel/panel.def
+#include $EXPLORER_RESOURCES/panel/alrmstt.def
+#include $EXPLORER_RESOURCES/panel/alrmcodes.def
+#include $EXPLORER_RESOURCES/panel/subcodes.def
+
+#include $EXPLORER_RESOURCES/panel/definitions.def
+
+***********************************************************************************
+
+set		variable=TAG,"Empty";
+set		variable=TYPE,"Empty";
+set		variable=TAGINFO,"Empty";
+set		variable=DRAWING,"Empty";
+
+#define INPUT_TAG namepart(#(%TAG_NAME:Measurement@V_input))
+
+Set		variable=CONT_TAG,"%TAG_NAME";
+set		variable=TRAN_TAG,INPUT_TAG;
+set		variable=ALARM_TAG,%(TRAN_TAG)_alarm;
+set		variable=RAMP_TAG,%(CONT_TAG)_r;
+set		variable=ALARM_HH,"AlarmList,S,%ALARM_TAG:AlarmHighHigh/0,I,     6";
+set		variable=ALARM_H,"AlarmList,S,%ALARM_TAG:AlarmHigh/0,I,     6";
+set		variable=ALARM_L,"AlarmList,S,%ALARM_TAG:AlarmLow/0,I,     6";
+set		variable=ALARM_LL,"AlarmList,S,%ALARM_TAG:AlarmLowLow/0,I,     6";
+set		variable=ALARM_DEV,"AlarmList,S,%TAG_NAME:DeviationAlarm/0,I,     6";
+
+#define BACKCOLOUR #C5C3C6
+
+#define SW1 samewidth=1;
+#define SW2 samewidth=2;
+#define SW3 samewidth=3;
+#define SW4 samewidth=4;
+
+header		title="%TAG_NAME"; position=cursor; oneoff=%CONT_TAG;
+
+
+*****Output and PV windows*****************************************************************************
+
+
+frame	id=2; layout=vertical; 
+stub	frame=2; size=5; 
+
+
+frame	frame=2; id=30; layout=horizontal;
+stub	frame=30; size=10,5;
+//label	frame=30; label="#(%TAG_NAME:@B_Desc)"; size=200,30; justify=left;
+//stub	frame=30; size=5;  
+
+frame	frame=2; id=35; layout=horizontal;
+
+stub	frame=35; size=10,5;
+label	frame=35; label="OP: "; size=70,15; justify=right;
+stub	frame=35; size=15,5;
+label	frame=35; label="PV: "; size=70,15; justify=right;
+
+//////////////////////only for testing///////////////////////////////////////
+//variable	frame=35; type=real;width=60; format="%5.2f"; tag="%ALARM_DEV"; size=250,20; justify=left; font=arial-8;
+//label		frame=35; label="#(%TRAN_TAG:IsSignalUnitsUsed)"; size=250,30; justify=left; font=arial-12-bold;
+//variable	frame=35; type=real;width=60; format="%5.2f"; tag="AlarmList,S,%ALARM_TAG:AlarmHigh/0,I,     6"; size=250,20; justify=left; font=arial-8;
+//////////////////////////////////////////////////////////
+
+
+*****OUTPUT DISPLAYED**********************************************************************************
+
+frame	frame=2; id=40; layout=horizontal; 
+stub	frame=40; size=10;  
+
+
+variable	frame=40; sample; type=real;width=70; format="%5.2f"; border=sunken; font=arial-10-bold; \
+		background=black; foreground=cyan; EDITABLE; tag="%CONT_TAG:ControllerOutput";Samewidth=100;
+
+stub	frame=40; size=10;
+
+
+
+*******PV DISPLAYED**************************************************************************************
+
+
+
+variable	frame=40; sample; type=real; width=70; format="%7.1f"; border=sunken; font=arial-10-bold; \
+		background=black; foreground=yellow; tag="%TAG_NAME:measurement";Samewidth=100;
+
+
+
+
+
+******Auto/Man Buttons*************************************************************************************
+
+
+frame	frame=2; id=3; layout=horizontal;
+
+stub	frame=3; size=10,20;
+
+frame	frame=3; id=45; layout=vertical;
+
+stub	frame=45; size=10,40;
+
+#ifdef '"#(%TAG_NAME@B_desc)" == "PIDController_Cascade"'
+#ifdef '"#(%TAG_NAME:SetPointSelection)" == "0"'
+button	frame=45; id=70; label="CAS"; font=arial-10-bold; size=70,20; Samewidth=100;\
+		action=send,SetVariable,S,"%CONT_TAG:SetSelect",R,1;\
+		action=send,SetVariable,S,"%CONT_TAG:mode",R,0;\
+		action=remap;
+#elseif
+button	frame=45; id=70; label="INT"; font=arial-10-bold; size=70,20; Samewidth=100;\
+		action=send,SetVariable,S,"%CONT_TAG:SetSelect",R,0;\
+//		action=send,SetVariable,S,"%CONT_TAG:mode",R,0;\
+		action=remap;
+#endif
+#elseif
+stub	frame=45; size=70,20;
+#endif
+
+
+button	frame=45; id=50; label="AUTO"; font=arial-10-bold; size=70,20; Samewidth=100; \
+		action=send,SetVariable,S,"%CONT_TAG:SetSelect",R,0;\
+		action=send,SetVariable,S,"%CONT_TAG:mode",R,0;
+
+button	frame=45; id=60; label="MAN"; font=arial-10-bold; size=70,20; Samewidth=100;\
+		action=send,SetVariable,S,"%CONT_TAG:SetSelect",R,0;\
+		action=send,SetVariable,S,"%CONT_TAG:mode",R,1;
+
+stub	frame=45; size=10,15;
+
+
+********DISPLAY THE PRESENT MODE OF THE CONTROLLER*********************************************************
+
+variable	frame=45; sample; type=enumerator; values="INT","CAS"; justify=centre; width=50; Samewidth=100; border=sunken; \
+		font=arial-9-bold; background=black; foreground=yellow; tag="%TAG_NAME:SetPointSelection"; 
+
+variable	frame=45; sample; type=enumerator; values=AUTO,MAN; justify=centre; width=50; Samewidth=100; border=sunken; \
+		font=arial-9-bold; background=black; foreground=yellow; tag="%TAG_NAME:mode"; 
+
+variable	frame=45; sample; type=enumerator; values=" ","RAMP"; justify=centre; width=50; Samewidth=100; border=sunken; \
+		font=arial-9-bold; background=black; foreground=yellow; tag="%RAMP_TAG:running";
+
+
+stub		frame=45; size=10,10;
+
+frame		frame=45; id=46;layout=vertical;border=sunken;
+
+Imagearea	frame=46; source="$PROJECT_ROOT\\Resources\Operator\graphic\FP_CONT_Status.xdr"; \
+		type=Xcadfixedimage; size=70,80; menu=%TAG_TYPE; doublebuffered;
+
+frame		frame=3; id=54; layout=vertical;
+
+stub		frame=54; size=10;
+
+frame		frame=3; id=55; layout=vertical;
+
+frame		frame=55; id=65; layout=horizontal;
+
+//stub		frame=65; size=10;
+
+label		frame=65; label="#%CONT_TAG:ControllerOutput@V_units"; font=arial-8; size=30,20; justify=right;
+
+stub		frame=65; size=12;
+
+label		frame=65; label="#%CONT_TAG:Measurement@V_units"; size=30,20; foreground=black;justify=Left; font=arial-8;
+
+frame		frame=55; id=100; layout=horizontal;
+
+//stub		frame=100; size=10,20;
+
+variable	frame=100; tag="%CONT_TAG:OutputRangeHighLimit"; type=real; format="%5.0f"; justify=centre; font=arial-8;
+
+//stub		frame=100; size=5,20; Border = Sunken;
+
+variable	frame=100; tag="%CONT_TAG:RangeHighLimit"; type=real; format="%5.0f"; justify=left; font=arial-8;
+
+frame		frame=55; id=85; layout=horizontal; Border=sunken;
+
+
+Imagearea	frame=85; source="$PROJECT_ROOT\\Resources\Operator\graphic\FP_CONT_Bars.xdr"; \
+		type=Xcadfixedimage; size=71,238; menu=%TAG_TYPE;doublebuffered;
+		
+stub		frame=3; size=10,10;
+
+
+frame		frame=55; id=95; layout=horizontal; 
+
+//stub		frame=95; size=10,20;
+
+variable	frame=95; tag="%CONT_TAG:OutputRangeLowLimit"; type=real; format="%5.0f"; justify=centre; font=arial-8;
+
+//stub		frame=95; size=5,20; Border = Sunken;
+
+variable	frame=95; tag="%CONT_TAG:RangeLowLimit"; type=real; format="%5.0f"; justify=left; font=arial-8;
+
+frame		frame=3; id=200; layout=vertical;
+
+stub		frame=200; size=60,120;
+label		frame=200; label="SP: "; size=60,15; justify=right;
+
+variable	frame=200; sample; type=real; width=60; format="%5.2f"; border=sunken; font=arial-10-bold; \
+		background=black; foreground=white; tag="%CONT_TAG:setp"; EDITABLE;
+		
+frame		frame=2; id=300; layout=horizontal;
+
+stub		frame=300; size=70;
+
+button		frame=300; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\rampbutton.bmp"; size=32,32; Level = 1; Dependency = '%SV_TIMELINESACTIVE'; \
+		feedback="Ramp"; \
+		Action = Set,Tag,""; \
+		action=panel,RampOpr.pnl;
+
+button		frame=300; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\findDraw.bmp"; size=32,32; \
+		feedback="Find drawing"; \
+		action=set,FINDINMAINWINDOW,TRUE; \
+		action=menu,"BlockExplorerBlock";
+
+button		frame=300; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\TrendButton.bmp"; size=32,32; \
+		feedback="Trend"; \
+		action=panel,PIDTrend.pnl;
+
+button		frame=300; image="$PROJECT_ROOT\\Resources\Operator\Bitmaps\AckButton.bmp"; size=32,32; \
+		feedback="Acknowledge alarms"; \
+		actionIf='#(%(ALARM_TAG):AlarmHighHigh)==1 || #(%ALARM_HH == 1)',send,SetModelParameter,S,AlarmList,S,%(ALARM_TAG):AlarmHighHigh/0,I,AL_ACKTAG; \
+		actionIf='#(%(ALARM_TAG):AlarmLowLow)==1 || #(%ALARM_LL == 1)',send,SetModelParameter,S,AlarmList,S,%(ALARM_TAG):AlarmLowLow/0,I,AL_ACKTAG; \
+		actionIf='#(%(ALARM_TAG):AlarmHigh)==1 || #(%ALARM_H == 1)',send,SetModelParameter,S,AlarmList,S,%(ALARM_TAG):AlarmHigh/0,I,AL_ACKTAG; \
+ 		actionIf='#(%(ALARM_TAG):AlarmLow)==1 || #(%ALARM_L == 1)',send,SetModelParameter,S,AlarmList,S,%(ALARM_TAG):AlarmLow/0,I,AL_ACKTAG; \
+ 		actionIf='#(%(CONT_TAG):DeviationAlarm)==1 || #(%ALARM_DEV == 1)',send,SetModelParameter,S,AlarmList,S,%(CONT_TAG):DeviationAlarm/0,I,AL_ACKTAG; \
+ 		actionIf='#(%(CONT_TAG):DeviationAlarm)==1 || #(%ALARM_DEV == 1)',send,SetVariable,S,"%CONT_TAG:AcknowledgeDeviation",R,1;
+
+//label		frame=300; label="%_ACTIVE_TIMELINE_APP"; size=100,20; foreground=black;justify=Left; font=arial-8;
+
+stub		frame=2; size=110,10;

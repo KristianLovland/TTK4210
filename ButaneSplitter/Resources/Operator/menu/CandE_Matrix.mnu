@@ -1,0 +1,11 @@
+
+//Operator have no access to set Matrix
+
+button		Label="No access";
+
+//button	label="Clear"; image=CandE_Clear.ico; action=send,SetVariable,s,"%CANDE_TAG:CauseAndEffectMatrix[%TT_I][%TT_J]",i,0;
+//button	label="Set"; image=CandE_Matrix.ico; action=send,SetVariable,s,"%CANDE_TAG:CauseAndEffectMatrix[%TT_I][%TT_J]",i,-1;
+//button	label="Advanced..."; \
+//	action=set,ENMVALS,"#(%CANDE_TAG:Notes)"; \
+//	action=panel,CandE_Matrix;
+	

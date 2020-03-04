@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="88,152" xmin="88" ymin="152" xmax="89" ymax="153">
+  <attribute name="SymPlacement" type="null"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11"/>
+ <viewport id="2" vwidth="2.00029" vheight="2.00029" gpitch="2,2" goffset="0,0"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <cpoint id="1025" estat="ref" xy="88,152">
+  <attribute name="SymPlacement" type="null"/>
+ </cpoint>
+ <polygon id="1047" colour="gray" xy="88,152,88,153,89,153,89,152,88,152"/>
+</sym>

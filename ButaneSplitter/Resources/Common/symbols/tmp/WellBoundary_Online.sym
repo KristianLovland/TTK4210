@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="4">
+ <header xy="196,1162" xmin="195.999" ymin="1162" xmax="222" ymax="1194">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <attribute name="ItemType" type="text" value="Operator_WellBoundary"/>
+  <attribute name="Itemdesc" type="text" value="OlgaKeyword"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="WellBoundary_Online"/>
+  <attribute name="SelectBox" type="real" value="0,0,26,11.5"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <polygon id="1096" colour="0x555555" xy="196,1162,196,1181,222,1181,222,1162,196,1162">
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <attribute name="ItemType" type="text" value="Operator_WellBoundary"/>
+  <relation type="mutual" subid="100" id="1098,1097"/>
+ </polygon>
+ <cpoint id="1098" estat="ref" xy="196,1162">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="AttPage" type="text" value="ItemName"/>
+  <relation type="mutual" subid="100" id="1100,1096"/>
+  <attribute name="ItemType" type="text" value="Operator_WellBoundary"/>
+  <attribute name="Itemdesc" type="text" value="OlgaKeyword"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="WellBoundary_Online"/>
+ </cpoint>
+ <string id="1100" style="1" estat="ref" xy="196,1162,196,1173.5,222,1173.5,222,1162,196,1162">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1097,1098"/>
+ </string>
+ <polygon id="1097" colour="0x555555" xy="196,1181,209,1194,222,1181,196,1181">
+  <relation type="mutual" subid="100" id="1096,1100"/>
+ </polygon>
+</sym>

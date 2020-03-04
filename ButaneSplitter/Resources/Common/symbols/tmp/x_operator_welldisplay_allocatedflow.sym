@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="1326,911" xmin="1323" ymin="910.999" xmax="1403.8" ymax="955">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_welldisplay_allocatedflow"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <text id="1275" xy="1323,934" height="8" font="Arial">
+  <tstring>from Downstream</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <text id="1037" xy="1323,947" height="8" font="Arial">
+  <tstring>Flow Allocated:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <tnode id="1208" estat="ext" xy="1339,917" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%FLOW_TARGET:SumOfDownstreamFlow" format="%6.1f">
+  </animation>
+ </tnode>
+ <tnode id="1276" estat="ext" xy="1378,917" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%FLOW_TARGET:SumOfDownstreamFlow@V_units" format="%s">
+  </animation>
+ </tnode>
+ <cpoint id="1227" estat="ref" xy="1326,911">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_welldisplay_allocatedflow"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </cpoint>
+</sym>

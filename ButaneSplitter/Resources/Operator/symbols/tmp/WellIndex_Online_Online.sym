@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="4">
+ <header xy="932,256" xmin="913.456" ymin="233.999" xmax="958.26" ymax="256.006">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="WellIndex_Online"/>
+  <attribute name="Itemdesc" type="text" value="Well Index"/>
+  <attribute name="Module" type="text" value="WellIndex_Online"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="WellIndex_Online_Online"/>
+  <attribute name="SelectBox" type="real" value="-16,-14,22,-2"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <symbol id="4080" depth="50" estat="ext" xy="932,256" name="x_Reservoir.sym">
+  <attribute name="SymName" type="text" value="x_Reservoir"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <relation type="mutual" subid="100" id="3311,3312"/>
+ </symbol>
+ <tnode id="3311" depth="10" estat="ext" xy="936,234" height="4" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="3309,4080"/>
+ </tnode>
+ <cpoint id="3309" estat="ref" xy="932,256">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="WellIndex_Online"/>
+  <attribute name="Itemdesc" type="text" value="Well Index"/>
+  <attribute name="Module" type="text" value="WellIndex_Online"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="WellIndex_Online_Online"/>
+  <relation type="mutual" subid="100" id="3312,3311"/>
+ </cpoint>
+ <string id="3312" style="1" estat="ref" xy="916,242,916,254,954,254,954,242,916,242">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="4080,3309"/>
+ </string>
+</sym>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="2">
+ <header xy="494,728" xmin="487.35" ymin="721.163" xmax="500.999" ymax="734.833">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_Adapter"/>
+  <attribute name="SymName" type="text" value="x_adapter_s1"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\DemoProject\Resources\Common\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <cpoint id="1167" estat="ref" xy="494,728">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_Adapter"/>
+  <attribute name="SymName" type="text" value="x_adapter_s1"/>
+ </cpoint>
+ <polygon id="1178" colour="green" depth="-2" xy="501,728,500.784,729.704,500.152,731.3,499.143,732.69,497.819,733.783,496.265,734.513,494.578,734.833,492.864,734.733,491.231,734.203,489.781,733.283,488.605,732.027,487.778,730.522,487.35,728.858,487.35,727.141,487.778,725.477,488.605,723.972,489.781,722.72,491.231,721.8,492.864,721.269,494.578,721.162,496.265,721.483,497.819,722.215,499.143,723.309,500.152,724.699,500.784,726.296,501,728"/>
+</sym>

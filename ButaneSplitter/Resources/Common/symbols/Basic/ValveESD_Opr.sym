@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="17">
+ <header xy="489,1019.5" xmin="480" ymin="1009" xmax="497.999" ymax="1034.5">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="ESD valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="SymName" type="text" value="ValveESD_OTS"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <attribute name="SelectBox" type="real" value="-9,-6,9,15"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="TransmitterValues"/>
+  <layer index="6" name="TagNames"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\DemoProject\Resources\Common\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="0.25,0.25" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="TransmitterValues"/>
+ <layer id="40" name="TagNames"/>
+<symbol id="1033" estat="ext" xy="481.5,1015,496.5,1033" name="TrippedOutline" xscl="15" yscl="18" fitted="true">
+  <attribute name="SymName" type="text" value="TrippedOutline"/>
+  <relation type="mutual" subid="100" id="1037,1036"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:Tripped} == 1" priority="0"/>
+  </animation>
+</symbol>
+<symbol id="1034" estat="ext" xy="482,1015.5,496,1032.5" name="SignalFailureOutline" xscl="15" yscl="18" fitted="true">
+  <attribute name="SymName" type="text" value="SignalFailureOutline"/>
+  <relation type="mutual" subid="100" id="1037,1036"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:SignalFailure} == 1" priority="0"/>
+  </animation>
+ </symbol>
+<symbol id="1035" estat="ext" xy="482,1015.5,496,1032.5" name="MalfunctionOutline" xscl="15" yscl="18" fitted="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <relation type="mutual" subid="100" id="1037,1036"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol> 
+ <symbol id="1043" depth="4" estat="ext" xy="489,1019.5" name="x_Valve_Body" xscl="1.5" yscl="1.5">
+  <attribute name="SymName" type="text" value="x_Valve_Body"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <relation type="mutual" subid="100" id="1044,1042"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic" default="yellow">
+   <state type="expression" expression="{%TAG_NAME:IsDefinedOpen} == 1" priority="0" foreground="green"/>
+   <state type="expression" expression="{%TAG_NAME:IsDefinedClosed} == 1" priority="0"/>
+   <state type="expression" expression="(({%TAG_NAME:IsDefinedOpen}) == 1 &amp;&amp; ({%TAG_NAME:IsDefinedClosed} == 1))" priority="5" foreground="magenta"/>
+  </animation>
+ </symbol>
+ <symbol id="1045" colour="Background" estat="ext" xy="489,1019.5" name="x_Valve_Mask" xscl="1.5" yscl="1.5" fixedcol="true" fixedlay="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="SymName" type="text" value="x_Valve_Mask"/>
+  <relation type="mutual" subid="100" id="1036,1167"/>
+ </symbol>
+ <line id="1037" colour="blue" depth="25" xy="495,1016.5,483,1022.5">
+  <relation type="mutual" subid="100" id="1038,1033"/>
+ </line>
+ <line id="1038" colour="blue" depth="25" xy="483,1016.5,495,1022.5">
+  <relation type="mutual" subid="100" id="1039,1037"/>
+ </line>
+ <line id="1039" colour="blue" depth="25" xy="495,1022.5,495,1016.5">
+  <relation type="mutual" subid="100" id="1040,1038"/>
+ </line>
+ <line id="1040" colour="blue" depth="25" xy="483,1022.5,483,1016.5">
+  <relation type="mutual" subid="100" id="1042,1039"/>
+ </line>
+ <string id="1042" depth="10" style="1" estat="ref" xy="480,1013.5,480,1034.5,498,1034.5,498,1013.5,480,1013.5">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1043,1040"/>
+ </string>
+ <cpoint id="1044" depth="10" estat="ref" xy="489,1019.5">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Valve"/>
+  <attribute name="Itemdesc" type="text" value="Control valve"/>
+  <attribute name="Module" type="text" value="Valve"/>
+  <attribute name="SymName" type="text" value="ValveESD_OTS"/>
+  <attribute name="Category" type="text" value="OTS"/>
+  <relation type="mutual" subid="100" id="1046,1043"/>
+  <parameter name="AUTOCONNECT_PIPEFLOW" value="Output;CvAtCurrentOpening;ValveCv[*];Output;FLAtCurrentOpening;ValveFL[*];Output;XTAtCurrentOpening;ValveXT[*]"/>
+  <parameter name="AUTOCONNECT_FLOWLINE" value="Output;CvAtCurrentOpening;ValveCv[-]"/>
+ </cpoint>
+ <tnode id="1046" colour="white" layer="Engineer" depth="100" estat="ext" xy="495.5,1032" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <relation type="mutual" subid="100" id="1047,1044"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <tnode id="1047" layer="Hidden" estat="ext" xy="489,1009" height="5" hjust="centre" font="Arial">
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="1052,1046"/>
+ </tnode>
+ <line id="1052" colour="blue" xy="492,1027.75,486,1027.75">
+  <relation type="mutual" subid="100" id="1157,1047"/>
+ </line>
+ <line id="1157" colour="blue" xy="492,1026.25,492,1032.25">
+  <relation type="mutual" subid="100" id="1160,1052"/>
+ </line>
+ <line id="1160" colour="blue" xy="486,1026.25,486,1032.25">
+  <relation type="mutual" subid="100" id="1162,1157"/>
+ </line>
+ <line id="1162" colour="blue" xy="492,1026.25,486,1026.25">
+  <relation type="mutual" subid="100" id="1167,1160"/>
+ </line>
+ <line id="1167" colour="blue" xy="492,1032.25,486,1032.25">
+  <relation type="mutual" subid="100" id="1045,1162"/>
+ </line>
+ <line id="1036" colour="blue" depth="5" xy="489,1019.5,489,1027.75">
+  <relation type="mutual" subid="100" id="1033,1045"/>
+ </line>
+</sym>

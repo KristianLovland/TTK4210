@@ -1,0 +1,11 @@
+// Open loop step experiment for FC1005
+
+LoadConditions("ButaneSplitter")
+LoadParameters("ButaneSplitter")
+
+RunUntil([000:001:00.00])
+SetSpeed(400)
+
+at (0) Pause(0)
+at (30) Pause(0)
+at (60) Pause(0)

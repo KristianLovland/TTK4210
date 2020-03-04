@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="4">
+ <header xy="439,898" xmin="436.001" ymin="862" xmax="440.001" ymax="898.001" vunits="mm">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymName" type="text" value="x_Drum_Vertical_3D"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11">
+  <attribute name="VersionDate" type="text" value="10-11-14 13:08:01"/>
+ </drawing>
+ <viewport id="2" vwidth="2000" vheight="1500" vunits="mm" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <symbol id="4564" layer="3D" depth="-3" estat="ext" xy="436,862,440,884" name="x_SquareOil" xscl="4" yscl="22" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_SquareOil"/>
+  <attribute name="LayerLocked" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="rect" mtag="%TAG_NAME:LiquidLevel@V_unscaled" mmin="%TAG_NAME:MinLevel@V_unscaled" mmax="%TAG_NAME:MaxLevel@V_unscaled" rect="0,0,4,0,0,0,4,32">
+  </animation>
+ </symbol>
+ <cpoint id="4162" layer="3D" depth="-5" estat="ref" xy="439,898">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymName" type="text" value="x_Drum_Vertical_3D"/>
+  <attribute name="NoStateAnim" type="null"/>
+ </cpoint>
+ <string id="4163" layer="3D" depth="10" weight="2" xy="436,862,436,894,440,894,440,862,436,862">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+ </string>
+ <polygon id="4565" colour="white" layer="3D" depth="-4" xy="436,862,436,894,440,894,440,862,436,862">
+  <attribute name="LayerLocked" type="null"/>
+ </polygon>
+</sym>

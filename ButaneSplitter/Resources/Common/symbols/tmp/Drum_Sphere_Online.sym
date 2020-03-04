@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="5">
+ <header xy="318,292" xmin="278" ymin="252.001" xmax="358" ymax="332.001">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Drum"/>
+  <attribute name="Itemdesc" type="text" value="Online Spherical Drum"/>
+  <attribute name="Module" type="text" value="Drum"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Drum_Sphere_Online"/>
+  <attribute name="SelectBox" type="real" value="-34,-34,34,34"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+  <layer index="5" name="TAGNAMES"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\Maria_PSS\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <layer id="39" name="TAGNAMES"/>
+ <symbol id="1944" estat="ext" xy="318,292" name="x_Drum_Sphere_3D.sym">
+  <attribute name="SymName" type="text" value="x_Drum_Sphere_3D"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="child" subid="3" id="1945"/>
+  <relation type="mutual" subid="100" id="3472,1941"/>
+ </symbol>
+ <symbol id="1945" layer="3D" depth="-3" estat="rel" xy="300,267,304,289" name="x_SquareOil" xscl="4" yscl="22" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="x_SquareOil"/>
+  <attribute name="LayerLocked" type="null"/>
+  <parameter name="TAG_NAME" value="Parent block name"/>
+  <relation type="parent" subid="3" id="1944"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1760,3472"/>
+  <animation type="rect" mtag="%TAG_NAME:LiquidLevel@V_unscaled" mmin="%TAG_NAME:MinLevel@V_unscaled" mmax="%TAG_NAME:MaxLevel@V_unscaled" rect="0,0,4,0,0,0,4,32">
+  </animation>
+ </symbol>
+ <cpoint id="1760" estat="ref" xy="318,292">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="Drum"/>
+  <attribute name="Itemdesc" type="text" value="Online Spherical Drum"/>
+  <attribute name="Module" type="text" value="Drum"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="Drum_Sphere_Online"/>
+  <relation type="mutual" subid="100" id="1941,1945"/>
+ </cpoint>
+ <string id="1941" style="1" estat="ref" xy="284,258,284,326,352,326,352,258,284,258">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="1944,1760"/>
+ </string>
+ <tnode id="3472" depth="10" estat="ext" xy="318,306" height="8" hjust="centre" vjust="middle" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="1945,1944"/>
+ </tnode>
+</sym>

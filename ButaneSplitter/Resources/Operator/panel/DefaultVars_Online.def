@@ -1,0 +1,86 @@
+* generic standards
+#define TEXT_FONT "Arial"
+#define LV_TEXT_FONT "Ms Sans Serif"
+#define VAR_FONT "courier new-bold"
+#define DEF_FG "Black"
+#define DEF_BG "White"
+#define EDIT_BG "White"
+#define EDIT_BORDER ThinSunken
+#define BUTTON_STYLE ThinRaised
+
+* PID Controller units enumerations
+#define PIDCONT_UNITS Values = " ","kg/s","kg/hr","t/hr","C","K","Pa","bara","barg","Pa","m3/s","m3/hr","RPM","rad/s","m","mm", \
+	"pct","Sm3/hr","Sm3/day","kSm3/d","MSm3/d","BPD","MMSCFD"
+
+* Trend colours
+#define TREND_COL1 "Blue"
+#define TREND_COL2 "Red"
+#define TREND_COL3 "Green3"
+#define TREND_COL4 "Orange"
+#define TREND_GRID "Ivory3"
+#define TREND_BG DEF_BG
+#define TREND_FG DEF_FG
+#define PV_COLOUR "Green3"
+#define SP_COLOUR "Red"
+#define OP_COLOUR "Blue"
+
+* Trend sizes
+#define TREND_X_MIN 250
+#define TREND_Y_MIN 200
+#define TREND_MIN_SIZE TREND_X_MIN,TREND_Y_MIN
+
+* Variables
+#define VAR_NOEDIT Font = VAR_FONT; Foreground = DEF_FG; Sample = 1
+#define VAR_EDIT VAR_NOEDIT; Editable; Background = EDIT_BG; Border = EDIT_BORDER
+#define VAR_ENUM_NOEDIT VAR_NOEDIT; Type = Enumerator
+#define VAR_ENUM_EDIT VAR_ENUM_NOEDIT; Editable; Background = EDIT_BG; Border = EDIT_BORDER
+
+#define VAR_LV_NOEDIT Font = VAR_FONT; Foreground = DEF_FG; Sample = 1
+#define TEXT_LV_NOEDIT Font = LV_TEXT_FONT; Foreground = DEF_FG; Sample = 1
+#define VAR_LV_EDIT VAR_LV_NOEDIT; Editable; Background = EDIT_BG
+#define TEXT_LV_EDIT TEXT_LV_NOEDIT; Editable; Background = EDIT_BG
+
+
+* Help
+#define HELP1 Help = "blocktype(%TAG_NAME)"
+
+*custom Panel stuff
+#define CUSTOM_VAR_1_NOEDIT Variable	VAR_NOEDIT; Frame = 12; Caption = "#(%TAG_NAME:VAR1@V_desc)"; Tag = "%TAG_NAME:VAR1"; Type = Real; Suffix = "#(%TAG_NAME:VAR1@V_units)"; SameWidth = 1;
+#define CUSTOM_VAR_1_EDIT Variable	VAR_EDIT; Frame = 12; Caption = "#(%TAG_NAME:VAR1@V_desc)"; Tag = "%TAG_NAME:VAR1"; Type = Real; Suffix = "#(%TAG_NAME:VAR1@V_units)"; SameWidth = 1;
+#define CUSTOM_VAR_2_NOEDIT Variable	VAR_NOEDIT; Frame = 13; Caption = "#(%TAG_NAME:VAR2@V_desc)"; Tag = "%TAG_NAME:VAR2"; Type = Real; Suffix = "#(%TAG_NAME:VAR2@V_units)"; SameWidth = 1;
+#define CUSTOM_VAR_2_EDIT Variable	VAR_EDIT; Frame = 13; Caption = "#(%TAG_NAME:VAR2@V_desc)"; Tag = "%TAG_NAME:VAR2"; Type = Real; Suffix = "#(%TAG_NAME:VAR2@V_units)"; SameWidth = 1;
+#define CUSTOM_VAR_3_NOEDIT Variable	VAR_NOEDIT; Frame = 14; Caption = "#(%TAG_NAME:VAR3@V_desc)"; Tag = "%TAG_NAME:VAR3"; Type = Real; Suffix = "#(%TAG_NAME:VAR3@V_units)"; SameWidth = 1;
+#define CUSTOM_VAR_3_EDIT Variable	VAR_EDIT; Frame = 14; Caption = "#(%TAG_NAME:VAR3@V_desc)"; Tag = "%TAG_NAME:VAR3"; Type = Real; Suffix = "#(%TAG_NAME:VAR3@V_units)"; SameWidth = 1;
+#define CUSTOM_VAR_4_NOEDIT Variable	VAR_NOEDIT; Frame = 15; Caption = "#(%TAG_NAME:VAR4@V_desc)"; Tag = "%TAG_NAME:VAR4"; Type = Real; Suffix = "#(%TAG_NAME:VAR4@V_units)"; SameWidth = 1;
+#define CUSTOM_VAR_4_EDIT Variable	VAR_EDIT; Frame = 15; Caption = "#(%TAG_NAME:VAR4@V_desc)"; Tag = "%TAG_NAME:VAR4"; Type = Real; Suffix = "#(%TAG_NAME:VAR4@V_units)"; SameWidth = 1;
+#define CUSTOM_VAR_5_NOEDIT Variable	VAR_NOEDIT; Frame = 16; Caption = "#(%TAG_NAME:VAR5@V_desc)"; Tag = "%TAG_NAME:VAR5"; Type = Real; Suffix = "#(%TAG_NAME:VAR5@V_units)"; SameWidth = 1;
+#define CUSTOM_VAR_5_EDIT Variable	VAR_EDIT; Frame = 16; Caption = "#(%TAG_NAME:VAR5@V_desc)"; Tag = "%TAG_NAME:VAR5"; Type = Real; Suffix = "#(%TAG_NAME:VAR5@V_units)"; SameWidth = 1;
+
+* detailed view stuff
+#define DETAILED_TAB_ACTIONS \
+//  kick start summary tab in case parameters change affecting layout or what can be edited
+	ActionIf = '"%CURRENT_TAB" == "Summary"',KickStart,1001; \
+	ActionIf = *,Break; \
+	ActionIf = '"%CURRENT_TAB" == "Header"',Break; \
+	ActionIf = '"%CURRENT_TAB" == "Configuration"',Break; \
+// input tab
+	ActionIf = '"%CURRENT_TAB" == "Inputs"',Set,GENARRAY,"%TAG_NAME:@tg_tp(i)@B_tags,-1"; \
+	ActionIf = *,Set,TAGICON,"be_tagsi"; \
+	ActionIf = *,Set,FRAME_NUM,1004; \
+// output tab
+	ActionElseIf = '"%CURRENT_TAB" == "Outputs"',Set,GENARRAY,"%TAG_NAME:@tg_tp(o)@B_tags,-1"; \
+	ActionIf = *,Set,TAGICON,"be_tagso"; \
+	ActionIf = *,Set,FRAME_NUM,1005; \
+// parameters tab
+	ActionElseIf = '"%CURRENT_TAB" == "Parameters"',Set,GENARRAY,"%TAG_NAME:@tg_tp(pm)@B_tags,-1"; \
+	ActionIf = *,Set,TAGICON,"be_tagsp"; \
+	ActionIf = *,Set,FRAME_NUM,1006; \
+// variables tab
+	ActionElseIf = '"%CURRENT_TAB" == "Variables"',Set,GENARRAY,"%TAG_NAME:@tg_tp(sd)@B_tags,-1"; \
+	ActionIf = *,Set,TAGICON,"be_tagss"; \
+	ActionIf = *,Set,FRAME_NUM,1007; \
+// set all variables for listview tabs
+	Action = Set,GENPREFIX,"%TAG_NAME:"; \
+	Action = Set,ARRAY_GENARRAY,%GENARRAY; \
+	Action = Set,ARRAY_GENPREFIX,%GENPREFIX; \
+	Action = KickStart,%FRAME_NUM;

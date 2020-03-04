@@ -1,0 +1,31 @@
+HV2401;HV2401;01**HV;ValveFailure;p1;Powder Intake
+HZV2437;HZV2437;01**HZ;ValveFailure;p1;Settler Overhead Vent
+HV2405;HV2405;01**HV;ValveFailure;p1;Settler-Blowcase Powder Passage
+HV2406;HV2406;01**HV;ValveFailure;p1;Settler-Blowcase Powder Passage
+HV2404;HV2404;01**HV;ValveFailure;p1;Settler Blowcase Equalization
+HV2403;HV2403;01**HV;ValveFailure;p1;Settler Blowcase Equalization
+HZV2443;HZV2443;01**HZ;ValveFailure;p1;Overhead gas to flare
+HV2411;HV2411;01**HV;ValveFailure;p1;Blowcase Discharge Line
+HV2409;HV2409;01**HV;ValveFailure;p1;Blowcase Pressurization
+HV2412;HV2412;01**HV;ValveFailure;p1;ESD valve
+HV2410;HV2410;01**HV;ValveFailure;p1;Blowcase Purge
+HV2430;HV2430;01**HV;ValveFailure;p1;Settler In-Line Filter Blow-back
+HV2402;HV2402;01**HV;ValveFailure;p1;Powder Intake Sweep
+HZV2452;HZV2452;01**HZ;ValveFailure;p1;Fresh Propylene to Vaporizer
+HV2413;HV2413;01**HV;ValveFailure;p1;Blowcase Discharge Line
+HV2438;HV2438;01**HV;ValveFailure;p1;Powder Intake
+HZV2439;HZV2439;01**HZ;ValveFailure;p1;Settler Overhead Vent
+HV2419;HV2419;01**HV;ValveFailure;p1;Settler-Blowcase Powder Passage
+HV2420;HV2420;01**HV;ValveFailure;p1;Settler-Blowcase Powder Passage
+HV2418;HV2418;01**HV;ValveFailure;p1;Settler-Blowcase Equalization
+HV2417;HV2417;01**HV;ValveFailure;p1;Settler-Blowcase Equalization
+HZV2442;HZV2442;01**HZ;ValveFailure;p1;ESD valve
+HV2425;HV2425;01**HV;ValveFailure;p1;Blowcase Discharge Line
+HV2423;HV2423;01**HV;ValveFailure;p1;Blowcase Pressurization
+HV2426;HV2426;01**HV;ValveFailure;p1;Blowcase Discharge Purge
+HV2424;HV2424;01**HV;ValveFailure;p1;Blowcase Purge
+HV2432;HV2432;01**HV;ValveFailure;p1;Settler In-Line Filter Blow-back
+HV2416;HV2416;01**HV;ValveFailure;p1;Powder Intake Sweep
+HV2427;HV2427;01**HV;ValveFailure;p1;Blowcase Discharge Line
+HV2453;HV2453;01**HV;ValveFailure;p1;Steam to Vaporizer
+M-241;M-241;01**M-;MachineFailure;p1;Settler Vent Compressor Motor

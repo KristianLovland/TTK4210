@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="9">
+ <header xy="1119,925" xmin="1116" ymin="924.999" xmax="1177" ymax="969">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_welldisplay_sensors"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\PazflorOFMS\Resources\PazflorOFMS\Symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <text id="1373" xy="1117,961" height="8" font="Arial">
+  <tstring>Active:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <text id="1374" xy="1117,950" height="8" font="Arial">
+  <tstring>From DCS:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <text id="1375" xy="1116,940" height="8" font="Arial">
+  <tstring>Suspect:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <tnode id="1376" estat="ext" xy="1177,942" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="Diag_%TAG_NAME:TotalNumberOfSuspect">
+  </animation>
+ </tnode>
+ <tnode id="1379" estat="ext" xy="1177,953" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="Diag_%TAG_NAME:TotalNumberOfDCSValues">
+  </animation>
+ </tnode>
+ <tnode id="1380" estat="ext" xy="1177,965" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="Diag_%TAG_NAME:TotalNumberOfActive">
+  </animation>
+ </tnode>
+ <text id="1381" xy="1117,928" height="8" font="Arial">
+  <tstring>Inactive:</tstring>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </text>
+ <tnode id="1382" estat="ext" xy="1177,929" height="8" font="Arial" bold="true" background="white">
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="text" tag="Diag_%TAG_NAME:TotalNumberOfInactive">
+  </animation>
+ </tnode>
+ <cpoint id="1392" estat="ref" xy="1119,925">
+  <attribute name="Itemdesc" type="text" value="Child symbol for Operator_WellDisplay"/>
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="SymName" type="text" value="x_operator_welldisplay_sensors"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <animation type="graphic">
+  </animation>
+ </cpoint>
+</sym>

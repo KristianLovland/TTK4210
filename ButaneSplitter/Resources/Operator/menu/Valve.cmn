@@ -1,0 +1,19 @@
+#ifdef '"%_INSTRUCTOR" == "True"'
+Button	Label = "Malfunctions..."; Level = 1; \
+		Action = Panel,"Valve_ins.pnl";
+#else
+Button	Label = "Instructor..."; Level = 1; \
+		Action = Panel,"Valve_ins.pnl";
+Button	Label = "Characteristic..."; Level = 1; \
+		Action = Panel,"Valve_chk";
+Button	Label = "Picture..."; Level = 1; \
+			actionif='#(%TAG_NAME:ValveType) == 0',panel,GateValve.pnl;\
+		actionif='#(%TAG_NAME:ValveType) == 1',panel,SwingCheckValve.pnl;\
+		actionif='#(%TAG_NAME:ValveType) == 2',panel,LiftCheckValve.pnl;\
+		actionif='#(%TAG_NAME:ValveType) == 3',panel,GlobeValve.pnl;\
+		actionif='#(%TAG_NAME:ValveType) == 4',panel,AngleValve.pnl;\
+		actionif='#(%TAG_NAME:ValveType) == 5',panel,BallValve.pnl;\
+		actionif='#(%TAG_NAME:ValveType) ==6',panel,ButterflyValve.pnl;
+
+#endif
+

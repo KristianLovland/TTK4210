@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="4">
+ <header xy="468,150" xmin="459.999" ymin="138" xmax="476" ymax="166">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="DisplacementPump"/>
+  <attribute name="Itemdesc" type="text" value="Online DisplacementPump"/>
+  <attribute name="Module" type="text" value="DisplacementPump"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="DisplacementPump_Online"/>
+  <attribute name="SelectBox" type="real" value="-6,-6,6,14"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="Engineer"/>
+  <layer index="4" name="3D"/>
+ </header>
+ <drawing id="1" syscol1="white" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\DemoProject\Resources\Online\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="2,2" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="Engineer"/>
+ <layer id="38" name="3D"/>
+ <symbol id="2307" estat="ext" xy="460,150" name="x_DisplacementPump_3D.sym">
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="SymName" type="text" value="x_DisplacementPump_3D"/>
+  <attribute name="SymPlacement" type="null"/>
+ </symbol>
+ <string id="2308" style="1" estat="ref" xy="462,144,462,164,474,164,474,144,462,144">
+  <attribute name="SelectMask" type="null"/>
+ </string>
+ <tnode id="2305" depth="10" estat="ext" xy="468,138" height="2" hjust="centre" font="Verdana">
+  <attribute name="ItemName" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+ </tnode>
+ <cpoint id="2304" estat="ref" xy="468,150">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="ItemType" type="text" value="DisplacementPump"/>
+  <attribute name="Itemdesc" type="text" value="Online DisplacementPump"/>
+  <attribute name="Module" type="text" value="DisplacementPump"/>
+  <attribute name="Category" type="text" value="RealTime"/>
+  <attribute name="SymName" type="text" value="DisplacementPump_Online"/>
+ </cpoint>
+</sym>

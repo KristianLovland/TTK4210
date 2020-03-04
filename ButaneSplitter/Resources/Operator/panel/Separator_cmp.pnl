@@ -1,0 +1,78 @@
+#include $EXPLORER_RESOURCES/panel/Separator_auto_cmp.def
+#include $EXPLORER_RESOURCES/panel/DefaultVars.def
+
+#define COMBINEDTREND TRUE
+
+//#include $EXPLORER_RESOURCES/panel/Default_cmp.def
+
+Header	Position = Cursor; Title = "%TAG_NAME  Pressure and Level Trends"; \
+			Resizable=SaveSize,LargerOnly; 
+	Frame	Id = 1; Frame = -2; Layout = Vertical; Pad = 2;
+
+// optional stuff
+#ifdef '"%HIDEVARS" != "1"'
+//Frame		Id = 100; Frame = 1; Layout = Horizontal; Space = 5;
+#endif
+
+//*******
+// VAR1 *
+//*******
+set		variable=TREND_VAR,"VAR1";
+
+#define TREND_FRAME 500
+#define TREND_WIDTH 250
+Frame	Id = 500; Frame = 0; Layout = Splitter,Vertical;
+
+// define the data set
+Dataset	Name = "d1"; id = 3001; \
+		Tag = "%TAG_NAME:%TREND_VAR"; \
+		Colour = TREND_COL1; \
+		Label = "%TAG_NAME:%TREND_VAR";
+#ifdef '"TREND_FRAME" != "500"'
+#ifdef '"RESIZEABLE" == "TRUE"'
+#define TREND_FRAME RESIZE_FRAME
+#else
+#define TREND_FRAME 0
+#endif
+#define TREND_WIDTH -1
+#endif
+
+// define the display
+Display	Frame = TREND_FRAME; // put in the resizable frame
+		Size = TREND_WIDTH,250; // only specify the height
+		Type = Trend; id = 3000; \
+		Dataset = "d1"; \
+		YTitle = "#(%TAG_NAME:%TREND_VAR@V_units)"; \
+		Background = TREND_BG; \
+		Foreground = TREND_FG; \
+		Grid = TREND_GRID; \
+		YAxis = Fit;
+
+// end of custom trend
+
+//#include $EXPLORER_RESOURCES/panel/CustomPanelMapFrame.def
+//#include $EXPLORER_RESOURCES/panel/CustomPanelTrend.def
+
+// Combined trend
+//#ifdef '"%SHOWMAP" != "1" && "%SHOWCT" == "1"'
+
+Dataset	Name = "d1"; Id = 3102; Tag = "%TAG_NAME:LevelFeedSideWeir"; \
+		Colour = Red; Label = "Total level feed side";
+
+Dataset	Name = "d2"; Id = 3101; Tag = "%TAG_NAME:LevelHeavyPhaseFeedSideWeir"; \
+		Colour = Orange; Label = "Heavy phase level feed side";
+
+Dataset	Name = "d3"; Id = 3103; Tag = "%TAG_NAME:LevelOverflowLiquid"; \
+		Colour = Green3; Label = "Overflow level";
+
+Display	Frame = TREND_FRAME; \
+		Size = TREND_WIDTH,250; \
+		Type = Trend; Id = 3001; \
+		Dataset = "d1","d2","d3"; \
+		XTitle = "Time"; \
+		YTitle = "Level #%TAG_NAME:LevelOverflowLiquid@V_units"; \
+		Background = TREND_BG; \
+		Foreground = TREND_FG; \
+		Grid = TREND_GRID; \
+		AutoFit;
+//#endif

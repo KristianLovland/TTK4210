@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sym revision="7" entities="14">
+ <header xy="612,866" xmin="587" ymin="860.001" xmax="636" ymax="896">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="ItemType" type="text" value="HeatExchangerStream"/>
+  <attribute name="Itemdesc" type="text" value="Heat Exchanger Stream - Plate Side 1"/>
+  <attribute name="Module" type="text" value="HeatExchangerStream"/>
+  <attribute name="Category" type="text" value="Basic Process"/>
+  <attribute name="SymName" type="text" value="HeatExchangerStream_Plate1"/>
+  <attribute name="SelectBox" type="real" value="-24,-1,0,29"/>
+  <layer index="0" name="Base"/>
+  <layer index="1" name="Hidden"/>
+  <layer index="2" name="Instructor"/>
+  <layer index="3" name="3D"/>
+  <layer index="4" name="Engineer"/>
+  <layer index="5" name="ProcessValues"/>
+ </header>
+ <drawing id="1" syscol1="ivory" syscol2="black" syscol3="orange" status="11" sympath="C:\K-Spice-Projects\DemoProject\Resources\Common\symbols"/>
+ <viewport id="2" vwidth="2000" vheight="1500" gpitch="1,1" goffset="0,0" height="5"/>
+ <layer id="34" name="Base"/>
+ <layer id="35" name="Hidden"/>
+ <layer id="36" name="Instructor"/>
+ <layer id="37" name="3D"/>
+ <layer id="38" name="Engineer"/>
+ <layer id="39" name="ProcessValues"/>
+ <symbol id="13469" layer="Instructor" estat="ext" xy="587,864,613,896" name="MalfunctionOutline" xscl="26" yscl="32" fitted="true" fixedlay="true">
+  <attribute name="SymName" type="text" value="MalfunctionOutline"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="13474,13468"/>
+  <animation type="graphic" default="invisible">
+   <state type="expression" expression="{%TAG_NAME:@B_malfunction} == 1" priority="0"/>
+  </animation>
+ </symbol>
+ <symbol id="13485" estat="ext" xy="588,884" name="x_HeatExchangerStream_Nozzle.sym">
+  <attribute name="SymName" type="text" value="x_HeatExchangerStream_Nozzle"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="13704,13474"/>
+ </symbol>
+ <symbol id="13706" estat="ext" xy="636,872" name="x_HeatExchangerStream_Nozzle.sym" angle="180" mirror="true">
+  <attribute name="SymName" type="text" value="x_HeatExchangerStream_Nozzle"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="13707,13704"/>
+ </symbol>
+ <symbol id="13707" estat="ext" xy="592,890" name="x_HeatExchangerStream_Bar.sym">
+  <attribute name="SymName" type="text" value="x_HeatExchangerStream_Bar"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="13818,13706"/>
+ </symbol>
+ <symbol id="13818" estat="ext" xy="592,868" name="x_HeatExchangerStream_Bar.sym">
+  <attribute name="SymName" type="text" value="x_HeatExchangerStream_Bar"/>
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="15991,13707"/>
+ </symbol>
+ <symbol id="13460" estat="ext" xy="592,865" name="x_HeatExchangerStream_Plate.sym">
+  <attribute name="SymName" type="text" value="x_HeatExchangerStream_Plate"/>
+  <attribute name="SymPlacement" type="null"/>
+  <relation type="mutual" subid="100" id="13468,13461"/>
+ </symbol>
+ <string id="13474" style="1" estat="ref" xy="612,865,588,865,588,895,612,895,612,865">
+  <attribute name="SelectMask" type="null"/>
+  <relation type="mutual" subid="100" id="13485,13469"/>
+ </string>
+ <string id="13704" colour="blue" depth="10" xy="612,894,594,894,594,895,592,895,592,865,594,865,594,866,612,866">
+  <relation type="mutual" subid="100" id="13706,13485"/>
+ </string>
+ <terminal id="15991" estat="ext" xy="588,886" nc="2">
+  <relation type="child" subid="11" id="16595"/>
+  <relation type="mutual" subid="100" id="16596,13818"/>
+ </terminal>
+ <netline id="16595" depth="5" estat="rel" xy="588,886,592,886,632,874,636,874">
+  <relation type="parent" subid="11" id="15991"/>
+  <relation type="parent" subid="12" id="16596"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="Internal" type="null"/>
+  <attribute name="Inherit" type="null"/>
+  <relation type="mutual" subid="100" id="13470,16596"/>
+ </netline>
+ <tnode id="13470" layer="Hidden" depth="40" estat="ext" xy="611,860" height="4" hjust="right" nts="true" ntr="true" ntm="true">
+  <attribute name="AnimGraphic" type="null"/>
+  <attribute name="ItemName" type="null"/>
+  <relation type="mutual" subid="100" id="13461,16595"/>
+ </tnode>
+ <cpoint id="13461" estat="ref" xy="612,866">
+  <attribute name="SymPlacement" type="null"/>
+  <attribute name="NoStateAnim" type="null"/>
+  <attribute name="ItemType" type="text" value="HeatExchangerStream"/>
+  <attribute name="Itemdesc" type="text" value="Heat Exchanger Stream - Plate Side 1"/>
+  <attribute name="Module" type="text" value="HeatExchangerStream"/>
+  <attribute name="Category" type="text" value="Basic Process"/>
+  <attribute name="SymName" type="text" value="HeatExchangerStream_Plate1"/>
+  <parameter name="AUTOCONNECT_HEATEXCHANGERSTEAM" value="Output;WallTemperatureProfile;TemperatureProfileExternal[0]"/>
+  <parameter name="ACCEPT_AUTOCONNECT" value="HeatExchangerStream"/>
+  <parameter name="AUTOCONNECT_HEATEXCHANGERSTREAM" value="Input;WallTemperatureProfile;TemperatureProfileExternal[0];Output;FluidTemperatureProfile;AmbientTemperatureProfile;Output;HeatConductanceProfileExternal[0];HeatConductanceProfileAmbient;Output;TemperatureIntegrationFactor;AmbientTemperatureIntegrationFactor;Output;GridProfile;GridInputProfile;Output;WallTemperatureProfile;AmbientWallTemperature;Output;HeatConductanceWallToExternal[0];HeatConductanceWallToAmbientWall;"/>
+  <parameter name="$PAR_@B_DIMS[3]" value="[i]1"/>
+  <parameter name="$PAR_TOTALHEATCONDUCTANCEWALLTOEXTERNAL[0]" value="1e8"/>
+  <parameter name="$PAR_TOTALHEATCONDUCTANCEWALLTOEXTERNAL@V_REF" value="Default to link the extrernal walls"/>
+  <relation type="mutual" subid="100" id="13460,13470"/>
+ </cpoint>
+ <tnode id="13468" colour="Background" layer="Engineer" depth="100" estat="ext" xy="610,895" height="1" hjust="centre" font="Arial" background="0xaaaaaa" ntr="true" ntm="true">
+  <attribute name="LayerLocked" type="null"/>
+  <attribute name="AnimGraphic" type="null"/>
+  <relation type="mutual" subid="100" id="13469,13460"/>
+  <animation type="text" tag="%TAG_NAME@B_no">
+  </animation>
+ </tnode>
+ <terminal id="16596" estat="ext" xy="636,874" nc="2">
+  <relation type="child" subid="12" id="16595"/>
+  <relation type="mutual" subid="100" id="16595,15991"/>
+ </terminal>
+</sym>

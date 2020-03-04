@@ -1,0 +1,127 @@
+#include $EXPLORER_RESOURCES/panel/DefaultVars.def
+
+Header	Title = "%TAG_NAME"; Name = "AlarmAnalog_Alarms"; HELP1; \
+		OneOff = "%TAG_NAME (%PANEL_TIMELINE)"; Position = Cursor;
+
+
+//*************
+// Block menu *
+//*************
+Frame	Id = 1; Layout = Vertical; Pad = 2; Space = 5;
+
+Frame	Id = 1000; Frame = 1; Layout = Horizontal;
+
+//Button	Frame = 1000; Image = "blkmenu.ico"; FeedBack = //"Block menu"; Style = Button_STYLE; \
+//		Action = Menu,"BlockExplorerBlock";
+		
+//Stub		Frame = 1000; Size = 2,0;
+
+//Variable	VAR_EDIT; Frame = 1000; Tag = "%TAG_NAME@B_desc"; //Width = 400;
+
+
+//******************************************************************************************
+// Process Value 
+Frame	Id = 9; Frame = 1; Layout=Vertical; Space = 3; \
+		Label = "Process Value ";
+
+Frame	Frame = 9; Id=102; Layout = Horizontal; Space = 5; 
+Variable	Frame = 102; VAR_NOEDIT; Caption = "Process input signal"; Tag = "%TAG_NAME:Value"; \
+		Suffix = "#%TAG_NAME:Value@V_units"; SameWidth = 101;
+
+
+//******************************************************************************************
+// Alarm Limits
+Frame	Id = 10; Frame = 1; Layout=Vertical; Space = 3; Pad=1; \
+		Label = "Alarm Limits";
+		
+Frame	Frame = 10; Id=101; Layout = Horizontal; Space = 3; Dependency = '#(%TAG_NAME:AlarmHighHighUsed) == true'; 
+Label	Frame=101; Label="Alarm High High limit"; SameWidth = 10;
+Stub		Frame=101; SameWidth = 15;
+Variable  Frame = 101; VAR_NOEDIT; Tag = "%TAG_NAME:AlarmHighHighLimit"; \
+		Suffix = "#%TAG_NAME:AlarmHighHighLimit@V_units"; SameWidth = 101;
+		
+Frame	Frame = 10; Id=103; Layout = Horizontal; Space = 3; Dependency = '#(%TAG_NAME:AlarmHighUsed) == true'; 
+Label	Frame=103; Label="Alarm High limit"; SameWidth = 10;
+Stub		Frame=103; SameWidth = 15; 		
+Variable	Frame = 103; VAR_NOEDIT; Tag = "%TAG_NAME:AlarmHighLimit"; \
+		Suffix = "#%TAG_NAME:AlarmHighLimit@V_units"; SameWidth = 101;
+		
+Frame	Frame = 10; Id=104; Layout = Horizontal; Space = 3; Dependency = '#(%TAG_NAME:AlarmLowUsed) == true'; 
+Label	Frame=104; Label="Alarm Low limit"; SameWidth = 10;
+Stub		Frame=104; SameWidth = 15;
+Variable	Frame = 104; VAR_NOEDIT; Tag = "%TAG_NAME:AlarmLowLimit"; \
+		Suffix = "#%TAG_NAME:AlarmLowLimit@V_units"; SameWidth = 101;
+
+Frame	Frame = 10; Id=105; Layout = Horizontal; Space = 3;	Dependency = '#(%TAG_NAME:AlarmLowLowUsed) == true'; 
+Label	Frame=105; Label="Alarm Low Low limit"; SameWidth = 10;
+Stub		Frame=105; SameWidth = 15;	
+Variable	Frame = 105; VAR_NOEDIT; Tag = "%TAG_NAME:AlarmLowLowLimit"; \
+		Suffix = "#%TAG_NAME:AlarmLowLowLimit@V_units"; SameWidth = 101;
+
+//******************************************************************************************
+//Alarm settings
+//
+//Deleted
+//******************************************************************************************
+//Alarm status
+
+Frame	Id=11; Frame=1; Layout=Vertical; Space=1; Pad=1; \
+		Label="Alarm status";
+
+Frame	Frame=11; Id=110;Layout=Horizontal; Space=3; Dependency = '#(%TAG_NAME:AlarmHighHighUsed) == true';
+Label	Frame=110; Label="Alarm High High status signal "; SameWidth = 10;
+Stub		Frame=110; SameWidth = 15;
+Variable	Frame=110; Sample = 1; Tag="%TAG_NAME:AlarmHighHigh"; Type=Bool; \
+		Values='OK',0,'HH',1; Background=ForestGreen,Red; \
+		ShowState=EnumValues; SameWidth = 14;
+Variable	Frame=110; Editable; Sample = 1; Tag="%TAG_NAME:SuppressAlarmHighHigh"; Type=Bool; \
+		Values='Not Suppressed',0,'Suppressed',1; Background=White,Orange; \
+		ShowState=EnumValues; SameWidth = 11;
+
+		
+Frame	Frame=11; Id=111;Layout=Horizontal; Space=3; Dependency = '#(%TAG_NAME:AlarmHighUsed) == true';
+Label	Frame=111; Label="Alarm High status signal "; SameWidth = 10;
+Stub		Frame=111; SameWidth = 15;
+Variable	Frame=111; Sample = 1; Tag="%TAG_NAME:AlarmHigh"; Type=Bool; \
+		Values='OK',0,'H',1; Background=ForestGreen,Red; \
+		ShowState=EnumValues; SameWidth = 14;
+Variable	Frame=111; Editable; Sample = 1; Tag="%TAG_NAME:SuppressAlarmHigh"; Type=Bool; \
+		Values='Not Suppressed',0,'Suppressed',1; Background=White,Orange; \
+		ShowState=EnumValues; SameWidth = 11;
+
+
+Frame	Frame=11; Id=112;Layout=Horizontal; Space=3; Dependency = '#(%TAG_NAME:AlarmLowUsed) == true';
+Label	Frame=112; Label="Alarm Low status signal "; SameWidth = 10;
+Stub		Frame=112; SameWidth = 15;
+Variable	Frame=112; Sample = 1; Tag="%TAG_NAME:AlarmLow"; Type=Bool; \
+		Values='OK',0,'L',1; Background=ForestGreen,Red; \
+		ShowState=EnumValues; SameWidth = 14;
+Variable	Frame=112; Editable; Sample = 1; Tag="%TAG_NAME:SuppressAlarmLow"; Type=Bool; \
+		Values='Not Suppressed',0,'Suppressed',1; Background=White,Orange; \
+		ShowState=EnumValues; SameWidth = 11;		
+
+
+Frame	Frame=11; Id=113;Layout=Horizontal; Space=3; Dependency = '#(%TAG_NAME:AlarmLowLowUsed) == true';
+Label	Frame=113; Label="Alarm Low Low status signal "; SameWidth = 10;
+Stub		Frame=113; SameWidth = 15;
+Variable	Frame=113; Sample = 1; Tag="%TAG_NAME:AlarmLowLow"; Type=Bool; \
+		Values='OK',0,'LL',1; Background=ForestGreen,Red; \
+		ShowState=EnumValues; SameWidth = 14;
+Variable	Frame=113; Editable; Sample = 1; Tag="%TAG_NAME:SuppressAlarmLowLow"; Type=Bool; \
+		Values='Not Suppressed',0,'Suppressed',1; Background=White,Orange; \
+		ShowState=EnumValues; SameWidth = 11;	
+		
+		
+		
+//******************************************************************************************
+// Alarm actions and suppression
+//
+//Deleted
+//***************************************************************************************
+//Negative logic
+
+//Deleted
+
+
+
+
