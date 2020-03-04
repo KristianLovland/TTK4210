@@ -4,7 +4,14 @@ clc
 
 %% Get data from the log file
 % Make sure to use the correct path for the log file
-fileID=fopen('../../ButaneSplitter/Logging.lst.txt','r'); % This loads the data log file
+
+filename = '../../ButaneSplitter/Logging.lst.txt';
+
+% filename = 'Experiments/DB_identification_experiment.txt';
+% filename = 'Experiments/MD_initial_tuning_experiment.txt';
+% filename = 'Experiments/MB_initial_tuning_experiment.txt';
+
+fileID=fopen(filename,'r'); % This loads the data log file
 for m = 1:35
     String_Row=fgetl(fileID); % Ignore first 35 rows in the txt file	
 end

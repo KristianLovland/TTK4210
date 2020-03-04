@@ -15,15 +15,48 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
 
+\newpage
+\section{Abstract}
+In this project, a model of a distillation column is used to design a controller for the composition of two product streams consisting of n-butane and iso-butane, respectively. \todo[inline]{Legg til resultater}
+
+\newpage
 \section{Introduction}
-\todo[inline]{Skriv introduksjon med presentasjon av problemstillingen}
+The stream of control engineers is flowing slower than before, but still steadily into lucrative jobs in the process industry. As a part of this, all children learn about hydrocarbon chains in middle school, and every cybernetics student at NTNU learns how to control plants that are common in the petroleum industry. This report is simply me doing my part.
+
+A good introduction to the control problem we're faced with is given in the assignment text \todo{Legg til kilde}. A short summary of this follows here.
+
+Our final goal is to have a control system giving two product flows out of the distillation column having the desired compositions $x_D^*$ and $x_B^*$. In practice, we control our compositions $x_D$ and $x_B$ indirectly through the temperatures in the locations of the product streams, denoted $T_D$ and $T_B$.
+
+To achieve this, some more control is needed. The levels $M_D$ and in the top accumulator and $M_B$ in the destillation column needs to be controlled to stable setpoints. The same goes for distillation column pressure $p$.
+
+To control these five variables, five degrees of freedom is needed. These are all flow rates, denoted $V_T$, $L$, $D$, $V$, $B$. Each of these is controlled more or less directly by a valve.
+
+Independent control of all of the variables are used. Table \ref{tab:pairings} shows the pairing of manipulated and controlled variables. It is assumed that choosing godd setpoints for $T_D$ and $T_B$ gives satisfactory product quality. The control structure used here is called LV-control, after the manipulated variables used to (indirectly) control product quality.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c}
+Manipulated variable & Controlled variable \\ \hline
+$V_T$ & $p$ \\
+$D$ & $M_D$ \\
+$B$ & $M_B$ \\
+$L$ & $T_D$ \\
+$V$ & $T_B$
+\end{tabular}
+\caption{Variable pairings}
+\label{tab_pairings}
+\end{table}
+
+\subsection{A few words on scaling}
+The scaling and units used in this report might seem a bit arbitrary. Despite how it might seem, I have tried to be consistent. For my own sake, all plots of variables are in engineering units, the same goes for all controller gains $K_p$. These have been converted to internally scaled gain when implementing the controllers in K-spice. Units (or the lack of them) for plots used in frequency analysis and loop-shaping are hopefully unambiguous.
 
 \newpage
 \section{Tuning secondary controllers}
-The secondary controllers were tuned individually using the SIMC method for PI controllers. A step in process input with an amplitude small enough not to cause problems in other parts of the system was used for all the secondary controllers, controlling the states $D$, $L$, $B$, $V$ and $p$.
+The secondary controllers were tuned individually using the SIMC method for PI controllers. A step in process input with an amplitude small enough to not cause problems (usually meaning 50\% of maximum accepted input magnitude) in other parts of the system was used for all the secondary controllers, controlling the states $D$, $L$, $B$, $V$ and $p$.
 
-In short, the method can be summarized as follows \todo{Legg til kilde, regtekboka}
+In short, the SIMC tuning method can be summarized as follows (using notation from \cite{regtek}) \todo{Legg til kilde, regtekboka}
 
 \begin{enumerate}
 \item Fit the step response to a first order model. This means finding time delay $\tau$, slope $k' = \frac{dy/dt}{\Delta u}$ and time constant $T_1$ from the plot of the step response.
@@ -66,9 +99,15 @@ In short, the method can be summarized as follows \todo{Legg til kilde, regtekbo
 \label{fig:ol_step_PC1024}
 \end{figure}
 
-The data from these experiments can be seen in figures \ref{fig:ol_step_FC1005}, \ref{fig:ol_step_FC1015}, \ref{fig:ol_step_FC1019}, \ref{fig:ol_step_LC1028} and \ref{fig:ol_step_PC1024}. The accuracy of the simulations are clearly not sufficient for fitting a first order model (they behave in a stepwise fashion), but inspecting the order of magnitude of the gains and time constants is a good start. An attempt at making sense of these parameters is shown in table \ref{tab:inner_loop_step_responses}. In addition to this, a desired time constant $T_L$ is shown in the rightmost column. For a quick response, choosing $T_L = 0,3\tau$ is suggested in \cite{balchen}. Some simple trial and error showed that this lead to unfortunate between control loops, especially the controllers for $D$ and $L$. Due to this, $T_L = 2\tau$ was chosen for the three fastest control loops. Since the time delay was hard to make a meaningful reading of for the other systems, a somewhat arbitrary choice of $T_L = 10s$ was chosen for these systems. Like all the other parameters, these are not absolute choices, but a good starting point.
+The data from these experiments can be seen in figures \ref{fig:ol_step_FC1005}, \ref{fig:ol_step_FC1015}, \ref{fig:ol_step_FC1019}, \ref{fig:ol_step_LC1028} and \ref{fig:ol_step_PC1024}. The reference signals should have been omitted from these plots since we are dealing with open loop systems, and can safely be ignored here.
 
-After calculating the SIMC controller values, some qualitative tuning was needed. Here, the integral times (which could be read decently precisely) were fixed. The resulting one degree of freedom made tuning easier, and the results of this tuning is shown in table \ref{tab:inner_loop_PI_parameters}, together with the values from the SIMC method (which were the basis for the second round of tuning). A column showing the scaled gain $G = K_p \frac{(y_{\max} - y_{\min})}{(u_{\max} - u_{\min})}$, which is the value implemented in K-spice, is also shown. The final controller gains are also given in this variable, since the parameters were changed directly in the K-spice panel. Note that $T_i$ in the $p$ control loop was changed from 40s to 20s in the final tuning.
+The plots show that for the first three variables, the accuracies of the simulations are clearly not sufficient for fitting a first order model (they behave in a stepwise fashion). Inspecting the order of magnitude of the gains and time constants is, however, still useful. An attempt at making sense of these parameters is shown in table \ref{tab:inner_loop_step_responses}, together with the fitted values for $V$ and $p$.
+
+Simple linear interpolation from initial to steady-state value was used for the three quick states, which gives conservative estimates of $k'$ and $T_1$. In the table, a desired time constant for the controlled system $T_L$ is shown in the rightmost column. For a quick response, choosing $T_L = 0,3\tau$ is suggested in \cite{balchen}. Some simple trial and error in K-spice showed that this lead to oscillation and unfortunate interaction between control loops, especially the controllers for $D$ and $L$. This is probably partly due to the underestimates of $k'$ and $T_1$ for these variables, since conservative estimates of these results in more aggressive controllers (to compensate for the slow system) when using the SIMC method.
+
+Due to this unsatisfactory behaviour, $T_L = 2\tau$ was chosen for the three fastest control loops instead. The time delay was hard to make a meaningful reading of for the two other systems, so a somewhat arbitrary choice of $T_L = 10s$ was chosen for these systems (instead of using the $T_L = 2\tau$ rule). Like all the other parameters, these were not absolute choices, but a good starting point for further tuning.
+
+After calculating the SIMC controller values, some qualitative tuning using K-spice simulations was, not surprisingly, needed. Here, the integral times (which could be read decently well from the open-loop step response plots) were kept fixed. The resulting one degree of freedom made tuning easier, and the results of this tuning is shown in table \ref{tab:inner_loop_PI_parameters}, together with the values from the SIMC method (which served as the starting point for this tuning). A column showing the scaled gain $G = K_p \frac{(y_{\max} - y_{\min})}{(u_{\max} - u_{\min})}$, which is the value implemented in K-spice, is also shown. The final controller gains are also given in this variable, since the parameters were changed directly in the K-spice panel. Note that $T_i$ in the $p$ control loop was changed from 40s to 20s in the final tuning.
 
 
 \begin{table}
@@ -101,6 +140,8 @@ $p$ & 0,57 & 20s & 68 & 30
 \end{table}
 
 \todo{Legg til noe om at resten av systemet bare var i tilfeldige tilstander med tilfeldige regulatorer.}
+
+\todo{Regn ut riktige verdier (det er feil i reg.parameterverditabellen), og avfei disse}
 
 \newpage
 \section{Level controllers}
