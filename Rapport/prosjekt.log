@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  3 MAR 2020 18:07
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  5 MAR 2020 09:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -617,7 +617,7 @@ Graphic file (type eps)
 
 LaTeX Warning: Citation `balchen' on page 8 undefined on input line 106.
 
-
+[8]
 Overfull \hbox (3.20723pt too wide) in paragraph at lines 142--142
 \TU/lmr/m/n/12 stander 
  []
@@ -626,6 +626,9 @@ Overfull \hbox (3.20723pt too wide) in paragraph at lines 142--142
 Overfull \hbox (3.20723pt too wide) in paragraph at lines 142--142
 \TU/lmr/m/n/12 stander 
  []
+
+
+LaTeX Warning: Marginpar on page 9 moved.
 
 
 Overfull \hbox (0.53122pt too wide) in paragraph at lines 144--144
@@ -648,20 +651,28 @@ Overfull \hbox (110.54723pt too wide) in paragraph at lines 144--144
  []
 
 
-LaTeX Warning: Marginpar on page 8 moved.
+LaTeX Warning: Marginpar on page 9 moved.
 
-[8] [9] [10] (./prosjekt.aux)
+[9]
+
+LaTeX Warning: Reference `tab:DB_parameters' on page 10 undefined on input line
+ 152.
+
+[10] [11] (./prosjekt.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 15397 strings out of 492922
- 303575 string characters out of 6133408
- 370089 words of memory out of 5000000
- 19153 multiletter control sequences out of 15000+600000
+ 15398 strings out of 492922
+ 303594 string characters out of 6133408
+ 365089 words of memory out of 5000000
+ 19154 multiletter control sequences out of 15000+600000
  8486 words of font info for 40 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 62i,13n,81p,898b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,13n,81p,1070b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on prosjekt.pdf (10 pages).
+Output written on prosjekt.pdf (11 pages).

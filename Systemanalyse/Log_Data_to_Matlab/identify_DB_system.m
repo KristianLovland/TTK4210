@@ -52,26 +52,28 @@ S2 = inv(1 + l2);
 T1 = 1 - S1;
 T2 = 1 - S2;
 
-figure;
-bodemag(S1);
-hold on;
-bodemag(T1);
-legend('S1', 'T1');
-title('Magnitude');
+% figure;
+% bodemag(S1);
+% hold on;
+% bodemag(T1);
+% legend('S1', 'T1');
+% title('Magnitude');
 
 %% Plot relevant variables
-% figure;
-% subplot(2, 2, 1);
-% bode(RGA(1, 1));
-% subplot(2, 2, 2);
-% bode(RGA(1, 2));
-% subplot(2, 2, 3);
-% bode(RGA(2, 1));
-% subplot(2, 2, 4);
-% bode(RGA(2, 2));
+figure;
+subplot(2, 2, 1);
+bodemag(RGA(1, 1));
+subplot(2, 2, 2);
+bodemag(RGA(1, 2));
+subplot(2, 2, 3);
+bodemag(RGA(2, 1));
+subplot(2, 2, 4);
+bodemag(RGA(2, 2));
 
-% figure;
-% margin(G(1, 1));
-% 
-% figure;
-% margin(G(2, 2));
+figure;
+margin(G(1, 1));
+title('G_{11}');
+
+figure;
+margin(G(2, 2));
+title('G_{22}');

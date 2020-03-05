@@ -107,7 +107,7 @@ Simple linear interpolation from initial to steady-state value was used for the 
 
 Due to this unsatisfactory behaviour, $T_L = 2\tau$ was chosen for the three fastest control loops instead. The time delay was hard to make a meaningful reading of for the two other systems, so a somewhat arbitrary choice of $T_L = 10s$ was chosen for these systems (instead of using the $T_L = 2\tau$ rule). Like all the other parameters, these were not absolute choices, but a good starting point for further tuning.
 
-After calculating the SIMC controller values, some qualitative tuning using K-spice simulations was, not surprisingly, needed. Here, the integral times (which could be read decently well from the open-loop step response plots) were kept fixed. The resulting one degree of freedom made tuning easier, and the results of this tuning is shown in table \ref{tab:inner_loop_PI_parameters}, together with the values from the SIMC method (which served as the starting point for this tuning). A column showing the scaled gain $G = K_p \frac{(y_{\max} - y_{\min})}{(u_{\max} - u_{\min})}$, which is the value implemented in K-spice, is also shown. The final controller gains are also given in this variable, since the parameters were changed directly in the K-spice panel. Note that $T_i$ in the $p$ control loop was changed from 40s to 20s in the final tuning.
+After calculating the SIMC controller values, some qualitative tuning using K-spice simulations was, not surprisingly, needed. Here, the integral times (which could be read decently well from the open-loop step response plots) were kept fixed. The resulting one degree of freedom made tuning easier, and the results of this tuning is shown in table \ref{tab:inner_loop_PI_parameters}, together with the values from the SIMC method (which served as the starting point for this tuning). A column showing the scaled gain $G = K_p \frac{(y_{\max} - y_{\min})}{(u_{\max} - u_{\min})}$, which is the value implemented in K-spice, is also shown. The final controller gains are also given in this variable, since the parameters were changed directly in the K-spice panel. The two slowest control loops were showing slow responses, and the controller parameters were adjusted to be more aggressive. $T_i$ in the $p$ control loop was changed from 40s to 20s in the final tuning, and $T_i$ was chosen to be 10s in the $V$ control loop.
 
 
 \begin{table}
@@ -132,7 +132,7 @@ $p$ & $\approx$ 0 & 200s & 0,088 & 50\% & 0,18 & 10s
 $D$ & 0,0035 & 0,4s & 0,42 & 0,42\\
 $L$ & 0,0018 & 1,0s & 0,22 & 0,22\\
 $B$ & 0,0083 & 1,0s & 1,0 & 0,30 \\
-$V$ & 0,71 & 40s & 86 & 86 \\
+$V$ & 0,71 & 10s & 86 & 200 \\
 $p$ & 0,57 & 20s & 68 & 30
 \end{tabular}
 \caption{PI controller parameters for inner loop}
@@ -148,7 +148,18 @@ $p$ & 0,57 & 20s & 68 & 30
 \subsection{System identification}
 \todo[inline]{Dette}
 \subsection{Controller tuning}
-\todo[inline]{Dette}
+\todo[inline]{Frekvensanalyse som rettferdiggjør initielle regulatorparametre}
+The parameters are shown in table \ref{tab:DB_parameters}, together with the parameters gained from a second round of tuning using K-spice simulations.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c | c | c | c | c}
+ & $K_{p, \textrm{initial}}$ & $T_{i, \textrm{initial}}$ & $K_{p, \textrm{second}}$ & $T_{i, \textrm{second}}$\\ \hline
+ $D$ & 830 & 1000s & & \\
+ $B$ & 1000 & 1000s & &
+\end{tabular}
+\caption{Parameters for level controllers}
+\end{table}
 
 \newpage
 \section{Composition controllers}

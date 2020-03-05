@@ -5,9 +5,9 @@ clc
 %% Get data from the log file
 % Make sure to use the correct path for the log file
 
-filename = '../../ButaneSplitter/Logging.lst.txt';
+% filename = '../../ButaneSplitter/Logging.lst.txt';
 
-% filename = 'Experiments/DB_identification_experiment.txt';
+filename = 'Experiments/DB_identification_experiment.txt';
 % filename = 'Experiments/MD_initial_tuning_experiment.txt';
 % filename = 'Experiments/MB_initial_tuning_experiment.txt';
 

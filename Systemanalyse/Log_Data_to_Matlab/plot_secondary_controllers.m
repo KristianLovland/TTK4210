@@ -8,7 +8,7 @@ close all;
 D = false;
 L = false;
 B = false;
-V = false;
+V = true;
 p = false;
 tile_stuff = false;
 addZoom = false;
