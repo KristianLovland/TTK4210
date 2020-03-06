@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  5 MAR 2020 09:57
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  6 MAR 2020 12:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -532,7 +532,11 @@ File: tikzlibraryfadings.code.tex 2019/02/02 v3.1.1 (3.1.1)
 File: pgflibraryfadings.code.tex 2019/02/02 v3.1.1 (3.1.1)
 )))
 \c@@todonotes@numberoftodonotes=\count138
-) (./prosjekt.aux)
+) (./prosjekt.aux
+
+LaTeX Warning: Label `fig:MD_experiment' multiply defined.
+
+)
 \openout1 = `prosjekt.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -550,8 +554,7 @@ LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 \AtBeginShipoutBox=\box44
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/pdflscape.sty
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/lscape.sty
@@ -655,24 +658,54 @@ LaTeX Warning: Marginpar on page 9 moved.
 
 [9]
 
-LaTeX Warning: Reference `tab:DB_parameters' on page 10 undefined on input line
- 152.
+LaTeX Warning: Reference `fig:MB_experiment' on page 10 undefined on input line
+ 149.
 
-[10] [11] (./prosjekt.aux)
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_eksperiment
+.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_eksperiment.eps>
+
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_eksperiment
+.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_eksperiment.eps>
+
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/d-sr_info.eps 
+Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/d-sr_info.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/BD_RGA.eps Gra
+phic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/BD_RGA.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_bode.eps Gr
+aphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_bode.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_bode.eps Gr
+aphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_bode.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_PI_bode.eps
+ Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_PI_bode.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_PI_bode.eps
+ Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_PI_bode.eps>
+
+LaTeX Warning: Reference `tab:DB_parameters' on page 10 undefined on input line
+ 205.
+
+[10] [11] [12] [13] [14] [15] [16] (./prosjekt.aux)
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15398 strings out of 492922
- 303594 string characters out of 6133408
- 365089 words of memory out of 5000000
- 19154 multiletter control sequences out of 15000+600000
- 8486 words of font info for 40 fonts, out of 8000000 for 9000
+ 15430 strings out of 492922
+ 305101 string characters out of 6133408
+ 367101 words of memory out of 5000000
+ 19175 multiletter control sequences out of 15000+600000
+ 8494 words of font info for 41 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 62i,13n,81p,1070b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,13n,81p,1117b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on prosjekt.pdf (11 pages).
+Output written on prosjekt.pdf (16 pages).

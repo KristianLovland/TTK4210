@@ -145,18 +145,71 @@ $p$ & 0,57 & 20s & 68 & 30
 
 \newpage
 \section{Level controllers}
-\subsection{System identification}
-\todo[inline]{Dette}
+\subsection{System identification and analysis}
+The level controllers in the distillation column and reflux drum were expected to be more or less independent, but a MIMO experiment followed by identification using the \texttt{d-sr} toolbox was used anyway, due to the convenience of being able to reuse code in the composition control task. The system was excited by step changes in reference for $M_D$ and $M_B$, which were controlled with P controllers, both with $K_p = 1200$. The experiments are shown in figures \ref{fig:MD_experiment} and \ref{fig:MB_experiment}. The identified model was, not surprisingly, chosen to have order 2, decided from figure \ref{fig:d-sr_info}, showing the minimum singular value and condition number of $G(s)$ as a function of system dimension. Another non-surprise is shown in figure \ref{fig:BD_RGA}. Inspecting this plot shows that the magnitudes of the off-diagonal elements are small, while the diagonal elements have gain close to unity at the bandwith frequency (meaning the area around $\omega = 0,01$) and confirms that the model is at least not completely clueless of what is going on.
+
+The most important information is however shown in figures \ref{fig:L11} and \ref{fig:L22}. These show the Bode plots of the transfer functions in the diagonals of the identified model. The gain margin of loop transfer function $l_{11}(s) = \frac{M_D}{M_{D, ref}}(s)$ may by inspection of the plot be found to be 6,74dB as $\omega \rightarrow \infty$. Likewise, the gain margin of $l_{22}(s) = \frac{M_B}{M_{B, ref}}(s)$ is read to be 10,7dB as $\omega \rightarrow \infty$. Using the 6dB gain margin rule of thumb, $K_{p, D}$ should not be increased by any significant amount, while $K_{p, B}$ might be increased by a factor of $10^{(10,7-6)/20} \approx 1,7$, yielding the controller gain $K_{p, B} = 2000$.
+
+The phase plot of $l_{11}$ shows that the integral controller should be operative in the lower frequency spectrum. To avoid the phase crossing the $-180^\circ$ line, the inequality $\frac{1}{T_{i, D}} < 2 \cdot 10^{-4}$ should be respected. Choosing $T_i = 5000s$ satisfies this. The phase response of $l_{22}$ is pretty similar to the one of $L_{11}$, so initially choosing the same integral time for control of $M_B$ should be reasonable.
+
+The loop transfer functions $l_{11}(s) k_1(s)$ and $l_{22}(s) k_1(2)$ using $k_1(s) = K_{p, D}\frac{1 + T_{i, D} s}{T_{i, D} s}$ and $k_2(s) = K_{p, B}\frac{1 + T_{i, B} s}{T_{i, B} s}$, are shown in figures \ref{fig:L11_PI} and \ref{fig:L22_PI}. Both systems has (in theory) 6dB gain margin and a bit under $60^\circ$ phase margin.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_eksperiment.eps}
+\caption{System identification experiment for $M_D$ controller}
+\label{fig:MD_experiment}
+
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_eksperiment.eps}
+\caption{System identification experiment for $M_B$ controller}
+\label{fig:MD_experiment}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/d-sr_info.eps}
+\caption{Minimal singular value and condition number}
+\label{fig:d-sr_info}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/BD_RGA.eps}
+\caption{Magnitude of RGA of identified system}
+\label{fig:BD_RGA}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_bode.eps}
+\caption{Magnitude and phase response of reflux drum level from reflux drum level reference}
+\label{fig:L11}
+
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_bode.eps}
+\caption{Magnitude and phase response of distillation column level from distillation column level reference}
+\label{fig:L22}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_PI_bode.eps}
+\caption{Magnitude and phase response of reflux drum level from reflux drum level reference, using suggested PI controller}
+\label{fig:L11_PI}
+
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_PI_bode.eps}
+\caption{Magnitude and phase response of distillation column level from distillation column level reference, using suggested PI controller}
+\label{fig:L22_PI}
+\end{figure}
+
 \subsection{Controller tuning}
-\todo[inline]{Frekvensanalyse som rettferdiggjør initielle regulatorparametre}
 The parameters are shown in table \ref{tab:DB_parameters}, together with the parameters gained from a second round of tuning using K-spice simulations.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{c | c | c | c | c}
  & $K_{p, \textrm{initial}}$ & $T_{i, \textrm{initial}}$ & $K_{p, \textrm{second}}$ & $T_{i, \textrm{second}}$\\ \hline
- $D$ & 830 & 1000s & & \\
- $B$ & 1000 & 1000s & &
+ $D$ & 1200 & 5000s & 600 & 1000s \\
+ $B$ & 2000 & 5000s & 120 & 10000s
 \end{tabular}
 \caption{Parameters for level controllers}
 \end{table}

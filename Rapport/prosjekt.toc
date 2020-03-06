@@ -3,8 +3,8 @@
 \contentsline {subsection}{\numberline {2.1}A few words on scaling}{3}% 
 \contentsline {section}{\numberline {3}Tuning secondary controllers}{5}% 
 \contentsline {section}{\numberline {4}Level controllers}{10}% 
-\contentsline {subsection}{\numberline {4.1}System identification}{10}% 
-\contentsline {subsection}{\numberline {4.2}Controller tuning}{10}% 
-\contentsline {section}{\numberline {5}Composition controllers}{11}% 
-\contentsline {subsection}{\numberline {5.1}System identification}{11}% 
-\contentsline {subsection}{\numberline {5.2}Controller tuning}{11}% 
+\contentsline {subsection}{\numberline {4.1}System identification and analysis}{10}% 
+\contentsline {subsection}{\numberline {4.2}Controller tuning}{15}% 
+\contentsline {section}{\numberline {5}Composition controllers}{16}% 
+\contentsline {subsection}{\numberline {5.1}System identification}{16}% 
+\contentsline {subsection}{\numberline {5.2}Controller tuning}{16}% 

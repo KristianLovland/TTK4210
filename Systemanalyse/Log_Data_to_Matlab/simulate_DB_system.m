@@ -2,10 +2,10 @@
 % Assume identify_DB_system has been run
 
 %% Initialize parameters
-Kp1 = -2000;
-Ti1 = 100000;
-Kp2 = -1000;
-Ti1 = 100000;
+Kp1 = -1;
+Ti1 = 5000;
+Kp2 = -1.7;
+Ti1 = 5000;
 
 u1_min = 0;
 u1_max = 120;
@@ -40,7 +40,6 @@ u = experiment.get('u');
 u = u.data;
 
 %% Plot results
-
 figure;
 subplot(2, 1, 1);
 plot(y(:, 1));

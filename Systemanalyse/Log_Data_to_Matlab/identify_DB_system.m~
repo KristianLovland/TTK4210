@@ -37,7 +37,7 @@ RGA = L .* inv(L).';
 %% Controller synthesis
 Kp1 = 1;
 Ti1 = 5000;
-Kp2 = 1.7;
+Kp2 = 2000;
 Ti2 = 5000;
 
 k1 = tf([Kp1*Ti1 1], [Ti1 0]);
@@ -57,36 +57,26 @@ T2 = 1 - S2;
 % title('Magnitude');
 
 %% Plot relevant variables
-% figure;
-% subplot(2, 2, 1);
-% bodemag(RGA(1, 1));
-% xlim([1e-4 1e0]);
-% subplot(2, 2, 2);
-% bodemag(RGA(1, 2));
-% xlim([1e-4 1e0]);
-% subplot(2, 2, 3);
-% bodemag(RGA(2, 1));
-% xlim([1e-4 1e0]);
-% subplot(2, 2, 4);
-% bodemag(RGA(2, 2));
-% xlim([1e-4 1e0]);
+figure;
+subplot(2, 2, 1);
+bodemag(RGA(1, 1));
+xlim([1e-4 1e0]);
+subplot(2, 2, 2);
+bodemag(RGA(1, 2));
+xlim([1e-4 1e0]);
+subplot(2, 2, 3);
+bodemag(RGA(2, 1));
+xlim([1e-4 1e0]);
+subplot(2, 2, 4);
+bodemag(RGA(2, 2));
+xlim([1e-4 1e0]);
 
 figure;
-margin(l11);
+margin(L(1, 1));
 % title('\textrm{Transfer function from }$M\_{D, ref}$ to $M\_D$', 'Interpreter', 'Latex');
 grid on;
 
 figure;
-margin(l22);
+margin(L(2, 2));
 % title('\textrm{Transfer function from }$M\_{B, ref}$ to $M\_B$', 'Interpreter', 'Latex');
 grid on;
-% 
-% figure;
-% margin(k1*l11);
-% % title('\textrm{Transfer function from }$M\_{D, ref}$ to $M\_D$ \textrm{with PI control}', 'Interpreter', 'Latex');
-% grid on;
-% 
-% figure;
-% margin(k2*l22);
-% % title('\textrm{Transfer function from }$M\_{B, ref}$ to $M\_B$ \textrm{with PI control}', 'Interpreter', 'Latex');
-% grid on;
