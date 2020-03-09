@@ -291,18 +291,18 @@ Identification of the LV system was done in a similar manner as in the previous 
 \end{figure}
 
 \subsubsection{Analysis}
-Figure \ref{fig:LV_RGA} shows the RGA of the identified system $G(s) = \frac{y}{u}(s)$. The chosen pairing is clearly the most reasonable. The interactions doesn't seem to be too severe, but the RGA doesn't tell the whole story. It should seem reasonable that temperature in the bottom affects temperature in the top more than the other way around, and the right tool for this analysis is the \textit{Performance Relative Gain Array} (PRGA). To use this however, the system has to be rescaled.
+Figure \ref{fig:LV_RGA} shows the RGA of the identified system $G(s) = \frac{y}{u}(s)$. The chosen pairing is clearly the most reasonable. The interactions doesn't seem to be any problem, but the RGA doesn't tell the whole story. There is reason to believe that temperature in the bottom affects temperature in the top, and the right tool for this analysis is the \textit{Performance Relative Gain Array} (PRGA). To use this however, the system has to be rescaled.
 
 More precisely, given a system
 
 \begin{equation}
 e = y - r = G(s) u + G_d(s) d - r
 \end{equation}
-the signals should be scaled such that the maximum disturbance and maximum acceptable error both are of magnitude less than one. Table \ref{tab:LV_scaling} shows the range used in K-spice for the states, and maximum value for signals only used in analysis. To be clear, the following analysis holds for both control loops, with $y$ being temperature, $r$ reference temperature, and $u$ process input. The maximum error allowed is chosen based on the lowest margin proposed in the assignment text. The choice of one degree celsius is somewhat arbitrary, but seemed reasonable and at least not too optimistic given the information that one degree is considered a large step.
+the signals should be scaled such that the maximum expected disturbance and maximum acceptable error both are of magnitude less than one. Table \ref{tab:LV_scaling} shows the range used in K-spice for the states, and maximum value for signals only used in analysis. To be clear, the following analysis holds for both control loops, with $y$ being temperature, $r$ reference temperature, and $u$ process input. The maximum error allowed is chosen based on the lowest margin proposed in the assignment text. The choice of a maximum disturbance of one degree celsius is somewhat arbitrary, but seemed reasonable and at least not too optimistic given the information that one degree is considered a large step in temperature.
 
 The PRGA using this scaling is shown in figure \ref{fig:LV_PRGA}. It is now clear that one can't simply choose a bandwith of $0,01 \frac{\textrm{rad}}{\textrm{s}}$ and call it a day, since the interaction from $V$ to $T_D$ has its peak at this frequency.
 
-
+What should be done, then? Since we're dealing with a MIMO system, only using the diagonal parts of $G$ for designing controllers won't suffice. Our main objectives are to follow the reference, and to counteract disturbances. In \cite{skogestad}, some rules for designing independent controllers for MIMO systems are proposed. \todo{Analysér}
 
 \begin{table}
 \centering
