@@ -71,22 +71,38 @@ T2 = 1 - S2;
 % bodemag(RGA(2, 2));
 % xlim([1e-4 1e0]);
 
-figure;
-margin(l11);
-% title('\textrm{Transfer function from }$M\_{D, ref}$ to $M\_D$', 'Interpreter', 'Latex');
-grid on;
+% figure;
+% margin(l11);
+% title('\textbf{Transfer function from }$M\_{D, ref}$ \textbf{to} $M\_D$', 'Interpreter', 'Latex');
+% grid on;
+% set(findall(gcf,'type','line'),'linewidth', 2);
+% 
+% figure;
+% margin(l22);
+% title('\textbf{Transfer function from }$M\_{B, ref}$ \textbf{to} $M\_B$', 'Interpreter', 'Latex');
+% grid on;
+% set(findall(gcf,'type','line'),'linewidth', 2);
 
 figure;
-margin(l22);
-% title('\textrm{Transfer function from }$M\_{B, ref}$ to $M\_B$', 'Interpreter', 'Latex');
+bodemag(S1);
+title('\textbf{Sensitivity function for } $M\_D$', 'Interpreter', 'Latex');
 grid on;
+set(findall(gcf,'type','line'),'linewidth', 2);
+
+figure;
+bodemag(S2);
+title('\textbf{Sensitivity function for } $M\_B$', 'Interpreter', 'Latex');
+grid on;
+set(findall(gcf,'type','line'),'linewidth', 2);
+
+
 % 
 % figure;
 % margin(k1*l11);
-% % title('\textrm{Transfer function from }$M\_{D, ref}$ to $M\_D$ \textrm{with PI control}', 'Interpreter', 'Latex');
+% % title('\textbf{Transfer function from }$M\_{D, ref}$ to $M\_D$ \textrm{with PI control}', 'Interpreter', 'Latex');
 % grid on;
 % 
 % figure;
 % margin(k2*l22);
-% % title('\textrm{Transfer function from }$M\_{B, ref}$ to $M\_B$ \textrm{with PI control}', 'Interpreter', 'Latex');
+% % title('\textbf{Transfer function from }$M\_{B, ref}$ to $M\_B$ \textrm{with PI control}', 'Interpreter', 'Latex');
 % grid on;

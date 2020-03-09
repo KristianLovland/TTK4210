@@ -11,7 +11,7 @@ U = [FC1015(:, 1), LC1028(:, 1)];
 
 % Scaling is done to keep all signals in the range [0, 1]
 Y = (Y - 25*ones(size(Y))) * [1/25 0; 0 1/25];
-U = U * [1/120 0; 0 1/100];
+U = U * [1/120 0; 0 1/120];
 
 % Dimensional limit parameter
 G = 3;
@@ -80,9 +80,7 @@ RGA = G .* inv(G).';
 
 figure;
 bodemag(RGA);
-set(findall(gcf,'type','line'),'linewidth', 2);
-title('\textbf{RGA for LV system}', 'Interpreter', 'Latex');
-grid on;
+
 
 % figure;
 % margin(g11);

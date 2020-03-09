@@ -10,8 +10,8 @@ T_B = true;
 tile_stuff = false;
 savefigures = false;
 
-%% TEMP
-h = 20;
+%% Increase step size for prettier plot
+h = 10;
 TC1015 = TC1015(1:h:end, :);
 TC1088 = TC1088(1:h:end, :);
 Time = Time(1:h:end);
@@ -25,16 +25,18 @@ if T_D
     % Plot temperature in top of distillation column, T_D
     figure;
     subplot(2, 1, 1);
-    plot(Time, TC1015(:, 1), 'color', colors(3, :));
+    plot(Time, TC1015(:, 1), 'color', colors(3, :), 'LineWidth', 2);
     hold on;
-    plot(Time, TC1015(:, 2), 'color', colors(5, :));
+    plot(Time, TC1015(:, 2), 'color', colors(5, :), 'LineWidth', 2);
+    xlim([0 Time(end)]);
     xlabel('t', 'Interpreter', 'Latex');
     ylabel('T\_D', 'Interpreter', 'Latex');
     legend('T\_D','T\_{D, ref}', 'Interpreter', 'Latex');
     title('\textbf{Distillation column temperature at top}', 'Interpreter', 'Latex');
 
     subplot(2, 1, 2);
-    plot(Time, TC1015(:, 3), 'color', colors(8, :));
+    plot(Time, TC1015(:, 3), 'color', colors(8, :), 'LineWidth', 2);
+    xlim([0 Time(end)]);
     xlabel('t', 'Interpreter', 'Latex');
     ylabel('\textrm{Process input}', 'Interpreter', 'Latex');
     title('\textbf{Distillation column temperature at top, input}', 'Interpreter', 'Latex');
@@ -48,16 +50,18 @@ if T_B
     % Plot temperature in top of distillation column, T_D
     figure;
     subplot(2, 1, 1);
-    plot(Time, TC1088(:, 1), 'color', colors(3, :));
+    plot(Time, TC1088(:, 1), 'color', colors(3, :), 'LineWidth', 2);
     hold on;
-    plot(Time, TC1088(:, 2), 'color', colors(5, :));
+    plot(Time, TC1088(:, 2), 'color', colors(5, :), 'LineWidth', 2);
+    xlim([0 Time(end)]);
     xlabel('t', 'Interpreter', 'Latex');
     ylabel('T\_B', 'Interpreter', 'Latex');
     legend('T\_B','T\_{B, ref}', 'Interpreter', 'Latex');
     title('\textbf{Distillation column temperature at bottom}', 'Interpreter', 'Latex');
 
     subplot(2, 1, 2);
-    plot(Time, TC1088(:, 3), 'color', colors(8, :));
+    plot(Time, TC1088(:, 3), 'color', colors(8, :), 'LineWidth', 2);
+    xlim([0 Time(end)]);
     xlabel('t', 'Interpreter', 'Latex');
     ylabel('\textrm{Process input}', 'Interpreter', 'Latex');
     title('\textbf{Distillation column temperature at bottom, input}', 'Interpreter', 'Latex');
