@@ -8,8 +8,8 @@ close all;
 D = false;
 L = false;
 B = false;
-V = true;
-p = false;
+V = false;
+p = true;
 tile_stuff = false;
 addZoom = false;
 savefigures = false;
@@ -26,7 +26,7 @@ if D
     plot(Time, FC1005(:, 1), 'color', colors(3, :));
     hold on;
     plot(Time, FC1005(:, 2), 'color', colors(5, :));
-    xlim([28 32]);
+    xlim([25 40]);
     xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('D [t/h]', 'Interpreter', 'Latex');
     legend('D','D\_r', 'Interpreter', 'Latex');
@@ -34,8 +34,8 @@ if D
 
     subplot(2, 1, 2);
     plot(Time, FC1005(:, 3), 'color', colors(8, :));
-    xlim([28 32]);
-    ylim([0 100]);
+    xlim([25 40]);
+    %ylim([0 100]);
     xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('\textrm{Process input} [\%]', 'Interpreter', 'Latex');
     title('\textbf{Distillate flow, input}', 'Interpreter', 'Latex');
@@ -52,7 +52,7 @@ if L
     plot(Time, FC1015(:, 1), 'color', colors(3, :));
     hold on;
     plot(Time, FC1015(:, 2), 'color', colors(5, :));
-    xlim([31 35]);
+    xlim([25 80]);
     xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('L [t/h]', 'Interpreter', 'Latex');
     legend('L','L\_{ref}', 'Interpreter', 'Latex');
@@ -60,8 +60,8 @@ if L
 
     subplot(2, 1, 2);
     plot(Time, FC1015(:, 3), 'color', colors(8, :));
-    xlim([31 35]);
-    ylim([0 100]);
+    xlim([25 80]);
+    % ylim([0 100]);
     xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('\textrm{Process input}', 'Interpreter', 'Latex');
     title('\textbf{Reflux flow, input}', 'Interpreter', 'Latex');
@@ -78,7 +78,7 @@ if B
     plot(Time, FC1019(:, 1), 'color', colors(3, :));
     hold on;
     plot(Time, FC1019(:, 2), 'color', colors(5, :));
-    xlim([30 34]);
+    xlim([25 45]);
     xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('B [t/h]', 'Interpreter', 'Latex');
     legend('B','B\_{ref}', 'Interpreter', 'Latex');
@@ -86,8 +86,8 @@ if B
 
     subplot(2, 1, 2);
     plot(Time, FC1019(:, 3), 'color', colors(8, :));
-    xlim([30 34]);
-    ylim([0 100]);
+    xlim([25 45]);
+    %ylim([0 100]);
     xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('\textrm{Process input} [\%]', 'Interpreter', 'Latex');
     title('\textbf{Bottom product flow, input}', 'Interpreter', 'Latex');
@@ -103,17 +103,17 @@ if V
     subplot(2, 1, 1);
     plot(Time, LC1028(:, 1), 'color', colors(3, :));
     hold on;
-    %plot(Time, LC1028(:, 2), 'color', colors(5, :));
-    xlim([600 1500]);
+    plot(Time, LC1028(:, 2), 'color', colors(5, :));
+    xlim([110 170]);
     xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('V\_{ish} [\%]', 'Interpreter', 'Latex');
-    %legend('V\_{ish}','V\_{ish, ref}', 'Interpreter', 'Latex');
+    legend('V\_{ish}','V\_{ish, ref}', 'Interpreter', 'Latex');
     title('\textbf{Heat exchange area flow}', 'Interpreter', 'Latex');
 
     subplot(2, 1, 2);
     plot(Time, LC1028(:, 3), 'color', colors(8, :));
-    xlim([600 1500]);
-    ylim([0 100]);
+    xlim([110 170]);
+    %ylim([0 100]);
     xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('\textrm{Process input} [\%]', 'Interpreter', 'Latex');
     title('\textbf{Heat exchange area, input}', 'Interpreter', 'Latex');
@@ -130,7 +130,7 @@ if p
     plot(Time, PC1024(:, 1), 'color', colors(3, :));
     hold on;
     plot(Time, PC1024(:, 2), 'color', colors(5, :));
-    xlim([250 850]);
+    xlim([30 130]);
     xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('p [\textrm{barg}]', 'Interpreter', 'Latex');
     legend('p','p\_{ref}', 'Interpreter', 'Latex');
@@ -138,8 +138,8 @@ if p
 
     subplot(2, 1, 2);
     plot(Time, PC1024(:, 3), 'color', colors(8, :));
-    xlim([250 850]);
-    ylim([0 100]);
+    xlim([30 130]);
+    %ylim([0 100]);
     xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('\textrm{Process input} [\%]', 'Interpreter', 'Latex');
     title('\textbf{Pressure, input}', 'Interpreter', 'Latex');

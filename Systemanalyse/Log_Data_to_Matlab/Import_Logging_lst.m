@@ -13,6 +13,16 @@ clc
 filename = 'Experiments/DB_identification_with_controllers3.txt';
 % filename = 'Experiments/MD_initial_tuning_experiment.txt';
 % filename = 'Experiments/MB_initial_tuning_experiment.txt';
+% filename = 'Experiments/LV_identification_experiment.txt';
+% filename = 'Experiments/LV_experiment2_2.txt';
+% filename = 'Experiments/D_step.txt';
+% filename = 'Experiments/L_step.txt';
+% filename = 'Experiments/B_step.txt';
+% filename = 'Experiments/V_step.txt';
+% filename = 'Experiments/p_step.txt';
+% filename = 'Experiments/T_D_step.txt';
+% filename = 'Experiments/T_B_step.txt';
+% filename = 'Experiments/inflow_step.txt';
 
 fileID=fopen(filename,'r'); % This loads the data log file
 for m = 1:35

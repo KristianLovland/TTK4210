@@ -1,205 +1,3 @@
-     0000000:00:00  INFO: Loading definition for module HydroCyclone.
-     0000000:00:00  INFO: Loading definition for module Integrator.
-     0000000:00:00  INFO: Loading definition for module Ejector.
-     0000000:00:00  INFO: Loading definition for module Eductor.
-     0000000:00:00  INFO: Loading definition for module LedaAmbientTemperature.
-     0000000:00:00  INFO: Loading definition for module LedaBoundary.
-     0000000:00:00  INFO: Loading definition for module LedaHeatSource.
-     0000000:00:00  INFO: Loading definition for module LedaInterface.
-     0000000:00:00  INFO: Loading definition for module LedaLeak.
-     0000000:00:00  INFO: Loading definition for module LedaPig.
-     0000000:00:00  INFO: Loading definition for module LedaPigTracker.
-     0000000:00:00  INFO: Loading definition for module LedaPipe.
-     0000000:00:00  INFO: Loading definition for module LedaPipeline.
-     0000000:00:00  INFO: Loading definition for module LedaPosition.
-     0000000:00:00  INFO: Loading definition for module LedaProfile.
-     0000000:00:00  INFO: Loading definition for module LedaSlugMonitor.
-     0000000:00:00  INFO: Loading definition for module LedaSource.
-     0000000:00:00  INFO: Loading definition for module LedaTuning.
-     0000000:00:00  INFO: Loading definition for module LedaTransmitter.
-     0000000:00:00  INFO: Loading definition for module LedaValve.
-     0000000:00:00  INFO: Loading definition for module LedaWell.
-     0000000:00:00  INFO: Loading definition for module LedaInput.
-     0000000:00:00  INFO: Loading definition for module LogicOperator.
-     0000000:00:00  INFO: Loading definition for module Membrane.
-     0000000:00:00  INFO: Loading definition for module DcsPidController.
-     0000000:00:00  INFO: Loading definition for module PidController.
-     0000000:00:00  INFO: Loading definition for module PipeFlow.
-     0000000:00:00  INFO: Loading definition for module PipeVolume.
-     0000000:00:00  INFO: Loading definition for module PistonCompressor.
-     0000000:00:00  INFO: Loading definition for module ElectricCircuitBreaker.
-     0000000:00:00  INFO: Loading definition for module ElectricLoadCentre.
-     0000000:00:00  INFO: Loading definition for module DieselEngine.
-     0000000:00:00  INFO: Loading definition for module ElectricGenerator.
-     0000000:00:00  INFO: Loading definition for module ElectricMotor.
-     0000000:00:00  INFO: Loading definition for module ElectricPowerSystemManager.
-     0000000:00:00  INFO: Loading definition for module ElectricPowerSystemSupervisor.
-     0000000:00:00  INFO: Loading definition for module ElectricSwitchboard.
-     0000000:00:00  INFO: Loading definition for module ElectricSynchroscope.
-     0000000:00:00  INFO: Loading definition for module ElectricTransformer.
-     0000000:00:00  INFO: Loading definition for module EngineController.
-     0000000:00:00  INFO: Loading definition for module Shaft.
-     0000000:00:00  INFO: Loading definition for module PressureFlowNetwork.
-     0000000:00:00  INFO: Loading definition for module OptimalValue.
-     0000000:00:00  INFO: Loading definition for module PressureFlowReconciliation.
-     0000000:00:00  INFO: Loading definition for module ReconciliationTransmitter.
-     0000000:00:00  INFO: Loading definition for module ReconciliationDiagnostics.
-     0000000:00:00  INFO: Loading definition for module ProfileViewer.
-     0000000:00:00  INFO: Loading definition for module StreamCollector.
-     0000000:00:00  INFO: Loading definition for module ReactionConfiguration.
-     0000000:00:00  INFO: Loading definition for module RemoteInput.
-     0000000:00:00  INFO: Loading definition for module Replacer.
-     0000000:00:00  INFO: Loading definition for module AnalogResponse.
-     0000000:00:00  INFO: Loading definition for module SingleBinaryResponse.
-     0000000:00:00  INFO: Loading definition for module DoubleBinaryResponse.
-     0000000:00:00  INFO: Loading definition for module AnalogFeedback.
-     0000000:00:00  INFO: Loading definition for module BinaryFeedback.
-     0000000:00:00  INFO: Loading definition for module AnalogValueActivation.
-     0000000:00:00  INFO: Loading definition for module SafetyValve.
-     0000000:00:00  INFO: Loading definition for module Separator.
-     0000000:00:00  INFO: Loading definition for module SetResetLatch.
-     0000000:00:00  INFO: Loading definition for module Convergence.
-     0000000:00:00  INFO: Loading definition for module SFCmanager.
-     0000000:00:00  INFO: Loading definition for module Step.
-     0000000:00:00  INFO: Loading definition for module Divergence.
-     0000000:00:00  INFO: Loading definition for module Transition.
-     0000000:00:00  INFO: Loading definition for module ShipOrientation.
-     0000000:00:00  INFO: Loading definition for module SignalLogic.
-     0000000:00:00  INFO: Loading definition for module SignalManipulator.
-     0000000:00:00  INFO: Loading definition for module SplitRange.
-     0000000:00:00  INFO: Loading definition for module SteadyStateIdentifier.
-     0000000:00:00  INFO: Loading definition for module StreamBoundary.
-     0000000:00:00  INFO: Loading definition for module AnalogSwitch.
-     0000000:00:00  INFO: Loading definition for module SelectSwitch.
-     0000000:00:00  INFO: Loading definition for module TableView.
-     0000000:00:00  INFO: Loading definition for module ThermoControl.
-     0000000:00:00  INFO: Loading definition for module Tracer.
-     0000000:00:00  INFO: Loading definition for module Timer.
-     0000000:00:00  INFO: Loading definition for module TimeDateTrigger.
-     0000000:00:00  INFO: Loading definition for module InwardFlowRadialStage.
-     0000000:00:00  INFO: Loading definition for module MultiStageAxialTurbine.
-     0000000:00:00  INFO: Loading definition for module SingleStageAxialTurbine.
-     0000000:00:00  INFO: Loading definition for module HydraulicTurbine.
-     0000000:00:00  INFO: Loading definition for module VacuumPump.
-     0000000:00:00  INFO: Loading definition for module ControlValve.
-     0000000:00:00  INFO: Loading definition for module DeltaVMotorOperatedValve.
-     0000000:00:00  INFO: Loading definition for module MotorOperatedValve.
-     0000000:00:00  INFO: Loading definition for module PulseControlledValve.
-     0000000:00:00  INFO: Loading definition for module TrueClosesValve.
-     0000000:00:00  INFO: Loading definition for module TrueOpensValve.
-     0000000:00:00  INFO: Loading definition for module Valve.
-     0000000:00:00  INFO: Loading definition for module YokogawaChoke.
-     0000000:00:00  INFO: Loading definition for module WellIndex.
-     0000000:00:00  PROGRESS: Module definitions loaded. 139 modules read. 139 supported in ModelServer.
-     0000000:00:00  TRACE: Reading module manifest. Time elapsed: 3,260 ms.
-     0000000:00:00  INFO: Created new empty model
-     0000000:00:00  INFO: Loading the available thermo packages.
-     0000000:00:00  INFO: The thermo package "ThermoTable" has been loaded.
-     0000000:00:00  INFO: Connecting 1 blocks.
-     0000000:00:00  INFO: Initialising....
-     0000000:00:00  INFO: Loading the available thermo packages.
-     0000000:00:00  INFO: The thermo package "ThermoTable" has been loaded.
-     0000000:00:00  INFO: Thermo file directory: Z:\Prosjekt\TTK4210\ButaneSplitter\TimeLines\ButaneSplitter\Applications\ProcessModel\
-     0000000:00:00  INFO: ThermoControl: Number of thermodynamic methods loaded: 0
-     0000000:00:00  INFO: Model polling time set to 1 seconds.
-     0000000:00:00  TRACE: Model Initialization. Time elapsed: 531 ms.
-     0000000:00:00  PROGRESS: Model initialisation Complete.
-     0000000:00:00  INFO: Project Z:\Prosjekt\TTK4210\ButaneSplitter loaded
-     0000000:00:00  INFO: Working Directory: Z:\Prosjekt\TTK4210\ButaneSplitter\TimeLines\ButaneSplitter\Applications\ProcessModel.
-     0000000:00:00  INFO: Starting with command line arguments:"-instance 0 -project "Z:\Prosjekt\TTK4210\ButaneSplitter" -PartnerName "ButaneSplitter/ButaneSplitter/ProcessModel" -NetMaster 0 -PartnerBackground"
-     0000000:00:00  INFO: Instance will be 0.
-     0000000:00:00  WARNING: Unknown command line option: PartnerBackground.
-     0000000:00:00  INFO: Loading components from C:\Program Files (x86)\Kongsberg\K-Spice\bin\Components\.
-     0000000:00:00  INFO: Loading component: C:\Program Files (x86)\Kongsberg\K-Spice\bin\ModelServer.exe. Product version: 3.2.0.9
-     0000000:00:00  PROGRESS: Processing module definitions...
-     0000000:00:00  INFO: Loading definition for module Adsorber.
-     0000000:00:00  INFO: Loading definition for module AlarmAnalog.
-     0000000:00:00  INFO: Loading definition for module ArithmeticOperator.
-     0000000:00:00  INFO: Loading definition for module MultiArithmeticOperator.
-     0000000:00:00  INFO: Loading definition for module ProfileAnalyser.
-     0000000:00:00  INFO: Loading definition for module ProfileArithmeticOperator.
-     0000000:00:00  INFO: Loading definition for module AsynchronousMachine.
-     0000000:00:00  INFO: Loading definition for module PulseControlledAsynchronousMachine.
-     0000000:00:00  INFO: Loading definition for module TrueStartsAsynchronousMachine.
-     0000000:00:00  INFO: Loading definition for module TrueStopsAsynchronousMachine.
-     0000000:00:00  INFO: Loading definition for module BitMaskPacker.
-     0000000:00:00  INFO: Loading definition for module BitMaskUnpacker.
-     0000000:00:00  INFO: Loading definition for module ConvertIntToTwoInt.
-     0000000:00:00  INFO: Loading definition for module ConvertRealToTwoInt.
-     0000000:00:00  INFO: Loading definition for module ConvertTwoIntToInt.
-     0000000:00:00  INFO: Loading definition for module ConvertTwoIntToReal.
-     0000000:00:00  INFO: Loading definition for module Burner.
-     0000000:00:00  INFO: Loading definition for module Calibrator.
-     0000000:00:00  INFO: Loading definition for module CauseAndEffectChart.
-     0000000:00:00  INFO: Loading definition for module CentrifugalPump.
-     0000000:00:00  INFO: Loading definition for module SingleChemAbsorption.
-     0000000:00:00  INFO: Loading definition for module ChemAbsorptionSet.
-     0000000:00:00  INFO: Loading definition for module ColumnPackedStage.
-     0000000:00:00  INFO: Loading definition for module ColumnTray.
-     0000000:00:00  INFO: Loading definition for module ComponentExtractor.
-     0000000:00:00  INFO: Loading definition for module Centrifuge.
-     0000000:00:00  INFO: Loading definition for module ContinuousFlowCompressor.
-     0000000:00:00  INFO: Loading definition for module CurveFit.
-     0000000:00:00  INFO: Loading definition for module DisplacementPump.
-     0000000:00:00  INFO: Loading definition for module Drum.
-     0000000:00:00  INFO: Loading definition for module DcsElectricHeater.
-     0000000:00:00  INFO: Loading definition for module ElectricHeater.
-     0000000:00:00  INFO: Loading definition for module FieldSwitch.
-     0000000:00:00  INFO: Loading definition for module FieldTransmitter.
-     0000000:00:00  INFO: Loading definition for module Filter.
-     0000000:00:00  INFO: Loading definition for module FixedCatalystBedReactor.
-     0000000:00:00  INFO: Loading definition for module FlashCalculator.
-     0000000:00:00  INFO: Loading definition for module CorrosionMonitor.
-     0000000:00:00  INFO: Loading definition for module HydrateMarginCalculator.
-     0000000:00:00  INFO: Loading definition for module WaxMarginCalculator.
-     0000000:00:00  INFO: Loading definition for module FlowElement.
-     0000000:00:00  INFO: Loading definition for module Fline.
-     0000000:00:00  INFO: Loading definition for module Flowline.
-     0000000:00:00  INFO: Loading definition for module GasTurbine.
-     0000000:00:00  INFO: Loading definition for module GenericASC.
-     0000000:00:00  INFO: Loading definition for module HeatExchangerStream.
-     0000000:00:00  INFO: Loading definition for module HeatExchangerStreamNet.
-     0000000:00:00  INFO: Loading definition for module HydroCyclone.
-     0000000:00:00  INFO: Loading definition for module Integrator.
-     0000000:00:00  INFO: Loading definition for module Ejector.
-     0000000:00:00  INFO: Loading definition for module Eductor.
-     0000000:00:00  INFO: Loading definition for module LedaAmbientTemperature.
-     0000000:00:00  INFO: Loading definition for module LedaBoundary.
-     0000000:00:00  INFO: Loading definition for module LedaHeatSource.
-     0000000:00:00  INFO: Loading definition for module LedaInterface.
-     0000000:00:00  INFO: Loading definition for module LedaLeak.
-     0000000:00:00  INFO: Loading definition for module LedaPig.
-     0000000:00:00  INFO: Loading definition for module LedaPigTracker.
-     0000000:00:00  INFO: Loading definition for module LedaPipe.
-     0000000:00:00  INFO: Loading definition for module LedaPipeline.
-     0000000:00:00  INFO: Loading definition for module LedaPosition.
-     0000000:00:00  INFO: Loading definition for module LedaProfile.
-     0000000:00:00  INFO: Loading definition for module LedaSlugMonitor.
-     0000000:00:00  INFO: Loading definition for module LedaSource.
-     0000000:00:00  INFO: Loading definition for module LedaTuning.
-     0000000:00:00  INFO: Loading definition for module LedaTransmitter.
-     0000000:00:00  INFO: Loading definition for module LedaValve.
-     0000000:00:00  INFO: Loading definition for module LedaWell.
-     0000000:00:00  INFO: Loading definition for module LedaInput.
-     0000000:00:00  INFO: Loading definition for module LogicOperator.
-     0000000:00:00  INFO: Loading definition for module Membrane.
-     0000000:00:00  INFO: Loading definition for module DcsPidController.
-     0000000:00:00  INFO: Loading definition for module PidController.
-     0000000:00:00  INFO: Loading definition for module PipeFlow.
-     0000000:00:00  INFO: Loading definition for module PipeVolume.
-     0000000:00:00  INFO: Loading definition for module PistonCompressor.
-     0000000:00:00  INFO: Loading definition for module ElectricCircuitBreaker.
-     0000000:00:00  INFO: Loading definition for module ElectricLoadCentre.
-     0000000:00:00  INFO: Loading definition for module DieselEngine.
-     0000000:00:00  INFO: Loading definition for module ElectricGenerator.
-     0000000:00:00  INFO: Loading definition for module ElectricMotor.
-     0000000:00:00  INFO: Loading definition for module ElectricPowerSystemManager.
-     0000000:00:00  INFO: Loading definition for module ElectricPowerSystemSupervisor.
-     0000000:00:00  INFO: Loading definition for module ElectricSwitchboard.
-     0000000:00:00  INFO: Loading definition for module ElectricSynchroscope.
-     0000000:00:00  INFO: Loading definition for module ElectricTransformer.
-     0000000:00:00  INFO: Loading definition for module EngineController.
-     0000000:00:00  INFO: Loading definition for module Shaft.
      0000000:00:00  INFO: Loading definition for module PressureFlowNetwork.
      0000000:00:00  INFO: Loading definition for module OptimalValue.
      0000000:00:00  INFO: Loading definition for module PressureFlowReconciliation.
@@ -586,4 +384,165 @@
      0000000:00:00  INFO: ThermoControl: Number of thermodynamic methods loaded: 0
      0000000:00:00  INFO: Model polling time set to 1 seconds.
      0000000:00:00  TRACE: Model Initialization. Time elapsed: 164 ms.
+     0000000:00:00  PROGRESS: Model initialisation Complete.
+     0000000:00:00  INFO: Project Z:\Prosjekt\TTK4210\ButaneSplitter loaded
+     0000000:00:00  INFO: Working Directory: Z:\Prosjekt\TTK4210\ButaneSplitter\TimeLines\ButaneSplitter\Applications\ProcessModel.
+     0000000:00:00  INFO: Starting with command line arguments:"-instance 0 -project "Z:\Prosjekt\TTK4210\ButaneSplitter" -PartnerName "ButaneSplitter/ButaneSplitter/ProcessModel" -NetMaster 0 -PartnerBackground"
+     0000000:00:00  INFO: Instance will be 0.
+     0000000:00:00  WARNING: Unknown command line option: PartnerBackground.
+     0000000:00:00  INFO: Loading components from C:\Program Files (x86)\Kongsberg\K-Spice\bin\Components\.
+     0000000:00:00  INFO: Loading component: C:\Program Files (x86)\Kongsberg\K-Spice\bin\ModelServer.exe. Product version: 3.2.0.9
+     0000000:00:00  PROGRESS: Processing module definitions...
+     0000000:00:00  INFO: Loading definition for module Adsorber.
+     0000000:00:00  INFO: Loading definition for module AlarmAnalog.
+     0000000:00:00  INFO: Loading definition for module ArithmeticOperator.
+     0000000:00:00  INFO: Loading definition for module MultiArithmeticOperator.
+     0000000:00:00  INFO: Loading definition for module ProfileAnalyser.
+     0000000:00:00  INFO: Loading definition for module ProfileArithmeticOperator.
+     0000000:00:00  INFO: Loading definition for module AsynchronousMachine.
+     0000000:00:00  INFO: Loading definition for module PulseControlledAsynchronousMachine.
+     0000000:00:00  INFO: Loading definition for module TrueStartsAsynchronousMachine.
+     0000000:00:00  INFO: Loading definition for module TrueStopsAsynchronousMachine.
+     0000000:00:00  INFO: Loading definition for module BitMaskPacker.
+     0000000:00:00  INFO: Loading definition for module BitMaskUnpacker.
+     0000000:00:00  INFO: Loading definition for module ConvertIntToTwoInt.
+     0000000:00:00  INFO: Loading definition for module ConvertRealToTwoInt.
+     0000000:00:00  INFO: Loading definition for module ConvertTwoIntToInt.
+     0000000:00:00  INFO: Loading definition for module ConvertTwoIntToReal.
+     0000000:00:00  INFO: Loading definition for module Burner.
+     0000000:00:00  INFO: Loading definition for module Calibrator.
+     0000000:00:00  INFO: Loading definition for module CauseAndEffectChart.
+     0000000:00:00  INFO: Loading definition for module CentrifugalPump.
+     0000000:00:00  INFO: Loading definition for module SingleChemAbsorption.
+     0000000:00:00  INFO: Loading definition for module ChemAbsorptionSet.
+     0000000:00:00  INFO: Loading definition for module ColumnPackedStage.
+     0000000:00:00  INFO: Loading definition for module ColumnTray.
+     0000000:00:00  INFO: Loading definition for module ComponentExtractor.
+     0000000:00:00  INFO: Loading definition for module Centrifuge.
+     0000000:00:00  INFO: Loading definition for module ContinuousFlowCompressor.
+     0000000:00:00  INFO: Loading definition for module CurveFit.
+     0000000:00:00  INFO: Loading definition for module DisplacementPump.
+     0000000:00:00  INFO: Loading definition for module Drum.
+     0000000:00:00  INFO: Loading definition for module DcsElectricHeater.
+     0000000:00:00  INFO: Loading definition for module ElectricHeater.
+     0000000:00:00  INFO: Loading definition for module FieldSwitch.
+     0000000:00:00  INFO: Loading definition for module FieldTransmitter.
+     0000000:00:00  INFO: Loading definition for module Filter.
+     0000000:00:00  INFO: Loading definition for module FixedCatalystBedReactor.
+     0000000:00:00  INFO: Loading definition for module FlashCalculator.
+     0000000:00:00  INFO: Loading definition for module CorrosionMonitor.
+     0000000:00:00  INFO: Loading definition for module HydrateMarginCalculator.
+     0000000:00:00  INFO: Loading definition for module WaxMarginCalculator.
+     0000000:00:00  INFO: Loading definition for module FlowElement.
+     0000000:00:00  INFO: Loading definition for module Fline.
+     0000000:00:00  INFO: Loading definition for module Flowline.
+     0000000:00:00  INFO: Loading definition for module GasTurbine.
+     0000000:00:00  INFO: Loading definition for module GenericASC.
+     0000000:00:00  INFO: Loading definition for module HeatExchangerStream.
+     0000000:00:00  INFO: Loading definition for module HeatExchangerStreamNet.
+     0000000:00:00  INFO: Loading definition for module HydroCyclone.
+     0000000:00:00  INFO: Loading definition for module Integrator.
+     0000000:00:00  INFO: Loading definition for module Ejector.
+     0000000:00:00  INFO: Loading definition for module Eductor.
+     0000000:00:00  INFO: Loading definition for module LedaAmbientTemperature.
+     0000000:00:00  INFO: Loading definition for module LedaBoundary.
+     0000000:00:00  INFO: Loading definition for module LedaHeatSource.
+     0000000:00:00  INFO: Loading definition for module LedaInterface.
+     0000000:00:00  INFO: Loading definition for module LedaLeak.
+     0000000:00:00  INFO: Loading definition for module LedaPig.
+     0000000:00:00  INFO: Loading definition for module LedaPigTracker.
+     0000000:00:00  INFO: Loading definition for module LedaPipe.
+     0000000:00:00  INFO: Loading definition for module LedaPipeline.
+     0000000:00:00  INFO: Loading definition for module LedaPosition.
+     0000000:00:00  INFO: Loading definition for module LedaProfile.
+     0000000:00:00  INFO: Loading definition for module LedaSlugMonitor.
+     0000000:00:00  INFO: Loading definition for module LedaSource.
+     0000000:00:00  INFO: Loading definition for module LedaTuning.
+     0000000:00:00  INFO: Loading definition for module LedaTransmitter.
+     0000000:00:00  INFO: Loading definition for module LedaValve.
+     0000000:00:00  INFO: Loading definition for module LedaWell.
+     0000000:00:00  INFO: Loading definition for module LedaInput.
+     0000000:00:00  INFO: Loading definition for module LogicOperator.
+     0000000:00:00  INFO: Loading definition for module Membrane.
+     0000000:00:00  INFO: Loading definition for module DcsPidController.
+     0000000:00:00  INFO: Loading definition for module PidController.
+     0000000:00:00  INFO: Loading definition for module PipeFlow.
+     0000000:00:00  INFO: Loading definition for module PipeVolume.
+     0000000:00:00  INFO: Loading definition for module PistonCompressor.
+     0000000:00:00  INFO: Loading definition for module ElectricCircuitBreaker.
+     0000000:00:00  INFO: Loading definition for module ElectricLoadCentre.
+     0000000:00:00  INFO: Loading definition for module DieselEngine.
+     0000000:00:00  INFO: Loading definition for module ElectricGenerator.
+     0000000:00:00  INFO: Loading definition for module ElectricMotor.
+     0000000:00:00  INFO: Loading definition for module ElectricPowerSystemManager.
+     0000000:00:00  INFO: Loading definition for module ElectricPowerSystemSupervisor.
+     0000000:00:00  INFO: Loading definition for module ElectricSwitchboard.
+     0000000:00:00  INFO: Loading definition for module ElectricSynchroscope.
+     0000000:00:00  INFO: Loading definition for module ElectricTransformer.
+     0000000:00:00  INFO: Loading definition for module EngineController.
+     0000000:00:00  INFO: Loading definition for module Shaft.
+     0000000:00:00  INFO: Loading definition for module PressureFlowNetwork.
+     0000000:00:00  INFO: Loading definition for module OptimalValue.
+     0000000:00:00  INFO: Loading definition for module PressureFlowReconciliation.
+     0000000:00:00  INFO: Loading definition for module ReconciliationTransmitter.
+     0000000:00:00  INFO: Loading definition for module ReconciliationDiagnostics.
+     0000000:00:00  INFO: Loading definition for module ProfileViewer.
+     0000000:00:00  INFO: Loading definition for module StreamCollector.
+     0000000:00:00  INFO: Loading definition for module ReactionConfiguration.
+     0000000:00:00  INFO: Loading definition for module RemoteInput.
+     0000000:00:00  INFO: Loading definition for module Replacer.
+     0000000:00:00  INFO: Loading definition for module AnalogResponse.
+     0000000:00:00  INFO: Loading definition for module SingleBinaryResponse.
+     0000000:00:00  INFO: Loading definition for module DoubleBinaryResponse.
+     0000000:00:00  INFO: Loading definition for module AnalogFeedback.
+     0000000:00:00  INFO: Loading definition for module BinaryFeedback.
+     0000000:00:00  INFO: Loading definition for module AnalogValueActivation.
+     0000000:00:00  INFO: Loading definition for module SafetyValve.
+     0000000:00:00  INFO: Loading definition for module Separator.
+     0000000:00:00  INFO: Loading definition for module SetResetLatch.
+     0000000:00:00  INFO: Loading definition for module Convergence.
+     0000000:00:00  INFO: Loading definition for module SFCmanager.
+     0000000:00:00  INFO: Loading definition for module Step.
+     0000000:00:00  INFO: Loading definition for module Divergence.
+     0000000:00:00  INFO: Loading definition for module Transition.
+     0000000:00:00  INFO: Loading definition for module ShipOrientation.
+     0000000:00:00  INFO: Loading definition for module SignalLogic.
+     0000000:00:00  INFO: Loading definition for module SignalManipulator.
+     0000000:00:00  INFO: Loading definition for module SplitRange.
+     0000000:00:00  INFO: Loading definition for module SteadyStateIdentifier.
+     0000000:00:00  INFO: Loading definition for module StreamBoundary.
+     0000000:00:00  INFO: Loading definition for module AnalogSwitch.
+     0000000:00:00  INFO: Loading definition for module SelectSwitch.
+     0000000:00:00  INFO: Loading definition for module TableView.
+     0000000:00:00  INFO: Loading definition for module ThermoControl.
+     0000000:00:00  INFO: Loading definition for module Tracer.
+     0000000:00:00  INFO: Loading definition for module Timer.
+     0000000:00:00  INFO: Loading definition for module TimeDateTrigger.
+     0000000:00:00  INFO: Loading definition for module InwardFlowRadialStage.
+     0000000:00:00  INFO: Loading definition for module MultiStageAxialTurbine.
+     0000000:00:00  INFO: Loading definition for module SingleStageAxialTurbine.
+     0000000:00:00  INFO: Loading definition for module HydraulicTurbine.
+     0000000:00:00  INFO: Loading definition for module VacuumPump.
+     0000000:00:00  INFO: Loading definition for module ControlValve.
+     0000000:00:00  INFO: Loading definition for module DeltaVMotorOperatedValve.
+     0000000:00:00  INFO: Loading definition for module MotorOperatedValve.
+     0000000:00:00  INFO: Loading definition for module PulseControlledValve.
+     0000000:00:00  INFO: Loading definition for module TrueClosesValve.
+     0000000:00:00  INFO: Loading definition for module TrueOpensValve.
+     0000000:00:00  INFO: Loading definition for module Valve.
+     0000000:00:00  INFO: Loading definition for module YokogawaChoke.
+     0000000:00:00  INFO: Loading definition for module WellIndex.
+     0000000:00:00  PROGRESS: Module definitions loaded. 139 modules read. 139 supported in ModelServer.
+     0000000:00:00  TRACE: Reading module manifest. Time elapsed: 1,805 ms.
+     0000000:00:00  INFO: Created new empty model
+     0000000:00:00  INFO: Loading the available thermo packages.
+     0000000:00:00  INFO: The thermo package "ThermoTable" has been loaded.
+     0000000:00:00  INFO: Connecting 1 blocks.
+     0000000:00:00  INFO: Initialising....
+     0000000:00:00  INFO: Loading the available thermo packages.
+     0000000:00:00  INFO: The thermo package "ThermoTable" has been loaded.
+     0000000:00:00  INFO: Thermo file directory: Z:\Prosjekt\TTK4210\ButaneSplitter\TimeLines\ButaneSplitter\Applications\ProcessModel\
+     0000000:00:00  INFO: ThermoControl: Number of thermodynamic methods loaded: 0
+     0000000:00:00  INFO: Model polling time set to 1 seconds.
+     0000000:00:00  TRACE: Model Initialization. Time elapsed: 288 ms.
      0000000:00:00  PROGRESS: Model initialisation Complete.

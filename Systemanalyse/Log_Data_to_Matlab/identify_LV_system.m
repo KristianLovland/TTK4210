@@ -8,6 +8,11 @@ close all;
 % State vector is y = [T_D; T_B], with corresponding input u = [L; V];
 Y = [TC1015(:, 1), TC1088(:, 1)];
 U = [FC1015(:, 1), LC1028(:, 1)];
+
+% Scaling is done to keep all signals in the range [0, 1]
+Y = (Y - 25*ones(size(Y))) * [1/25 0; 0 1/25];
+U = U * [1/120 0; 0 1/120];
+
 % Dimensional limit parameter
 G = 3;
 

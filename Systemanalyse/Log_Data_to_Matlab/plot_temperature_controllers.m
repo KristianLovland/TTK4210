@@ -10,6 +10,12 @@ T_B = true;
 tile_stuff = false;
 savefigures = false;
 
+%% TEMP
+h = 20;
+TC1015 = TC1015(1:h:end, :);
+TC1088 = TC1088(1:h:end, :);
+Time = Time(1:h:end);
+
 
 %% Plot stuff
 % Use colors 3-7 for process values, and 8-10 for inputs
@@ -48,13 +54,13 @@ if T_B
     xlabel('t', 'Interpreter', 'Latex');
     ylabel('T\_B', 'Interpreter', 'Latex');
     legend('T\_B','T\_{B, ref}', 'Interpreter', 'Latex');
-    title('\textbf{Distillation column temperature at top}', 'Interpreter', 'Latex');
+    title('\textbf{Distillation column temperature at bottom}', 'Interpreter', 'Latex');
 
     subplot(2, 1, 2);
     plot(Time, TC1088(:, 3), 'color', colors(8, :));
     xlabel('t', 'Interpreter', 'Latex');
     ylabel('\textrm{Process input}', 'Interpreter', 'Latex');
-    title('\textbf{Distillation column temperature at top, input}', 'Interpreter', 'Latex');
+    title('\textbf{Distillation column temperature at bottom, input}', 'Interpreter', 'Latex');
     
     if savefigures
         saveas(gcf, 'TC1088', 'eps');
