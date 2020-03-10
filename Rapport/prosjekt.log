@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  9 MAR 2020 18:16
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  10 MAR 2020 18:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -722,55 +722,80 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_B_eksperi
 ment.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_B_eksperiment.
 eps>
+ [18] [19]
 
+LaTeX Warning: Reference `tab:LV_scaling' on page 20 undefined on input line 30
+6.
 
-LaTeX Warning: Reference `tab:LV_scaling' on page 18 undefined on input line 30
-1.
-
-[18] [19]
-Overfull \hbox (10.38322pt too wide) in paragraph at lines 305--305
-[][]\TU/lmr/m/n/12 Analysér  
- []
-
-
-Overfull \hbox (10.38322pt too wide) in paragraph at lines 305--305
-[][]\TU/lmr/m/n/12 Analysér  
- []
-
+[20]
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/LV_RGA.eps 
 Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/LV_RGA.eps>
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/LV_PRGA.eps
  Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/LV_PRGA.eps>
-[20] [21]
-File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_with_T_D_step.e
-ps Graphic file (type eps)
-<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_with_T_D_step.eps>
-File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_with_T_D_step.e
-ps Graphic file (type eps)
-<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_with_T_D_step.eps>
-File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_with_T_B_step.e
-ps Graphic file (type eps)
-<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_with_T_B_step.eps>
-File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_with_T_B_step.e
-ps Graphic file (type eps)
-<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_with_T_B_step.eps>
- [22] [23] [24] [25] (./prosjekt.aux)
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L1_krav_P-r
+eg.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L1_krav_P-reg.ep
+s>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_P-r
+eg.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_P-reg.ep
+s>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L1_krav_PI-
+reg.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L1_krav_PI-reg.e
+ps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_PI-
+reg.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_PI-reg.e
+ps>
+ [21] [22] [23]
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_wit
+h_T_D_step.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_with_T_D
+_step.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_wit
+h_T_D_step.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_with_T_D
+_step.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_wit
+h_T_B_step.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_with_T_B
+_step.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_wit
+h_T_B_step.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_with_T_B
+_step.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_wit
+h_stepwise_T_D_step.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_with_ste
+pwise_T_D_step.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_wit
+h_stepwise_T_D_step.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_with_ste
+pwise_T_D_step.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_wit
+h_stepwise_T_B_step.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_with_ste
+pwise_T_B_step.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_wit
+h_stepwise_T_B_step.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_with_ste
+pwise_T_B_step.eps>
+ [24] [25] [26] [27] [28] [29] [30] [31] [32]
+(./prosjekt.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 15696 strings out of 492922
- 310627 string characters out of 6133408
- 369782 words of memory out of 5000000
- 19420 multiletter control sequences out of 15000+600000
+ 15722 strings out of 492922
+ 312545 string characters out of 6133408
+ 369851 words of memory out of 5000000
+ 19438 multiletter control sequences out of 15000+600000
  8502 words of font info for 42 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 62i,14n,81p,769b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,14n,81p,1515b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on prosjekt.pdf (25 pages).
+Output written on prosjekt.pdf (32 pages).

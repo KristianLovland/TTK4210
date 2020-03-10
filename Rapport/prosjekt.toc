@@ -10,7 +10,8 @@
 \contentsline {subsection}{\numberline {5.1}System identification and analysis}{18}% 
 \contentsline {subsubsection}{\numberline {5.1.1}Experiment}{18}% 
 \contentsline {subsubsection}{\numberline {5.1.2}Analysis}{18}% 
-\contentsline {subsection}{\numberline {5.2}Controller tuning}{20}% 
-\contentsline {section}{\numberline {6}Results}{22}% 
-\contentsline {subsection}{\numberline {6.1}PI controller tuning}{22}% 
-\contentsline {subsection}{\numberline {6.2}Reference tracking}{22}% 
+\contentsline {subsection}{\numberline {5.2}Controller tuning}{23}% 
+\contentsline {section}{\numberline {6}Results}{24}% 
+\contentsline {subsection}{\numberline {6.1}Plots}{24}% 
+\contentsline {subsection}{\numberline {6.2}PI controller tuning}{24}% 
+\contentsline {subsection}{\numberline {6.3}Reference tracking}{24}% 

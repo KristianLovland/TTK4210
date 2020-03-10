@@ -29,15 +29,15 @@ if T_D
     hold on;
     plot(Time, TC1015(:, 2), 'color', colors(5, :), 'LineWidth', 2);
     xlim([0 Time(end)]);
-    xlabel('t', 'Interpreter', 'Latex');
-    ylabel('T\_D', 'Interpreter', 'Latex');
+    xlabel('t [s]', 'Interpreter', 'Latex');
+    ylabel('T\_D [deg C]', 'Interpreter', 'Latex');
     legend('T\_D','T\_{D, ref}', 'Interpreter', 'Latex');
     title('\textbf{Distillation column temperature at top}', 'Interpreter', 'Latex');
 
     subplot(2, 1, 2);
     plot(Time, TC1015(:, 3), 'color', colors(8, :), 'LineWidth', 2);
     xlim([0 Time(end)]);
-    xlabel('t', 'Interpreter', 'Latex');
+    xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('\textrm{Process input}', 'Interpreter', 'Latex');
     title('\textbf{Distillation column temperature at top, input}', 'Interpreter', 'Latex');
     
@@ -54,15 +54,15 @@ if T_B
     hold on;
     plot(Time, TC1088(:, 2), 'color', colors(5, :), 'LineWidth', 2);
     xlim([0 Time(end)]);
-    xlabel('t', 'Interpreter', 'Latex');
-    ylabel('T\_B', 'Interpreter', 'Latex');
+    xlabel('t [s]', 'Interpreter', 'Latex');
+    ylabel('T\_B [deg C]', 'Interpreter', 'Latex');
     legend('T\_B','T\_{B, ref}', 'Interpreter', 'Latex');
     title('\textbf{Distillation column temperature at bottom}', 'Interpreter', 'Latex');
 
     subplot(2, 1, 2);
     plot(Time, TC1088(:, 3), 'color', colors(8, :), 'LineWidth', 2);
     xlim([0 Time(end)]);
-    xlabel('t', 'Interpreter', 'Latex');
+    xlabel('t [s]', 'Interpreter', 'Latex');
     ylabel('\textrm{Process input}', 'Interpreter', 'Latex');
     title('\textbf{Distillation column temperature at bottom, input}', 'Interpreter', 'Latex');
     

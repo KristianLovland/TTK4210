@@ -280,7 +280,7 @@ G(s) = \frac{y}{u}(s)
 may be identified directly.
 \subsection{System identification and analysis}
 \subsubsection{Experiment}
-Identification of the LV system was done in a similar manner as in the previous section, using step changes in input (but open-loop this time). Again, \texttt{d-sr} was used for identification. The periods of the step changes were chosen more systematically than in the level experiment, with periods of 5 minutes, 15 minutes and $\approx2$ minutes being used for different periods of time. This was done to get an accurate representation of the system at all frequencies. The inputs $L$ and $V$ were changed alternatingly (i.e. $90`\circ$ out of phase), to avoid ambiguity in which input caused what effect. Figure \ref{fig:LV_experiment} shows the experiment.
+Identification of the LV system was done in a similar manner as in the previous section, using step changes in input (but open-loop this time). Again, \texttt{d-sr} was used for identification. The periods of the step changes were chosen more systematically than in the level experiment, with periods of 5 minutes, 15 minutes and $\approx2$ minutes being used for different periods of time. This was done to get an accurate representation of the system at all frequencies. The inputs $L$ and $V$ were changed alternatingly (i.e. $90^\circ$ out of phase), to avoid ambiguity in which input caused what effect. Figure \ref{fig:LV_experiment} shows the experiment.
 
 \begin{figure}[p]
 \centering
@@ -291,18 +291,57 @@ Identification of the LV system was done in a similar manner as in the previous 
 \end{figure}
 
 \subsubsection{Analysis}
-Figure \ref{fig:LV_RGA} shows the RGA of the identified system $G(s) = \frac{y}{u}(s)$. The chosen pairing is clearly the most reasonable. The interactions doesn't seem to be any problem, but the RGA doesn't tell the whole story. There is reason to believe that temperature in the bottom affects temperature in the top, and the right tool for this analysis is the \textit{Performance Relative Gain Array} (PRGA). To use this however, the system has to be rescaled.
+Figure \ref{fig:LV_RGA} shows the RGA of the identified system $G(s) = \frac{y}{u}(s)$. The chosen pairing is clearly the most reasonable. The interactions doesn't seem to be any problem, but the RGA doesn't tell the whole story. There is reason to believe that temperature in the bottom affects temperature in the top, and the right tool for this analysis is the \textit{Performance Relative Gain Array} (PRGA).
 
-More precisely, given a system
+Let $\tilde{G} = \textrm{diag}\{g_{ii}\}$, i.e. it contains only the diagonal elements of the system matrix. This matrix is a useful tool for analysing interactions, and is used in the definition of the PRGA
+
+\begin{equation}
+\Gamma = \tilde{G} G^{-1}
+\end{equation}
+This matrix is used as a measure of interaction. It is scaling dependent, so before any further analysis is done, this has to be taken into account. Given a subsystem
 
 \begin{equation}
 e = y - r = G(s) u + G_d(s) d - r
 \end{equation}
-the signals should be scaled such that the maximum expected disturbance and maximum acceptable error both are of magnitude less than one. Table \ref{tab:LV_scaling} shows the range used in K-spice for the states, and maximum value for signals only used in analysis. To be clear, the following analysis holds for both control loops, with $y$ being temperature, $r$ reference temperature, and $u$ process input. The maximum error allowed is chosen based on the lowest margin proposed in the assignment text. The choice of a maximum disturbance of one degree celsius is somewhat arbitrary, but seemed reasonable and at least not too optimistic given the information that one degree is considered a large step in temperature.
+the signals should be scaled such that the maximum expected disturbance and maximum acceptable error both are of magnitude one. Table \ref{tab:LV_scaling} shows the range used in K-spice for the states in the temperature control loops, and maximum accepted/expected value for signals only used in analysis ($e$ and $d$). To be clear, the following analysis holds for both control loops, with $y$ being temperature, $r$ reference temperature, and $u$ process input. The maximum error allowed is chosen based on the lowest margin proposed in the assignment text. The choice of a maximum disturbance of one degree celsius is somewhat arbitrary, but seemed reasonable and at least not too optimistic given the information that one degree is considered a large step in temperature.
 
 The PRGA using this scaling is shown in figure \ref{fig:LV_PRGA}. It is now clear that one can't simply choose a bandwith of $0,01 \frac{\textrm{rad}}{\textrm{s}}$ and call it a day, since the interaction from $V$ to $T_D$ has its peak at this frequency.
 
-What should be done, then? Since we're dealing with a MIMO system, only using the diagonal parts of $G$ for designing controllers won't suffice. Our main objectives are to follow the reference, and to counteract disturbances. In \cite{skogestad}, some rules for designing independent controllers for MIMO systems are proposed. \todo{Analysér}
+What should be done, then? Since we're dealing with a MIMO system, only using the diagonal parts of $G$ for designing controllers won't suffice. Our main objectives are to follow the reference, and to counteract disturbances. In \cite{skogestad}, some rules for designing independent controllers for MIMO systems are proposed. 
+
+For effecient reference tracking in a SISO system, an error magnitude $| e(j \omega) |$ less than one is achieved when
+
+\begin{equation}
+| S(j \omega) R | < 1
+\end{equation}
+for reference changes of magnitude $R$, for all frequencies $\omega$ up to the maximum frequency $\omega_r$ where good reference tracking is required. More explicitly, this requirement can be stated as
+
+\begin{equation}
+| 1 + L(j \omega) | > R
+\label{eq:SISO_performance_requirement}
+\end{equation}
+The situation for a MIMO system is a bit more complicated when we have interactions like shown above. This is where the PRGA is useful. It is shown in \cite{skogestad} that the MIMO analogue of equation \ref{eq:SISO_performance_requirement} can be stated, using the PRGA, as
+
+\begin{equation}
+| 1 + L_i | > | \gamma_{ij} | \cdot |R_j|
+\end{equation}
+Here, $L_i = g_{ii}k_i$ is the loop transfer function in loop $i$, and $R_j$ is the magnitude of the reference change in loop $j$. For simplicity, it is assumed that no disturbances of magnitude larger than the accepted error enters the system. This shouldn't be too restrictive, since disturbances in a system like this are either
+\begin{enumerate}
+\item Slowly varying, meaning the integral effect in the controllers take care of them
+\item Due to measurement, meaning they enter well above the bandwith of the system
+\end{enumerate}
+Assuming $R_1 = R_2 = 1$, the requirements are as plotted in figures \ref{fig:L1_performance1} and \ref{fig:L2_performance1}, using $L_i = G_i$ (P controllers with unit gain). Inspecting these, it becomes clear that the state most desperately in need of control is $T_D$. This is not surprising, since the PRGA showed the effect of $T_B$ on $T_D$ being large, while the effect the other way was more or less negligible. Hence, suppressing the effects $T_B$ has on $T_D$ is our most important task, while the control of $T_B$ should be pretty problem free if the controller parameters aren't completely ridiculous. To shape $| 1 + L_1 |$, the integral time was first changed. $T_i = 100$s turned out to give a low maximum distance between $| 1 + L_1 |$ and $| \gamma_{1i} |$. $K_p$ was then chosen to be as small as possible while still satisfying the criterion, yielding $K_p = 12$. This actually satisfies the criterion at all frequencies, as shown in \ref{fig:L1_performance2}. The restriction of the $T_B$ loop being located in a higher part of the frequency spectrum gave rise to the choice of $T_i = 1000s$ for this PI controller. A sneaking feeling that the PRGA might have underestimated the effects of $T_D$ on $T_B$ was the background for requiring $| 1 + L_2 | > | \gamma_{22} |$ for all $\omega < 10^{-2}$, which as shown in figure \ref{fig:L2_performance2} is satisfied when $K_p = 25$. A summary of the resulting controller is shown in table \ref{tab:LV_parameters}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c | c | c }
+ & $K_p$ & $T_i$  \\ \hline
+ $T_D$ & 12 & 100s \\
+ $T_B$ & 25 & 1000s
+\end{tabular}
+\caption{Parameters for temperature controllers}
+\label{tab:LV_parameters}
+\end{table}
 
 \begin{table}
 \centering
@@ -317,7 +356,7 @@ $V$ & $0\%$ & $100\%$ & $100\%$ \\
 $e$ & - & - & $0,55^\circ$C \\
 $d$ & - & - & $1,0^\circ$C
 \end{tabular}
-\caption{Scaling used in LV system analysus}
+\caption{Scaling used in LV system analysis}
 \end{table}
 
 \begin{figure}[p]
@@ -334,12 +373,82 @@ $d$ & - & - & $1,0^\circ$C
 \label{fig:LV_PRGA}
 \end{figure}
 
-\subsection{Controller tuning}
-\todo[inline]{Tune i K-spice}
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L1_krav_P-reg.eps}
+\caption{}
+\label{fig:L1_performance1}
 
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_P-reg.eps}
+\caption{}
+\label{fig:L2_performance1}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L1_krav_PI-reg.eps}
+\caption{}
+\label{fig:L1_performance2}
+
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_PI-reg.eps}
+\caption{}
+\label{fig:L2_performance2}
+\end{figure}
+
+
+\subsection{Controller tuning}
+Using the given parameters results in the closed loop responses given in the following plots.
 
 \newpage
 \section{Results}
+\subsection{Plots}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_with_T_D_step.eps}
+\caption{Response of controlled $T_D$ to step change in $T_{D, \textrm{ref}}$}
+\label{fig:TD_TD_cl}
+
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_with_T_D_step.eps}
+\caption{Response of controlled $T_B$ to step change in $T_{D, \textrm{ref}}$}
+\label{fig:TB_TD_cl}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_with_T_B_step.eps}
+\caption{Response of controlled $T_D$ to step change in $T_{B, \textrm{ref}}$}
+\label{fig:TD_TB_cl}
+
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_with_T_B_step.eps}
+\caption{Response of controlled $T_B$ to step change in $T_{B, \textrm{ref}}$}
+\label{fig:TB_TB_cl}
+\end{figure}
+
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_with_stepwise_T_D_step.eps}
+\caption{Response of controlled $T_D$ to stepwise step changes in $T_{D, \textrm{ref}}$}
+\label{fig:TD_TD_cl_stepwise}
+
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_with_stepwise_T_D_step.eps}
+\caption{Response of controlled $T_B$ to stepwise step changes in $T_{D, \textrm{ref}}$}
+\label{fig:TB_TD_cl_stepwise}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_with_stepwise_T_B_step.eps}
+\caption{Response of controlled $T_D$ to stepwise step changes in $T_{B, \textrm{ref}}$}
+\label{fig:TD_TB_cl_stepwise}
+
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_with_stepwise_T_B_step.eps}
+\caption{Response of controlled $T_B$ to stepwise step changes in $T_{B, \textrm{ref}}$}
+\label{fig:TB_TB_cl_stepwise}
+\end{figure}
+
+
 \subsection{PI controller tuning}
 Table \ref{tab:final_controller_parameters} shows the final PI controller parameters for all the control loops tuned in this project, also including the scaled gain $G$ used in the K-spice implementation.
 
@@ -362,23 +471,6 @@ $T_B$ (TC1088) & 25 & 6,3 & 1000s
 \end{table}
 
 \subsection{Reference tracking}
-The results of step changes in reference are shown in figures \ref{fig:T_D_step} and \ref{fig:T_B_step}.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_with_T_D_step.eps}
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_with_T_D_step.eps}
-\caption{Response of $T_D$ and $T_B $ to step change in $T_{D, \textrm{ref}}$}
-\label{fig:T_D_step}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_with_T_B_step.eps}
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_with_T_B_step.eps}
-\caption{Response of $T_D$ and $T_B $ to step change in $T_{B, \textrm{ref}}$}
-\label{fig:T_B_step}
-\end{figure}
 
 \newpage
 \begin{thebibliography}{9}
