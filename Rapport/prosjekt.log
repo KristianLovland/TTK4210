@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  10 MAR 2020 18:44
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  11 MAR 2020 19:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -598,58 +598,41 @@ most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
 loading the todonotes package. on input line 17.
 
-(./prosjekt.toc)
+(./prosjekt.toc [1
+
+])
 \tf@toc=\write4
 \openout4 = `prosjekt.toc'.
 
- [1
+ [2] [3]
+Overfull \hbox (2.42288pt too wide) in paragraph at lines 36--37
+[]\TU/lmr/m/n/12 These compositions, denoted $\OML/cmm/m/it/12 x[]$ \TU/lmr/m/n
+/12 and $\OML/cmm/m/it/12 x[]$\TU/lmr/m/n/12 , are in practice controlled throu
+gh
+ []
 
-] [2]
-
-LaTeX Warning: Reference `tab:requirements' on page 3 undefined on input line 3
-1.
-
-[3]
-File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005.eps 
-Graphic file (type eps)
-<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005.eps>
+[4] [5]
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005_step
 .eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005_step.eps>
 
-File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015.eps 
-Graphic file (type eps)
-<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015.eps>
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015_step
 .eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015_step.eps>
 
-File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019.eps 
-Graphic file (type eps)
-<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019.eps>
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019_step
 .eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019_step.eps>
 
-File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028.eps 
-Graphic file (type eps)
-<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028.eps>
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028_step
 .eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028_step.eps>
 
-File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024.eps 
-Graphic file (type eps)
-<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024.eps>
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024_step
 .eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024_step.eps>
 
-
-
-LaTeX Warning: Citation `balchen' on page 4 undefined on input line 144.
-
-[4] [5] [6] [7] [8] [9] [10] [11]
+ [6] [7] [8] [9] [10] [11]
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_eksperiment
 .eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_eksperiment.eps>
@@ -668,22 +651,22 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_bode.eps Gr
 aphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_bode.eps>
 
-Overfull \hbox (1.89923pt too wide) in paragraph at lines 243--243
+Overfull \hbox (1.89923pt too wide) in paragraph at lines 234--234
 \TU/lmr/m/n/12 teknisk 
  []
 
 
-Overfull \hbox (8.75122pt too wide) in paragraph at lines 243--243
+Overfull \hbox (8.75122pt too wide) in paragraph at lines 234--234
 \TU/lmr/m/n/12 funksjon 
  []
 
 
-Overfull \hbox (1.89923pt too wide) in paragraph at lines 243--243
+Overfull \hbox (1.89923pt too wide) in paragraph at lines 234--234
 \TU/lmr/m/n/12 teknisk 
  []
 
 
-Overfull \hbox (8.75122pt too wide) in paragraph at lines 243--243
+Overfull \hbox (8.75122pt too wide) in paragraph at lines 234--234
 \TU/lmr/m/n/12 funksjon 
  []
 
@@ -694,26 +677,15 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/DB_tuning/S2.eps Graphic file
  (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/DB_tuning/S2.eps>
 [12] [13] [14] [15] [16]
-Overfull \hbox (9.99922pt too wide) in paragraph at lines 272--272
-[][]\TU/lmr/m/n/12 Simulate 
- []
-
-
-Overfull \hbox (3.65123pt too wide) in paragraph at lines 272--272
-\TU/lmr/m/n/12 sponses 
- []
-
-
-Overfull \hbox (9.99922pt too wide) in paragraph at lines 272--272
-[][]\TU/lmr/m/n/12 Simulate 
- []
-
-
-Overfull \hbox (3.65123pt too wide) in paragraph at lines 272--272
-\TU/lmr/m/n/12 sponses 
- []
-
-[17]
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/M_D_with_M_D_s
+tep.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/M_D_with_M_D_step.e
+ps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/M_B_with_M_B_s
+tep.eps Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/M_B_with_M_B_step.e
+ps>
+ [17] [18]
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_D_eksperi
 ment.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_D_eksperiment.
@@ -722,12 +694,7 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_B_eksperi
 ment.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_B_eksperiment.
 eps>
- [18] [19]
-
-LaTeX Warning: Reference `tab:LV_scaling' on page 20 undefined on input line 30
-6.
-
-[20]
+ [19] [20] [21]
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/LV_RGA.eps 
 Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/LV_RGA.eps>
@@ -750,7 +717,7 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_PI-
 reg.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_PI-reg.e
 ps>
- [21] [22] [23]
+ [22] [23]
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_wit
 h_T_D_step.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_with_T_D
@@ -783,19 +750,35 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_wit
 h_stepwise_T_B_step.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_with_ste
 pwise_T_B_step.eps>
- [24] [25] [26] [27] [28] [29] [30] [31] [32]
-(./prosjekt.aux)
+ [24] [25]
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005.eps 
+Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015.eps 
+Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019.eps 
+Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028.eps 
+Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028.eps>
+File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024.eps 
+Graphic file (type eps)
+<../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024.eps>
+ [26]
+[27] [28] [29] [30] [31] [32] [33] [34] [35] [36] (./prosjekt.aux)
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 15722 strings out of 492922
- 312545 string characters out of 6133408
- 369851 words of memory out of 5000000
- 19438 multiletter control sequences out of 15000+600000
+ 15706 strings out of 492922
+ 312374 string characters out of 6133408
+ 369556 words of memory out of 5000000
+ 19420 multiletter control sequences out of 15000+600000
  8502 words of font info for 42 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 62i,14n,81p,1515b,930s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,14n,81p,1080b,928s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on prosjekt.pdf (32 pages).
+Output written on prosjekt.pdf (36 pages).

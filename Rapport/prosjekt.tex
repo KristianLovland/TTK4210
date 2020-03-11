@@ -20,15 +20,20 @@
 
 \newpage
 \section{Abstract}
-In this project, a model of a butane distillation column was used to design a controller for the composition of two product streams consisting of n-butane and iso-butane, respectively. By identifying characteristics of relevant subsystems, PI controllers for the states of these systems were designed with the ultimate goal of keeping the purity of the products at a satisfactory level.
+In this project, a model of a butane distillation column was used to design a controller for the composition of two product streams consisting of n-butane and iso-butane, respectively. By identifying characteristics of relevant subsystems, PI controllers for the states of these systems were designed with the ultimate goal of keeping the purity of the products at a satisfactory level. In the end, quick control without excessive oscillation was acheived.
 
 \newpage
 \section{Introduction}
-A good introduction to the control problem we're faced with is given in the assignment text \cite{oppgavetekst}. A short summary follows
+
+\subsection{Structure of the report}
+The system analysis, controller design, controller tuning and results are presented in the order they were done. All experiments referred to when doing system identification are plotted in the appendix to avoid drowning the reader in plots. Matlab code is included where it was considered necessary.
+
+\subsection{Problem summary}
+A good introduction to the control problem we're faced with is given in the assignment text \cite{oppgavetekst}. A short summary follows.
 
 The top product is required to contain no more than 4\% n-butane, while the bottom product is required to contain less than 2,5\% iso-butane. 
 
-These compositions, denoted $x_D^*$ and $x_B^*$ are in practice controlled through their temperatures. These are measured on the top and bottom of the distillation column, and are denoted $T_D$ and $T_B$. The temperature needed to acheive the required compositions are shown in \ref{tab:requirements}, together with the actual temperature setpoint. These are a bit lower/higher than they strictly need to introduce a safety margin.
+These compositions, denoted $x_D^*$ and $x_B^*$, are in practice controlled through their temperatures. These are measured on the top and bottom of the distillation column, and are denoted $T_D$ and $T_B$. The temperature needed to acheive the required compositions are shown in \ref{tab:requirements}, together with the actual temperature setpoint. These are a bit lower/higher than than strictly necessary to introduce a safety margin.
 
 \begin{table}[h]
 \centering
@@ -38,11 +43,12 @@ Top product ($D$) & $35,85^\circ$ C & $35,30^\circ$ C\\
 Bottom product ($B$) & $47,69^\circ$ C & $48,51^\circ$ C
 \end{tabular}
 \caption{Temperatures giving satisfactory product quality}
+\label{tab:requirements}
 \end{table}
 
-To satisfy these specifications, the rest of the systems need to work well too. The levels $M_D$ and in the top accumulator and $M_B$ in the distillation column need to be controlled to stable setpoints. The same goes for distillation column pressure $p$.
+To satisfy these specifications, the rest of the states in the system need to stay in reasonable areas. This means levels $M_D$ in the top accumulator and $M_B$ in the distillation column, together with distillation column pressure $p$, need to be controlled stably to their setpoints.
 
-To control these five variables, five degrees of freedom is needed. Our five manipulated variables are flow rates in different parts of the system, denoted $V_T$, $L$, $D$, $V$ and $B$. Each of these is controlled directly by a valve. \todo{Sjekk om dette stemmer}
+To control these five variables, five degrees of freedom is needed. Our five manipulated variables are flow rates in different parts of the system, denoted $V_T$, $L$, $D$, $V$ and $B$. Each of these are controlled by their own inputs, mostly valves.
 
 Table \ref{tab:pairings} shows the pairing of manipulated and controlled variables. As mentioned, it is assumed that choosing good setpoints for $T_D$ and $T_B$ gives satisfactory product quality. This control structure is called LV-control, after the manipulated variables used to control product quality.
 
@@ -58,34 +64,32 @@ Controlled variable & $p$ & $M_D$ & $M_B$ & $T_D$ & $T_B$
 \end{table}
 
 \newpage
-\section{Tuning secondary controllers}
-The secondary controllers were tuned individually using the SIMC method for PI controllers. A step in process input with an amplitude small enough to not cause problems (usually meaning 50\% of maximum accepted input magnitude) in other parts of the system was used for all the secondary controllers, controlling the states $D$, $L$, $B$, $V$ and $p$.
+\section{Secondary controllers}
+The secondary controllers were tuned individually using the SIMC method for PI controllers. A step in process input of $50\%$ of maximum input was used for all the secondary controllers controlling the states $D$, $L$, $B$ and $p$. For $V$, a step input change of $20\%$ was used to avoid effects from other parts of the system.
 
-A summary of the method is given in \cite{regtek}. The method assumes that the system can be approximated by a first order process with time delay
+\subsection{The SIMC method}
+A summary of the SIMC method is given in \cite{regtek}. The method assumes that the system can be approximated by a first order process with time delay, which has transfer function
 
 \begin{equation}
 G(s) = \frac{k e^{-\theta s}}{1 + T_1 s}
 \end{equation}
-and be controlled by a PI controller
+This system is to be controlled by a PI controller
 
 \begin{equation}
 K(s) = K_p\frac{1 + T_i s}{T_i s}
 \end{equation}
 
-The SIMC method gives rules for choosing $K_p$ and $T_i$, given a desired closed-loop time contant $T_L$. Assuming the step response behaves similarly to a first order system, the method is then as follows
+The SIMC method gives rules for choosing $K_p$ and $T_i$, given a desired closed-loop time contant $T_L$. The two steps of the method are then
 
 \begin{enumerate}
 \item Fit the step response to a first order model. This means finding time delay $\theta$, slope $k' = \frac{dy/dt}{\Delta u}$ and time constant $T_1$ from the plot of the step response.
 \item To achieve the desired time constant $T_L$, use the PI controller parameters $K_p = \frac{1}{k'} \frac{1}{\tau + T_L}$, $T_i = \min(T_1, 4(\tau + T_L))$.
 \end{enumerate}
+How one chooses $T_L$ depends on the desired response. In \cite{regtek}, $T_L = 0.3\tau$ is suggested for "aggressive" control. If no overshoot is desired, one should choose $T_L > \tau$.
 
 % Figurer, open-loop stegrespons
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005.eps}
-\caption{Open-loop step response of $D$}
-\label{fig:ol_step_FC1005}
-
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005_step.eps}
 \caption{Closed-loop step response of $D$}
 \label{fig:cl_step_FC1005}
@@ -93,10 +97,6 @@ The SIMC method gives rules for choosing $K_p$ and $T_i$, given a desired closed
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015.eps}
-\caption{Open-loop step response of $L$}
-\label{fig:ol_step_FC1015}
-
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015_step.eps}
 \caption{Closed-loop step response of $L$}
 \label{fig:cl_step_FC1015}
@@ -104,10 +104,6 @@ The SIMC method gives rules for choosing $K_p$ and $T_i$, given a desired closed
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019.eps}
-\caption{Open-loop step response of $B$}
-\label{fig:ol_step_FC1019}
-
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019_step.eps}
 \caption{Closed-loop step response of $B$}
 \label{fig:cl_step_FC1019}
@@ -115,10 +111,6 @@ The SIMC method gives rules for choosing $K_p$ and $T_i$, given a desired closed
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028.eps}
-\caption{Open-loop step response of heat exchanger area, related to $V$}
-\label{fig:ol_step_LC1028}
-
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028_step.eps}
 \caption{Closed-loop step response of heat exchanger area, related to $V$}
 \label{fig:cl_step_LC1028}
@@ -126,26 +118,21 @@ The SIMC method gives rules for choosing $K_p$ and $T_i$, given a desired closed
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024.eps}
-\caption{Open-loop step response of $p$}
-\label{fig:ol_step_PC1024}
-
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024_step.eps}
 \caption{Closed-loop step response of $p$}
 \label{fig:cl_step_PC1024}
 \end{figure}
 
+\subsection{Tuning}
 The step experiments can be seen in figures \ref{fig:ol_step_FC1005}, \ref{fig:ol_step_FC1015}, \ref{fig:ol_step_FC1019}, \ref{fig:ol_step_LC1028} and \ref{fig:ol_step_PC1024}. The reference signals should have been omitted from these plots since we are dealing with open loop systems, and can safely be ignored here.
 
-The plots show that for the first three variables, the accuracy of the simulation is clearly not sufficient for fitting a first order model (they behave in a stepwise fashion). Inspecting the order of magnitude of the gains and time constants may however still be useful. To approximate their sizes, a straight line was drawn from initial state to steady-state.
+The plots show that for the first three variables, the accuracy of the simulation is clearly not sufficient for fitting a first order model (they behave in a stepwise fashion). Inspecting the orders of magnitude of the gains and time constants may however still be useful. To approximate their sizes, a straight line was drawn from initial state to steady-state. Its slope was considered to be $\frac{dy}{dt}$, and the point where this line crossed $63\%$ of the change was considered to be the time constant. This method clearly causes underestimates of $\frac{dy}{dt}$ and overestimates of $T_1$, but it's hard to find a meaningful way to fit a tangent given the insufficient information. For the two other variables, more reasonable readings could be done. All results are shown in table \ref{tab:inner_loop_step_responses}.
 
-An attempt at making sense of these parameters is shown in table \ref{tab:inner_loop_step_responses}, together with the fitted values for $V$ and $p$. This gives conservative estimates of $k'$ and $T_1$.
-
-In the table, a desired time constant for the controlled system $T_L$ is shown in the rightmost column. For a quick response, choosing $T_L = 0,3\tau$ is suggested in \cite{balchen}. Some simple trial and error in K-spice showed that this lead to oscillation and unfortunate interaction between control loops, especially the controllers for $D$ and $L$. This is probably partly due to the underestimates of $k'$ and $T_1$ for these variables, since conservative estimates of these results in more aggressive controllers (to compensate for the slow system) when using the SIMC method.
+Our desired time constant $T_L$ for each loop is shown in the table as well. Initially, $T_L = 0,3\tau$ was chosen for the three fastest loops. Some simple trial and error in K-spice showed that this lead to oscillation and unfortunate interaction between control loops, especially the controllers for $D$ and $L$. This is probably partly due to the underestimates of $k'$ and $T_1$ for these variables. Conservative estimates of these results in more aggressive controllers (to compensate for the slow system) when using the SIMC method.
 
 Due to this unsatisfactory behaviour, $T_L = 2\tau$ was chosen for the three fastest control loops instead. The time delay was hard to make a meaningful reading of for the two other systems, so a somewhat arbitrary choice of $T_L = 10s$ was chosen for these systems (instead of using the $T_L = 2\tau$ rule). Like all the other parameters, these were not absolute choices, but a good starting point for further tuning.
 
-After calculating the SIMC controller values some qualitative tuning using K-spice simulations was, not surprisingly, needed. For $D$ and $L$, the integral times were kept fixed, and the gain was decreased to avoid oscillations. For $B$, it was necessary to reduce the integral time in addition to reducing the gain to avoid oscillation. The response of $V$ was slow, and to avoid bandwith limitations in the control of $T_B$ later, both controller parameters were changed to give dramatically more aggressive behaviour. For $p$, the stationary deviation was initially removed pretty slowly, so the integral time was reduced, while also reducing gain to avoid oscillation.
+After calculating the SIMC controller values, some more qualitative tuning using K-spice simulations was not surprisingly needed. For $D$ and $L$, the integral times were kept fixed, while the gain needed to be decreased to avoid oscillations. For $B$, it was necessary to reduce the integral time in addition to reducing the gain to avoid oscillation. The response of $V$ was slow, and to avoid bandwith limitations in the control of $T_B$ later, both controller parameters were changed to give dramatically more aggressive behaviour. For $p$, the stationary deviation was initially removed pretty slowly, so the integral time was reduced, while also reducing gain to avoid oscillation.
 
 The results of implementing these controllers in K-spice, using the internally scaled gain $G = K_p \frac{(y_{\max} - y_{\min})}{(u_{\max} - u_{\min})}$ for all controllers, are shown in figures \ref{fig:cl_step_FC1005}, \ref{fig:cl_step_FC1015}, \ref{fig:cl_step_FC1019}, \ref{fig:cl_step_LC1028} and \ref{fig:cl_step_PC1024}.
 
@@ -182,18 +169,21 @@ $p$ & 0,57 & 40s & 0,25 & 20s
 
 \newpage
 \section{Level controllers}
-In this section, the subsystem consisting of the levels in the reflux drum and distillation column is identified, using the inputs $D$ and $B$. Let $y = [M_D \quad M_B]^T$ and $r = [M_{D, \textrm{ref}} \quad M_{B, \textrm{ref}}]^T$. By exciting the controlled system
+The level controllers were identified using the \texttt{d-sr} toolbox on the closed-loop responses of the level control loops in the reflux drum, and in the distillation column.
+
+\subsection{Notation}
+The system being analysed in the sectioon consists of the input $u = [D \quad B]^T$, the state $y = [M_D \quad M_B]^T$ and the reference$r = [M_{D, \textrm{ref}} \quad M_{B, \textrm{ref}}]^T$. By exciting the controlled system
 \begin{equation}
 y(s) = L(s)e(s) = G(s) K(s) (y(s) - r(s))
 \end{equation}
-with changes in the reference $r$, the loop transfer function $L(s) = \frac{y}{e}(s)$ may be identified. Choosing $K(s)$ to be diagonal makes further analysis and controller tuning easier.
+with changes in $r$, the loop transfer function $L(s) = \frac{y}{e}(s)$ may be identified. Choosing $K(s)$ to be diagonal during the identification experiment makes further analysis and controller tuning easier.
 
 \subsection{System identification and analysis}
 \subsubsection{Experiment}
-The level controllers in the distillation column and reflux drum were expected to be more or less independent, but a MIMO experiment followed by identification using the \texttt{d-sr} toolbox was used anyway, due to the convenience of being able to reuse code in the composition control task. The system was excited by step changes in references for $M_D$ and $M_B$, which were controlled with P controllers, both with $K_p = 1200$. The references were changed after different intervals, to better extract information about all frequencies. The states were attempted held in a reasonable interval, to avoid nonlinear effects such as saturation. The experiments are shown in figures \ref{fig:MD_experiment} and \ref{fig:MB_experiment}.
+The level controllers in the distillation column and reflux drum were expected to be more or less independent, but MIMO identification with \texttt{d-sr} was used anyway, due to the convenience of being able to reuse code in the composition control task. The system was excited by step changes in references for $M_D$ and $M_B$, which were controlled with P controllers, both with $K_p = 1200$. The references were changed at different periods, to better extract information about all frequencies. The states were attempted held in a reasonable interval, to avoid nonlinear effects such as saturation. The experiments are shown in figures \ref{fig:MD_experiment} and \ref{fig:MB_experiment}.
 
 \subsubsection{Analysis}
-The identified model was chosen to have order 2, which is natural for a what was expected to be a diagonal system with two variables. The interactions of the resulting system is shown in figure \ref{fig:BD_RGA}, which show the RGA of the identified $G(s)$. Inspecting this plot shows that the magnitudes of the off-diagonal elements are negligible at frequencies above $10^{-3} \frac{\textrm{rad}}{\textrm{s}}$. The diagonal elements have gain close to unity at the bandwith frequency (which is around $\omega = 0,01$). Since interaction is low, a diagonal controller
+The identified model was chosen to have order 2, which is natural for what was expected to be a diagonal system with two variables. The interactions of the resulting system is shown in figure \ref{fig:BD_RGA}, which show the RGA of the identified $G(s)$. Inspecting this plot shows that the magnitudes of the off-diagonal elements are negligible at frequencies above $10^{-3} \frac{\textrm{rad}}{\textrm{s}}$. We shall see that this is well below the bandwith frequencies of the two loops. The diagonal elements of the RGA however, have gain close to unity at the bandwith frequencies. From here, the level controller system is considered to be diagonal, and the control loops are tuned independently using SISO methods. Continuing using MIMO notation, a diagonal controller
 \begin{equation}
 K(s) =
 \begin{bmatrix}
@@ -201,15 +191,16 @@ k_1(s) & 0\\
 0 & k_2(s)
 \end{bmatrix}
 \end{equation}
-with PI controllers $k_1(s)$ and $k_2(s)$ may be designed independently based on the diagonal elements in the identified $G(s)$. In the following analysis, $L(s)$ is used for simplicity, since it is simply a scaled version of $G(s)$. The controller designed below will then simply be multiplied by the existing $K(s)$ when being implemented.
+with PI controllers $k_1(s)$ and $k_2(s)$ is designed based on the diagonal elements in the identified $G(s)$.
 
-Figures \ref{fig:L11} and \ref{fig:L22} show the Bode plots of the transfer functions in the diagonals of the identified model. Ignoring the$360^\circ$ error in phase, the gain margin of loop transfer function $l_{11}(s) = \frac{M_D}{M_{D, ref}}(s)$ may be found to be to be 6,74dB as $\omega \rightarrow \infty$. Likewise, the gain margin of $l_{22}(s) = \frac{M_B}{M_{B, ref}}(s)$ is read to be 10,7dB as $\omega \rightarrow \infty$. Using the 6dB gain margin rule of thumb (which is often used in \cite{regtek}), $K_{p, D}$ should not be increased by any significant amount, while $K_{p, B}$ might be increased by a factor of $10^{(10,7-6)/20} \approx 1,7$, yielding the controller gain $K_{p, B} = 2000$.
+Figures \ref{fig:L11} and \ref{fig:L22} show the Bode plots of the transfer functions in the diagonals of the identified model. Note that these correspond to the loop transfer function $G(s) K(s)$ using a P controller with $K_p = 1200$. The controller derived here therefore has to be multiplied with this existing $K(s)$ when implemented.
 
-The phase plot of $l_{11}$ shows that the integral controller should be active in the lower frequency spectrum. To avoid the phase crossing the $-180^\circ$ line, the inequality $\frac{1}{T_{i, D}} < 2 \cdot 10^{-4}$ should be respected. Choosing $T_i = 5000s$ satisfies this. The phase response of $l_{22}$ is pretty similar to the one of $l_{11}$, so initially choosing the same integral time for control of $M_B$ should be reasonable.
+Ignoring the $360^\circ$ error in phase, the gain margin of loop transfer function $l_{11}(s) = \frac{M_D}{M_{D, ref}}(s)$ may be found to be to be 6,74dB as $\omega \rightarrow \infty$. Likewise, the gain margin of $l_{22}(s) = \frac{M_B}{M_{B, ref}}(s)$ is read to be 10,7dB as $\omega \rightarrow \infty$. Using the 6dB gain margin rule of thumb (which is often used in \cite{regtek}), $K_{p, D}$ should not be increased by any significant amount, while $K_{p, B}$ might be increased by a factor of $10^{(10,7-6)/20} \approx 1,7$, yielding the controller gain $K_{p, B} = 2000$.
 
-Figures \ref{fig:S1} and \ref{fig:S2} shows the magnitudes of the sensitivity functions for the two systems using these controllers. The distillation column is, not surprisingly, the hardest system of the two to control quickly. One might wish to push the bandwith of the $M_B$ loop further to the right, but inspecting the phase plot again suggests not to attempt this. This is because the phase margin would be dangerously low $K_p$ was increased or $T_i$ was decreased, and the system would become more sensitive to time delays and similar phenomena. Disturbances at frequencies above $0,005 \frac{\textrm{rad}}{\textrm{s}}$ should hopefully not be common in this system anyway.
+The phase plot of $l_{11}$ shows that the integral part of the controller should be active in the lower frequency spectrum. To avoid the phase crossing the $-180^\circ$ line, the choice of $T_i = 5000s$ is made. The phase response of $l_{22}$ is pretty similar to the one of $l_{11}$, so initially choosing the same integral time for control of $M_B$ should be reasonable.
 
-\todo[inline]{Figur av stegrespons til nivåregulering}.
+Figures \ref{fig:S1} and \ref{fig:S2} show the magnitudes of the sensitivity functions for the two systems using these controllers. The distillation column is, not surprisingly, the hardest system of the two to control quickly. One might wish to push the bandwith of the $M_B$ loop further to the right, but inspecting the phase plot again suggests not to attempt this. This is because the phase margin would be dangerously low $K_p$ was increased or $T_i$ was decreased, and the system would become more sensitive to time delays and similar phenomena. Disturbances at frequencies above $0,005 \frac{\textrm{rad}}{\textrm{s}}$ should hopefully not be common in this system anyway.
+
 
 \begin{figure}[p]
 \centering
@@ -254,9 +245,9 @@ Figures \ref{fig:S1} and \ref{fig:S2} shows the magnitudes of the sensitivity fu
 \end{figure}
 
 \subsection{Controller tuning}
-Simulation in K-spice showed stationary deviation in $M_D$. To counteract this, the integral time was reduced. Control of $M_B$ worked satisfactory using the PI controller derived from the frequency analysis above.
+Simulation in K-spice showed stationary deviation in $M_D$. To counteract this, the integral time was reduced. Control of $M_B$ worked satisfactory using the PI controller derived from the frequency analysis above. The slow time constants of these systems combined with the complexity of the K-spice model, made tuning based on the K-spice model unpractical. It's natural to believe that access to more computing power would make it possible to find better controller parameters, but the controllers derived in from the analysis above didn't seem to be too terrible.
 
-The initial parameters based on loop-shaping, and the final ones are shown in table \ref{tab:DB_parameters}.
+The initial parameters based on loop-shaping, and the final ones are shown in table \ref{tab:DB_parameters}. The step responses of the controlled levels are shown in figures \ref{fig:MD_step} and \ref{fig:MB_step}.
 
 \begin{table}[h]
 \centering
@@ -269,7 +260,19 @@ The initial parameters based on loop-shaping, and the final ones are shown in ta
 \label{tab:DB_parameters}
 \end{table}
 
-\todo{Simulate and plot step responses from K-spice}
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/M_D_with_M_D_step.eps}
+\caption{Step response of controlled $M_D$}
+\label{fig:MD_step}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/M_B_with_M_B_step.eps}
+\caption{Step response of controlled $M_B$}
+\label{fig:MB_step}
+\end{figure}
 
 \newpage
 \section{Composition controllers}
@@ -280,7 +283,7 @@ G(s) = \frac{y}{u}(s)
 may be identified directly.
 \subsection{System identification and analysis}
 \subsubsection{Experiment}
-Identification of the LV system was done in a similar manner as in the previous section, using step changes in input (but open-loop this time). Again, \texttt{d-sr} was used for identification. The periods of the step changes were chosen more systematically than in the level experiment, with periods of 5 minutes, 15 minutes and $\approx2$ minutes being used for different periods of time. This was done to get an accurate representation of the system at all frequencies. The inputs $L$ and $V$ were changed alternatingly (i.e. $90^\circ$ out of phase), to avoid ambiguity in which input caused what effect. Figure \ref{fig:LV_experiment} shows the experiment.
+Identification of the LV system was done in a similar manner as in the previous section, using step changes in input (but open-loop this time). Again, \texttt{d-sr} was used for identification. The periods of the step changes were chosen more systematically than in the level experiment, with periods of 5 minutes, 15 minutes and $\approx2$ minutes being used for different periods of time. This was done to get an accurate representation of the system at all frequencies. The inputs $L$ and $V$ were changed alternatingly (i.e. $90^\circ$ out of phase), to avoid ambiguity in which input caused what effects. Figure \ref{fig:LV_experiment} shows the inputs ($L$ and $V$) and resulting outputs ($T_D$ and $T_B$) in the experiment.
 
 \begin{figure}[p]
 \centering
@@ -293,7 +296,7 @@ Identification of the LV system was done in a similar manner as in the previous 
 \subsubsection{Analysis}
 Figure \ref{fig:LV_RGA} shows the RGA of the identified system $G(s) = \frac{y}{u}(s)$. The chosen pairing is clearly the most reasonable. The interactions doesn't seem to be any problem, but the RGA doesn't tell the whole story. There is reason to believe that temperature in the bottom affects temperature in the top, and the right tool for this analysis is the \textit{Performance Relative Gain Array} (PRGA).
 
-Let $\tilde{G} = \textrm{diag}\{g_{ii}\}$, i.e. it contains only the diagonal elements of the system matrix. This matrix is a useful tool for analysing interactions, and is used in the definition of the PRGA
+Let $\tilde{G} = \textrm{diag}\{g_{ii}\}$, i.e. the matrix consisting of only the diagonal elements of the system matrix. This matrix is a useful tool for analysing interactions, and is used in the definition of the PRGA
 
 \begin{equation}
 \Gamma = \tilde{G} G^{-1}
@@ -303,11 +306,11 @@ This matrix is used as a measure of interaction. It is scaling dependent, so bef
 \begin{equation}
 e = y - r = G(s) u + G_d(s) d - r
 \end{equation}
-the signals should be scaled such that the maximum expected disturbance and maximum acceptable error both are of magnitude one. Table \ref{tab:LV_scaling} shows the range used in K-spice for the states in the temperature control loops, and maximum accepted/expected value for signals only used in analysis ($e$ and $d$). To be clear, the following analysis holds for both control loops, with $y$ being temperature, $r$ reference temperature, and $u$ process input. The maximum error allowed is chosen based on the lowest margin proposed in the assignment text. The choice of a maximum disturbance of one degree celsius is somewhat arbitrary, but seemed reasonable and at least not too optimistic given the information that one degree is considered a large step in temperature.
+the signals should be scaled such that the maximum expected disturbance and maximum acceptable error both are of magnitude one. Table \ref{tab:LV_scaling} shows the range used in K-spice for the states in the temperature control loops, and maximum accepted error. To be clear, the following analysis holds for both control loops, with $y$ being temperature, $r$ reference temperature, and $u$ process input. The maximum error allowed is chosen based on the lowest margin proposed in the assignment text. Disturbance rejection is not considered because it is assumed that no disturbance will be greater than the disturbance coming from interaction between the loops. This effect is handled if we manage to keep $| e | < 1$.
 
 The PRGA using this scaling is shown in figure \ref{fig:LV_PRGA}. It is now clear that one can't simply choose a bandwith of $0,01 \frac{\textrm{rad}}{\textrm{s}}$ and call it a day, since the interaction from $V$ to $T_D$ has its peak at this frequency.
 
-What should be done, then? Since we're dealing with a MIMO system, only using the diagonal parts of $G$ for designing controllers won't suffice. Our main objectives are to follow the reference, and to counteract disturbances. In \cite{skogestad}, some rules for designing independent controllers for MIMO systems are proposed. 
+What should be done, then? Since we're dealing with a MIMO system, only using the diagonal parts of $G$ for designing controllers won't suffice. Our main objectives is to follow the reference. In \cite{skogestad}, some rules for designing independent controllers for MIMO systems are proposed. One of these considers reference tracking, and is used here.
 
 For effecient reference tracking in a SISO system, an error magnitude $| e(j \omega) |$ less than one is achieved when
 
@@ -325,12 +328,11 @@ The situation for a MIMO system is a bit more complicated when we have interacti
 \begin{equation}
 | 1 + L_i | > | \gamma_{ij} | \cdot |R_j|
 \end{equation}
-Here, $L_i = g_{ii}k_i$ is the loop transfer function in loop $i$, and $R_j$ is the magnitude of the reference change in loop $j$. For simplicity, it is assumed that no disturbances of magnitude larger than the accepted error enters the system. This shouldn't be too restrictive, since disturbances in a system like this are either
-\begin{enumerate}
-\item Slowly varying, meaning the integral effect in the controllers take care of them
-\item Due to measurement, meaning they enter well above the bandwith of the system
-\end{enumerate}
-Assuming $R_1 = R_2 = 1$, the requirements are as plotted in figures \ref{fig:L1_performance1} and \ref{fig:L2_performance1}, using $L_i = G_i$ (P controllers with unit gain). Inspecting these, it becomes clear that the state most desperately in need of control is $T_D$. This is not surprising, since the PRGA showed the effect of $T_B$ on $T_D$ being large, while the effect the other way was more or less negligible. Hence, suppressing the effects $T_B$ has on $T_D$ is our most important task, while the control of $T_B$ should be pretty problem free if the controller parameters aren't completely ridiculous. To shape $| 1 + L_1 |$, the integral time was first changed. $T_i = 100$s turned out to give a low maximum distance between $| 1 + L_1 |$ and $| \gamma_{1i} |$. $K_p$ was then chosen to be as small as possible while still satisfying the criterion, yielding $K_p = 12$. This actually satisfies the criterion at all frequencies, as shown in \ref{fig:L1_performance2}. The restriction of the $T_B$ loop being located in a higher part of the frequency spectrum gave rise to the choice of $T_i = 1000s$ for this PI controller. A sneaking feeling that the PRGA might have underestimated the effects of $T_D$ on $T_B$ was the background for requiring $| 1 + L_2 | > | \gamma_{22} |$ for all $\omega < 10^{-2}$, which as shown in figure \ref{fig:L2_performance2} is satisfied when $K_p = 25$. A summary of the resulting controller is shown in table \ref{tab:LV_parameters}
+Here, $L_i = g_{ii}k_i$ is the loop transfer function in loop $i$, and $R_j$ is the magnitude of the reference change in loop $j$.
+
+Assuming $R_1 = R_2 = 1$ (which should hold for our rescaled system), the requirements are as plotted in figures \ref{fig:L1_performance1} and \ref{fig:L2_performance1}, using $L_i = G_i$ (P controllers with unit gain). Inspecting these, it becomes clear that the state most desperately in need of better control is $T_D$. This is not surprising, since the PRGA showed the effect of $T_B$ on $T_D$ being large, while the effect the other way was more or less negligible. Hence, suppressing the effects $T_B$ has on $T_D$ is our most important task, while the control of $T_B$ should be relatively problem free if the controller parameters aren't chosen completely ridiculously. To shape $| 1 + L_1 |$, the integral time was first changed. $T_i = 100$s turned out to give a low maximum distance between $| 1 + L_1 |$ and $| \gamma_{1i} |$. $K_p$ was then chosen to be as small as possible while still satisfying the criterion, yielding $K_p = 12$. This actually satisfies the criterion at all frequencies, as shown in \ref{fig:L1_performance2}.
+
+The restriction of the $T_B$ loop being located in a higher part of the frequency spectrum gave rise to the choice of $T_i = 1000s$ for this PI controller. Though the PRGA didn't suggest interaction from $T_D$ to $T_B$ would be a problem, the loop was designed to respect the inequality $| 1 + L_2 | > | \gamma_{22} |$ for all $\omega < 10^{-2}$ (meaning interaction from $T_D$ should be suppressed). As shown in figure \ref{fig:L2_performance2} is satisfied when $K_p = 25$. A summary of the resulting controller is shown in table \ref{tab:LV_parameters}
 
 \begin{table}[h]
 \centering
@@ -353,10 +355,10 @@ $T_{D, \textrm{ref}}$ & $25^\circ$C & $50^\circ$C & $25^\circ$C \\
 $T_{B, \textrm{ref}}$ & $25^\circ$C & $50^\circ$C & $25^\circ$C \\
 $L$ & $0 \frac{\textrm{t}}{\textrm{h}}$ & $120 \frac{\textrm{t}}{\textrm{h}}$ & $120 \frac{\textrm{t}}{\textrm{h}}$ \\
 $V$ & $0\%$ & $100\%$ & $100\%$ \\
-$e$ & - & - & $0,55^\circ$C \\
-$d$ & - & - & $1,0^\circ$C
+$e$ & - & - & $0,55^\circ$C
 \end{tabular}
 \caption{Scaling used in LV system analysis}
+\label{tab:LV_scaling}
 \end{table}
 
 \begin{figure}[p]
@@ -394,10 +396,6 @@ $d$ & - & - & $1,0^\circ$C
 \caption{}
 \label{fig:L2_performance2}
 \end{figure}
-
-
-\subsection{Controller tuning}
-Using the given parameters results in the closed loop responses given in the following plots.
 
 \newpage
 \section{Results}
@@ -495,5 +493,45 @@ $T_B$ (TC1088) & 25 & 6,3 & 1000s
   2016.
 
 \end{thebibliography}
+
+\newpage
+\appendix
+\section{System identification experiments}
+\subsection{Open-loop responses of manipulated variables}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005.eps}
+\caption{Open-loop step response of $D$}
+\label{fig:ol_step_FC1005}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015.eps}
+\caption{Open-loop step response of $L$}
+\label{fig:ol_step_FC1015}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019.eps}
+\caption{Open-loop step response of $B$}
+\label{fig:ol_step_FC1019}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028.eps}
+\caption{Open-loop step response of heat exchanger area, related to $V$}
+\label{fig:ol_step_LC1028}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024.eps}
+\caption{Open-loop step response of $p$}
+\label{fig:ol_step_PC1024}
+\end{figure}
 
 \end{document}

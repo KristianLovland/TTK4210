@@ -14,7 +14,7 @@ clc
 % filename = 'Experiments/MD_initial_tuning_experiment.txt';
 % filename = 'Experiments/MB_initial_tuning_experiment.txt';
 % filename = 'Experiments/LV_identification_experiment.txt';
-filename = 'Experiments/LV_experiment2_2.txt';
+% filename = 'Experiments/LV_experiment2_2.txt';
 % filename = 'Experiments/D_step.txt';
 % filename = 'Experiments/L_step.txt';
 % filename = 'Experiments/B_step.txt';
@@ -22,6 +22,8 @@ filename = 'Experiments/LV_experiment2_2.txt';
 % filename = 'Experiments/p_step.txt';
 % filename = 'Experiments/T_D_step.txt';
 % filename = 'Experiments/T_B_step.txt';
+% filename = 'Experiments/MD_step.txt';
+filename = 'Experiments/MB_step.txt';
 % filename = 'Experiments/inflow_step.txt';
 % filename = 'Experiments/T_D_step_2hrs.txt';
 % filename = 'Experiments/T_D_step_4hrs.txt';
