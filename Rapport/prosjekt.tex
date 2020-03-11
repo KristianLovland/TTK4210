@@ -16,6 +16,7 @@
 
 \begin{document}
 \maketitle
+\newpage
 \tableofcontents
 
 \newpage
@@ -87,7 +88,48 @@ The SIMC method gives rules for choosing $K_p$ and $T_i$, given a desired closed
 \end{enumerate}
 How one chooses $T_L$ depends on the desired response. In \cite{regtek}, $T_L = 0.3\tau$ is suggested for "aggressive" control. If no overshoot is desired, one should choose $T_L > \tau$.
 
-% Figurer, open-loop stegrespons
+\subsection{Tuning}
+The step experiments can be seen in figures \ref{fig:ol_step_FC1005}, \ref{fig:ol_step_FC1015}, \ref{fig:ol_step_FC1019}, \ref{fig:ol_step_LC1028} and \ref{fig:ol_step_PC1024}. The reference signals should have been omitted from these plots since we are dealing with open loop systems, and can safely be ignored here.
+
+The plots show that for the first three variables, the accuracy of the simulation is clearly not sufficient for fitting a first order model (they behave in a stepwise fashion). Inspecting the orders of magnitude of the gains and time constants may however still be useful. To approximate their sizes, a straight line was drawn from initial state to steady-state. Its slope was considered to be $\frac{dy}{dt}$, and the point where this line crossed $63\%$ of the change was considered to be the time constant. This method clearly causes underestimates of $\frac{dy}{dt}$ and overestimates of $T_1$, but it's hard to find a meaningful way to fit a tangent given the insufficient information. For the two other variables, more reasonable readings could be done. All results are shown in table \ref{tab:inner_loop_step_responses}.
+
+Our desired time constant $T_L$ for each loop is shown in the table as well. Initially, $T_L = 0,3\tau$ was chosen for the three fastest loops. Some simple trial and error in K-spice showed that this lead to oscillation and unfortunate interaction between control loops, especially the controllers for $D$ and $L$. This is probably partly due to the underestimates of $k'$ and $T_1$ for these variables. Conservative estimates of these results in more aggressive controllers (to compensate for the slow system) when using the SIMC method.
+
+Due to this unsatisfactory behaviour, $T_L = 2\tau$ was chosen for the three fastest control loops instead. The time delay was hard to make a meaningful reading of for the two other systems, so a somewhat arbitrary choice of $T_L = 10s$ was chosen for these systems (instead of using the $T_L = 2\tau$ rule). Like all the other parameters, these were not absolute choices, but a good starting point for further tuning.
+
+After calculating the SIMC controller values, some more qualitative tuning using K-spice simulations was not surprisingly needed. For $D$ and $L$, the integral times were kept fixed, while the gain needed to be decreased to avoid oscillations. For $B$, it was necessary to reduce the integral time in addition to reducing the gain to avoid oscillation. The response of $V$ was slow, and to avoid bandwith limitations in the control of $T_B$ later, both controller parameters were changed to give dramatically more aggressive behaviour. For $p$, the stationary deviation was initially removed pretty slowly, so the integral time was reduced, while also reducing gain to avoid oscillation.
+
+The results of implementing these controllers in K-spice, using the internally scaled gain $G = K_p \frac{(y_{\max} - y_{\min})}{(u_{\max} - u_{\min})}$ for all controllers, are shown in figures \ref{fig:cl_step_FC1005}, \ref{fig:cl_step_FC1015}, \ref{fig:cl_step_FC1019}, \ref{fig:cl_step_LC1028} and \ref{fig:cl_step_PC1024}.
+
+\begin{table}
+\centering
+\begin{tabular}{c | c | c | c | c | c || c}
+& $\tau$ & $T_1$ & $\frac{dy}{dt}$ & $\Delta u$ & $k'$ & $T_L$ \\ \hline
+$D$ & 1,0s & 0,4s & 14,3 & 50\% & 28,6 & 2s \\
+$L$ & 1,0s & 1,0s & 47,5 & 50\% & 95,0 & 2s \\
+$B$ & 1,0s & 0,6s & 10,0 & 50\% & 20,0 & 2s \\
+$V$ & $\approx$ 0 & 400s & 0,028 & 20\% & 0,14 & 10s \\
+$p$ & $\approx$ 0 & 200s & 0,088 & 50\% & 0,18 & 10s
+\end{tabular}
+\caption{Identified parameters for inner loop}
+\label{tab:inner_loop_step_responses}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{c | c | c : c | c}
+& $K_{p, \textrm{SIMC}}$ & $T_{i, \textrm{SIMC}}$ & $K_{p, \textrm{final}}$ & $T_{i, \textrm{final}}$ \\ \hline
+$D$ & 0,012 & 0,4s & 0,0035 & 0,4s\\
+$L$ &  0,035 & 1,0s & 0,0018 & 1,0s \\
+$B$ & 0,016 & 0,6s & 0,0025 & 1,0s \\
+$V$ & 0,71 & 40s & 1,65 & 10s \\
+$p$ & 0,57 & 40s & 0,25 & 20s
+\end{tabular}
+\caption{PI controller parameters for inner loop}
+\label{tab:inner_loop_PI_parameters}
+\end{table}
+
+% Figurer, closed-loop stegrespons
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005_step.eps}
@@ -123,49 +165,6 @@ How one chooses $T_L$ depends on the desired response. In \cite{regtek}, $T_L = 
 \label{fig:cl_step_PC1024}
 \end{figure}
 
-\subsection{Tuning}
-The step experiments can be seen in figures \ref{fig:ol_step_FC1005}, \ref{fig:ol_step_FC1015}, \ref{fig:ol_step_FC1019}, \ref{fig:ol_step_LC1028} and \ref{fig:ol_step_PC1024}. The reference signals should have been omitted from these plots since we are dealing with open loop systems, and can safely be ignored here.
-
-The plots show that for the first three variables, the accuracy of the simulation is clearly not sufficient for fitting a first order model (they behave in a stepwise fashion). Inspecting the orders of magnitude of the gains and time constants may however still be useful. To approximate their sizes, a straight line was drawn from initial state to steady-state. Its slope was considered to be $\frac{dy}{dt}$, and the point where this line crossed $63\%$ of the change was considered to be the time constant. This method clearly causes underestimates of $\frac{dy}{dt}$ and overestimates of $T_1$, but it's hard to find a meaningful way to fit a tangent given the insufficient information. For the two other variables, more reasonable readings could be done. All results are shown in table \ref{tab:inner_loop_step_responses}.
-
-Our desired time constant $T_L$ for each loop is shown in the table as well. Initially, $T_L = 0,3\tau$ was chosen for the three fastest loops. Some simple trial and error in K-spice showed that this lead to oscillation and unfortunate interaction between control loops, especially the controllers for $D$ and $L$. This is probably partly due to the underestimates of $k'$ and $T_1$ for these variables. Conservative estimates of these results in more aggressive controllers (to compensate for the slow system) when using the SIMC method.
-
-Due to this unsatisfactory behaviour, $T_L = 2\tau$ was chosen for the three fastest control loops instead. The time delay was hard to make a meaningful reading of for the two other systems, so a somewhat arbitrary choice of $T_L = 10s$ was chosen for these systems (instead of using the $T_L = 2\tau$ rule). Like all the other parameters, these were not absolute choices, but a good starting point for further tuning.
-
-After calculating the SIMC controller values, some more qualitative tuning using K-spice simulations was not surprisingly needed. For $D$ and $L$, the integral times were kept fixed, while the gain needed to be decreased to avoid oscillations. For $B$, it was necessary to reduce the integral time in addition to reducing the gain to avoid oscillation. The response of $V$ was slow, and to avoid bandwith limitations in the control of $T_B$ later, both controller parameters were changed to give dramatically more aggressive behaviour. For $p$, the stationary deviation was initially removed pretty slowly, so the integral time was reduced, while also reducing gain to avoid oscillation.
-
-The results of implementing these controllers in K-spice, using the internally scaled gain $G = K_p \frac{(y_{\max} - y_{\min})}{(u_{\max} - u_{\min})}$ for all controllers, are shown in figures \ref{fig:cl_step_FC1005}, \ref{fig:cl_step_FC1015}, \ref{fig:cl_step_FC1019}, \ref{fig:cl_step_LC1028} and \ref{fig:cl_step_PC1024}.
-
-
-\begin{table}
-\centering
-\begin{tabular}{c | c | c | c | c | c || c}
-& $\tau$ & $T_1$ & $\frac{dy}{dt}$ & $\Delta u$ & $k'$ & $T_L$ \\ \hline
-$D$ & 1,0s & 0,4s & 14,3 & 50\% & 28,6 & 2s \\
-$L$ & 1,0s & 1,0s & 47,5 & 50\% & 95,0 & 2s \\
-$B$ & 1,0s & 0,6s & 10,0 & 50\% & 20,0 & 2s \\
-$V$ & $\approx$ 0 & 400s & 0,028 & 20\% & 0,14 & 10s \\
-$p$ & $\approx$ 0 & 200s & 0,088 & 50\% & 0,18 & 10s
-\end{tabular}
-\caption{Identified parameters for inner loop}
-\label{tab:inner_loop_step_responses}
-\end{table}
-
-\begin{table}
-\centering
-\begin{tabular}{c | c | c : c | c}
-& $K_{p, \textrm{SIMC}}$ & $T_{i, \textrm{SIMC}}$ & $K_{p, \textrm{final}}$ & $T_{i, \textrm{final}}$ \\ \hline
-$D$ & 0,012 & 0,4s & 0,0035 & 0,4s\\
-$L$ &  0,035 & 1,0s & 0,0018 & 1,0s \\
-$B$ & 0,016 & 0,6s & 0,0025 & 1,0s \\
-$V$ & 0,71 & 40s & 1,65 & 10s \\
-$p$ & 0,57 & 40s & 0,25 & 20s
-\end{tabular}
-\caption{PI controller parameters for inner loop}
-\label{tab:inner_loop_PI_parameters}
-\end{table}
-
-\todo{Sørg for å få $p$ skalert riktig (enhet er trykk, ikke flow)}
 
 \newpage
 \section{Level controllers}
@@ -204,17 +203,6 @@ Figures \ref{fig:S1} and \ref{fig:S2} show the magnitudes of the sensitivity fun
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_eksperiment.eps}
-\caption{System identification experiment for $M_D$ controller}
-\label{fig:MD_experiment}
-
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_eksperiment.eps}
-\caption{System identification experiment for $M_B$ controller}
-\label{fig:MB_experiment}
-\end{figure}
-
-\begin{figure}[p]
-\centering
 \includegraphics[width=\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/BD_RGA.eps}
 \caption{Magnitude of RGA of identified BD system}
 \label{fig:BD_RGA}
@@ -230,8 +218,6 @@ Figures \ref{fig:S1} and \ref{fig:S2} show the magnitudes of the sensitivity fun
 \caption{Magnitude and phase response of distillation column level from distillation column level reference}
 \label{fig:L22}
 \end{figure}
-
-\todo{Dette er teknisk sett transferfunksjon fra feil til tilstand, ikke fra referanse}
 
 \begin{figure}[p]
 \centering
@@ -285,14 +271,6 @@ may be identified directly.
 \subsubsection{Experiment}
 Identification of the LV system was done in a similar manner as in the previous section, using step changes in input (but open-loop this time). Again, \texttt{d-sr} was used for identification. The periods of the step changes were chosen more systematically than in the level experiment, with periods of 5 minutes, 15 minutes and $\approx2$ minutes being used for different periods of time. This was done to get an accurate representation of the system at all frequencies. The inputs $L$ and $V$ were changed alternatingly (i.e. $90^\circ$ out of phase), to avoid ambiguity in which input caused what effects. Figure \ref{fig:LV_experiment} shows the inputs ($L$ and $V$) and resulting outputs ($T_D$ and $T_B$) in the experiment.
 
-\begin{figure}[p]
-\centering
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_D_eksperiment.eps}
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_B_eksperiment.eps}
-\caption{Response of $T_D$ and $T_B $ to step changes in $L$ and $V$}
-\label{fig:LV_experiment}
-\end{figure}
-
 \subsubsection{Analysis}
 Figure \ref{fig:LV_RGA} shows the RGA of the identified system $G(s) = \frac{y}{u}(s)$. The chosen pairing is clearly the most reasonable. The interactions doesn't seem to be any problem, but the RGA doesn't tell the whole story. There is reason to believe that temperature in the bottom affects temperature in the top, and the right tool for this analysis is the \textit{Performance Relative Gain Array} (PRGA).
 
@@ -345,7 +323,7 @@ The restriction of the $T_B$ loop being located in a higher part of the frequenc
 \label{tab:LV_parameters}
 \end{table}
 
-\begin{table}
+\begin{table}[p]
 \centering
 \begin{tabular}{c | c | c | c}
 Variable & Min & Max & Maximum magnitude \\ \hline
@@ -366,10 +344,7 @@ $e$ & - & - & $0,55^\circ$C
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/LV_RGA.eps}
 \caption{RGA for LV system}
 \label{fig:LV_RGA}
-\end{figure}
 
-\begin{figure}[p]
-\centering
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/LV_PRGA.eps}
 \caption{PRGA for LV system}
 \label{fig:LV_PRGA}
@@ -378,28 +353,61 @@ $e$ & - & - & $0,55^\circ$C
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L1_krav_P-reg.eps}
-\caption{}
+\caption{Performance requirements for $T_D$ loop, with unit gain P controller}
 \label{fig:L1_performance1}
 
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_P-reg.eps}
-\caption{}
-\label{fig:L2_performance1}
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L1_krav_PI-reg.eps}
+\caption{Performance requirements for $T_D$ loop, with implemented PI controller}
+\label{fig:L1_performance2}
 \end{figure}
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L1_krav_PI-reg.eps}
-\caption{}
-\label{fig:L1_performance2}
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_P-reg.eps}
+\caption{Performance requirements for $T_B$ loop, with unit gain P controller}
+\label{fig:L2_performance1}
 
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_PI-reg.eps}
-\caption{}
+\caption{Performance requirements for $T_B$ loop, with implemented PI controller}
 \label{fig:L2_performance2}
 \end{figure}
 
 \newpage
 \section{Results}
+
+\subsection{PI controller tuning}
+Table \ref{tab:final_controller_parameters} shows the final PI controller parameters for all the control loops tuned in this project, also including the scaled gain $G$ used in the K-spice implementation.
+
+\begin{table}[p]
+\centering
+\begin{tabular}{c | c | c | c }
+& $K_p$ & $G$ & $T_i$ \\ \hline
+$D$ (FC1005) & 0,0035 & 0,42& 0,4s\\
+$L$ (FC1015) & 0,0018 & 0,22 & 1,0s \\
+$B$ (FC1019) & 0,0025 & 0,3 & 1,0s \\
+$V$ (LC1028) & 200 & 200 & 10s \\
+$p$ (PC1024) & 5 & 30 & 20s \\
+$M_D$ (LC1016) & 1200 & 10 & 1000s \\
+$M_B$ (LC1015) & 2000 & 16,7 & 5000s \\
+$T_D$ (TC1015) & 12 & 2,5 & 100s \\
+$T_B$ (TC1088) & 25 & 6,3 & 1000s
+\end{tabular}
+\caption{Final controller parameters}
+\label{tab:final_controller_parameters}
+\end{table}
+
+
 \subsection{Plots}
+Figures \ref{fig:TD_TD_cl}, \ref{fig:TB_TD_cl}, \ref{fig:TD_TB_cl} and \ref{fig:TB_TB_cl} show the results of relatively large step changes in temperature reference. The system is in both cases initially operating at the least strict setpoint required to keep the product streams sufficiently pure, and one of the temperatures is then suddenly changed to the setpoint given in the rightmost column of \ref{tab:requirements}.
+
+The plots show that there's clearly interactions in play here. However, the attempt at separating the responses in frequency seems to work. When$T_{B , \textrm{ref}}$ is increased, $T_D$ also increases. However, the $T_D$ controller quickly returns the state back to normal, and keeps $T_D$ close to the reference after a short amount of time. This has the effect of disturbing the $T_B$ loop again, but this is the last of the interactions here. After this minor set-back, $T_B$ climbs steadily to its reference, and stays there.
+
+A more dramatic effect is seen when $T_D$ is changed. The $T_B$ controller doesn't have the bandwith necessary suppress disturbances as quick as the step response of $T_D$. Instead, we have to rely on the interaction from $T_D$ to $T_B$ being low. Luckily, this seems to be the case, though the interaction is stronger than what the PRGA suggested. The disturbance causes a pretty long-lasting oscillation, but the magnitude of the oscillation is lower than the magnitude of the change in $T_{D , \textrm{ref}}$, and $T_B$ is always high enough to keep product quality satisfactory.
+
+Though the results seem ok, there are some possible problems. The greatest one is probably the long-lasting effects of interaction from $T_D$ to $T_B$. Though the controllers could be tuned less aggressively to avoid rapid responses, this would also decrease disturbance suppression. A simpler method is to simply change the reference slower. Figures \ref{fig:TD_TD_cl_stepwise}, \ref{fig:TB_TD_cl_stepwise}, \ref{fig:TD_TB_cl_stepwise}, \ref{fig:TB_TB_cl_stepwise} show the same experiments as was just discussed, but with smaller, stepwise changes to the reference. The effects on $T_D$ of changing $T_{B , \textrm{ref}}$ is reduced from having an impact of $0,45^\circ$C to causing a temperature increase of around $0,10^\circ$C. Decreasing $T_{D , \textrm{ref}}$ stepwise causes $T_B$ to oscillate with a magnitude of $0,10^\circ$C rather than $0,10^\circ$C.
+
+This slow changing of setpoint might in practice be implemented by lowpass filtering step changes in setpoint. The results of this suggests that the relatively aggressive controllers derived here might be kept without risking instability. With settling times of around 1,5 hours for both control loops using this tactic, the butane leaving Kårstø may safely be expected to adhere to specifications.
+
 
 \begin{figure}[p]
 \centering
@@ -447,29 +455,6 @@ $e$ & - & - & $0,55^\circ$C
 \end{figure}
 
 
-\subsection{PI controller tuning}
-Table \ref{tab:final_controller_parameters} shows the final PI controller parameters for all the control loops tuned in this project, also including the scaled gain $G$ used in the K-spice implementation.
-
-\begin{table}
-\centering
-\begin{tabular}{c | c | c | c }
-& $K_p$ & $G$ & $T_i$ \\ \hline
-$D$ (FC1005) & 0,0035 & 0,42& 0,4s\\
-$L$ (FC1015) & 0,0018 & 0,22 & 1,0s \\
-$B$ (FC1019) & 0,0025 & 0,3 & 1,0s \\
-$V$ (LC1028) & 200 & 200 & 10s \\
-$p$ (PC1024) & 5 & 30 & 20s \\
-$M_D$ (LC1016) & 1200 & 10 & 1000s \\
-$M_B$ (LC1015) & 2000 & 16,7 & 5000s \\
-$T_D$ (TC1015) & 12 & 2,5 & 100s \\
-$T_B$ (TC1088) & 25 & 6,3 & 1000s
-\end{tabular}
-\caption{Final controller parameters}
-\label{tab:final_controller_parameters}
-\end{table}
-
-\subsection{Reference tracking}
-
 \newpage
 \begin{thebibliography}{9}
 
@@ -499,39 +484,61 @@ $T_B$ (TC1088) & 25 & 6,3 & 1000s
 \section{System identification experiments}
 \subsection{Open-loop responses of manipulated variables}
 
-\begin{figure}
+\begin{figure}[p]
 \centering
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005.eps}
 \caption{Open-loop step response of $D$}
 \label{fig:ol_step_FC1005}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[p]
 \centering
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1015.eps}
 \caption{Open-loop step response of $L$}
 \label{fig:ol_step_FC1015}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[p]
 \centering
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1019.eps}
 \caption{Open-loop step response of $B$}
 \label{fig:ol_step_FC1019}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[p]
 \centering
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/LC1028.eps}
 \caption{Open-loop step response of heat exchanger area, related to $V$}
 \label{fig:ol_step_LC1028}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[p]
 \centering
 \includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024.eps}
 \caption{Open-loop step response of $p$}
 \label{fig:ol_step_PC1024}
+\end{figure}
+
+\subsection{System identification experiment for level control}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MD_eksperiment.eps}
+\caption{System identification experiment for $M_D$ controller}
+\label{fig:MD_experiment}
+
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/MB_eksperiment.eps}
+\caption{System identification experiment for $M_B$ controller}
+\label{fig:MB_experiment}
+\end{figure}
+
+\subsection{System identification experiment for composition (temperature) control}
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_D_eksperiment.eps}
+\includegraphics[width=0.8\textwidth]{../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_B_eksperiment.eps}
+\caption{Response of $T_D$ and $T_B $ to step changes in $L$ and $V$}
+\label{fig:LV_experiment}
 \end{figure}
 
 \end{document}
