@@ -9,16 +9,17 @@
 \contentsline {subsection}{\numberline {4.1}Notation}{11}% 
 \contentsline {subsection}{\numberline {4.2}System identification and analysis}{11}% 
 \contentsline {subsubsection}{\numberline {4.2.1}Experiment}{11}% 
-\contentsline {subsubsection}{\numberline {4.2.2}Analysis}{11}% 
-\contentsline {subsection}{\numberline {4.3}Controller tuning}{16}% 
-\contentsline {section}{\numberline {5}Composition controllers}{18}% 
-\contentsline {subsection}{\numberline {5.1}System identification and analysis}{18}% 
-\contentsline {subsubsection}{\numberline {5.1.1}Experiment}{18}% 
-\contentsline {subsubsection}{\numberline {5.1.2}Analysis}{18}% 
-\contentsline {section}{\numberline {6}Results}{24}% 
-\contentsline {subsection}{\numberline {6.1}PI controller tuning}{24}% 
-\contentsline {subsection}{\numberline {6.2}Plots}{24}% 
-\contentsline {section}{\numberline {A}System identification experiments}{32}% 
-\contentsline {subsection}{\numberline {A.1}Open-loop responses of manipulated variables}{32}% 
-\contentsline {subsection}{\numberline {A.2}System identification experiment for level control}{32}% 
-\contentsline {subsection}{\numberline {A.3}System identification experiment for composition (temperature) control}{32}% 
+\contentsline {subsubsection}{\numberline {4.2.2}Analysis}{12}% 
+\contentsline {subsection}{\numberline {4.3}Controller tuning}{13}% 
+\contentsline {section}{\numberline {5}Composition controllers}{19}% 
+\contentsline {subsection}{\numberline {5.1}System identification and analysis}{19}% 
+\contentsline {subsubsection}{\numberline {5.1.1}Experiment}{19}% 
+\contentsline {subsubsection}{\numberline {5.1.2}Analysis}{20}% 
+\contentsline {section}{\numberline {6}Results}{25}% 
+\contentsline {subsection}{\numberline {6.1}PI controller tuning}{25}% 
+\contentsline {subsection}{\numberline {6.2}Plots}{25}% 
+\contentsline {section}{\numberline {7}Conclusion}{32}% 
+\contentsline {section}{\numberline {A}System identification experiments}{34}% 
+\contentsline {subsection}{\numberline {A.1}Open-loop responses of manipulated variables}{34}% 
+\contentsline {subsection}{\numberline {A.2}System identification experiment for level control}{34}% 
+\contentsline {subsection}{\numberline {A.3}System identification experiment for composition (temperature) control}{34}% 

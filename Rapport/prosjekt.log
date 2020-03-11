@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  11 MAR 2020 20:49
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.5.7)  11 MAR 2020 21:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -632,7 +632,13 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024_step
 .eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/PC1024_step.eps>
 
- [7] [8] [9] [10] [11]
+ [7] [8] [9] [10]
+Overfull \hbox (42.59985pt too wide) in paragraph at lines 192--192
+[]\TU/lmtt/m/n/12 % State vector is y = [M_D; M_B], with corresponding input u 
+= [D; B];[] 
+ []
+
+[11] [12]
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/BD_RGA.eps Gra
 phic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/BD_RGA.eps>
@@ -648,7 +654,7 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/DB_tuning/S1.eps Graphic file
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/DB_tuning/S2.eps Graphic file
  (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/DB_tuning/S2.eps>
- [12] [13] [14] [15]
+ [13] [14] [15] [16]
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/M_D_with_M_D_s
 tep.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/M_D_with_M_D_step.e
@@ -657,7 +663,16 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/M_B_with_M_B_s
 tep.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Identifisering/M_B_with_M_B_step.e
 ps>
- [16] [17] [18] [19]
+ [17] [18]
+Overfull \hbox (42.59985pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/12 % State vector is y = [T_D; T_B], with corresponding input u 
+= [L; V];[] 
+ []
+
+[19] [20]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/LV_RGA.eps 
 Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/LV_RGA.eps>
@@ -680,8 +695,7 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_PI-
 reg.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/L2_krav_PI-reg.e
 ps>
-
-[20] [21] [22] [23] [24] [25]
+[21] [22] [23] [24] [25] [26]
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_wit
 h_T_D_step.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_D_closed_loop_with_T_D
@@ -714,7 +728,7 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_wit
 h_stepwise_T_B_step.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_tuning/T_B_closed_loop_with_ste
 pwise_T_B_step.eps>
- [26] [27] [28] [29] [30] [31]
+ [27] [28] [29] [30] [31] [32] [33]
 File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005.eps 
 Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/Stegeksperimenter/FC1005.eps>
@@ -746,8 +760,8 @@ File: ../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_B_eksperi
 ment.eps Graphic file (type eps)
 <../Systemanalyse/Log_Data_to_Matlab/Figurer/LV_identifisering/T_B_eksperiment.
 eps>
- [32] [33] [34]
-[35] [36] [37] (./prosjekt.aux)
+ [34] [35]
+[36] [37] [38] [39] (./prosjekt.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -761,4 +775,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  62i,14n,81p,1080b,370s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on prosjekt.pdf (37 pages).
+Output written on prosjekt.pdf (39 pages).

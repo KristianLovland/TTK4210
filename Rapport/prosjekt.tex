@@ -34,7 +34,7 @@ A good introduction to the control problem we're faced with is given in the assi
 
 The top product is required to contain no more than 4\% n-butane, while the bottom product is required to contain less than 2,5\% iso-butane. 
 
-These compositions, denoted $x_D^*$ and $x_B^*$, are in practice controlled through their temperatures. These are measured on the top and bottom of the distillation column, and are denoted $T_D$ and $T_B$. The temperature needed to acheive the required compositions are shown in \ref{tab:requirements}, together with the actual temperature setpoint. These are a bit lower/higher than than strictly necessary to introduce a safety margin.
+These compositions, denoted $x_D^*$ and $x_B^*$, are in practice controlled through their temperatures. These are measured on the top and bottom of the distillation column, and are denoted $T_D$ and $T_B$. The temperature needed to acheive the required compositions are shown in table \ref{tab:requirements}, together with the actual temperature setpoint. These are a bit lower/higher than than strictly necessary to introduce a safety margin.
 
 \begin{table}[h]
 \centering
@@ -86,7 +86,7 @@ The SIMC method gives rules for choosing $K_p$ and $T_i$, given a desired closed
 \item Fit the step response to a first order model. This means finding time delay $\theta$, slope $k' = \frac{dy/dt}{\Delta u}$ and time constant $T_1$ from the plot of the step response.
 \item To achieve the desired time constant $T_L$, use the PI controller parameters $K_p = \frac{1}{k'} \frac{1}{\tau + T_L}$, $T_i = \min(T_1, 4(\tau + T_L))$.
 \end{enumerate}
-How one chooses $T_L$ depends on the desired response. In \cite{regtek}, $T_L = 0.3\tau$ is suggested for "aggressive" control. If no overshoot is desired, one should choose $T_L > \tau$.
+How one chooses $T_L$ depends on the desired response. In \cite{regtek}, $T_L = 0.3\tau$ is suggested for "aggressive" control. If no overshoot is desired, one should choose $T_L > 2 \tau$.
 
 \subsection{Tuning}
 The step experiments can be seen in figures \ref{fig:ol_step_FC1005}, \ref{fig:ol_step_FC1015}, \ref{fig:ol_step_FC1019}, \ref{fig:ol_step_LC1028} and \ref{fig:ol_step_PC1024}. The reference signals should have been omitted from these plots since we are dealing with open loop systems, and can safely be ignored here.
@@ -171,7 +171,7 @@ $p$ & 0,57 & 40s & 0,25 & 20s
 The level controllers were identified using the \texttt{d-sr} toolbox on the closed-loop responses of the level control loops in the reflux drum, and in the distillation column.
 
 \subsection{Notation}
-The system being analysed in the sectioon consists of the input $u = [D \quad B]^T$, the state $y = [M_D \quad M_B]^T$ and the reference$r = [M_{D, \textrm{ref}} \quad M_{B, \textrm{ref}}]^T$. By exciting the controlled system
+The system being analysed in the sectioon consists of the input $u = [D \quad B]^T$, the state $y = [M_D \quad M_B]^T$ and the reference $r = [M_{D, \textrm{ref}} \quad M_{B, \textrm{ref}}]^T$. By exciting the controlled system
 \begin{equation}
 y(s) = L(s)e(s) = G(s) K(s) (y(s) - r(s))
 \end{equation}
@@ -179,7 +179,43 @@ with changes in $r$, the loop transfer function $L(s) = \frac{y}{e}(s)$ may be i
 
 \subsection{System identification and analysis}
 \subsubsection{Experiment}
-The level controllers in the distillation column and reflux drum were expected to be more or less independent, but MIMO identification with \texttt{d-sr} was used anyway, due to the convenience of being able to reuse code in the composition control task. The system was excited by step changes in references for $M_D$ and $M_B$, which were controlled with P controllers, both with $K_p = 1200$. The references were changed at different periods, to better extract information about all frequencies. The states were attempted held in a reasonable interval, to avoid nonlinear effects such as saturation. The experiments are shown in figures \ref{fig:MD_experiment} and \ref{fig:MB_experiment}.
+The level controllers in the distillation column and reflux drum were expected to be more or less independent, but MIMO identification with \texttt{d-sr} was used anyway, due to the convenience of being able to reuse code in the composition control task. Data from K-spice was imported using the script delivered together with the assignment. This data was then analyzed using the following Matlab code
+
+\begin{verbatim}
+% State vector is y = [M_D; M_B], with corresponding input u = [D; B];
+Y = [LC1016(:, 1), LC1015(:, 1)];
+U = [LC1016(:, 2)-LC1016(:, 1), LC1015(:, 2)-LC1015(:, 1)];
+% Dimensional limit parameter
+L = 3;
+
+[A,B,C,D,CF,F,x0]=dsr(Y,U,L);
+\end{verbatim}
+
+The discrete-time system returned from \texttt{d-sr} was then transformed to the loop transfer function used in frequency analysis below by the following code
+
+\begin{verbatim}
+sample_time = min(diff(Time));
+disc_system = ss(A, B, C, D, sample_time);
+cont_system = d2c(disc_system);
+
+A = cont_system.A;
+B = cont_system.B;
+C = cont_system.C;
+D = cont_system.D;
+
+[G_i1_num, G_i1_den] = ss2tf(A, B, C, D, 1);
+[G_i2_num, G_i2_den] = ss2tf(A, B, C, D, 2);
+
+l11 = tf(G_i1_num(1, :), G_i1_den);
+l12 = tf(G_i2_num(1, :), G_i2_den);
+l21 = tf(G_i1_num(2, :), G_i1_den);
+l22 = tf(G_i2_num(2, :), G_i2_den);
+
+L = [l11 l12; l21 l22];
+RGA = L .* inv(L).';
+\end{verbatim}
+
+The system was excited by step changes in references for $M_D$ and $M_B$, which were controlled with P controllers, both with $K_p = 1200$. The references were changed at different periods, to better extract information about all frequencies. The states were attempted held in a reasonable interval, to avoid nonlinear effects such as saturation. The experiments are shown in figures \ref{fig:MD_experiment} and \ref{fig:MB_experiment}.
 
 \subsubsection{Analysis}
 The identified model was chosen to have order 2, which is natural for what was expected to be a diagonal system with two variables. The interactions of the resulting system is shown in figure \ref{fig:BD_RGA}, which show the RGA of the identified $G(s)$. Inspecting this plot shows that the magnitudes of the off-diagonal elements are negligible at frequencies above $10^{-3} \frac{\textrm{rad}}{\textrm{s}}$. We shall see that this is well below the bandwith frequencies of the two loops. The diagonal elements of the RGA however, have gain close to unity at the bandwith frequencies. From here, the level controller system is considered to be diagonal, and the control loops are tuned independently using SISO methods. Continuing using MIMO notation, a diagonal controller
@@ -194,7 +230,7 @@ with PI controllers $k_1(s)$ and $k_2(s)$ is designed based on the diagonal elem
 
 Figures \ref{fig:L11} and \ref{fig:L22} show the Bode plots of the transfer functions in the diagonals of the identified model. Note that these correspond to the loop transfer function $G(s) K(s)$ using a P controller with $K_p = 1200$. The controller derived here therefore has to be multiplied with this existing $K(s)$ when implemented.
 
-Ignoring the $360^\circ$ error in phase, the gain margin of loop transfer function $l_{11}(s) = \frac{M_D}{M_{D, ref}}(s)$ may be found to be to be 6,74dB as $\omega \rightarrow \infty$. Likewise, the gain margin of $l_{22}(s) = \frac{M_B}{M_{B, ref}}(s)$ is read to be 10,7dB as $\omega \rightarrow \infty$. Using the 6dB gain margin rule of thumb (which is often used in \cite{regtek}), $K_{p, D}$ should not be increased by any significant amount, while $K_{p, B}$ might be increased by a factor of $10^{(10,7-6)/20} \approx 1,7$, yielding the controller gain $K_{p, B} = 2000$.
+Ignoring the $360^\circ$ error in phase in the plots, the gain margin of loop transfer function $l_{11}(s) = \frac{M_D}{M_{D, ref}}(s)$ may be found to be to be 6,74dB as $\omega \rightarrow \infty$. Likewise, the gain margin of $l_{22}(s) = \frac{M_B}{M_{B, ref}}(s)$ is read to be 10,7dB as $\omega \rightarrow \infty$. Using the 6dB gain margin rule of thumb (which is often used in \cite{regtek}), $K_{p, D}$ should not be increased by any significant amount, while $K_{p, B}$ might be increased by a factor of $10^{(10,7-6)/20} \approx 1,7$, yielding the controller gain $K_{p, B} = 2000$.
 
 The phase plot of $l_{11}$ shows that the integral part of the controller should be active in the lower frequency spectrum. To avoid the phase crossing the $-180^\circ$ line, the choice of $T_i = 5000s$ is made. The phase response of $l_{22}$ is pretty similar to the one of $l_{11}$, so initially choosing the same integral time for control of $M_B$ should be reasonable.
 
@@ -269,7 +305,23 @@ G(s) = \frac{y}{u}(s)
 may be identified directly.
 \subsection{System identification and analysis}
 \subsubsection{Experiment}
-Identification of the LV system was done in a similar manner as in the previous section, using step changes in input (but open-loop this time). Again, \texttt{d-sr} was used for identification. The periods of the step changes were chosen more systematically than in the level experiment, with periods of 5 minutes, 15 minutes and $\approx2$ minutes being used for different periods of time. This was done to get an accurate representation of the system at all frequencies. The inputs $L$ and $V$ were changed alternatingly (i.e. $90^\circ$ out of phase), to avoid ambiguity in which input caused what effects. Figure \ref{fig:LV_experiment} shows the inputs ($L$ and $V$) and resulting outputs ($T_D$ and $T_B$) in the experiment.
+Identification of the LV system was done in a similar manner as in the previous section, using step changes in input (but open-loop this time). Again, \texttt{d-sr} was used for identification. The periods of the step changes were chosen more systematically than in the level experiment, with periods of 5 minutes, 15 minutes and $\approx2$ minutes being used for different periods of time. This was done to get an accurate representation of the system at all frequencies. The inputs $L$ and $V$ were changed alternatingly (i.e. $90^\circ$ out of phase), to avoid ambiguity in which input caused what effects. Figure \ref{fig:LV_experiment} shows the inputs ($L$ and $V$) and resulting outputs ($T_D$ and $T_B$) in the experiment. Simlarly to the previous section, the code used for identification was as follows
+
+\begin{verbatim}
+% State vector is y = [T_D; T_B], with corresponding input u = [L; V];
+Y = [TC1015(:, 1), TC1088(:, 1)];
+U = [FC1015(:, 1), LC1028(:, 1)];
+
+% Scaling is done to keep all signals in the range [0, 1]
+Y = (Y - 25*ones(size(Y))) * [1/25 0; 0 1/25];
+U = U * [1/120 0; 0 1/100];
+
+% Dimensional limit parameter
+G = 3;
+
+[A,B,C,D,CF,F,x0]=dsr(Y,U,G);
+\end{verbatim}
+The code used to get the system transfer function $G(s)$ was identical to the code used in the previous system.
 
 \subsubsection{Analysis}
 Figure \ref{fig:LV_RGA} shows the RGA of the identified system $G(s) = \frac{y}{u}(s)$. The chosen pairing is clearly the most reasonable. The interactions doesn't seem to be any problem, but the RGA doesn't tell the whole story. There is reason to believe that temperature in the bottom affects temperature in the top, and the right tool for this analysis is the \textit{Performance Relative Gain Array} (PRGA).
@@ -400,14 +452,13 @@ $T_B$ (TC1088) & 25 & 6,3 & 1000s
 \subsection{Plots}
 Figures \ref{fig:TD_TD_cl}, \ref{fig:TB_TD_cl}, \ref{fig:TD_TB_cl} and \ref{fig:TB_TB_cl} show the results of relatively large step changes in temperature reference. The system is in both cases initially operating at the least strict setpoint required to keep the product streams sufficiently pure, and one of the temperatures is then suddenly changed to the setpoint given in the rightmost column of \ref{tab:requirements}.
 
-The plots show that there's clearly interactions in play here. However, the attempt at separating the responses in frequency seems to work. When$T_{B , \textrm{ref}}$ is increased, $T_D$ also increases. However, the $T_D$ controller quickly returns the state back to normal, and keeps $T_D$ close to the reference after a short amount of time. This has the effect of disturbing the $T_B$ loop again, but this is the last of the interactions here. After this minor set-back, $T_B$ climbs steadily to its reference, and stays there.
+The plots show that there's clearly interactions in play here. However, the attempt at separating the responses in frequency seems to work. When$T_{B , \textrm{ref}}$ is increased, $T_D$ also increases. However, the $T_D$ controller quickly steers the state back to the reference, and keeps it there. This has the effect of disturbing the $T_B$ loop again, but this is the last of the interactions here. After this minor set-back, $T_B$ climbs steadily to its reference, and stays there.
 
-A more dramatic effect is seen when $T_D$ is changed. The $T_B$ controller doesn't have the bandwith necessary suppress disturbances as quick as the step response of $T_D$. Instead, we have to rely on the interaction from $T_D$ to $T_B$ being low. Luckily, this seems to be the case, though the interaction is stronger than what the PRGA suggested. The disturbance causes a pretty long-lasting oscillation, but the magnitude of the oscillation is lower than the magnitude of the change in $T_{D , \textrm{ref}}$, and $T_B$ is always high enough to keep product quality satisfactory.
+A more dramatic effect is seen when $T_D$ is changed. The $T_B$ controller doesn't have the bandwith necessary suppress disturbances as quick as the step response of $T_D$. Instead, we have to rely on the interaction from $T_D$ to $T_B$ being low. The interaction is stronger stronger than what the PRGA suggested, and the disturbance causes a pretty long-lasting oscillation. Luckily, the magnitude of the oscillation is lower than the magnitude of the change in $T_{D , \textrm{ref}}$, and $T_B$ is always high enough to keep product quality satisfactory.
 
-Though the results seem ok, there are some possible problems. The greatest one is probably the long-lasting effects of interaction from $T_D$ to $T_B$. Though the controllers could be tuned less aggressively to avoid rapid responses, this would also decrease disturbance suppression. A simpler method is to simply change the reference slower. Figures \ref{fig:TD_TD_cl_stepwise}, \ref{fig:TB_TD_cl_stepwise}, \ref{fig:TD_TB_cl_stepwise}, \ref{fig:TB_TB_cl_stepwise} show the same experiments as was just discussed, but with smaller, stepwise changes to the reference. The effects on $T_D$ of changing $T_{B , \textrm{ref}}$ is reduced from having an impact of $0,45^\circ$C to causing a temperature increase of around $0,10^\circ$C. Decreasing $T_{D , \textrm{ref}}$ stepwise causes $T_B$ to oscillate with a magnitude of $0,10^\circ$C rather than $0,10^\circ$C.
+Though the results seem ok, there are some possible problems. The greatest one is probably the long-lasting effects of interaction from $T_D$ to $T_B$. Though the controllers could be tuned less aggressively to avoid rapid responses, this would also decrease disturbance suppression. An easier solution is to simply change the reference slower. Figures \ref{fig:TD_TD_cl_stepwise}, \ref{fig:TB_TD_cl_stepwise}, \ref{fig:TD_TB_cl_stepwise}, \ref{fig:TB_TB_cl_stepwise} show the same experiments as was just discussed, but with smaller, stepwise changes to the reference. The effects the change in $T_{B , \textrm{ref}}$ has on $T_D$ is reduced from $0,45^\circ$C to about $0,10^\circ$C. Decreasing $T_{D , \textrm{ref}}$ stepwise causes $T_B$ to oscillate with a magnitude of $0,10^\circ$C rather than $0,30^\circ$C.
 
-This slow changing of setpoint might in practice be implemented by lowpass filtering step changes in setpoint. The results of this suggests that the relatively aggressive controllers derived here might be kept without risking instability. With settling times of around 1,5 hours for both control loops using this tactic, the butane leaving Kårstø may safely be expected to adhere to specifications.
-
+This type of slow setpoint change might for instance be implemented in practice by lowpass filtering the setpoint step changes. With this implemented, the relatively aggressive controllers derived here might be kept unchanged without risking instability. This has the advantage of keeping the relatively fast settling times seen here, of around 1,5 hours for both loops.
 
 \begin{figure}[p]
 \centering
@@ -454,6 +505,9 @@ This slow changing of setpoint might in practice be implemented by lowpass filte
 \label{fig:TB_TB_cl_stepwise}
 \end{figure}
 
+\newpage
+\section{Conclusion}
+The control loops of the butane splitter was tuned to give stable responses, and for reasonable setpoints and setpoint changes, the temperature controllers should work satisfactory for the given requirements. The butane leaving Kårstø may safely be expected to adhere to specifications.
 
 \newpage
 \begin{thebibliography}{9}
